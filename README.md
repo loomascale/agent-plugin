@@ -1,13 +1,15 @@
-# LoomaScale agent plugin
+# LoomaScale: Google Ads and Meta Ads agent plugin
 
-Run Google Ads and Meta Ads from the AI assistant you already use. One plugin, the
-portable [Agent Plugins](https://agent-plugins.org) format, so it installs in VS Code,
-GitHub Copilot, Cursor, Codex and ChatGPT, Kiro, Claude Code and any other client that
-reads `plugin.json`.
+LoomaScale is an agent plugin that lets Claude Code, Codex, ChatGPT, Cursor, VS Code and
+GitHub Copilot read and manage your Google Ads and Meta Ads accounts through one MCP
+server, with a spend cap the model cannot talk its way past. It uses the portable
+[Agent Plugins](https://agent-plugins.org) format, so one repository installs in every
+client that reads `plugin.json`, Kiro, Hermes, OpenClaw and OpenHands included.
 
 It connects your assistant to the LoomaScale MCP server (`https://api.loomascale.com/mcp`)
-and ships seven skills that tell the model how to audit, review, pace, launch and
-monitor ad accounts without spending money it was not told to spend.
+(over 100 tools across Google Ads, Meta Ads and Google Analytics 4) and ships seven
+skills that tell the model how to audit, review, pace, launch and monitor ad accounts
+without spending money it was not told to spend.
 
 ## What it does
 
@@ -42,8 +44,9 @@ You need a LoomaScale account with at least one ad account connected:
 ```
 
 Then `/mcp`, pick `loomascale`, and finish the sign-in in the browser. Guides:
-[Google Ads](https://ai.loomascale.com/connect-claude-to-google-ads),
-[Meta Ads](https://ai.loomascale.com/connect-claude-to-meta-ads).
+[Connect Claude to Google Ads](https://ai.loomascale.com/connect-claude-to-google-ads),
+[Connect Claude to Meta Ads](https://ai.loomascale.com/connect-claude-to-meta-ads),
+and the walkthrough at [Google Ads + Claude](https://ai.loomascale.com/google-ads-claude).
 
 ### VS Code and GitHub Copilot
 
@@ -61,8 +64,9 @@ the repository URL; then install from **Customize**.
 Codex CLI: run `codex`, then `/plugins`, install from a marketplace that lists this
 repository, and start a new session. ChatGPT: the published LoomaScale app is in the
 Plugins tab. Guides:
-[Google Ads](https://ai.loomascale.com/connect-chatgpt-to-google-ads),
-[Meta Ads](https://ai.loomascale.com/connect-chatgpt-to-meta-ads).
+[Connect ChatGPT to Google Ads](https://ai.loomascale.com/connect-chatgpt-to-google-ads),
+[Connect ChatGPT to Meta Ads](https://ai.loomascale.com/connect-chatgpt-to-meta-ads),
+and the walkthrough at [Google Ads + ChatGPT](https://ai.loomascale.com/google-ads-chatgpt).
 
 ### Kiro, Hermes, OpenClaw, OpenHands and others
 
@@ -99,6 +103,38 @@ assets/                  logo
 | `launch-campaign` | first campaign, keyword research, PMax, lead-gen, pre-launch checklist |
 | `conversion-tracking-audit` | conversion actions, counting, values, PMax audit, account health |
 | `scheduled-checks` | alerts, daily or weekly monitoring, routines and automations |
+
+## Questions
+
+### Can the model spend money without asking?
+
+No. Every budget change, status change, activation and campaign creation is shown to
+you first and runs only after you confirm it, and the server then checks it against
+the daily spend cap you set. Campaigns are always created paused.
+
+### Which ad platforms does it support?
+
+Google Ads (Search, Performance Max, keywords, conversion actions, sitelinks) and Meta
+Ads (Facebook and Instagram campaigns, ad sets, ads, audiences, A/B tests). Google
+Analytics 4 reads are in preview.
+
+### Do I need an API key or developer token?
+
+No. The plugin holds no credentials. Sign in to LoomaScale once in the browser; the
+client stores an OAuth token. Google Ads and Meta Ads are connected in the LoomaScale
+dashboard, not in the plugin.
+
+### Does it work with a Google Ads manager (MCC) account?
+
+Yes. The connection reaches every client account under the manager account you pick,
+and `google_audit_portfolio` audits all of them in one call.
+
+## Who builds this
+
+[LoomaScale](https://ai.loomascale.com) is an AI operator for Google Ads and Meta Ads
+built by Andrii Pasika; the tools behind this plugin have created and managed live
+campaigns from ChatGPT and Claude since 2026. [Privacy](https://ai.loomascale.com/privacy),
+[terms](https://ai.loomascale.com/terms), [contact](https://ai.loomascale.com/contact).
 
 ## Self-hosting
 

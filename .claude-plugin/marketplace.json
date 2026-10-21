@@ -9,10 +9,16 @@
     {
       "name": "loomascale",
       "source": ".",
-      "description": "Run Google Ads and Meta Ads from Claude Code: audit wasted spend, check budget pacing, draft paused campaigns and fix conversion tracking, behind a daily spend cap you set.",
+      "description": "Run Google Ads and Meta Ads from your AI assistant: audit wasted spend, check pacing, draft paused campaigns, fix conversion tracking, behind a spend cap.",
       "version": "1.0.0",
       "category": "productivity",
-      "keywords": ["google-ads", "meta-ads", "ppc", "mcp", "advertising"]
+      "keywords": [
+        "google-ads",
+        "meta-ads",
+        "ppc",
+        "mcp",
+        "advertising"
+      ]
     }
   ]
 }

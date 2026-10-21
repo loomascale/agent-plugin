@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "loomascale",
   "version": "1.0.0",
-  "description": "Run Google Ads and Meta Ads from your AI assistant: audit wasted spend, check budget pacing, draft paused campaigns and fix conversion tracking, behind a daily spend cap you set.",
+  "description": "Run Google Ads and Meta Ads from your AI assistant: audit wasted spend, check pacing, draft paused campaigns, fix conversion tracking, behind a spend cap.",
   "author": {
     "name": "LoomaScale",
     "url": "https://ai.loomascale.com"
