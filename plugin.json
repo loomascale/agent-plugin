@@ -1,0 +1,47 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "loomascale",
+  "version": "1.0.0",
+  "description": "Run Google Ads and Meta Ads from your AI assistant: audit wasted spend, check budget pacing, draft paused campaigns and fix conversion tracking, behind a daily spend cap you set.",
+  "author": {
+    "name": "LoomaScale",
+    "url": "https://ai.loomascale.com"
+  },
+  "homepage": "https://ai.loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "google-ads",
+    "meta-ads",
+    "facebook-ads",
+    "ppc",
+    "paid-media",
+    "mcp",
+    "agent-plugin",
+    "advertising",
+    "waste-audit"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "LoomaScale",
+        "shortDescription": "Audit Google Ads & Meta Ads",
+        "longDescription": "Use LoomaScale to audit connected Google Ads and Meta Ads accounts, review campaign performance and budget pacing, identify wasted ad spend, research keywords and search terms, create paused campaigns, and manage campaign delivery and budgets. Campaign creation, activation, and budget changes are validated against a user-configured daily spend cap.",
+        "developerName": "LoomaScale",
+        "category": "Business & Operations",
+        "capabilities": [],
+        "websiteURL": "https://ai.loomascale.com/",
+        "privacyPolicyURL": "https://ai.loomascale.com/privacy",
+        "termsOfServiceURL": "https://ai.loomascale.com/terms",
+        "supportURL": "https://ai.loomascale.com/contact",
+        "defaultPrompt": [
+          "Review my ad performance for the last 7 days. Show spend, results, trends, and the top 3 issues. Don't make any changes.",
+          "Find wasted ad spend in my connected accounts over the last 30 days and recommend fixes. Don't apply changes.",
+          "Check this month's budget pacing. Flag likely over- or underspend and recommend next steps. Don't apply changes."
+        ],
+        "composerIcon": "./assets/web-app-manifest-385x385.png",
+        "logo": "./assets/web-app-manifest-385x385.png"
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "loomascale",
+  "owner": {
+    "name": "LoomaScale",
+    "url": "https://ai.loomascale.com"
+  },
+  "description": "LoomaScale: Google Ads and Meta Ads for Claude Code.",
+  "plugins": [
+    {
+      "name": "loomascale",
+      "source": ".",
+      "description": "Run Google Ads and Meta Ads from Claude Code: audit wasted spend, check budget pacing, draft paused campaigns and fix conversion tracking, behind a daily spend cap you set.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": ["google-ads", "meta-ads", "ppc", "mcp", "advertising"]
+    }
+  ]
+}

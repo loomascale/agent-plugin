@@ -1,0 +1,13 @@
+{
+  "name": "loomascale",
+  "version": "1.0.0",
+  "description": "Run Google Ads and Meta Ads from Claude Code: audit wasted spend, check budget pacing, draft paused campaigns and fix conversion tracking, behind a daily spend cap you set.",
+  "author": {
+    "name": "LoomaScale",
+    "url": "https://ai.loomascale.com"
+  },
+  "homepage": "https://ai.loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": ["google-ads", "meta-ads", "ppc", "mcp", "advertising"]
+}

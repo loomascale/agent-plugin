@@ -1,0 +1,29 @@
+{
+  "name": "app-6a6a442345f88191b23be1e01237d551",
+  "version": "1.2.0",
+  "description": "Use LoomaScale to audit connected Google Ads and Meta Ads accounts, review campaign performance and budget pacing, identify wasted ad spend, research keywords and search terms, create paused campaigns, and manage campaign delivery and budgets. Campaign creation, activation, and budget changes are validated against a user-configured daily spend cap.",
+  "author": {
+    "name": "LoomaScale"
+  },
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json",
+  "interface": {
+    "displayName": "LoomaScale",
+    "shortDescription": "Audit Google Ads & Meta Ads",
+    "longDescription": "Use LoomaScale to audit connected Google Ads and Meta Ads accounts, review campaign performance and budget pacing, identify wasted ad spend, research keywords and search terms, create paused campaigns, and manage campaign delivery and budgets. Campaign creation, activation, and budget changes are validated against a user-configured daily spend cap.",
+    "developerName": "LoomaScale",
+    "category": "Business & Operations",
+    "capabilities": [],
+    "websiteURL": "https://ai.loomascale.com/",
+    "privacyPolicyURL": "https://ai.loomascale.com/privacy",
+    "termsOfServiceURL": "https://ai.loomascale.com/terms",
+    "supportURL": "https://ai.loomascale.com/contact",
+    "defaultPrompt": [
+      "Review my ad performance for the last 7 days. Show spend, results, trends, and the top 3 issues. Don't make any changes.",
+      "Find wasted ad spend in my connected accounts over the last 30 days and recommend fixes. Don't apply changes.",
+      "Check this month's budget pacing. Flag likely over- or underspend and recommend next steps. Don't apply changes."
+    ],
+    "composerIcon": "./assets/web-app-manifest-385x385.png",
+    "logo": "./assets/web-app-manifest-385x385.png"
+  }
+}

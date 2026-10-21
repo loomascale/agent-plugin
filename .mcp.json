@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "loomascale": {
+      "type": "http",
+      "url": "https://api.loomascale.com/mcp"
+    }
+  }
+}
