@@ -43,10 +43,12 @@ You need a LoomaScale account with at least one ad account connected:
 /plugin install loomascale@loomascale
 ```
 
-Then `/mcp`, pick `loomascale`, and finish the sign-in in the browser. Guides:
-[Connect Claude to Google Ads](https://ai.loomascale.com/connect-claude-to-google-ads),
-[Connect Claude to Meta Ads](https://ai.loomascale.com/connect-claude-to-meta-ads),
-and the walkthrough at [Google Ads + Claude](https://ai.loomascale.com/google-ads-claude).
+Then `/mcp`, pick `loomascale`, and finish the sign-in in the browser. Step-by-step guides
+with a real waste-audit run:
+[Connect Claude Code to Google Ads](https://ai.loomascale.com/connect-claude-code-to-google-ads)
+and [Connect Claude Code to Meta Ads](https://ai.loomascale.com/connect-claude-code-to-meta-ads).
+Using Claude on the web or desktop instead? See
+[Connect Claude to Google Ads](https://ai.loomascale.com/connect-claude-to-google-ads).
 
 ### VS Code and GitHub Copilot
 
@@ -61,9 +63,19 @@ the repository URL; then install from **Customize**.
 
 ### Codex and ChatGPT
 
-Codex CLI: run `codex`, then `/plugins`, install from a marketplace that lists this
-repository, and start a new session. ChatGPT: the published LoomaScale app is in the
-Plugins tab. Guides:
+Codex CLI:
+
+```text
+codex plugin marketplace add loomascale/agent-plugin
+codex plugin add loomascale@loomascale
+codex mcp login loomascale
+```
+
+Then start a new session. Step-by-step guides with a real waste-audit run:
+[Connect Codex to Google Ads](https://ai.loomascale.com/connect-codex-to-google-ads)
+and [Connect Codex to Meta Ads](https://ai.loomascale.com/connect-codex-to-meta-ads).
+
+ChatGPT: the published LoomaScale app is in the Plugins tab. Guides:
 [Connect ChatGPT to Google Ads](https://ai.loomascale.com/connect-chatgpt-to-google-ads),
 [Connect ChatGPT to Meta Ads](https://ai.loomascale.com/connect-chatgpt-to-meta-ads),
 and the walkthrough at [Google Ads + ChatGPT](https://ai.loomascale.com/google-ads-chatgpt).

@@ -21,6 +21,10 @@ account, so the money is real. Read this once before using any `google_*`, `meta
 2. If a tool answers that no ad account is connected, send the user to the dashboard:
    https://ai.loomascale.com/dashboard/connections — they connect Google Ads or Meta
    Ads there, then return. Step-by-step guides:
+   - https://ai.loomascale.com/connect-claude-code-to-google-ads
+   - https://ai.loomascale.com/connect-claude-code-to-meta-ads
+   - https://ai.loomascale.com/connect-codex-to-google-ads
+   - https://ai.loomascale.com/connect-codex-to-meta-ads
    - https://ai.loomascale.com/connect-claude-to-google-ads
    - https://ai.loomascale.com/connect-claude-to-meta-ads
    - https://ai.loomascale.com/connect-chatgpt-to-google-ads
