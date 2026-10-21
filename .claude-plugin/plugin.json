@@ -15,5 +15,7 @@
     "ppc",
     "mcp",
     "advertising"
-  ]
+  ],
+  "icon": "./assets/icon-512.png",
+  "privacyPolicyUrl": "https://ai.loomascale.com/privacy"
 }
