@@ -16,7 +16,9 @@ most likely cause, then a short ranked plan. No changes.
 
 Tools: `google_get_insights` (both periods), `google_list_campaigns`,
 `google_list_keywords`, `google_list_search_terms`, `google_list_ads`,
-`google_check_pacing`. Geography: `google_get_geo_insights`.
+`google_check_pacing`. Geography: `google_get_geo_insights`. Device, day-of-week or
+network drill-downs: `google_query`, after `google_get_resource_metadata` for the
+resource (see the `loomascale` skill).
 
 Default review (the plugin's first suggested prompt):
 

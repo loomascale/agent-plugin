@@ -46,6 +46,9 @@ Where to look, in order:
 3. Daily budgets fully spent on delivery with no results (`google_check_pacing`
    confirms today's delivery).
 
+Impression share lost to budget versus rank, or a device or network split, is a
+`google_query`; call `google_get_resource_metadata` for the resource first.
+
 Worst CPA / ROAS diagnosis: add `google_list_ads`. Separate causes: traffic quality
 (search terms), bids, conversion rate, budget, ad relevance. State confidence per cause.
 

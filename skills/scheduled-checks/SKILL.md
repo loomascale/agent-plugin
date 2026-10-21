@@ -58,6 +58,9 @@ Example (conversion drop):
 > determined, and tell me whether immediate action is recommended. Do not notify me
 > about normal fluctuations.
 
+A breakdown the typed tools lack (device, hour, network) is `google_query`; call
+`google_get_resource_metadata` for the resource first, never guess field names.
+
 Tracking broke: distinguish a real decline from a tracking issue; avoid false alarms
 from normal conversion delay. Wasted search terms: report total wasted spend and the
 worst terms with spend each; suggest negatives; apply nothing.

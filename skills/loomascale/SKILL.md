@@ -68,6 +68,23 @@ for today against budget, `google_list_search_terms` for what people actually ty
 Meta: `meta_get_insights`, `meta_check_pacing`, `meta_list_ads` (frequency, CTR, cost
 per result per ad).
 
+## Ad-hoc Google Ads queries
+
+Typed tools first: `google_get_insights`, `google_list_campaigns`, `google_list_ads`,
+`google_list_keywords`, `google_list_search_terms`. `google_query` (read-only GAQL) is
+for breakdowns they lack: device by day of week, impression share lost to rank, ad
+approval status, network by month.
+
+- Before the first `google_query` on a resource in a conversation, call
+  `google_get_resource_metadata` for it (`campaign`, `ad_group`, `ad_group_ad`,
+  `keyword_view`, `search_term_view`, `geographic_view`, `campaign_budget`,
+  `conversion_action`, `asset_group`; `resource=segments` or `resource=metrics` for
+  those; `contains=` to narrow). A guessed field name costs a rejected query.
+- Write the query in snake_case (`metrics.cost_micros`); rows come back camelCase
+  (`metrics.costMicros`). Money is in micros: divide by 1,000,000.
+- A query without LIMIT gets one; large limits are lowered.
+- Rejected query: fetch the metadata, fix the field, retry once. Do not loop.
+
 ## Task skills in this plugin
 
 `waste-audit`, `performance-review`, `budget-pacing`, `launch-campaign`,
