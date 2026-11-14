@@ -1,0 +1,72 @@
+{
+  "author": {
+    "name": "LoomaScale"
+  },
+  "description": "Audit and manage Google Ads and Meta Ads (Facebook Ads and Instagram Ads) with LoomaScale. Analyze LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC) data to explain results and prioritize fixes. Manage GA4 key events, event rules, enhanced measurement, data redaction and web streams after a dry run and your approval. Check Meta Pixel (Facebook Pixel) events, Event Match Quality and Conversions API health.",
+  "keywords": [
+    "google ads",
+    "meta ads",
+    "facebook ads",
+    "instagram ads",
+    "facebook advertising",
+    "instagram advertising",
+    "linkedin ads",
+    "linkedin advertising",
+    "google analytics",
+    "google analytics 4",
+    "ga4",
+    "google search console",
+    "search console",
+    "gsc",
+    "google merchant center",
+    "merchant center",
+    "gmc",
+    "google tag manager",
+    "tag manager",
+    "gtm",
+    "ppc audit",
+    "keyword research",
+    "budget pacing",
+    "campaign management",
+    "wasted ad spend",
+    "ad performance",
+    "conversion tracking",
+    "meta pixel",
+    "facebook pixel",
+    "conversions api",
+    "event match quality"
+  ],
+  "interface": {
+    "displayName": "Google Ads/Meta Ads LoomaScale",
+    "shortDescription": "Audit ads, GA4, GTM, GSC & GMC",
+    "developerName": "LoomaScale",
+    "composerIcon": "./assets/web-app-manifest-385x385.png",
+    "logo": "./assets/web-app-manifest-385x385.png",
+    "capabilities": [
+      "Google Ads audits, search terms, keyword research, conversion tracking and campaign management",
+      "Meta Ads audits, creative performance and campaign management for Facebook Ads and Instagram Ads",
+      "Meta Pixel (Facebook Pixel) event activity, Event Match Quality and Conversions API diagnostics (read-only)",
+      "LinkedIn Ads performance and demographics reporting",
+      "Google Analytics 4 (GA4) traffic, conversion and funnel analysis",
+      "Google Search Console (GSC) search analytics and URL indexing inspection",
+      "Google Merchant Center (GMC) product issues and performance reporting",
+      "Google Tag Manager (GTM) tracking audits",
+      "Cross-source performance analysis, attribution diagnostics and budget recommendations"
+    ],
+    "category": "Business & Operations",
+    "defaultPrompt": [
+      "Audit my Google Ads and Meta Ads (Facebook Ads and Instagram Ads) for wasted spend. Rank fixes without changing campaigns.",
+      "Review my LinkedIn Ads performance alongside Google Analytics 4 (GA4). Explain conversion and funnel changes. Keep it read-only.",
+      "Check Google Search Console (GSC), Google Tag Manager (GTM) and Google Merchant Center (GMC) for issues. Keep it read-only."
+    ],
+    "longDescription": "LoomaScale connects Google Ads, Meta Ads (Facebook Ads and Instagram Ads), LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC) to ChatGPT. Marketers, agencies and business owners can audit ads, analyze traffic and diagnose tracking, search and shopping issues. Audits do not change campaigns or settings.\n\nWhat can I do with Google Ads?\n- Audit campaigns, ad groups, ads, keywords and search terms for wasted spend and negative keyword opportunities.\n- Review conversion tracking, disapproved ads and budget pacing; compare performance across periods, devices and locations.\n- Research keyword ideas, search volume, competition and bid estimates.\n- Create and manage campaigns, ads and keywords when you request changes.\n\nWhat can I do with Meta Ads, Facebook Ads and Instagram Ads?\n- Audit campaigns, ad sets and ads across Facebook and Instagram.\n- Analyze spend, reach, frequency, conversions, cost per acquisition (CPA) and return on ad spend (ROAS); review creative performance and possible fatigue signals.\n- Compare placements and audience breakdowns where available, investigate delivery issues and review budget pacing.\n- Create and manage campaigns and ads when you request changes.\n\nWhat can I do with Meta Pixel (Facebook Pixel)?\nReview connected datasets/pixels, event activity over the last 1-7 days and Event Match Quality. Compare browser Pixel and server-side Conversions API event counts, and inspect available deduplication, match-key coverage and upload-delay diagnostics. Checks are read-only: they do not install pixels, send events or change tracking settings. Dataset access permissions can limit available counts and diagnostics.\n\nWhat can I do with LinkedIn Ads?\nReview campaign and creative performance, leads, wasted spend and professional audience demographics. Reporting is read-only; demographic results are approximate and may be delayed.\n\nWhat can I do with Google Analytics 4 (GA4)?\nAnalyze traffic, landing pages, key events, revenue, funnel drop-offs and attribution. Compare outcomes with ad-platform reports. Manage key events (conversions), event create/edit rules, enhanced measurement and data redaction; create or update web streams. Preview each change in a dry run and approve it before applying. Rules affect future events, not historical data. These tools cannot install tags or delete properties or streams.\n\nWhat can I do with Google Tag Manager (GTM)?\nAudit Tag Manager containers, tags, triggers, variables, duplicate tags, consent configuration and unpublished changes. GTM configuration checks do not verify live tag firing.\n\nWhat can I do with Google Search Console (GSC)?\nAnalyze Search Console queries, pages, clicks, impressions, click-through rate and average position. Investigate organic traffic declines, find keyword opportunities, inspect URL indexing status and review sitemaps.\n\nWhat can I do with Google Merchant Center (GMC)?\nReview Merchant Center account health, product approvals, disapprovals and product issues. Analyze product performance, price benchmarks and competitor visibility where available.\n\nWhy did my marketing results change?\nLoomaScale compares relevant connected sources across compatible periods to explain likely drivers and prioritize fixes. It keeps platform-attributed conversions and GA4 outcomes separate because they are not deduplicated sales, and explains data limitations.\n\nHow do I get started?\nConnect the accounts you need and ask a question or request a change. Access is limited to connected resources. LinkedIn Ads and GSC are read-only. GA4, GTM and GMC settings change only on request and approval. Google Ads and Meta Ads campaign changes include budget updates checked against your cap. GA4 writes need analytics.edit and permission to edit the property; reconnect older read-only GA4 connections to grant access.",
+    "privacyPolicyURL": "https://loomascale.com/privacy",
+    "supportURL": "https://loomascale.com/contact",
+    "termsOfServiceURL": "https://loomascale.com/terms",
+    "websiteURL": "https://loomascale.com/"
+  },
+  "mcpServers": "./mcp.json",
+  "name": "loomascale",
+  "skills": "./skills/",
+  "version": "1.1.7"
+}

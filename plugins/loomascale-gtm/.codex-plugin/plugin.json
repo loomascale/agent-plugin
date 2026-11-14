@@ -1,0 +1,113 @@
+{
+  "author": {
+    "name": "LoomaScale"
+  },
+  "description": "Audit Google Tag Manager (GTM) conversion tracking in ChatGPT. Review GA4 and Google Ads tags, missing triggers and possible duplicates; draft workspace fixes and publish only a version you confirm.",
+  "keywords": [
+    "google tag manager",
+    "gtm",
+    "tag manager",
+    "conversion tracking",
+    "gtm audit",
+    "tracking audit",
+    "ga4 tags",
+    "google ads conversion tracking",
+    "duplicate google tags",
+    "tags and triggers",
+    "gtm variables",
+    "data layer variables",
+    "gtm workspace",
+    "container versions",
+    "publish gtm"
+  ],
+  "interface": {
+    "displayName": "Google Tag Manager LoomaScale",
+    "shortDescription": "Audit GTM conversion tracking",
+    "developerName": "LoomaScale",
+    "composerIcon": "./assets/web-app-manifest-385x385.png",
+    "logo": "./assets/web-app-manifest-385x385.png",
+    "capabilities": [
+      "Audit Google Tag Manager conversion tracking in the published container or a named draft workspace",
+      "Find paused tags, missing firing triggers and possible duplicate GA4 configuration or Google tags",
+      "Review marketing-tag consent settings, legacy Universal Analytics tags and unused triggers or variables",
+      "Cross-check website conversion tags against Google Ads conversion actions when that account is connected",
+      "Inspect tags, triggers, variables, workspaces, unpublished changes and container version history",
+      "Create and edit GA4 event, Google tag and Google Ads conversion tags in a workspace you choose",
+      "Create, update and delete supported draft entities; enable built-in variables and sync a workspace",
+      "Save a workspace as a named container version without publishing",
+      "Preview the difference from the live version, then publish only the exact version you confirm"
+    ],
+    "category": "Business & Operations",
+    "defaultPrompt": [
+      "Audit my Google Tag Manager conversion tracking for paused tags, missing triggers and possible duplicate Google tags.",
+      "Create a GA4 generate_lead event tag in my GTM Default Workspace. Ask me which trigger to use. Do not publish.",
+      "Show unpublished changes in my GTM workspace and compare a saved version with the live container. Do not publish."
+    ],
+    "longDescription": "Audit Google Tag Manager (GTM) conversion tracking and draft fixes in ChatGPT with LoomaScale. Review GA4 and Google Ads tags, find missing triggers and possible duplicate Google tags, and see which workspace changes are still unpublished. Built for marketers, analysts, agencies and ecommerce teams working with their own connected containers.\n\nWhat can a GTM audit find?\nCheck the published container or a named draft workspace for paused tags, missing firing triggers, possible duplicate GA4 configuration or Google tags, legacy Universal Analytics tags and marketing-tag consent settings. Inspect tags, triggers, variables and version history. Findings include confidence levels and evidence limits; configuration checks do not prove that a tag fires on your website.\n\nCan I check Google Ads conversion tracking?\nWhen Google Ads is also connected in LoomaScale, compare website conversion actions with their GTM tags to find actions without a matching tag in this container, paused matches and wrong account IDs. Variable-driven IDs can remain unresolved. Imported GA4, offline, call and app conversions are not treated as missing website tags.\n\nCan I create GA4 event tags and fix tracking setup?\nOn your request, create or edit GA4 event tags, Google tags and Google Ads conversion tags in an existing workspace you choose. Create or update triggers and supported variables, including data layer variables, or delete unreferenced draft entities. Enable built-in variables and sync a workspace with the current version. Edits remain drafts until published.\n\nHow do I review and publish a GTM version?\nSave the workspace as a named container version and preview what it would replace in the live version. Publish only after confirming that exact version in chat. The result reports which version is live; a rollback republishes a previous version.\n\nWhat are the limits?\nIt cannot install the GTM snippet, test live tag firing, verify runtime consent behavior, resolve merge conflicts, create Custom HTML or custom JavaScript, delete containers, change ad campaigns or report Google Analytics traffic. Use Tag Manager Preview to verify runtime behavior on your site.\n\nHow do I connect?\nSign in to LoomaScale and connect Google Tag Manager through Google authorization with the required permissions. Your Google account must have access to the container and the permissions needed for each action. Then ask your tracking question in ChatGPT.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Google.",
+    "privacyPolicyURL": "https://loomascale.com/privacy",
+    "supportURL": "https://loomascale.com/contact",
+    "termsOfServiceURL": "https://loomascale.com/terms",
+    "websiteURL": "https://loomascale.com/"
+  },
+  "mcpServers": "./mcp.json",
+  "name": "loomascale-gtm",
+  "skills": "./skills/",
+  "version": "1.0.0",
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "List the Tag Manager containers the connected Google login can read.",
+              "prompt": "Which Google Tag Manager containers can you see in my account?",
+              "tools_triggered": "gtm_list_containers",
+              "expected_behavior": "Returns the user's Tag Manager accounts and, under each one, its containers with container id, public id (GTM-XXXX) and name. Nothing is changed."
+            },
+            {
+              "description": "Recognize a conversion-tracking audit request without the Google Tag Manager product name.",
+              "prompt": "Audit my connected container's conversion tracking for paused tags, missing firing triggers and possible duplicate Google tags. Don't change anything.",
+              "tools_triggered": "gtm_list_containers, gtm_audit_tracking",
+              "expected_behavior": "Lists accessible containers and audits the first one if only one is available; asks which one if ambiguous. Reports published configuration findings and unpublished workspace status with tag names, confidence and evidence limits. Explains that this does not verify live firing. Nothing is changed."
+            },
+            {
+              "description": "Show what is waiting unpublished in a workspace and which version is live.",
+              "prompt": "In my first Tag Manager container, what changes are waiting unpublished in the default workspace, and which version is live right now?",
+              "tools_triggered": "gtm_list_containers, gtm_list_workspaces, gtm_get_workspace_status, gtm_list_versions",
+              "expected_behavior": "Names the workspace, lists the added, changed and deleted tags, triggers and variables in it, and shows the live version id and name. Reports an empty workspace plainly. Nothing is changed."
+            },
+            {
+              "description": "Draft a fix in a named workspace without publishing it.",
+              "prompt": "In my first Tag Manager container's Default Workspace, create a Custom Event trigger named 'Event - generate_lead' that fires on the event generate_lead. Don't publish anything.",
+              "tools_triggered": "gtm_list_containers, gtm_list_workspaces, gtm_create_trigger",
+              "expected_behavior": "Creates the trigger in the named workspace and returns its id, and says clearly that the change is a draft that is NOT published and goes live only when a version is created and published."
+            },
+            {
+              "description": "Compare a version with the live one before publishing, without publishing.",
+              "prompt": "Save the Default Workspace of my first Tag Manager container as a version named 'Lead trigger', then show me what publishing it would change compared with the live version. Do not publish yet.",
+              "tools_triggered": "gtm_list_containers, gtm_get_workspace_status, gtm_create_version, gtm_publish_version",
+              "expected_behavior": "Creates the version (or refuses an empty workspace or a merge conflict with the reason), then calls gtm_publish_version with confirm false as a dry run that compares the new version with the live one. Says that nothing was published and that publishing needs the user's explicit confirmation."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Ad campaign management is outside the Tag Manager integration.",
+              "prompt": "Pause my Google Ads campaign called Brand Search.",
+              "expected_behavior": "The app should not be invoked; changing ad campaigns needs an advertising integration, and this Tag Manager integration cannot do it."
+            },
+            {
+              "description": "Analytics reports are outside the Tag Manager integration.",
+              "prompt": "How many sessions did my website get from organic search last month in Google Analytics?",
+              "expected_behavior": "The app should not be invoked; Tag Manager holds tags, not traffic reports, so this integration cannot answer a Google Analytics reporting question."
+            },
+            {
+              "description": "A general Tag Manager definition needs no account data.",
+              "prompt": "What is the difference between a tag, a trigger and a variable in Google Tag Manager? Just explain, don't look at my account.",
+              "expected_behavior": "Answer the conceptual question without invoking the app, reading containers or requesting authorization."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

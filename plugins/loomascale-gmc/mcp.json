@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "loomascale-gmc": {
+      "url": "https://api.loomascale.com/mcp/gmc"
+    }
+  }
+}

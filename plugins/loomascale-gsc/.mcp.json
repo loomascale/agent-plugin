@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "loomascale-gsc": {
+      "type": "http",
+      "url": "https://api.loomascale.com/mcp/gsc"
+    }
+  }
+}

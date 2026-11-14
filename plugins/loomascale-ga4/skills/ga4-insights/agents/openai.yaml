@@ -1,0 +1,15 @@
+interface:
+  display_name: "Google Analytics 4 insights"
+  short_description: "Explain GA4 traffic, conversion and funnel changes"
+  default_prompt: "Use $ga4-insights to explain what changed in my Google Analytics 4 results and prioritize evidence-based next steps."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-ga4"
+      description: "LoomaScale Google Analytics 4 reports, property context and approved tracking configuration changes"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/ga4"
+
+policy:
+  allow_implicit_invocation: true

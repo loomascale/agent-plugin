@@ -1,0 +1,15 @@
+interface:
+  display_name: "Google Tag Manager audits"
+  short_description: "Audit GTM conversion tracking"
+  default_prompt: "Use $loomascale-gtm to audit my Google Tag Manager conversion tracking for paused tags, missing triggers and possible duplicate Google tags. Do not change anything."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-gtm"
+      description: "LoomaScale Google Tag Manager audit, drafts, versions and confirmed publishing"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/gtm"
+
+policy:
+  allow_implicit_invocation: true

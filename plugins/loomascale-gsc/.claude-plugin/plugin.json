@@ -1,0 +1,29 @@
+{
+  "name": "loomascale-gsc",
+  "version": "1.0.0",
+  "description": "Google Search Console SEO analysis: compare organic traffic, find keyword opportunities and low-CTR pages, check indexing and sitemaps.",
+  "author": {
+    "name": "LoomaScale",
+    "url": "https://loomascale.com"
+  },
+  "homepage": "https://loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "google search console",
+    "search console",
+    "gsc",
+    "seo analysis",
+    "seo reports",
+    "organic traffic",
+    "organic traffic drop",
+    "search queries",
+    "keyword opportunities",
+    "keyword rankings",
+    "click through rate",
+    "url inspection",
+    "indexing status",
+    "page indexing",
+    "sitemaps"
+  ]
+}

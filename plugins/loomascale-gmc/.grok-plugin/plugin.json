@@ -1,0 +1,30 @@
+{
+  "name": "loomascale-gmc",
+  "version": "1.0.0",
+  "description": "Fix Google Merchant Center product disapprovals and feed errors, review Shopping performance, and update product data on request.",
+  "author": {
+    "name": "LoomaScale",
+    "url": "https://loomascale.com"
+  },
+  "homepage": "https://loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "google merchant center",
+    "merchant center",
+    "gmc",
+    "google shopping",
+    "product feed",
+    "product feed diagnostics",
+    "disapproved products",
+    "feed errors",
+    "product diagnostics",
+    "account health",
+    "free listings",
+    "shopping ads",
+    "product performance",
+    "supplemental feed",
+    "website claim"
+  ],
+  "logo": "assets/web-app-manifest-385x385.png"
+}

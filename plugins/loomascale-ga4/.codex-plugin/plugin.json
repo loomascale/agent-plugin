@@ -1,0 +1,117 @@
+{
+  "author": {
+    "name": "LoomaScale"
+  },
+  "description": "Analyze Google Analytics 4 (GA4) traffic, conversions, revenue and funnels in ChatGPT with LoomaScale. Manage key events, event rules, enhanced measurement, data redaction and web streams after a dry run and your approval.",
+  "keywords": [
+    "google analytics 4",
+    "google analytics",
+    "ga4",
+    "ga4 reports",
+    "website analytics",
+    "traffic analysis",
+    "traffic sources",
+    "landing pages",
+    "key events",
+    "conversion analysis",
+    "conversion attribution",
+    "funnel analysis",
+    "funnel drop-off",
+    "ecommerce analytics",
+    "revenue analysis",
+    "realtime analytics",
+    "google analytics reports",
+    "website traffic",
+    "popular pages"
+  ],
+  "interface": {
+    "displayName": "Google Analytics | LoomaScale",
+    "shortDescription": "Analyze GA4 and edit settings",
+    "developerName": "LoomaScale",
+    "composerIcon": "./assets/web-app-manifest-385x385.png",
+    "logo": "./assets/web-app-manifest-385x385.png",
+    "capabilities": [
+      "Google Analytics 4 account and property discovery",
+      "Website traffic, source/medium, channels, users, sessions and engagement reports",
+      "Landing page, event, key event and ecommerce revenue analysis",
+      "Period comparisons to investigate traffic and conversion changes",
+      "Ordered event funnels, completion rates and drop-offs by device",
+      "Realtime activity and event reports for the last 30 minutes",
+      "Conversion attribution, ad cost and ROAS reporting where available in GA4",
+      "Property time zone, currency, custom dimensions, custom metrics, annotations and Google Ads link inspection",
+      "Key event, event rule, enhanced measurement, data redaction and web stream changes, each approved after a dry run"
+    ],
+    "category": "Business & Operations",
+    "defaultPrompt": [
+      "Show my Google Analytics website traffic and most popular pages for the last seven complete days.",
+      "Compare my GA4 traffic sources, key events and revenue for the last 30 complete days with the previous 30.",
+      "Preview marking generate_lead as a GA4 key event counted once per session. Show a dry run for approval; do not apply it."
+    ],
+    "longDescription": "LoomaScale connects Google Analytics 4 (GA4) to ChatGPT for website analytics and tracking configuration. Compare traffic sources, find popular pages, track conversions and ecommerce revenue, and identify funnel drop-offs. Manage key events, event rules, enhanced measurement, data redaction and web streams after reviewing a dry run and approving the exact changes. Built for marketers, agencies, ecommerce teams and business owners.\n\nWhat can I analyze in Google Analytics 4?\nReport website traffic, popular pages, users, sessions, engaged sessions, engagement rate, events, key events and revenue. Break results down by traffic source/medium, channel, landing page, device or country using compatible GA4 dimensions and metrics. Identify which segments contribute to a change and get practical next steps.\n\nWhy did my website traffic or conversions change?\nCompare explicit date ranges and find the sources, pages or devices contributing most to a rise or decline. Read property annotations for context and custom definitions for property-specific reporting. Separate observed changes from possible causes; reports alone do not prove causation.\n\nWhere are users dropping out of my funnel?\nBuild an ordered event funnel, such as add_to_cart followed by purchase, and examine step completion and abandonment. Break down the funnel by device to find where to investigate first. Funnel analysis uses events your property already collects; it does not install tracking.\n\nCan I check realtime activity?\nReport activity during GA4's last-30-minute realtime window, such as active users by country or incoming events by event name. This is an aggregate report, not a visitor list or a continuously updating monitor.\n\nCan I analyze conversion attribution and ROAS?\nUse GA4 conversion reports for attributed conversions, ad cost and return on ad spend where the property has the required data. Inspect existing Google Ads links. Results reflect GA4's attribution definitions and should not be treated as interchangeable with advertising-platform conversions. This plugin does not retrieve Google Ads campaign performance or change ads.\n\nHow do I connect Google Analytics 4?\nSign in to LoomaScale, connect Google Analytics through Google authorization, and choose a GA4 property your Google login can access. Grant Google's read-only and analytics.edit permissions for reporting and supported settings changes. Your Google login must have permission to edit the property to make changes. Older read-only connections need to reconnect and grant the requested permissions. Then ask a reporting question or request a settings change in ChatGPT. Reports depend on property permissions, collected events and available API data. Funnel and conversion reports use Google's alpha APIs; thresholds, sampling and processing delays can limit results.\n\nCan this plugin change Analytics settings or tracking?\nYes. Manage key events (conversions), event create and edit rules, enhanced measurement and data redaction, and create or update web data streams. Each change starts with a dry run showing the exact proposal; it is applied only after your approval. Reporting does not change settings. Event rules affect future collected events, not historical data. Creating a stream does not install a website tag. It cannot install tags, publish Tag Manager changes, manage ads or delete properties or streams. It supports GA4, not Universal Analytics. Helper tools check your usage allowance or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Google.",
+    "privacyPolicyURL": "https://loomascale.com/privacy",
+    "supportURL": "https://loomascale.com/contact",
+    "termsOfServiceURL": "https://loomascale.com/terms",
+    "websiteURL": "https://loomascale.com/"
+  },
+  "mcpServers": "./mcp.json",
+  "name": "loomascale-ga4",
+  "skills": "./skills/",
+  "version": "1.0.4",
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Discover accessible GA4 properties and inspect property context. Requires a connected Google Analytics login with access to at least one enabled GA4 property; no attachments are needed.",
+              "prompt": "List my accessible Google Analytics 4 accounts and properties. For the property with the lowest numeric property ID, show its time zone, currency, registered custom dimensions and metrics, and linked Google Ads accounts. Do not change anything.",
+              "tools_triggered": "ga4_get_account_summaries, ga4_get_property_details, ga4_get_custom_dimensions_and_metrics, ga4_list_google_ads_links",
+              "expected_behavior": "Return accessible accounts and property IDs/names. Select the lowest numeric property ID returned by discovery and use it as property_id for subsequent reads. Show the selected property, time zone, currency, custom definitions and linked Google Ads customer IDs. Explicitly report empty definitions or links without inventing entries. Do not change settings or retrieve Google Ads campaign performance."
+            },
+            {
+              "description": "Compare traffic, engagement, key events and revenue across periods and identify contributing sources and landing pages. Requires an accessible GA4 property with historical traffic; revenue and key events depend on collected data. No attachments are needed.",
+              "prompt": "Use the accessible Google Analytics 4 property with the lowest numeric property ID. Compare the last 30 complete days with the preceding 30 in the property time zone. Show totals for sessions, engaged sessions, key events and total revenue, then the top 10 source/medium and landing page changes by absolute session change. Include property annotations during these periods. Do not change anything.",
+              "tools_triggered": "ga4_get_account_summaries, ga4_get_property_details, ga4_run_report, ga4_list_property_annotations",
+              "expected_behavior": "Discover the selected property, resolve its time zone/currency, and state both exact date windows. Run ga4_run_report for totals without dimensions using sessions, engagedSessions, keyEvents and totalRevenue, then separate sessionSourceMedium and landingPagePlusQueryString breakdowns with matching periods. Read dated property annotations for context. Calculate absolute and relative changes, handle a zero prior value without division by zero, and rank the requested segments. Fetch necessary pages or disclose incomplete coverage; preserve sampling/data-loss warnings. Label missing or zero revenue and key events accurately, and do not treat annotations as proof of causation."
+            },
+            {
+              "description": "Analyze ordered ecommerce funnel steps and device drop-off. Requires an accessible GA4 property collecting add_to_cart and purchase events during the last 30 complete days. No attachments are needed.",
+              "prompt": "Use the accessible Google Analytics 4 property with the lowest numeric property ID. For the last 30 complete days in its time zone, show an ordered funnel from add_to_cart to purchase, broken down by device category. Identify the largest drop-off and show step users, completion and abandonment where returned.",
+              "tools_triggered": "ga4_get_account_summaries, ga4_get_property_details, ga4_run_funnel_report",
+              "expected_behavior": "Discover the selected property, resolve its time zone and state exact dates. Call ga4_run_funnel_report with property_id, explicit date_ranges, funnel_steps [{name: Added to cart, event: add_to_cart}, {name: Purchased, event: purchase}], and funnel_breakdown {breakdownDimension: deviceCategory}. Summarize returned step users, completion/abandonment and device differences, describing actual funnel conditions. Do not substitute independent event totals for ordered funnel users. Explain empty data or alpha API restrictions without fabricating a completed funnel or changing tracking."
+            },
+            {
+              "description": "Read GA4 conversion attribution and ROAS with an explicit model and date basis. Requires an accessible GA4 property with conversion data and access to the conversions alpha API; ROAS additionally requires available ad-cost data. No attachments are needed.",
+              "prompt": "Use the accessible Google Analytics 4 property with the lowest numeric property ID. For the last 30 complete days in its time zone, use data-driven attribution to report all conversions by conversion date and return on ad spend by conversion date, grouped by source/medium. Include all conversion events and explain any unavailable data.",
+              "tools_triggered": "ga4_get_account_summaries, ga4_get_property_details, ga4_run_conversions_report",
+              "expected_behavior": "Discover the selected property, resolve its time zone/currency and state exact dates. Call ga4_run_conversions_report with property_id, date_ranges, dimensions [sourceMedium], metrics [allConversionsByConversionDate, returnOnAdSpendByConversionDate], and conversion_spec {conversionActions: [], attributionModel: DATA_DRIVEN}. Label the attribution model and conversion-date basis. Preserve report coverage and metadata warnings. If Google refuses the alpha report or cost data is unavailable, explain the actual limitation without inventing ROAS or zero conversions. Do not equate GA4 attribution with advertising-platform conversions or claim access to campaign reports."
+            },
+            {
+              "description": "Preview a key event configuration write without applying it. Requires a connected Google Analytics login with analytics.edit and permission to edit an accessible GA4 property; no attachments are needed.",
+              "prompt": "Use the accessible Google Analytics 4 property with the lowest numeric property ID. Preview marking generate_lead as a key event counted once per session. Show the proposed change for my approval; do not apply it yet.",
+              "tools_triggered": "ga4_get_account_summaries, ga4_get_tracking_configuration, ga4_mark_key_event",
+              "expected_behavior": "Discover the selected property, then inspect ga4_get_tracking_configuration with sections [key_events]. Call ga4_mark_key_event with that property_id, event_name generate_lead, counting_method ONCE_PER_SESSION and dry_run true. Show the exact property and proposed field changes and wait for approval; never call with dry_run false or omitted for this preview-only request. If generate_lead is already a key event, report no change and show its current settings rather than silently updating them. If edit permission is missing, explain the permission requirement and returned reconnect flow. Do not create a website event, install a tag or claim historical data changed."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Ad campaign creation is outside the GA4 integration.",
+              "prompt": "Create a Google Ads Search campaign with a $20 daily budget and enable it.",
+              "expected_behavior": "Do not invoke this plugin or any of its tools. Explain that creating or enabling Google Ads campaigns requires an advertising integration; this GA4 integration cannot perform the requested action."
+            },
+            {
+              "description": "Website tag installation and Tag Manager publishing are outside this integration.",
+              "prompt": "Install the Google Analytics tracking tag on my website and publish it through Google Tag Manager.",
+              "expected_behavior": "Do not invoke this plugin or any of its tools. Explain that it cannot install website tags or publish Tag Manager changes. GA4 settings access does not provide website or Tag Manager access."
+            },
+            {
+              "description": "A general analytics definition requires no connected property data.",
+              "prompt": "What is the difference between users, sessions and events in Google Analytics 4? I only want the definitions, not a report from my account.",
+              "expected_behavior": "Answer the conceptual question without invoking this plugin or any of its tools, discovering properties or requesting authorization. Do not access account data for a definitions-only question."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

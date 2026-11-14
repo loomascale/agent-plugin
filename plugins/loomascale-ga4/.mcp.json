@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "loomascale-ga4": {
+      "type": "http",
+      "url": "https://api.loomascale.com/mcp/ga4"
+    }
+  }
+}

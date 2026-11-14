@@ -1,0 +1,15 @@
+interface:
+  display_name: "LoomaScale integration workflows"
+  short_description: "Manage ads, analyze GA4 and edit tracking settings"
+  default_prompt: "Use $loomascale to choose the relevant connected integrations, complete my marketing task and verify the result."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale"
+      description: "LoomaScale advertising, analytics, search, commerce and tracking tools, including approved GA4 configuration writes"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,113 @@
+{
+  "author": {
+    "name": "LoomaScale"
+  },
+  "description": "Diagnose Google Merchant Center (GMC) product disapprovals and feed errors in ChatGPT. Review Google Shopping and free listings performance, then update eligible product data and feed settings on request.",
+  "keywords": [
+    "google merchant center",
+    "merchant center",
+    "gmc",
+    "google shopping",
+    "product feed",
+    "product feed diagnostics",
+    "disapproved products",
+    "feed errors",
+    "product diagnostics",
+    "account health",
+    "free listings",
+    "shopping ads",
+    "product performance",
+    "supplemental feed",
+    "website claim"
+  ],
+  "interface": {
+    "displayName": "Google Merchant Center LScale",
+    "shortDescription": "Diagnose product feed errors",
+    "developerName": "LoomaScale",
+    "composerIcon": "./assets/web-app-manifest-385x385.png",
+    "logo": "./assets/web-app-manifest-385x385.png",
+    "capabilities": [
+      "Merchant Center diagnostics: account issues and product disapprovals by destination and country",
+      "Disapproved, pending and active products with Google's item issues and help links",
+      "Google Shopping ads and free listings clicks, impressions and CTR by product",
+      "Product feed audits: data sources, fetch schedules, processing status and row errors",
+      "Shipping settings and return policies (read-only)",
+      "Account settings, business information, website claim and autofeed changes on request",
+      "Change feed schedules, fetch eligible sources and create API product feeds on request",
+      "Update titles, prices, availability and other product attributes on eligible API sources",
+      "Create supplemental feeds; linking to a primary source is completed in Merchant Center"
+    ],
+    "category": "Business & Operations",
+    "defaultPrompt": [
+      "Why are my Google Shopping products disapproved? Check my Merchant Center diagnostics and prioritize the issues.",
+      "Audit my Merchant Center product feeds for processing errors and failed fetches. Don't change anything.",
+      "Which products get the most clicks from Google Shopping ads and free listings in my Merchant Center account?"
+    ],
+    "longDescription": "Diagnose Google Merchant Center (GMC) product disapprovals and product feed errors in ChatGPT with LoomaScale. Audit your connected account, see why products are not showing on Google Shopping, and compare product performance for Shopping ads and free listings. Built for ecommerce teams, store owners and agencies.\n\nWhy are my products disapproved or not showing?\nRead Merchant Center account health and product diagnostics to identify account issues, disapproved or pending products, and Google's explanations and help links. Prioritize issues by affected product count, keeping each destination and country separate. Diagnosis does not change your account.\n\nAre my product feeds working?\nAudit data sources, input types and fetch schedules. For file sources, inspect the latest processed file, processing status and row errors to investigate missing products or failed feed runs.\n\nWhich products get clicks on Google Shopping?\nReport clicks, impressions and click-through rate (CTR) by product for Shopping ads or free listings over your chosen date range.\n\nCan I fix feed settings or product data?\nOn request, update account and business information, website settings and claims, autofeed and eligible feed schedules; fetch eligible data sources; or create primary and supplemental API product feeds. Update product titles, prices, availability, images and other supported attributes only on eligible API sources. Changes depend on your Google account role and source type. Confirm the exact website URL before a website change.\n\nWhat are the limits?\nProducts from files, spreadsheets or shop connections must be edited at their source or overridden through a supplemental feed. You link supplemental feeds to primary sources in Merchant Center. Google processes product updates before they appear; verify them afterwards. The plugin cannot approve products, reverse account suspensions or guarantee Google Shopping visibility. It does not delete products or feeds, change shipping or return policies, edit feed rules or manage Google Ads campaigns. It never asks for feed passwords.\n\nHow do I connect Google Merchant Center?\nSign in to LoomaScale and authorize your Google Merchant Center account through Google, then ask your question in ChatGPT. Helper tools check your usage allowance or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Google.",
+    "privacyPolicyURL": "https://loomascale.com/privacy",
+    "supportURL": "https://loomascale.com/contact",
+    "termsOfServiceURL": "https://loomascale.com/terms",
+    "websiteURL": "https://loomascale.com/"
+  },
+  "mcpServers": "./mcp.json",
+  "name": "loomascale-gmc",
+  "skills": "./skills/",
+  "version": "1.0.0",
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "List the Merchant Center accounts the connected Google login can read.",
+              "prompt": "Which Google Merchant Center accounts can you see?",
+              "tools_triggered": "gmc_list_accounts",
+              "expected_behavior": "Returns each accessible Merchant Center account with its id and name. Nothing is changed."
+            },
+            {
+              "description": "Recognize a product visibility problem without the Merchant Center name.",
+              "prompt": "My products disappeared from Google Shopping. Which account issues and item errors should I fix first?",
+              "tools_triggered": "gmc_list_accounts, gmc_get_account_health, gmc_query",
+              "expected_behavior": "Resolves the account, reads account health and affected product issues, and prioritizes by affected product count within each destination and country. Distinguishes reported causes from hypotheses. Does not change data or promise approval."
+            },
+            {
+              "description": "List disapproved products with their issues.",
+              "prompt": "List up to 20 disapproved products in my first Merchant Center account with the reason for each.",
+              "tools_triggered": "gmc_list_accounts, gmc_query",
+              "expected_behavior": "Queries product_view for NOT_ELIGIBLE_OR_DISAPPROVED products and returns offer id, title and item issues, noting truncation if capped. Nothing is changed."
+            },
+            {
+              "description": "Review data sources and their latest processing.",
+              "prompt": "Show the data sources in my first Merchant Center account, how each is fed, and any errors in the last processed file.",
+              "tools_triggered": "gmc_list_accounts, gmc_list_data_sources, gmc_get_data_source",
+              "expected_behavior": "Lists each source with its input type, schedule and writability, then the latest processed file's status and row issues for a fetched source. Nothing is changed."
+            },
+            {
+              "description": "Preview a website change without applying it.",
+              "prompt": "Show me what would change if I set the website of my first Merchant Center account to https://example.com. Don't apply it.",
+              "tools_triggered": "gmc_list_accounts, gmc_get_account_settings, gmc_update_homepage",
+              "expected_behavior": "Reads current settings, then calls gmc_update_homepage as a dry run (no confirm) and reports the current site, the proposed one and the claim status. States that nothing was changed and that applying needs explicit confirmation."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Ad campaign management is outside the Merchant Center integration.",
+              "prompt": "Create a Performance Max campaign for my shop with a $30 daily budget.",
+              "expected_behavior": "The app should not be invoked; this Merchant Center integration manages product data and account settings, not Google Ads campaigns."
+            },
+            {
+              "description": "Deleting products is not supported.",
+              "prompt": "Delete all out-of-stock products from my Merchant Center.",
+              "expected_behavior": "The app should not be invoked to delete products; explain that it cannot delete products and that removal happens at the product's source or in Merchant Center."
+            },
+            {
+              "description": "A general definition needs no account data.",
+              "prompt": "What is the difference between free listings and Shopping ads? Just explain.",
+              "expected_behavior": "Answer the conceptual question without invoking the app, reading accounts or requesting authorization."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+interface:
+  display_name: "Google Analytics 4 reporting and settings"
+  short_description: "Analyze GA4 and manage tracking settings with approval"
+  default_prompt: "Use $loomascale-ga4 to analyze my connected Google Analytics 4 property or preview a requested tracking settings change for my approval."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-ga4"
+      description: "LoomaScale Google Analytics 4 reporting, property discovery and approved tracking configuration changes"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/ga4"
+
+policy:
+  allow_implicit_invocation: true

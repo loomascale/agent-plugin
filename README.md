@@ -1,40 +1,28 @@
-# LoomaScale: Google Ads and Meta Ads agent plugin
+# LoomaScale agent plugins for Google Ads, Meta Ads and marketing data
 
-LoomaScale is an agent plugin that lets Claude Code, Codex, ChatGPT, Cursor, VS Code and
-GitHub Copilot read and manage your Google Ads and Meta Ads accounts through one MCP
-server, with a spend cap the model cannot talk its way past. It uses the portable
-[Agent Plugins](https://agent-plugins.org) format, so one repository installs in every
-client that reads `plugin.json`, Kiro, Hermes, OpenClaw and OpenHands included.
+LoomaScale plugins connect Claude Code, Codex and Grok Build to your Google Ads,
+Meta Ads, LinkedIn Ads, Google Analytics 4, Google Tag Manager, Google Search Console
+and Google Merchant Center accounts through one hosted MCP server. Every change is shown
+to you first and runs only after you approve it. Ad budgets are also checked against a
+daily spend cap you set.
 
-It connects your assistant to the LoomaScale MCP server (`https://api.loomascale.com/mcp`)
-(over 100 tools across Google Ads, Meta Ads and Google Analytics 4) and ships seven
-skills that tell the model how to audit, review, pace, launch and monitor ad accounts
-without spending money it was not told to spend.
+## Plugins
 
-## What it does
+| Plugin | MCP endpoint | Use it for |
+|---|---|---|
+| [`loomascale`](plugins/loomascale) | `https://api.loomascale.com/mcp` | Everything: Google Ads and Meta Ads audits and campaign management, LinkedIn Ads, GA4, GTM, GSC and GMC analysis |
+| [`loomascale-ga4`](plugins/loomascale-ga4) | `https://api.loomascale.com/mcp/ga4` | Google Analytics 4 traffic, conversion and funnel reports; key events and stream settings after a dry run |
+| [`loomascale-gtm`](plugins/loomascale-gtm) | `https://api.loomascale.com/mcp/gtm` | Google Tag Manager tracking audits, draft workspace fixes, publish only a version you confirm |
+| [`loomascale-gsc`](plugins/loomascale-gsc) | `https://api.loomascale.com/mcp/gsc` | Google Search Console clicks, keyword opportunities, indexing and sitemaps |
+| [`loomascale-gmc`](plugins/loomascale-gmc) | `https://api.loomascale.com/mcp/gmc` | Google Merchant Center disapprovals, feed errors and product updates |
 
-- **Waste audit**: search terms that convert nothing, ad sets spending without results,
-  placements that burn budget, ranked by money lost.
-- **Performance review**: this period against the last, what moved, why, and a short
-  ranked plan.
-- **Budget pacing**: today's and month-to-date delivery against budget, reallocation and
-  scaling proposals, "why are my ads not showing".
-- **Launch a campaign**: keyword research, Search and Performance Max on Google, campaign
-  + ad set + ad on Meta, all created paused, with a pre-launch checklist before
-  activation.
-- **Conversion tracking audit**: duplicate and wrong-primary actions, counting type,
-  values, lookback windows, campaign-specific goals.
-- **Scheduled checks**: conversion drops, CPA and CPC spikes, ROAS falls, tracking that
-  silently broke, creative fatigue; reports only when something is actually unusual.
-
-Every write (budget, status, activation, creation) is shown to you first and waits for
-your confirmation, then checked server-side against a daily spend cap you set in the
-LoomaScale dashboard. Campaigns are created paused; the tools cannot create a live one.
+Install `loomascale` if you want everything in one place. Install a single-integration
+plugin if you only work with that one product.
 
 ## Install
 
-You need a LoomaScale account with at least one ad account connected:
-[ai.loomascale.com](https://ai.loomascale.com). The free trial covers everything below.
+You need a [LoomaScale](https://loomascale.com) account with the matching integration
+connected. The free trial covers all plugins.
 
 ### Claude Code
 
@@ -43,27 +31,11 @@ You need a LoomaScale account with at least one ad account connected:
 /plugin install loomascale@loomascale
 ```
 
-Then `/mcp`, pick `loomascale`, and finish the sign-in in the browser. Step-by-step guides
-with a real waste-audit run:
-[Connect Claude Code to Google Ads](https://ai.loomascale.com/connect-claude-code-to-google-ads)
-and [Connect Claude Code to Meta Ads](https://ai.loomascale.com/connect-claude-code-to-meta-ads).
-Using Claude on the web or desktop instead? See
-[Connect Claude to Google Ads](https://ai.loomascale.com/connect-claude-to-google-ads).
+Then run `/mcp`, pick the server, and finish sign-in in the browser. Guides:
+[Connect Claude Code to Google Ads](https://loomascale.com/connect-claude-code-to-google-ads),
+[Connect Claude Code to Meta Ads](https://loomascale.com/connect-claude-code-to-meta-ads).
 
-### VS Code and GitHub Copilot
-
-Command Palette, **Chat: Install Plugin From Source**, paste
-`https://github.com/loomascale/agent-plugin`. In a Copilot session:
-`/plugin install loomascale/agent-plugin`.
-
-### Cursor
-
-Teams: Dashboard, **Plugins & MCPs**, **Add Marketplace**, **Import from Repo**, paste
-the repository URL; then install from **Customize**.
-
-### Codex and ChatGPT
-
-Codex CLI:
+### Codex
 
 ```text
 codex plugin marketplace add loomascale/agent-plugin
@@ -71,88 +43,71 @@ codex plugin add loomascale@loomascale
 codex mcp login loomascale
 ```
 
-Then start a new session. Step-by-step guides with a real waste-audit run:
-[Connect Codex to Google Ads](https://ai.loomascale.com/connect-codex-to-google-ads)
-and [Connect Codex to Meta Ads](https://ai.loomascale.com/connect-codex-to-meta-ads).
+Guides: [Connect Codex to Google Ads](https://loomascale.com/connect-codex-to-google-ads),
+[Connect Codex to Meta Ads](https://loomascale.com/connect-codex-to-meta-ads).
 
-ChatGPT: the published LoomaScale app is in the Plugins tab. Guides:
-[Connect ChatGPT to Google Ads](https://ai.loomascale.com/connect-chatgpt-to-google-ads),
-[Connect ChatGPT to Meta Ads](https://ai.loomascale.com/connect-chatgpt-to-meta-ads),
-and the walkthrough at [Google Ads + ChatGPT](https://ai.loomascale.com/google-ads-chatgpt).
+### Grok Build
 
-### Kiro, Hermes, OpenClaw, OpenHands and others
+Open `/plugin`, search for **LoomaScale**, and install.
 
-Point the client at this repository or a clone of it. The plugin needs only the files
-at the root: `plugin.json`, `mcp.json`, `skills/`.
+### ChatGPT and Claude on the web
+
+Use the published LoomaScale app instead:
+[Connect ChatGPT to Google Ads](https://loomascale.com/connect-chatgpt-to-google-ads),
+[Connect Claude to Google Ads](https://loomascale.com/connect-claude-to-google-ads).
 
 ## Authentication
 
-The server is OAuth 2.1 with dynamic client registration and PKCE. Your client
-discovers the authorization server from a `401` on the first call, registers itself,
-opens the browser for consent, and stores the token. There is nothing to paste into a
-config file and no API key in this repository.
+The plugins hold no credentials. The server uses OAuth 2.1 with PKCE and dynamic client
+registration. Your client finds the authorization server from the first `401`, registers
+itself, opens the browser for consent and stores the token. You don't paste an API key
+anywhere. Google, Meta and LinkedIn are connected in the LoomaScale dashboard.
 
-## Layout
+## Repository layout
 
 ```text
-plugin.json              portable manifest (Agent Plugins 1.0.0) + com.openai interface
-mcp.json                 streamable-http server entry
-skills/                  seven Agent Skills, one directory each
-.claude-plugin/          Claude Code manifest and single-plugin marketplace
-.mcp.json                Claude Code MCP entry
-.codex-plugin/           Codex compatibility overlay
-assets/                  logo
+.claude-plugin/marketplace.json   Claude Code and Codex marketplace listing all plugins
+plugins/<name>/
+  .claude-plugin/plugin.json      Claude Code manifest
+  .grok-plugin/plugin.json        Grok Build manifest
+  .codex-plugin/plugin.json       Codex manifest
+  .mcp.json                       MCP server (Claude Code, Grok Build)
+  mcp.json                        MCP server (Codex)
+  skills/                         Agent Skills
+  assets/                         logo
+  README.md
 ```
 
-## Skills
-
-| Skill | Use when |
-|---|---|
-| `loomascale` | any ad-account question: connecting, account choice, read-first and spend-cap rules |
-| `waste-audit` | "where am I wasting money", negatives, placements, bad CPA or ROAS |
-| `performance-review` | "how are my ads doing", what changed, action plan, weak ads, creative winners |
-| `budget-pacing` | pacing, over/underspend, reallocation, scaling, ads not showing |
-| `launch-campaign` | first campaign, keyword research, PMax, lead-gen, pre-launch checklist |
-| `conversion-tracking-audit` | conversion actions, counting, values, PMax audit, account health |
-| `scheduled-checks` | alerts, daily or weekly monitoring, routines and automations |
+Each plugin folder stands on its own, because clients install only that folder.
 
 ## Questions
 
 ### Can the model spend money without asking?
 
-No. Every budget change, status change, activation and campaign creation is shown to
-you first and runs only after you confirm it, and the server then checks it against
-the daily spend cap you set. Campaigns are always created paused.
+No. Every budget change, status change, activation and campaign creation is shown to you
+first. It runs only after you confirm it, and the server then checks it against your
+daily spend cap. New campaigns are created paused.
 
-### Which ad platforms does it support?
+### Do I need a Google Ads developer token or Meta app?
 
-Google Ads (Search, Performance Max, keywords, conversion actions, sitelinks) and Meta
-Ads (Facebook and Instagram campaigns, ad sets, ads, audiences, A/B tests). Google
-Analytics 4 reads are in preview.
-
-### Do I need an API key or developer token?
-
-No. The plugin holds no credentials. Sign in to LoomaScale once in the browser; the
-client stores an OAuth token. Google Ads and Meta Ads are connected in the LoomaScale
-dashboard, not in the plugin.
+No. Sign in to LoomaScale once in the browser. LoomaScale holds the platform connections.
 
 ### Does it work with a Google Ads manager (MCC) account?
 
-Yes. The connection reaches every client account under the manager account you pick,
-and `google_audit_portfolio` audits all of them in one call.
+Yes. The connection reaches every client account under the manager account you pick.
 
 ## Who builds this
 
-[LoomaScale](https://ai.loomascale.com) is an AI operator for Google Ads and Meta Ads
-built by Andrii Pasika; the tools behind this plugin have created and managed live
-campaigns from ChatGPT and Claude since 2026. [Privacy](https://ai.loomascale.com/privacy),
-[terms](https://ai.loomascale.com/terms), [contact](https://ai.loomascale.com/contact).
+[LoomaScale](https://loomascale.com) is an AI operator for Google Ads and Meta Ads, built
+by Andrii Pasika. [Privacy](https://loomascale.com/privacy),
+[terms](https://loomascale.com/terms), [contact](https://loomascale.com/contact).
+LoomaScale is an independent product, not affiliated with or endorsed by Google, Meta or
+LinkedIn.
 
 ## Self-hosting
 
-The same tools, MIT licensed, run against your own accounts:
-[loomascale/ads-mcp](https://github.com/loomascale/ads-mcp). Change `mcp.json` to point
-at your server.
+The open-source Google Ads and Meta Ads tools run against your own accounts:
+[loomascale/ads-mcp](https://github.com/loomascale/ads-mcp).
 
 ## License
 

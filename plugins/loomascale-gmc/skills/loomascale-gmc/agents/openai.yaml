@@ -1,0 +1,15 @@
+interface:
+  display_name: "Google Merchant Center LScale"
+  short_description: "Diagnose product feed errors"
+  default_prompt: "Use $loomascale-gmc to diagnose product disapprovals and feed errors in my connected Google Merchant Center account."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-gmc"
+      description: "LoomaScale Google Merchant Center diagnostics and eligible product feed changes"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/gmc"
+
+policy:
+  allow_implicit_invocation: true

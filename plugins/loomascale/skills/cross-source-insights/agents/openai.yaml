@@ -1,0 +1,15 @@
+interface:
+  display_name: "LoomaScale cross-source insights"
+  short_description: "GA4, GTM, GSC & GMC: analytics, tracking, search and shopping"
+  default_prompt: "Use $cross-source-insights to explain changes in my marketing results using relevant connected integrations, with evidence and prioritized recommendations."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale"
+      description: "LoomaScale advertising, analytics, search, commerce and tracking tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp"
+
+policy:
+  allow_implicit_invocation: true

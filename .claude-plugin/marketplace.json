@@ -2,22 +2,93 @@
   "name": "loomascale",
   "owner": {
     "name": "LoomaScale",
-    "url": "https://ai.loomascale.com"
+    "url": "https://loomascale.com"
   },
-  "description": "LoomaScale: Google Ads and Meta Ads for Claude Code.",
+  "description": "LoomaScale plugins: Google Ads, Meta Ads, LinkedIn Ads, GA4, Google Tag Manager, Search Console and Merchant Center through one MCP server.",
   "plugins": [
     {
       "name": "loomascale",
-      "source": ".",
-      "description": "Run Google Ads and Meta Ads from your AI assistant: audit wasted spend, check pacing, draft paused campaigns, fix conversion tracking, behind a spend cap.",
+      "source": "./plugins/loomascale",
+      "description": "Audit and manage Google Ads and Meta Ads, and analyze LinkedIn Ads, GA4, GTM, Search Console and Merchant Center. Changes run only after you approve.",
+      "version": "1.1.7",
+      "category": "productivity",
+      "keywords": [
+        "google ads",
+        "meta ads",
+        "facebook ads",
+        "instagram ads",
+        "facebook advertising",
+        "instagram advertising",
+        "linkedin ads",
+        "linkedin advertising"
+      ]
+    },
+    {
+      "name": "loomascale-ga4",
+      "source": "./plugins/loomascale-ga4",
+      "description": "Analyze Google Analytics 4 traffic, conversions, revenue and funnels. Change key events and stream settings after a dry run and your approval.",
+      "version": "1.0.4",
+      "category": "productivity",
+      "keywords": [
+        "google analytics 4",
+        "google analytics",
+        "ga4",
+        "ga4 reports",
+        "website analytics",
+        "traffic analysis",
+        "traffic sources",
+        "landing pages"
+      ]
+    },
+    {
+      "name": "loomascale-gtm",
+      "source": "./plugins/loomascale-gtm",
+      "description": "Audit Google Tag Manager conversion tracking, draft workspace fixes, and publish only a container version you confirm.",
       "version": "1.0.0",
       "category": "productivity",
       "keywords": [
-        "google-ads",
-        "meta-ads",
-        "ppc",
-        "mcp",
-        "advertising"
+        "google tag manager",
+        "gtm",
+        "tag manager",
+        "conversion tracking",
+        "gtm audit",
+        "tracking audit",
+        "ga4 tags",
+        "google ads conversion tracking"
+      ]
+    },
+    {
+      "name": "loomascale-gsc",
+      "source": "./plugins/loomascale-gsc",
+      "description": "Google Search Console SEO analysis: compare organic traffic, find keyword opportunities and low-CTR pages, check indexing and sitemaps.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": [
+        "google search console",
+        "search console",
+        "gsc",
+        "seo analysis",
+        "seo reports",
+        "organic traffic",
+        "organic traffic drop",
+        "search queries"
+      ]
+    },
+    {
+      "name": "loomascale-gmc",
+      "source": "./plugins/loomascale-gmc",
+      "description": "Fix Google Merchant Center product disapprovals and feed errors, review Shopping performance, and update product data on request.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": [
+        "google merchant center",
+        "merchant center",
+        "gmc",
+        "google shopping",
+        "product feed",
+        "product feed diagnostics",
+        "disapproved products",
+        "feed errors"
       ]
     }
   ]
