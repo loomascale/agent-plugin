@@ -25,7 +25,7 @@
     "popular pages"
   ],
   "interface": {
-    "displayName": "Google Analytics | LoomaScale",
+    "displayName": "GA4 Google Analytics 4/LScale",
     "shortDescription": "Analyze GA4 and edit settings",
     "developerName": "LoomaScale",
     "composerIcon": "./assets/web-app-manifest-385x385.png",
