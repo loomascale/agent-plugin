@@ -146,7 +146,7 @@ present proposed budget, campaign or tracking changes for the user's decision.
 Honor existing explicit authorization for any separately requested action, its
 tool's permissions and the configured spend cap; use the
 [LoomaScale workflow skill](../loomascale/SKILL.md) for execution.
-LinkedIn Ads and Search Console tools are read-only; GA4, Merchant Center and
+LinkedIn Ads tools are read-only; Search Console, GA4, Merchant Center and
 Tag Manager changes belong to the loomascale skill and happen only on request.
 If a plan/trial limit blocks a read, use `loomascale_check_quota` and
 report the limitation without retry loops.

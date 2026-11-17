@@ -60,7 +60,7 @@
     {
       "name": "loomascale-gsc",
       "source": "./plugins/loomascale-gsc",
-      "description": "Google Search Console SEO analysis: compare organic traffic, find keyword opportunities and low-CTR pages, check indexing and sitemaps.",
+      "description": "Google Search Console SEO analysis: compare organic traffic, find keyword opportunities and low-CTR pages, check indexing, and submit sitemaps on request.",
       "version": "1.0.0",
       "category": "productivity",
       "keywords": [

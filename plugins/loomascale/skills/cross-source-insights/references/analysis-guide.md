@@ -110,8 +110,8 @@ the relevant campaign's delivery, spend and product results where exposed.
 Account-level policy/shipping issues can affect more products than a sampled
 item list. A capped query is not an exhaustive affected-product count. Rank fixes
 by severity, affected coverage and observed demand; distinguish observed lost
-traffic from conditional recovery estimates. Feed edits happen outside these
-read-only Merchant Center tools.
+traffic from conditional recovery estimates. Product and feed edits are separate
+Merchant Center write tools, used only when the user asks for a change.
 
 ## Does the tracking configuration explain a measurement gap?
 

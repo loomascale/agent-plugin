@@ -14,7 +14,7 @@ ships skills that tell the model how to use its tools safely.
 - Meta Pixel (Facebook Pixel) event activity, Event Match Quality and Conversions API diagnostics (read-only)
 - LinkedIn Ads performance and demographics reporting
 - Google Analytics 4 (GA4) traffic, conversion and funnel analysis
-- Google Search Console (GSC) search analytics and URL indexing inspection
+- Google Search Console (GSC) search analytics, URL indexing inspection, and sitemap and property management on request
 - Google Merchant Center (GMC) product issues and performance reporting
 - Google Tag Manager (GTM) tracking audits
 - Cross-source performance analysis, attribution diagnostics and budget recommendations

@@ -96,7 +96,8 @@ creatives before uploading or recreating media.
 
 These campaign/ad creation flows create paused objects. Use
 `gads_activate_campaign`/`meta_activate_campaign` for campaigns created through
-this server. Activation must be covered by the user's instruction; a request for
+this server. `meta_activate_campaign` previews first (`confirmed:false`); show the
+budget and call with `confirmed:true` only after the user approves. Activation must be covered by the user's instruction; a request for
 a draft ends at a verified paused configuration. For existing objects use
 `gads_set_status` (`ENABLED`/`PAUSED`) or `meta_set_status` (`ACTIVE`/`PAUSED`).
 
@@ -131,7 +132,7 @@ Preserve unrelated targeting and note that a change can restart learning.
 - `meta_create_ab_test` and `meta_create_lift_study` can alter live audience
   allocation immediately. Do not apply the paused-campaign assumption to
   experiments. `meta_end_ab_test` retains results; `meta_cancel_ab_test` deletes
-  the study and its results. Use the action the user requested.
+  the study and its results, after a `confirmed:false` preview and the user's approval. Use the action the user requested.
 - Prefer a reversible pause when the task is to stop serving. If deletion was
   requested, inspect current objects and the tool's prerequisites. Removal tools
   can require paused status and exact-name confirmation, such as

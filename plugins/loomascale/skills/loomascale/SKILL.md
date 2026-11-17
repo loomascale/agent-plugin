@@ -8,8 +8,11 @@ description: Work with connected LoomaScale integrations for Google Ads, Meta Ad
 LoomaScale connects advertising, analytics, organic search, shopping and tracking
 data through its MCP tools. Use the smallest relevant set of integrations to
 answer the question or complete the requested action. Google Ads and Meta Ads
-support campaign changes; LinkedIn Ads and Search Console provide read-only
-reporting and diagnosis. GA4 reports and, after a dry run and the user's approval,
+support campaign changes; LinkedIn Ads provides read-only reporting and diagnosis.
+Search Console reports and, when the user asks, submits or removes a sitemap
+(`gsc_submit_sitemap`, `gsc_delete_sitemap`) and adds or removes a property
+(`gsc_add_property`, `gsc_remove_property` with `confirm:true` after the user
+confirms); it cannot request indexing. GA4 reports and, after a dry run and the user's approval,
 changes key events, event rules, enhanced measurement, data redaction and web streams.
 Merchant Center reports and, when the user asks, changes
 account settings, business information, the website, feed settings and product
@@ -42,7 +45,7 @@ invent tools, arguments or access to an integration that the client does not exp
 | Meta Pixel (Facebook Pixel): received events, Event Match Quality and Conversions API health (read-only) | `meta_list_ad_accounts`, then `meta_list_datasets` | `meta_list_datasets` for 1-7 days of event counts; `meta_get_dataset_quality` for match quality and diagnostics |
 | LinkedIn Ads: B2B campaign results, leads and professional demographics | `linkedin_list_ad_accounts` | `linkedin_get_insights`, `linkedin_list_campaigns`, `linkedin_analyze_demographics` |
 | Google Analytics 4 (GA4): traffic, business events, revenue, funnels and tracking settings | `ga4_get_account_summaries` | `ga4_get_property_details`, then the appropriate report; `ga4_get_tracking_configuration` before requested changes, then the relevant configuration tool with `dry_run:true` |
-| Google Search Console (GSC): organic queries, pages, search visibility and indexing | `gsc_list_sites` | `gsc_compare_periods`, `gsc_query_search_analytics`, opportunity tools or `gsc_inspect_url` |
+| Google Search Console (GSC): organic queries, pages, search visibility and indexing | `gsc_list_sites` | `gsc_compare_periods`, `gsc_query_search_analytics`, opportunity tools or `gsc_inspect_url`; changes with `gsc_submit_sitemap`, `gsc_delete_sitemap`, `gsc_add_property`, `gsc_remove_property` (dry run, then `confirm:true`) |
 | Google Merchant Center (GMC): product eligibility, account issues, shopping performance, account and feed settings | `gmc_list_accounts` | `gmc_get_account_health`, then `gmc_query`; settings with `gmc_get_account_settings`, feeds with `gmc_list_data_sources` / `gmc_get_data_source`, one product with `gmc_get_product`, commercial settings with `gmc_get_shipping_settings` / `gmc_list_return_policies`; changes with `gmc_update_account`, `gmc_update_business_info`, `gmc_update_homepage` (dry run, then `confirm:true`), `gmc_claim_homepage`, `gmc_update_data_source`, `gmc_fetch_data_source`, `gmc_create_data_source`, `gmc_update_autofeed_settings`, `gmc_update_product_input`, `gmc_insert_product_input` |
 | Google Tag Manager (GTM): published tracking configuration, pending changes, draft fixes, versions and publishing | `gtm_list_containers` | `gtm_get_container`, `gtm_audit_tracking`, `gtm_list_workspaces`, `gtm_get_workspace_status`; draft fixes with `gtm_create_tag`, `gtm_update_tag`, `gtm_create_trigger`, `gtm_update_trigger`, `gtm_create_variable`, `gtm_update_variable`, `gtm_enable_built_in_variables`, `gtm_delete_entity` (an unreferenced tag, trigger or variable), `gtm_create_workspace`; release with `gtm_sync_workspace` (when behind live), `gtm_create_version`, then `gtm_publish_version` after the user confirms |
 

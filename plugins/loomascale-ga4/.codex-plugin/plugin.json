@@ -56,7 +56,7 @@
   "mcpServers": "./mcp.json",
   "name": "loomascale-ga4",
   "skills": "./skills/",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "extensions": {
     "com.openai": {
       "review": {

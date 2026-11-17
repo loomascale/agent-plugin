@@ -2,7 +2,7 @@
 
 `loomascale-gsc` is an agent plugin that connects Claude Code and Codex to your Google Search Console (GSC) properties through LoomaScale.
 
-Google Search Console (GSC) SEO analysis: compare organic search traffic, find keyword opportunities and low-CTR pages, and check URL indexing and sitemaps. Read-only access to your connected properties.
+Google Search Console (GSC) SEO analysis: compare organic search traffic, find keyword opportunities and low-CTR pages, and check URL indexing and sitemaps. Submit sitemaps and manage properties when you ask.
 
 The plugin connects your AI assistant to the LoomaScale MCP server at `https://api.loomascale.com/mcp/gsc` and
 ships skills that tell the model how to use its tools safely.
@@ -16,13 +16,16 @@ ships skills that tell the model how to use its tools safely.
 - Low-CTR pages with high impressions and estimated click potential
 - URL Inspection: stored indexing status, Google-selected canonical and last crawl
 - Sitemap status: last download, processing, errors and warnings
-- Read-only: no settings changes, indexing requests or sitemap submissions
+- Sitemap submission, resubmission and removal, on request
+- Add a Search Console property, or remove one after you confirm it
+- No indexing requests: Google offers no public API for them on normal pages
 
 ## Example prompts
 
 - "Compare my Google Search Console traffic over the last 28 days with the previous 28. Which pages lost clicks?"
 - "Find non-brand keywords with high impressions and low CTR in my Search Console data."
 - "Is my homepage indexed in Google? Check its canonical URL and my sitemap errors in Search Console."
+- "Resubmit my sitemap in Search Console now that its errors are fixed."
 
 ## Install
 
@@ -56,7 +59,11 @@ No API key is needed.
 
 ### Can it change my Search Console settings?
 
-No. This plugin is read-only: it reports search performance, inspects URLs and reads sitemap status. It does not submit sitemaps or request indexing.
+Only when you ask. It can submit, resubmit or remove a sitemap, add a property to your Search Console account, and remove a property after you confirm it (a dry run comes first). An added property stays unverified until you verify it in Search Console. These changes need the full Search Console permission (`webmasters`) on your connection; if it is missing, the tool asks you to reconnect.
+
+### Can it request indexing for a page?
+
+No. Google has no public API to request indexing of a normal page. The plugin can inspect a URL's stored index status; request indexing from URL Inspection in Search Console. It also never changes your website's content.
 
 ### Do I need this if I already use the `loomascale` plugin?
 

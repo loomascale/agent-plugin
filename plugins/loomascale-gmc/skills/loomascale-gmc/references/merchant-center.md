@@ -49,7 +49,9 @@ Read before writing, and name the account explicitly when the login reaches more
    current site and claim; call again with `confirm:true` only after the user confirmed the
    exact URL. Then `gmc_claim_homepage` (default `overwrite:false`); a verification refusal
    means the site must be verified for that Google login first. Pass `overwrite:true` only
-   when the user explicitly asked to move the claim from their other Merchant Center account.
+   when the user explicitly asked to move the claim from their other Merchant Center account;
+   that call is a dry run, and `overwrite:true` + `confirm:true` takes the claim only after the
+   user approved it. `gmc_update_autofeed_settings` is a dry run too until `confirm:true`.
 4. Feeds → `gmc_list_data_sources` shows every source with `input` (API, FILE, UI, AUTOFEED),
    `writable` and `fetchable`. `gmc_update_data_source` changes a fetched file's or Google
    Sheet's schedule and URL (`fetch_*` arguments) and any source's `display_name`; a fetch
@@ -66,6 +68,10 @@ Read before writing, and name the account explicitly when the login reaches more
    supplemental path: `gmc_create_data_source` (`kind: supplemental`), the user links it to
    the primary source in Merchant Center, then `gmc_insert_product_input` with the same
    `offer_id`, `content_language` and `feed_label` and only the overriding attributes.
+   Both product writes are dry runs unless `confirm: true`: the first call returns current →
+   proposed values and changes nothing. Show them to the user (price and availability go live
+   in Shopping ads once processed) and repeat the call with `confirm: true` only after the
+   user approves those exact values.
    Every product write is processed asynchronously: report it as submitted and verify with
    `gmc_get_product` a few minutes later, never as "live now".
 6. Shipping (`gmc_get_shipping_settings`) and return policies (`gmc_list_return_policies`)

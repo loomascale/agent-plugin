@@ -23,6 +23,24 @@ the supported 16-month history. These are organic search results.
   reads Google's stored index status, canonical, and last crawl; it neither runs a
   live page test nor requests indexing. Inspect at most 10 URLs per call.
 
+Search Console changes happen only when the user asks for them:
+
+- `gsc_submit_sitemap` submits or resubmits an existing sitemap URL. Success means
+  Google accepted it, not that pages were crawled or indexed; check with
+  `gsc_list_sitemaps` later.
+- `gsc_delete_sitemap` removes a submission (not the file or any page from Search).
+  Name the sitemap and get approval first; an unsubmitted sitemap returns `no_change`.
+- `gsc_add_property` takes the exact form, `sc-domain:example.com` or
+  `https://example.com/`; ask the user rather than guess. Report the returned
+  `permissionLevel`: the property stays unverified until the user verifies it in
+  Search Console.
+- `gsc_remove_property` is a dry run by default; call with `confirm:true` only after
+  the user confirms. It removes the property from this login's list only.
+
+Writes need the `webmasters` permission; when a tool says it is missing, give the
+user its reconnect link. Requesting indexing is not possible (Google has no public
+API for normal pages): point to URL Inspection in Search Console.
+
 For "Which mobile queries reach this page?", call `gsc_query_search_analytics`:
 
 ```json
