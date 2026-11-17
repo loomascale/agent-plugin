@@ -1,15 +1,17 @@
-# LoomaScale plugin for Google Ads, Meta Ads and marketing data
+# Google Ads by LoomaScale
 
 `loomascale` is an agent plugin that connects Claude Code, Codex and Grok Build to your Google Ads, Meta Ads, LinkedIn Ads, Google Analytics 4, Google Tag Manager, Google Search Console and Google Merchant Center accounts through one LoomaScale MCP server.
 
-Audit and manage Google Ads and Meta Ads (Facebook Ads and Instagram Ads) with LoomaScale. Analyze LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC) data to explain results and prioritize fixes. Manage GA4 key events, event rules, enhanced measurement, data redaction and web streams after a dry run and your approval. Check Meta Pixel (Facebook Pixel) events, Event Match Quality and Conversions API health.
+Audit and manage Google Ads with LoomaScale: campaigns, keywords, search terms, budgets and conversion tracking. Also supports Meta Ads and marketing data.
 
 The plugin connects your AI assistant to the LoomaScale MCP server at `https://api.loomascale.com/mcp` and
 ships skills that tell the model how to use its tools safely.
 
 ## What it does
 
-- Google Ads audits, search terms, keyword research, conversion tracking and campaign management
+- Audit Google Ads campaigns, search terms and conversion tracking; find wasted spend and negative keywords
+- Manage Google Ads Search, Shopping and Performance Max campaigns, ads, keywords, bids and budgets after approval
+- Research Google Ads keyword ideas, search volume, competition and bid estimates
 - Meta Ads audits, creative performance and campaign management for Facebook Ads and Instagram Ads
 - Meta Pixel (Facebook Pixel) event activity, Event Match Quality and Conversions API diagnostics (read-only)
 - LinkedIn Ads performance and demographics reporting
@@ -21,9 +23,9 @@ ships skills that tell the model how to use its tools safely.
 
 ## Example prompts
 
-- "Audit my Google Ads and Meta Ads (Facebook Ads and Instagram Ads) for wasted spend. Rank fixes without changing campaigns."
-- "Review my LinkedIn Ads performance alongside Google Analytics 4 (GA4). Explain conversion and funnel changes. Keep it read-only."
-- "Check Google Search Console (GSC), Google Tag Manager (GTM) and Google Merchant Center (GMC) for issues. Keep it read-only."
+- "Audit my Google Ads for wasted spend, search terms and conversion tracking issues. Rank fixes without making changes."
+- "Find negative keyword opportunities in my Google Ads search terms. Explain each recommendation. Keep it read-only."
+- "Draft a Google Ads Search campaign with keyword ideas and ad copy. Show the plan for approval before creating anything."
 
 ## Install
 

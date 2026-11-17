@@ -1,7 +1,7 @@
 {
   "name": "loomascale",
-  "version": "1.1.7",
-  "description": "Audit and manage Google Ads and Meta Ads, and analyze LinkedIn Ads, GA4, GTM, Search Console and Merchant Center. Changes run only after you approve.",
+  "version": "1.1.8",
+  "description": "Audit and manage Google Ads with LoomaScale: campaigns, keywords, search terms, budgets and conversion tracking. Also supports Meta Ads and marketing data.",
   "author": {
     "name": "LoomaScale",
     "url": "https://loomascale.com"
@@ -11,6 +11,16 @@
   "license": "MIT",
   "keywords": [
     "google ads",
+    "google ads audit",
+    "google ads management",
+    "google ads optimization",
+    "google ads reporting",
+    "google ads conversion tracking",
+    "google adwords",
+    "ppc",
+    "paid search",
+    "negative keywords",
+    "performance max",
     "meta ads",
     "facebook ads",
     "instagram ads",
