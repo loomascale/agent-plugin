@@ -31,6 +31,11 @@ Discover only the resources needed; do not run an account-wide audit for a narro
 question. Ask only for a missing choice that materially affects the result, such
 as which of several client accounts to change.
 
+For public competitor ads, use
+[competitor-ad-research](../competitor-ad-research/SKILL.md). Its advertiser lookup,
+ad-library tools and date defaults differ from connected-account reporting; it
+does not require the user's Google Ads or Meta Ads connection.
+
 Inspect the available tool descriptions and input schemas before calling them.
 Names below are the server's tool names; a client may add a namespace prefix.
 Live schemas and permissions take precedence over examples in this skill. Do not
@@ -42,6 +47,7 @@ invent tools, arguments or access to an integration that the client does not exp
 |---|---|---|
 | Google Ads: paid search, Shopping, Performance Max, keywords, budgets and delivery | `gads_list_ad_accounts` | `gads_get_insights`, `gads_list_campaigns`, `gads_list_search_terms`; `gads_check_pacing` for today's delivery |
 | Meta Ads: Facebook/Instagram campaigns, creatives, audiences and delivery | `meta_list_ad_accounts` | `meta_get_insights`, `meta_list_campaigns`, `meta_list_ads`, `meta_get_delivery_issues` |
+| Public competitor ads: Google Ads, Facebook and Instagram creatives, offers and destinations | Public advertiser or Meta Page lookup; no own-account discovery | [Competitor ad research](../competitor-ad-research/SKILL.md) |
 | Meta Pixel (Facebook Pixel): received events, Event Match Quality and Conversions API health (read-only) | `meta_list_ad_accounts`, then `meta_list_datasets` | `meta_list_datasets` for 1-7 days of event counts; `meta_get_dataset_quality` for match quality and diagnostics |
 | LinkedIn Ads: B2B campaign results, leads and professional demographics | `linkedin_list_ad_accounts` | `linkedin_get_insights`, `linkedin_list_campaigns`, `linkedin_analyze_demographics` |
 | Google Analytics 4 (GA4): traffic, business events, revenue, funnels and tracking settings | `ga4_get_account_summaries` | `ga4_get_property_details`, then the appropriate report; `ga4_get_tracking_configuration` before requested changes, then the relevant configuration tool with `dry_run:true` |

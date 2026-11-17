@@ -12,6 +12,10 @@ The user's instructions take precedence
 over this skill's workflow defaults; live tool schemas and server permissions
 determine supported operations.
 
+For public competitor creatives, offers and messaging, use
+[competitor-ad-research](../competitor-ad-research/SKILL.md). Keep public observations
+separate from the user's connected-account performance metrics.
+
 ## Scope the question and choose sources
 
 Identify the decision, business outcome, period and relevant accounts. Reuse the

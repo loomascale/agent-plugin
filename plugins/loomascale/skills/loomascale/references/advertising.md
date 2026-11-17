@@ -1,7 +1,10 @@
 # LoomaScale advertising workflows
 
 Use this guide for Google Ads, Meta Ads (Facebook and Instagram) and LinkedIn Ads.
-Resolve the advertiser with its discovery tool and pass the explicit account ID.
+For connected-account work, resolve the advertiser with its discovery tool and
+pass the explicit account ID. For public competitor ads, follow
+[competitor ad research](../../competitor-ad-research/SKILL.md): it uses public
+advertiser/Page IDs and does not require access to the competitor's ad account.
 Use the current tool schema for parameters, supported campaign types and limits.
 
 ## How should paid performance be reviewed?

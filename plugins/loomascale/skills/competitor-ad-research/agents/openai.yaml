@@ -1,0 +1,15 @@
+interface:
+  display_name: "LoomaScale competitor ad research"
+  short_description: "Research competitors' Google and Meta ads"
+  default_prompt: "Use $competitor-ad-research to research my named competitors in my target market, cite their public Google and Meta ads and identify messaging opportunities."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale"
+      description: "LoomaScale public Google Ads and Meta Ads competitor ad-library tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp"
+
+policy:
+  allow_implicit_invocation: true

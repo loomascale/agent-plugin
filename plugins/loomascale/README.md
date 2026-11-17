@@ -12,6 +12,7 @@ ships skills that tell the model how to use its tools safely.
 - Audit Google Ads campaigns, search terms and conversion tracking; find wasted spend and negative keywords
 - Manage Google Ads Search, Shopping and Performance Max campaigns, ads, keywords, bids and budgets after approval
 - Research Google Ads keyword ideas, search volume, competition and bid estimates
+- Research competitors' public Google Ads and Meta Ads creatives, offers and disclosed destinations with [competitor-ad-research](skills/competitor-ad-research/SKILL.md)
 - Meta Ads audits, creative performance and campaign management for Facebook Ads and Instagram Ads
 - Meta Pixel (Facebook Pixel) event activity, Event Match Quality and Conversions API diagnostics (read-only)
 - LinkedIn Ads performance and demographics reporting
@@ -26,10 +27,28 @@ ships skills that tell the model how to use its tools safely.
 - "Audit my Google Ads for wasted spend, search terms and conversion tracking issues. Rank fixes without making changes."
 - "Find negative keyword opportunities in my Google Ads search terms. Explain each recommendation. Keep it read-only."
 - "Draft a Google Ads Search campaign with keyword ideas and ad copy. Show the plan for approval before creating anything."
+- "Research example.com's Google ads in the US and compare its messaging with the Meta ads from the competitor's official Page. Cite examples and explain any coverage limits."
+
+## Competitor ad research skill
+
+[Competitor ad research](skills/competitor-ad-research/SKILL.md) finds public Google
+Ads and Meta Ads (Facebook and Instagram) advertisers, reads selected ad creatives
+and compares messaging, offers, calls to action and disclosed landing pages.
+It reports source dates and coverage, rather than estimating private campaign
+budgets, conversions or ROAS. Public research needs LoomaScale sign-in, without
+connecting your own Google Ads or Meta Ads account. Available tools depend on the
+client's current connection.
+
+In Codex, invoke `$competitor-ad-research` with the competitor and market, or ask
+the research question directly. The plugin also includes
+[integration workflows](skills/loomascale/SKILL.md) for your own accounts and
+[cross-source insights](skills/cross-source-insights/SKILL.md) for performance analysis.
 
 ## Install
 
-You need a [LoomaScale](https://loomascale.com) account with at least one ad account or data source connected.
+You need a [LoomaScale](https://loomascale.com) account. Public competitor ad research
+does not require an ad-account connection. Connect the relevant ad account or data
+source when you want to inspect or manage your own resources.
 
 Claude Code:
 
