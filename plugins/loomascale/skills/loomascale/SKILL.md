@@ -25,6 +25,11 @@ names after they confirm it in chat (`gtm_publish_version` with `confirm:true`).
 
 ## Start with the user's task
 
+For first-use orientation, "what can LoomaScale do for my business?" or next steps
+after an initial audit, use [getting-started](../getting-started/SKILL.md) to connect
+the user's goals and daily work to a first insight and repeatable workflows.
+Keep already defined reports and changes in their task-specific workflow.
+
 Identify the intended result: a report, diagnosis, recommendation, campaign draft
 or authorized change. Reuse the conversation's accounts, dates and business goal.
 Discover only the resources needed; do not run an account-wide audit for a narrow
@@ -87,12 +92,13 @@ default shared across chats. Use them only when changing that default is the tas
 Respect resources switched off in the dashboard; do not bypass a disabled target
 with an alternate ID. A partial discovery result is not proof that no accounts exist.
 
-For "what is connected?", use the relevant per-integration discovery tools; there
-is no unified connection-list tool. If a full inventory was requested, run the
-available discovery reads independently and summarize reachable resources and
-access errors. An empty resource list or absent tool does not establish that a
-dashboard connection is missing. Distinguish disconnected, disabled, inaccessible,
-still-discovering and unavailable states using the evidence returned.
+For "what is connected?", start with `loomascale_list_data_sources`. It returns
+supported sources, connection states, links and whether their tools are available
+in the current plugin. A recorded login does not establish resource access; use
+relevant per-integration discovery tools when account details are needed. An empty
+resource list or absent tool does not establish that a dashboard connection is
+missing. Distinguish disconnected, disabled, inaccessible, still-discovering and
+unavailable states using the evidence returned.
 
 ## Keep reads efficient and results comparable
 

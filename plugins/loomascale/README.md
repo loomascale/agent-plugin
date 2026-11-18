@@ -22,9 +22,27 @@ ships skills that tell the model how to use its tools safely.
 - Google Tag Manager (GTM) tracking audits
 - Cross-source performance analysis, attribution diagnostics and budget recommendations
 
+## How do I get started with LoomaScale?
+
+Use [getting-started](skills/getting-started/SKILL.md) to find practical ways
+LoomaScale can help your business. The skill checks connected sources, learns your
+goal and daily challenges, and runs a focused read when the target and access are
+clear. You get a first insight, tailored prompts for useful daily or weekly work,
+and a next step beyond the initial audit. It also suggests relevant sources you
+already use that could answer questions your current connections cannot.
+
+For example, a shop could review product issues and purchase funnel changes; a
+service business could investigate enquiry trends; an agency could repeat a
+client performance brief. Suggestions depend on your connected data and goals.
+Getting started does not change campaigns, settings or connections, or schedule
+background work.
+
+In Codex, invoke `$getting-started`, or use the first suggested prompt. In Claude
+Code or Grok Build, ask: "Help me get started with LoomaScale for my business."
+
 ## Example prompts
 
-- "Audit my Google Ads for wasted spend, search terms and conversion tracking issues. Rank fixes without making changes."
+- "Use $getting-started to tailor a first insight, repeatable workflows and useful data connections to my business goals and daily challenges. Keep it read-only."
 - "Find negative keyword opportunities in my Google Ads search terms. Explain each recommendation. Keep it read-only."
 - "Draft a Google Ads Search campaign with keyword ideas and ad copy. Show the plan for approval before creating anything."
 - "Research example.com's Google ads in the US and compare its messaging with the Meta ads from the competitor's official Page. Cite examples and explain any coverage limits."
@@ -79,6 +97,7 @@ No API key is needed.
 
 | Skill | What it covers |
 |---|---|
+| [`getting-started`](skills/getting-started/SKILL.md) | Turn business goals and daily challenges into a first insight, repeatable workflows, tailored prompts and relevant connection suggestions. |
 | [`competitor-ad-research`](skills/competitor-ad-research/SKILL.md) | Analyze competitors' public Google Ads and Meta Ads creatives, messaging, offers, calls to action and disclosed landing pages, with source links and coverage limits. |
 | `cross-source-insights` | Explain marketing performance using relevant connected Google Ads, Meta Ads (Facebook Ads and Instagram Ads), LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC) evidence. |
 | `loomascale` | Work with connected LoomaScale integrations for Google Ads, Meta Ads (Facebook Ads and Instagram Ads), LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC). |

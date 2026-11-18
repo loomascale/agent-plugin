@@ -74,7 +74,7 @@
     ],
     "category": "Business & Operations",
     "defaultPrompt": [
-      "Audit my Google Ads for wasted spend, search terms and conversion tracking issues. Rank fixes without making changes.",
+      "Use $getting-started to tailor a first insight, repeatable workflows and useful data connections to my business goals and daily challenges. Keep it read-only.",
       "Find negative keyword opportunities in my Google Ads search terms. Explain each recommendation. Keep it read-only.",
       "Draft a Google Ads Search campaign with keyword ideas and ad copy. Show the plan for approval before creating anything.",
       "Research example.com's Google ads in the US and compare its messaging with the Meta ads from the competitor's official Page. Cite examples and explain any coverage limits.",

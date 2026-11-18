@@ -20,6 +20,22 @@ only after you approve it. Ad budgets are also checked against a daily spend cap
 Install `loomascale` if you want everything in one place. Install a single-integration
 plugin if you only work with that one product.
 
+## How do I get started with LoomaScale?
+
+Start with the main plugin's
+[getting-started skill](plugins/loomascale/skills/getting-started/SKILL.md).
+It checks your connected sources, asks about your business goal and daily
+challenges when needed, and helps you get a first useful insight. It then gives
+you tailored prompts for recurring work, such as reviewing spend, investigating
+sales changes or preparing client reports, plus relevant connection suggestions.
+The workflow is read-only; it does not schedule background work.
+
+In Codex, use `$getting-started`. In Claude Code or Grok Build, ask: "Help me get
+started with LoomaScale for my business." See the
+[getting-started guide](plugins/loomascale/README.md#how-do-i-get-started-with-loomascale)
+for what to expect. This skill ships with `loomascale`; single-integration plugins
+keep their focused workflows.
+
 ## How can I analyze competitors' ads?
 
 Install `loomascale` and use its

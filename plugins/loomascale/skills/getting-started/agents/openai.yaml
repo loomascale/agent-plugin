@@ -1,0 +1,15 @@
+interface:
+  display_name: "Getting started with LoomaScale"
+  short_description: "Turn your marketing data into useful business routines"
+  default_prompt: "Use $getting-started to tailor a first insight, repeatable workflows and useful data connections to my business goals and daily challenges. Keep it read-only."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale"
+      description: "LoomaScale source discovery, advertising, analytics, search, commerce and tracking tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp"
+
+policy:
+  allow_implicit_invocation: true
