@@ -53,7 +53,7 @@
     "ad creative analysis"
   ],
   "interface": {
-    "displayName": "Google Ads",
+    "displayName": "Google Ads/Meta Ads LoomaScale",
     "shortDescription": "Manage Google Ads & analyze competitors",
     "developerName": "LoomaScale",
     "composerIcon": "./assets/web-app-manifest-385x385.png",
