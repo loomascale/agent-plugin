@@ -7,6 +7,7 @@
     "url": "https://loomascale.com"
   },
   "homepage": "https://loomascale.com",
+  "privacyPolicyUrl": "https://loomascale.com/privacy",
   "repository": "https://github.com/loomascale/agent-plugin",
   "license": "MIT",
   "keywords": [
