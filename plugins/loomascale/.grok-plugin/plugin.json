@@ -1,7 +1,7 @@
 {
   "name": "loomascale",
-  "version": "1.1.8",
-  "description": "Audit and manage Google Ads with LoomaScale: campaigns, keywords, search terms, budgets and conversion tracking. Also supports Meta Ads and marketing data.",
+  "version": "1.2.0",
+  "description": "Audit and manage Google Ads and Meta Ads, analyze marketing data, and research competitors' ads with LoomaScale.",
   "author": {
     "name": "LoomaScale",
     "url": "https://loomascale.com"
@@ -50,7 +50,13 @@
     "meta pixel",
     "facebook pixel",
     "conversions api",
-    "event match quality"
+    "event match quality",
+    "competitor analysis",
+    "competitor ad research",
+    "google ads transparency center",
+    "meta ad library",
+    "facebook ad library",
+    "ad creative analysis"
   ],
   "logo": "assets/web-app-manifest-385x385.png"
 }

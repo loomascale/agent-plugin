@@ -2,15 +2,16 @@
 
 LoomaScale plugins connect Claude Code, Codex and Grok Build to your Google Ads,
 Meta Ads, LinkedIn Ads, Google Analytics 4, Google Tag Manager, Google Search Console
-and Google Merchant Center accounts through one hosted MCP server. Every change is shown
-to you first and runs only after you approve it. Ad budgets are also checked against a
-daily spend cap you set.
+and Google Merchant Center accounts through one hosted MCP server. The `loomascale`
+plugin also analyzes competitors' public Google Ads and Meta Ads through Google Ads
+Transparency Center and Meta Ad Library. Every change is shown to you first and runs
+only after you approve it. Ad budgets are also checked against a daily spend cap you set.
 
 ## Plugins
 
 | Plugin | MCP endpoint | Use it for |
 |---|---|---|
-| [`loomascale`](plugins/loomascale) | `https://api.loomascale.com/mcp` | Everything: Google Ads and Meta Ads audits and campaign management, LinkedIn Ads, GA4, GTM, GSC and GMC analysis |
+| [`loomascale`](plugins/loomascale) | `https://api.loomascale.com/mcp` | Google Ads and Meta Ads audits, campaign management and public competitor ad analysis; LinkedIn Ads, GA4, GTM, GSC and GMC analysis |
 | [`loomascale-ga4`](plugins/loomascale-ga4) | `https://api.loomascale.com/mcp/ga4` | Google Analytics 4 traffic, conversion and funnel reports; key events and stream settings after a dry run |
 | [`loomascale-gtm`](plugins/loomascale-gtm) | `https://api.loomascale.com/mcp/gtm` | Google Tag Manager tracking audits, draft workspace fixes, publish only a version you confirm |
 | [`loomascale-gsc`](plugins/loomascale-gsc) | `https://api.loomascale.com/mcp/gsc` | Google Search Console clicks, keyword opportunities, indexing and sitemaps |
@@ -19,10 +20,25 @@ daily spend cap you set.
 Install `loomascale` if you want everything in one place. Install a single-integration
 plugin if you only work with that one product.
 
+## How can I analyze competitors' ads?
+
+Install `loomascale` and use its
+[competitor-ad-research skill](plugins/loomascale/skills/competitor-ad-research/SKILL.md)
+to compare competitors' Google Ads and Meta Ads creatives, messaging, offers and disclosed
+landing pages. Results include public ad-library links, dates and coverage limits.
+LoomaScale sign-in is required; connecting your own ad account is unnecessary.
+Public records do not reveal private budgets, conversions or ROAS.
+
+Example: "Research example.com's Google ads in the US and compare its messaging with
+the Meta ads from the competitor's official Page. Cite examples and explain any coverage limits."
+
+See the [plugin guide](plugins/loomascale/README.md) for setup and more examples.
+
 ## Install
 
-You need a [LoomaScale](https://loomascale.com) account with the matching integration
-connected. The free trial covers all plugins.
+You need a [LoomaScale](https://loomascale.com) account. Public competitor ad research
+does not require an ad-account connection. Connect the matching integration to inspect
+or manage your own accounts. The free trial covers all plugins.
 
 ### Claude Code
 

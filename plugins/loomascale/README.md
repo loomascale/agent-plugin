@@ -2,7 +2,7 @@
 
 `loomascale` is an agent plugin that connects Claude Code, Codex and Grok Build to your Google Ads, Meta Ads, LinkedIn Ads, Google Analytics 4, Google Tag Manager, Google Search Console and Google Merchant Center accounts through one LoomaScale MCP server.
 
-Audit and manage Google Ads with LoomaScale: campaigns, keywords, search terms, budgets and conversion tracking. Also supports Meta Ads and marketing data.
+Audit and manage Google Ads and Meta Ads, analyze marketing data, and research competitors' ads with LoomaScale.
 
 The plugin connects your AI assistant to the LoomaScale MCP server at `https://api.loomascale.com/mcp` and
 ships skills that tell the model how to use its tools safely.
@@ -12,7 +12,7 @@ ships skills that tell the model how to use its tools safely.
 - Audit Google Ads campaigns, search terms and conversion tracking; find wasted spend and negative keywords
 - Manage Google Ads Search, Shopping and Performance Max campaigns, ads, keywords, bids and budgets after approval
 - Research Google Ads keyword ideas, search volume, competition and bid estimates
-- Research competitors' public Google Ads and Meta Ads creatives, offers and disclosed destinations with [competitor-ad-research](skills/competitor-ad-research/SKILL.md)
+- Analyze competitors' public Google Ads and Meta Ads creatives, messaging, offers and disclosed landing pages with [competitor-ad-research](skills/competitor-ad-research/SKILL.md)
 - Meta Ads audits, creative performance and campaign management for Facebook Ads and Instagram Ads
 - Meta Pixel (Facebook Pixel) event activity, Event Match Quality and Conversions API diagnostics (read-only)
 - LinkedIn Ads performance and demographics reporting
@@ -28,16 +28,21 @@ ships skills that tell the model how to use its tools safely.
 - "Find negative keyword opportunities in my Google Ads search terms. Explain each recommendation. Keep it read-only."
 - "Draft a Google Ads Search campaign with keyword ideas and ad copy. Show the plan for approval before creating anything."
 - "Research example.com's Google ads in the US and compare its messaging with the Meta ads from the competitor's official Page. Cite examples and explain any coverage limits."
+- "Analyze this competitor's active Facebook and Instagram ads in the UK. Compare offers and calls to action, with source links."
 
-## Competitor ad research skill
+## How can I analyze competitors' ads?
 
-[Competitor ad research](skills/competitor-ad-research/SKILL.md) finds public Google
-Ads and Meta Ads (Facebook and Instagram) advertisers, reads selected ad creatives
-and compares messaging, offers, calls to action and disclosed landing pages.
-It reports source dates and coverage, rather than estimating private campaign
-budgets, conversions or ROAS. Public research needs LoomaScale sign-in, without
-connecting your own Google Ads or Meta Ads account. Available tools depend on the
-client's current connection.
+Use [competitor-ad-research](skills/competitor-ad-research/SKILL.md) to find advertisers
+in Google Ads Transparency Center and Meta Ad Library (Facebook and Instagram).
+Compare public ad creatives, messaging, offers, calls to action and disclosed landing
+pages. Results include source links, dates and coverage limits. Sign in to LoomaScale;
+you do not need to connect your own ad account.
+
+Public ad records do not reveal private campaign budgets, conversions or ROAS.
+Available tools and historical coverage depend on the client's current connection
+and the public library. The skill includes separate guides for
+[Google Ads competitor research](skills/competitor-ad-research/references/google-ads.md)
+and [Meta Ads competitor research](skills/competitor-ad-research/references/meta-ads.md).
 
 In Codex, invoke `$competitor-ad-research` with the competitor and market, or ask
 the research question directly. The plugin also includes
@@ -74,6 +79,7 @@ No API key is needed.
 
 | Skill | What it covers |
 |---|---|
+| [`competitor-ad-research`](skills/competitor-ad-research/SKILL.md) | Analyze competitors' public Google Ads and Meta Ads creatives, messaging, offers, calls to action and disclosed landing pages, with source links and coverage limits. |
 | `cross-source-insights` | Explain marketing performance using relevant connected Google Ads, Meta Ads (Facebook Ads and Instagram Ads), LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC) evidence. |
 | `loomascale` | Work with connected LoomaScale integrations for Google Ads, Meta Ads (Facebook Ads and Instagram Ads), LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC). |
 

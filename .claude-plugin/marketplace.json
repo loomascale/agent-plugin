@@ -4,13 +4,13 @@
     "name": "LoomaScale",
     "url": "https://loomascale.com"
   },
-  "description": "LoomaScale plugins: Google Ads, Meta Ads, LinkedIn Ads, GA4, Google Tag Manager, Search Console and Merchant Center through one MCP server.",
+  "description": "LoomaScale plugins for Google Ads, Meta Ads, competitor ad analysis, LinkedIn Ads, GA4, Tag Manager, Search Console and Merchant Center.",
   "plugins": [
     {
       "name": "loomascale",
       "source": "./plugins/loomascale",
-      "description": "Audit and manage Google Ads with LoomaScale: campaigns, keywords, search terms, budgets and conversion tracking. Also supports Meta Ads and marketing data.",
-      "version": "1.1.8",
+      "description": "Audit and manage Google Ads and Meta Ads, analyze marketing data, and research competitors' ads with LoomaScale.",
+      "version": "1.2.0",
       "category": "productivity",
       "keywords": [
         "google ads",
@@ -30,7 +30,13 @@
         "facebook advertising",
         "instagram advertising",
         "linkedin ads",
-        "linkedin advertising"
+        "linkedin advertising",
+        "competitor analysis",
+        "competitor ad research",
+        "google ads transparency center",
+        "meta ad library",
+        "facebook ad library",
+        "ad creative analysis"
       ]
     },
     {
