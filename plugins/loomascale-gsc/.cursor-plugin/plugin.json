@@ -1,6 +1,6 @@
 {
   "name": "loomascale-gsc",
-  "displayName": "Google Search Console by LoomaScale",
+  "displayName": "Google Search Console (GSC) MCP by LoomaScale",
   "version": "1.0.0",
   "description": "Google Search Console SEO analysis: compare organic traffic, find keyword opportunities and low-CTR pages, check indexing, and submit sitemaps on request.",
   "author": {
