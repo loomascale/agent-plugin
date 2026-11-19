@@ -5,12 +5,12 @@
     "url": "https://loomascale.com"
   },
   "metadata": {
-    "description": "LoomaScale plugins for Google Ads, Meta Ads, LinkedIn Ads, GA4, Google Tag Manager, Search Console and Merchant Center.",
+    "description": "LoomaScale plugins for Google Ads, Meta Ads, LinkedIn Ads, GA4, Google Tag Manager, Google Search Console and Google Merchant Center.",
     "version": "1.0.0"
   },
   "plugins": [
     {
-      "name": "loomascale",
+      "name": "Google Ads/Meta Ads LoomaScale",
       "source": "./plugins/loomascale",
       "description": "Google Ads and Meta Ads (Facebook, Instagram) audits, campaigns and competitor ad research. Also LinkedIn Ads, GA4, GTM, Search Console, Merchant Center."
     },
