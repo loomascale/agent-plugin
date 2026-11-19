@@ -1,43 +1,37 @@
 {
   "name": "loomascale",
   "owner": {
-    "name": "LoomaScale",
-    "url": "https://loomascale.com"
+    "name": "LoomaScale"
   },
   "metadata": {
-    "description": "LoomaScale plugins for Google Ads, Meta Ads, LinkedIn Ads, GA4, Google Tag Manager, Google Search Console and Google Merchant Center.",
+    "description": "LoomaScale MCP for Cursor: Google Ads, Meta Ads, LinkedIn Ads, GA4, GTM, Search Console and Merchant Center, with public competitor ad research.",
     "version": "1.0.0"
   },
   "plugins": [
     {
       "name": "loomascale",
-      "displayName": "Google Ads & Meta Ads LoomaScale",
       "source": "./plugins/loomascale",
-      "description": "Google Ads and Meta Ads (Facebook, Instagram) audits, campaigns and competitor ad research. Also LinkedIn Ads, GA4, GTM, Search Console, Merchant Center."
+      "description": "Google Ads and Meta Ads MCP for Cursor: audit campaigns, research competitors' public ads and apply campaign changes after your approval."
     },
     {
       "name": "loomascale-ga4",
-      "displayName": "Google Analytics 4 (GA4) LoomaScale",
       "source": "./plugins/loomascale-ga4",
-      "description": "Analyze Google Analytics 4 traffic, conversions, revenue and funnels. Change key events and stream settings after a dry run and your approval."
+      "description": "Google Analytics 4 MCP for Cursor: analyze traffic, conversions, revenue and funnels. Change key events and stream settings after a dry run and approval."
     },
     {
       "name": "loomascale-gtm",
-      "displayName": "Google Tag Manager (GTM) LoomaScale",
       "source": "./plugins/loomascale-gtm",
-      "description": "Audit Google Tag Manager conversion tracking, draft workspace fixes, and publish only a container version you confirm."
+      "description": "Google Tag Manager (GTM) MCP for Cursor: audit conversion tracking, draft workspace fixes and publish only the container version you confirm."
     },
     {
       "name": "loomascale-gsc",
-      "displayName": "Google Search Console (GSC) LoomaScale",
       "source": "./plugins/loomascale-gsc",
-      "description": "Google Search Console SEO analysis: compare organic traffic, find keyword opportunities and low-CTR pages, check indexing, and submit sitemaps on request."
+      "description": "Google Search Console MCP for Cursor: analyze SEO traffic, keywords and CTR, inspect URL indexing and submit sitemaps on request."
     },
     {
       "name": "loomascale-gmc",
-      "displayName": "Google Merchant Center (GMC) LoomaScale",
       "source": "./plugins/loomascale-gmc",
-      "description": "Fix Google Merchant Center product disapprovals and feed errors, review Shopping performance, and update product data on request."
+      "description": "Google Merchant Center MCP for Cursor: diagnose disapprovals and feed errors, review Shopping performance and update eligible product data on request."
     }
   ]
 }

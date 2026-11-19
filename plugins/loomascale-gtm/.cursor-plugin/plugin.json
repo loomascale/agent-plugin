@@ -2,10 +2,9 @@
   "name": "loomascale-gtm",
   "displayName": "Google Tag Manager (GTM) MCP by LoomaScale",
   "version": "1.0.0",
-  "description": "Audit Google Tag Manager conversion tracking, draft workspace fixes, and publish only a container version you confirm.",
+  "description": "Google Tag Manager (GTM) MCP for Cursor: audit conversion tracking, draft workspace fixes and publish only the container version you confirm.",
   "author": {
-    "name": "LoomaScale",
-    "url": "https://loomascale.com"
+    "name": "LoomaScale"
   },
   "homepage": "https://loomascale.com",
   "repository": "https://github.com/loomascale/agent-plugin",
@@ -13,12 +12,15 @@
   "keywords": [
     "google tag manager",
     "gtm",
-    "tag manager",
+    "google tag manager mcp",
+    "cursor",
+    "mcp",
     "conversion tracking",
     "gtm audit",
-    "tracking audit",
     "ga4 tags",
-    "google ads conversion tracking"
+    "google ads conversion tracking",
+    "workspace changes",
+    "container publishing"
   ],
   "logo": "assets/web-app-manifest-385x385.png"
 }

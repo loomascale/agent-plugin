@@ -3,10 +3,40 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import process from "node:process";
+import { fileURLToPath } from "node:url";
+import Ajv from "ajv";
+import addFormats from "ajv-formats";
 
-const repoRoot = process.cwd();
+const scriptPath = fileURLToPath(import.meta.url);
+const repoRoot = path.resolve(path.dirname(scriptPath), "..");
 const errors = [];
 const warnings = [];
+
+// Unmodified official Cursor schemas from cursor/plugins, retrieved 2026-11-19:
+// https://github.com/cursor/plugins/tree/e58dd043600587dbaf58ba315e7f2b38373eeb43/schemas
+// SHA-256 marketplace: 50c85058bf329588401fd2fc93180a574fa64abbb6c2606400febfb6f4d094e8
+// SHA-256 plugin: 31db124b1c7e43c22abb13ebf7e7c74556482e480fd492b80638d815c85b96b1
+// Use Ajv and ajv-formats, as Cursor's scripts/validate-plugins.mjs does.
+const ajv = new Ajv({ allErrors: true });
+addFormats(ajv);
+const schemaValidators = {};
+for (const kind of ["marketplace", "plugin"]) {
+  const schemaPath = path.join(repoRoot, "scripts", "schemas", `${kind}.schema.json`);
+  const schema = JSON.parse(await fs.readFile(schemaPath, "utf8"));
+  schemaValidators[kind] = ajv.compile(schema);
+}
+
+export function validateCursorManifest(kind, manifest) {
+  const validate = schemaValidators[kind];
+  if (!validate) throw new Error(`Unknown Cursor manifest kind: ${kind}`);
+  if (validate(manifest)) return [];
+  return validate.errors.map((error) => {
+    const detail = error.keyword === "additionalProperties"
+      ? `${error.message}: "${error.params.additionalProperty}"`
+      : error.message;
+    return `${error.instancePath || "/"}: ${detail}`;
+  });
+}
 
 const pluginNamePattern = /^[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?$/;
 const marketplaceNamePattern = /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -48,14 +78,14 @@ async function readJsonFile(filePath, context) {
     raw = await fs.readFile(filePath, "utf8");
   } catch {
     addError(`${context} is missing: ${filePath}`);
-    return null;
+    return undefined;
   }
 
   try {
     return JSON.parse(raw);
   } catch (error) {
     addError(`${context} contains invalid JSON (${filePath}): ${error.message}`);
-    return null;
+    return undefined;
   }
 }
 
@@ -250,7 +280,14 @@ function resolveMarketplaceSource(source, pluginRoot) {
 async function main() {
   const marketplacePath = path.join(repoRoot, ".cursor-plugin", "marketplace.json");
   const marketplace = await readJsonFile(marketplacePath, "Marketplace manifest");
-  if (!marketplace) {
+  if (marketplace === undefined) {
+    summarizeAndExit();
+    return;
+  }
+
+  const marketplaceSchemaErrors = validateCursorManifest("marketplace", marketplace);
+  if (marketplaceSchemaErrors.length > 0) {
+    for (const error of marketplaceSchemaErrors) addError(`Marketplace schema ${error}`);
     summarizeAndExit();
     return;
   }
@@ -318,7 +355,13 @@ async function main() {
 
     const manifestPath = path.join(pluginDir, ".cursor-plugin", "plugin.json");
     const pluginManifest = await readJsonFile(manifestPath, `${entry.name} plugin manifest`);
-    if (!pluginManifest) {
+    if (pluginManifest === undefined) {
+      continue;
+    }
+
+    const pluginSchemaErrors = validateCursorManifest("plugin", pluginManifest);
+    if (pluginSchemaErrors.length > 0) {
+      for (const error of pluginSchemaErrors) addError(`${entry.name}: plugin schema ${error}`);
       continue;
     }
 
@@ -343,11 +386,6 @@ async function main() {
     }
 
     await validateComponentFrontmatter(pluginDir, entry.name);
-
-    const hooksPath = path.join(pluginDir, "hooks", "hooks.json");
-    if (!(await pathExists(hooksPath))) {
-      addWarning(`${entry.name}: no hooks/hooks.json file found (only needed when using hooks).`);
-    }
 
     const mcpPath = path.join(pluginDir, "mcp.json");
     if (!(await pathExists(mcpPath))) {
@@ -378,4 +416,6 @@ function summarizeAndExit() {
   console.log("Validation passed.");
 }
 
-await main();
+if (process.argv[1] && path.resolve(process.argv[1]) === scriptPath) {
+  await main();
+}

@@ -1,8 +1,9 @@
-# Google Analytics 4 (GA4) plugin by LoomaScale
+# Google Analytics 4 (GA4) MCP plugin by LoomaScale
 
-`loomascale-ga4` is an agent plugin that connects Claude Code and Codex to your Google Analytics 4 (GA4) properties through LoomaScale.
-
-Analyze Google Analytics 4 (GA4) traffic, conversions, revenue and funnels with LoomaScale. Manage key events, event rules, enhanced measurement, data redaction and web streams after a dry run and your approval.
+`loomascale-ga4` is a Google Analytics 4 (GA4) MCP plugin for Cursor, Claude Code,
+Codex and Grok Build. It connects to your GA4 properties through LoomaScale to
+analyze traffic, conversions, revenue and funnels. Requested tracking-setting
+changes run only after a dry run and your approval.
 
 The plugin connects your AI assistant to the LoomaScale MCP server at `https://api.loomascale.com/mcp/ga4` and
 ships skills that tell the model how to use its tools safely.
@@ -44,11 +45,27 @@ codex plugin add loomascale-ga4@loomascale
 codex mcp login loomascale-ga4
 ```
 
-Cursor: until the Cursor Marketplace listing is live, add `https://api.loomascale.com/mcp/ga4`
-in **Cursor Settings → MCP → Add new MCP server**.
+### How do I connect Cursor to Google Analytics 4?
 
-On first use, the client opens LoomaScale sign-in in your browser. Approve access there.
-No API key is needed.
+Create or merge this configuration in your project's `.cursor/mcp.json`, or use
+`~/.cursor/mcp.json` for access across projects. Complete LoomaScale sign-in in your
+browser when Cursor prompts you. No API key is needed; connect Google Analytics 4 in
+the LoomaScale dashboard to access your own properties.
+
+```json
+{
+  "mcpServers": {
+    "loomascale-ga4": {
+      "url": "https://api.loomascale.com/mcp/ga4"
+    }
+  }
+}
+```
+
+Manual MCP setup connects the hosted tools; a plugin installation also includes the
+bundled workflow skills. See the [official Cursor MCP setup guide](https://cursor.com/docs/mcp).
+
+For Claude Code and Codex, complete browser sign-in when the client prompts you.
 
 ## Skills
 
@@ -65,9 +82,9 @@ No. Reports never change settings. Key event, event rule, enhanced measurement, 
 
 ### Do I need this if I already use the `loomascale` plugin?
 
-No. The all-in [`loomascale`](../loomascale) plugin includes every GA4 tool plus Google Ads, Meta Ads and the other integrations. Use `loomascale-ga4` when GA4 is the only product you work with.
+No. The [all-in-one Google Ads and Meta Ads MCP plugin](../loomascale) includes every GA4 tool plus Google Ads, Meta Ads and the other integrations. Use `loomascale-ga4` when GA4 is the only product you work with.
 
-## Authentication and network
+## How does authentication work?
 
 The plugin holds no credentials. The server uses OAuth 2.1 with PKCE and dynamic client
 registration: the client finds the authorization server from the first `401`, registers
@@ -96,7 +113,7 @@ skills/                      Agent Skills
 assets/                      logo
 ```
 
-Part of [LoomaScale agent plugins](https://github.com/loomascale/agent-plugin), built by
+Part of [LoomaScale MCP plugins for Cursor and other AI assistants](https://github.com/loomascale/agent-plugin), built by
 [LoomaScale](https://loomascale.com). LoomaScale is an independent product, not affiliated with or endorsed by Google, Meta or
 LinkedIn. [Privacy](https://loomascale.com/privacy), [terms](https://loomascale.com/terms),
 [contact](https://loomascale.com/contact). MIT licensed.

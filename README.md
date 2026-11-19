@@ -1,24 +1,31 @@
-# LoomaScale agent plugins for Google Ads, Meta Ads and marketing data
+# LoomaScale MCP plugins for Cursor: Google Ads and Meta Ads
 
-LoomaScale plugins connect Claude Code, Codex, Cursor and Grok Build to your Google Ads,
-Meta Ads, LinkedIn Ads, Google Analytics 4, Google Tag Manager, Google Search Console
-and Google Merchant Center accounts through one hosted MCP server. The `loomascale`
-plugin also analyzes competitors' public Google Ads and Meta Ads through Google Ads
-Transparency Center and Meta Ad Library. Every change is shown to you first and runs
-only after you approve it. Ad budgets are also checked against a daily spend cap you set.
+LoomaScale's Model Context Protocol (MCP) plugins connect Cursor, Claude Code, Codex
+and Grok Build to advertising and marketing data. Use the main plugin for Google Ads
+and Meta Ads audits, approved campaign changes and public competitor ad research,
+or choose a focused plugin for analytics, tracking, organic search or product feeds.
 
-## Plugins
+The hosted service supports Google Ads, Meta Ads (Facebook and Instagram), LinkedIn Ads,
+Google Analytics 4, Google Tag Manager, Google Search Console and Google Merchant Center.
+Competitor research uses Google Ads Transparency Center and Meta Ad Library. Every
+change is shown to you first and runs only after you approve it. Ad budgets are also
+checked against a daily spend cap you set.
+
+## Which LoomaScale MCP plugin should I install?
+
+Install `loomascale` for Google Ads, Meta Ads and the other supported integrations
+through one MCP connection. Choose a focused plugin when you only need Google
+Analytics 4, Google Tag Manager, Google Search Console or Google Merchant Center.
+The table links to each plugin's setup and examples.
 
 | Plugin | MCP endpoint | Use it for |
 |---|---|---|
-| [`loomascale`](plugins/loomascale) | `https://api.loomascale.com/mcp` | Google Ads and Meta Ads audits, campaign management and public competitor ad analysis; LinkedIn Ads, GA4, GTM, GSC and GMC analysis |
-| [`loomascale-ga4`](plugins/loomascale-ga4) | `https://api.loomascale.com/mcp/ga4` | Google Analytics 4 traffic, conversion and funnel reports; key events and stream settings after a dry run |
-| [`loomascale-gtm`](plugins/loomascale-gtm) | `https://api.loomascale.com/mcp/gtm` | Google Tag Manager tracking audits, draft workspace fixes, publish only a version you confirm |
-| [`loomascale-gsc`](plugins/loomascale-gsc) | `https://api.loomascale.com/mcp/gsc` | Google Search Console clicks, keyword opportunities, indexing and sitemaps |
-| [`loomascale-gmc`](plugins/loomascale-gmc) | `https://api.loomascale.com/mcp/gmc` | Google Merchant Center disapprovals, feed errors and product updates |
+| [Google Ads and Meta Ads MCP (`loomascale`)](plugins/loomascale) | `https://api.loomascale.com/mcp` | Google Ads and Meta Ads audits, campaign management and public competitor ad analysis; LinkedIn Ads, GA4, GTM, GSC and GMC analysis |
+| [Google Analytics 4 MCP (`loomascale-ga4`)](plugins/loomascale-ga4) | `https://api.loomascale.com/mcp/ga4` | Google Analytics 4 traffic, conversion and funnel reports; key events and stream settings after a dry run |
+| [Google Tag Manager MCP (`loomascale-gtm`)](plugins/loomascale-gtm) | `https://api.loomascale.com/mcp/gtm` | Google Tag Manager tracking audits, draft workspace fixes, publish only a version you confirm |
+| [Google Search Console MCP (`loomascale-gsc`)](plugins/loomascale-gsc) | `https://api.loomascale.com/mcp/gsc` | Google Search Console clicks, keyword opportunities, indexing and sitemaps |
+| [Google Merchant Center MCP (`loomascale-gmc`)](plugins/loomascale-gmc) | `https://api.loomascale.com/mcp/gmc` | Google Merchant Center disapprovals, feed errors and product updates |
 
-Install `loomascale` if you want everything in one place. Install a single-integration
-plugin if you only work with that one product.
 
 ## How do I get started with LoomaScale?
 
@@ -48,7 +55,7 @@ Public records do not reveal private budgets, conversions or ROAS.
 Example: "Research example.com's Google ads in the US and compare its messaging with
 the Meta ads from the competitor's official Page. Cite examples and explain any coverage limits."
 
-See the [plugin guide](plugins/loomascale/README.md) for setup and more examples.
+See the [Google Ads and Meta Ads MCP guide](plugins/loomascale/README.md) for setup and more examples.
 
 ## Install
 
@@ -78,12 +85,26 @@ codex mcp login loomascale
 Guides: [Connect Codex to Google Ads](https://loomascale.com/connect-codex-to-google-ads),
 [Connect Codex to Meta Ads](https://loomascale.com/connect-codex-to-meta-ads).
 
-### Cursor
+### How do I connect Cursor to Google Ads and Meta Ads?
 
-The Cursor Marketplace listing is in review. Until it is live, add the server by hand in
-**Cursor Settings → MCP → Add new MCP server** with the URL `https://api.loomascale.com/mcp`
-(or a single-integration endpoint from the table above). On the first tool call Cursor opens
-the browser to sign in to LoomaScale; approve access, and Cursor stores the token.
+Create or merge the following configuration in `.cursor/mcp.json` in your project.
+For access across projects, use `~/.cursor/mcp.json` instead. Complete LoomaScale
+sign-in in your browser when Cursor prompts you, then ask for a read-only account audit.
+No API key is needed.
+
+```json
+{
+  "mcpServers": {
+    "loomascale": {
+      "url": "https://api.loomascale.com/mcp"
+    }
+  }
+}
+```
+
+For a focused connection, use its plugin ID and endpoint from the table above.
+Manual MCP setup connects the hosted tools; a plugin installation also includes the
+bundled workflow skills. See the [official Cursor MCP setup guide](https://cursor.com/docs/mcp).
 
 ### Grok Build
 
@@ -95,7 +116,7 @@ Use the published LoomaScale app instead:
 [Connect ChatGPT to Google Ads](https://loomascale.com/connect-chatgpt-to-google-ads),
 [Connect Claude to Google Ads](https://loomascale.com/connect-claude-to-google-ads).
 
-## Authentication
+## How does LoomaScale authentication work?
 
 The plugins hold no credentials. The server uses OAuth 2.1 with PKCE and dynamic client
 registration. Your client finds the authorization server from the first `401`, registers
@@ -107,7 +128,9 @@ anywhere. Google, Meta and LinkedIn are connected in the LoomaScale dashboard.
 ```text
 .claude-plugin/marketplace.json   Claude Code and Codex marketplace listing all plugins
 .cursor-plugin/marketplace.json   Cursor marketplace listing all plugins
-scripts/validate-template.mjs     Cursor manifest validator (node scripts/validate-template.mjs)
+scripts/validate-template.mjs     Cursor manifest and repository validator
+scripts/validate-template.test.mjs Validation regression tests
+scripts/schemas/                 Pinned official Cursor JSON schemas
 plugins/<name>/
   .claude-plugin/plugin.json      Claude Code manifest
   .grok-plugin/plugin.json        Grok Build manifest
@@ -121,6 +144,21 @@ plugins/<name>/
 ```
 
 Each plugin folder stands on its own, because clients install only that folder.
+
+### How do I validate the Cursor publishing files?
+
+From the repository root, install the validation dependencies and run both checks:
+
+```sh
+npm ci
+npm run validate
+npm test
+```
+
+The validator uses pinned copies of the [official Cursor JSON schemas](https://github.com/cursor/plugins/tree/main/schemas)
+in `scripts/schemas/` and checks the plugin paths and bundled files. Validation runs
+offline after dependencies are installed. You can also invoke it directly with
+`node scripts/validate-template.mjs`.
 
 ## Questions
 
@@ -136,7 +174,7 @@ No. Sign in to LoomaScale once in the browser. LoomaScale holds the platform con
 
 ### Does it work with a Google Ads manager (MCC) account?
 
-Yes. The connection reaches every client account under the manager account you pick.
+Yes. Connect a manager (MCC) account, then choose a client account your Google login can access and that is enabled in LoomaScale. Reports and changes target that client account.
 
 ## Who builds this
 

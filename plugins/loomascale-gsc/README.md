@@ -1,8 +1,9 @@
-# Google Search Console (GSC) plugin by LoomaScale
+# Google Search Console (GSC) MCP plugin by LoomaScale
 
-`loomascale-gsc` is an agent plugin that connects Claude Code and Codex to your Google Search Console (GSC) properties through LoomaScale.
-
-Google Search Console (GSC) SEO analysis: compare organic search traffic, find keyword opportunities and low-CTR pages, and check URL indexing and sitemaps. Submit sitemaps and manage properties when you ask.
+`loomascale-gsc` is a Google Search Console (GSC) MCP plugin for Cursor, Claude Code,
+Codex and Grok Build. It connects to your Search Console properties through LoomaScale
+to compare organic traffic, find keyword opportunities and low-CTR pages, inspect
+indexing status, and make requested sitemap and property changes.
 
 The plugin connects your AI assistant to the LoomaScale MCP server at `https://api.loomascale.com/mcp/gsc` and
 ships skills that tell the model how to use its tools safely.
@@ -46,11 +47,27 @@ codex plugin add loomascale-gsc@loomascale
 codex mcp login loomascale-gsc
 ```
 
-Cursor: until the Cursor Marketplace listing is live, add `https://api.loomascale.com/mcp/gsc`
-in **Cursor Settings → MCP → Add new MCP server**.
+### How do I connect Cursor to Google Search Console?
 
-On first use, the client opens LoomaScale sign-in in your browser. Approve access there.
-No API key is needed.
+Create or merge this configuration in your project's `.cursor/mcp.json`, or use
+`~/.cursor/mcp.json` for access across projects. Complete LoomaScale sign-in in your
+browser when Cursor prompts you. No API key is needed; connect Google Search Console in
+the LoomaScale dashboard to access your own properties.
+
+```json
+{
+  "mcpServers": {
+    "loomascale-gsc": {
+      "url": "https://api.loomascale.com/mcp/gsc"
+    }
+  }
+}
+```
+
+Manual MCP setup connects the hosted tools; a plugin installation also includes the
+bundled workflow skills. See the [official Cursor MCP setup guide](https://cursor.com/docs/mcp).
+
+For Claude Code and Codex, complete browser sign-in when the client prompts you.
 
 ## Skills
 
@@ -70,9 +87,9 @@ No. Google has no public API to request indexing of a normal page. The plugin ca
 
 ### Do I need this if I already use the `loomascale` plugin?
 
-No. The all-in [`loomascale`](../loomascale) plugin includes the Search Console tools plus Google Ads, Meta Ads and the other integrations. Use `loomascale-gsc` when Search Console is the only product you work with.
+No. The [all-in-one Google Ads and Meta Ads MCP plugin](../loomascale) includes the Search Console tools plus Google Ads, Meta Ads and the other integrations. Use `loomascale-gsc` when Search Console is the only product you work with.
 
-## Authentication and network
+## How does authentication work?
 
 The plugin holds no credentials. The server uses OAuth 2.1 with PKCE and dynamic client
 registration: the client finds the authorization server from the first `401`, registers
@@ -101,7 +118,7 @@ skills/                      Agent Skills
 assets/                      logo
 ```
 
-Part of [LoomaScale agent plugins](https://github.com/loomascale/agent-plugin), built by
+Part of [LoomaScale MCP plugins for Cursor and other AI assistants](https://github.com/loomascale/agent-plugin), built by
 [LoomaScale](https://loomascale.com). LoomaScale is an independent product, not affiliated with or endorsed by Google, Meta or
 LinkedIn. [Privacy](https://loomascale.com/privacy), [terms](https://loomascale.com/terms),
 [contact](https://loomascale.com/contact). MIT licensed.

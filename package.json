@@ -1,0 +1,12 @@
+{
+  "name": "loomascale-agent-plugin-validation",
+  "private": true,
+  "scripts": {
+    "validate": "node scripts/validate-template.mjs",
+    "test": "node --test scripts/validate-template.test.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}
