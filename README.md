@@ -1,6 +1,6 @@
 # LoomaScale agent plugins for Google Ads, Meta Ads and marketing data
 
-LoomaScale plugins connect Claude Code, Codex and Grok Build to your Google Ads,
+LoomaScale plugins connect Claude Code, Codex, Cursor and Grok Build to your Google Ads,
 Meta Ads, LinkedIn Ads, Google Analytics 4, Google Tag Manager, Google Search Console
 and Google Merchant Center accounts through one hosted MCP server. The `loomascale`
 plugin also analyzes competitors' public Google Ads and Meta Ads through Google Ads
@@ -30,7 +30,7 @@ you tailored prompts for recurring work, such as reviewing spend, investigating
 sales changes or preparing client reports, plus relevant connection suggestions.
 The workflow is read-only; it does not schedule background work.
 
-In Codex, use `$getting-started`. In Claude Code or Grok Build, ask: "Help me get
+In Codex, use `$getting-started`. In Claude Code, Cursor or Grok Build, ask: "Help me get
 started with LoomaScale for my business." See the
 [getting-started guide](plugins/loomascale/README.md#how-do-i-get-started-with-loomascale)
 for what to expect. This skill ships with `loomascale`; single-integration plugins
@@ -78,6 +78,13 @@ codex mcp login loomascale
 Guides: [Connect Codex to Google Ads](https://loomascale.com/connect-codex-to-google-ads),
 [Connect Codex to Meta Ads](https://loomascale.com/connect-codex-to-meta-ads).
 
+### Cursor
+
+The Cursor Marketplace listing is in review. Until it is live, add the server by hand in
+**Cursor Settings → MCP → Add new MCP server** with the URL `https://api.loomascale.com/mcp`
+(or a single-integration endpoint from the table above). On the first tool call Cursor opens
+the browser to sign in to LoomaScale; approve access, and Cursor stores the token.
+
 ### Grok Build
 
 Open `/plugin`, search for **LoomaScale**, and install.
@@ -99,12 +106,15 @@ anywhere. Google, Meta and LinkedIn are connected in the LoomaScale dashboard.
 
 ```text
 .claude-plugin/marketplace.json   Claude Code and Codex marketplace listing all plugins
+.cursor-plugin/marketplace.json   Cursor marketplace listing all plugins
+scripts/validate-template.mjs     Cursor manifest validator (node scripts/validate-template.mjs)
 plugins/<name>/
   .claude-plugin/plugin.json      Claude Code manifest
   .grok-plugin/plugin.json        Grok Build manifest
   .codex-plugin/plugin.json       Codex manifest
+  .cursor-plugin/plugin.json      Cursor manifest
   .mcp.json                       MCP server (Claude Code, Grok Build)
-  mcp.json                        MCP server (Codex)
+  mcp.json                        MCP server (Codex, Cursor)
   skills/                         Agent Skills
   assets/                         logo
   README.md

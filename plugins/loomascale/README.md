@@ -1,6 +1,6 @@
 # Google Ads by LoomaScale
 
-`loomascale` is an agent plugin that connects Claude Code, Codex and Grok Build to your Google Ads, Meta Ads, LinkedIn Ads, Google Analytics 4, Google Tag Manager, Google Search Console and Google Merchant Center accounts through one LoomaScale MCP server.
+`loomascale` is an agent plugin that connects Claude Code, Codex, Cursor and Grok Build to your Google Ads, Meta Ads, LinkedIn Ads, Google Analytics 4, Google Tag Manager, Google Search Console and Google Merchant Center accounts through one LoomaScale MCP server.
 
 Audit and manage Google Ads and Meta Ads, analyze marketing data, and research competitors' ads with LoomaScale.
 
@@ -90,6 +90,9 @@ codex mcp login loomascale
 
 Grok Build: open `/plugin`, search for **LoomaScale**, and install.
 
+Cursor: until the Cursor Marketplace listing is live, add `https://api.loomascale.com/mcp`
+in **Cursor Settings → MCP → Add new MCP server**.
+
 On first use, the client opens LoomaScale sign-in in your browser. Approve access there.
 No API key is needed.
 
@@ -134,8 +137,9 @@ this plugin. Changes run only after you approve them.
 .claude-plugin/plugin.json   Claude Code manifest
 .grok-plugin/plugin.json     Grok Build manifest
 .codex-plugin/plugin.json    Codex manifest
+.cursor-plugin/plugin.json   Cursor manifest
 .mcp.json                    MCP server (Claude Code, Grok Build)
-mcp.json                     MCP server (Codex)
+mcp.json                     MCP server (Codex, Cursor)
 skills/                      Agent Skills
 assets/                      logo
 ```

@@ -46,6 +46,9 @@ codex plugin add loomascale-gsc@loomascale
 codex mcp login loomascale-gsc
 ```
 
+Cursor: until the Cursor Marketplace listing is live, add `https://api.loomascale.com/mcp/gsc`
+in **Cursor Settings → MCP → Add new MCP server**.
+
 On first use, the client opens LoomaScale sign-in in your browser. Approve access there.
 No API key is needed.
 
@@ -91,8 +94,9 @@ this plugin. Changes run only after you approve them.
 .claude-plugin/plugin.json   Claude Code manifest
 .grok-plugin/plugin.json     Grok Build manifest
 .codex-plugin/plugin.json    Codex manifest
+.cursor-plugin/plugin.json   Cursor manifest
 .mcp.json                    MCP server (Claude Code, Grok Build)
-mcp.json                     MCP server (Codex)
+mcp.json                     MCP server (Codex, Cursor)
 skills/                      Agent Skills
 assets/                      logo
 ```

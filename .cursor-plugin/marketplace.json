@@ -1,0 +1,38 @@
+{
+  "name": "loomascale",
+  "owner": {
+    "name": "LoomaScale",
+    "url": "https://loomascale.com"
+  },
+  "metadata": {
+    "description": "LoomaScale plugins for Google Ads, Meta Ads, LinkedIn Ads, GA4, Google Tag Manager, Search Console and Merchant Center.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "loomascale",
+      "source": "./plugins/loomascale",
+      "description": "Google Ads and Meta Ads (Facebook, Instagram) audits, campaigns and competitor ad research. Also LinkedIn Ads, GA4, GTM, Search Console, Merchant Center."
+    },
+    {
+      "name": "loomascale-ga4",
+      "source": "./plugins/loomascale-ga4",
+      "description": "Analyze Google Analytics 4 traffic, conversions, revenue and funnels. Change key events and stream settings after a dry run and your approval."
+    },
+    {
+      "name": "loomascale-gtm",
+      "source": "./plugins/loomascale-gtm",
+      "description": "Audit Google Tag Manager conversion tracking, draft workspace fixes, and publish only a container version you confirm."
+    },
+    {
+      "name": "loomascale-gsc",
+      "source": "./plugins/loomascale-gsc",
+      "description": "Google Search Console SEO analysis: compare organic traffic, find keyword opportunities and low-CTR pages, check indexing, and submit sitemaps on request."
+    },
+    {
+      "name": "loomascale-gmc",
+      "source": "./plugins/loomascale-gmc",
+      "description": "Fix Google Merchant Center product disapprovals and feed errors, review Shopping performance, and update product data on request."
+    }
+  ]
+}

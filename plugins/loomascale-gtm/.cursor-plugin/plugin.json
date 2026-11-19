@@ -1,0 +1,24 @@
+{
+  "name": "loomascale-gtm",
+  "displayName": "Google Tag Manager by LoomaScale",
+  "version": "1.0.0",
+  "description": "Audit Google Tag Manager conversion tracking, draft workspace fixes, and publish only a container version you confirm.",
+  "author": {
+    "name": "LoomaScale",
+    "url": "https://loomascale.com"
+  },
+  "homepage": "https://loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "google tag manager",
+    "gtm",
+    "tag manager",
+    "conversion tracking",
+    "gtm audit",
+    "tracking audit",
+    "ga4 tags",
+    "google ads conversion tracking"
+  ],
+  "logo": "assets/web-app-manifest-385x385.png"
+}
