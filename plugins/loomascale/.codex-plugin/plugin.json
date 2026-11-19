@@ -85,7 +85,7 @@
     "websiteURL": "https://loomascale.com/"
   },
   "mcpServers": "./mcp.json",
-  "name": "app-6a6a442345f88191b23be1e01237d551",
+  "name": "loomascale",
   "skills": "./skills/",
   "version": "1.2.0"
 }
