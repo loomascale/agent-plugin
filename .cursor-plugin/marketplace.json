@@ -11,7 +11,7 @@
     {
       "name": "loomascale",
       "source": "./plugins/loomascale",
-      "description": "Google Ads and Meta Ads MCP for Cursor: audit campaigns, research competitors' public ads and apply campaign changes after your approval."
+      "description": "Google Ads, Meta Ads and TikTok Ads MCP for Cursor. Audit spend, compare video ads, approve campaign changes and research competitors' Google and Meta ads."
     },
     {
       "name": "loomascale-ga4",

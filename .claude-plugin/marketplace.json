@@ -9,7 +9,7 @@
     {
       "name": "loomascale",
       "source": "./plugins/loomascale",
-      "description": "Google Ads audits, campaign management and keyword research with LoomaScale. Analyze competitors' public Google Ads and Meta Ads creatives, messaging, offers and disclosed landing pages. Also connects Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC). Review performance and conversion tracking; preview supported changes for your approval.",
+      "description": "Audit Google Ads, Meta Ads and TikTok Ads with LoomaScale. Compare TikTok video performance and preview budget or bid changes for approval. Manage Google and Meta campaigns, research Google Ads keywords and compare competitors' public Google, Facebook and Instagram ads by creative, message, offer and disclosed landing page. Review performance and conversion tracking with LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC).",
       "version": "1.2.1",
       "category": "productivity",
       "keywords": [
@@ -34,6 +34,11 @@
         "facebook advertising",
         "instagram advertising",
         "tiktok ads",
+        "tiktok ads mcp",
+        "tiktok ads audit",
+        "tiktok ads reporting",
+        "tiktok ads manager",
+        "tiktok creative analytics",
         "linkedin ads",
         "linkedin advertising",
         "google analytics",
@@ -72,7 +77,7 @@
         "facebook ad library",
         "ad creative analysis"
       ],
-      "displayName": "Google Ads & Competitor Analysis by LoomaScale"
+      "displayName": "Google Ads, Meta Ads & TikTok Ads MCP by LoomaScale"
     },
     {
       "name": "loomascale-ga4",

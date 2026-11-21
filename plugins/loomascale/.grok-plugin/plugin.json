@@ -1,7 +1,7 @@
 {
   "name": "loomascale",
   "version": "1.2.0",
-  "description": "Audit and manage Google Ads and Meta Ads, analyze marketing data, and research competitors' ads with LoomaScale.",
+  "description": "Audit Google Ads, Meta Ads and TikTok Ads with LoomaScale. Compare video performance, preview budget changes and research competitors' Google and Meta ads.",
   "author": {
     "name": "LoomaScale",
     "url": "https://loomascale.com"
@@ -27,6 +27,11 @@
     "facebook advertising",
     "instagram advertising",
     "tiktok ads",
+    "tiktok ads mcp",
+    "tiktok ads audit",
+    "tiktok ads reporting",
+    "tiktok ads manager",
+    "tiktok creative analytics",
     "linkedin ads",
     "linkedin advertising",
     "google analytics",

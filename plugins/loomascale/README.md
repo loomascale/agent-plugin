@@ -1,10 +1,11 @@
-# Google Ads and Meta Ads MCP plugin by LoomaScale
+# Google Ads, Meta Ads and TikTok Ads MCP plugin by LoomaScale
 
-`loomascale` is a Google Ads and Meta Ads MCP plugin for Cursor, Claude Code, Codex
-and Grok Build. Use LoomaScale to audit accounts, research competitors' public ads,
-and manage campaigns after approval. Meta Ads coverage includes Facebook and Instagram.
+LoomaScale is a Google Ads, Meta Ads and TikTok Ads MCP plugin for Cursor, Claude
+Code, Codex and Grok Build. Audit your campaigns, compare video ad performance and
+review budget changes before you approve them. Competitor research covers public
+Google, Facebook and Instagram ads.
 
-The same connection also covers TikTok Ads, LinkedIn Ads, Google Analytics 4, Google Tag Manager,
+The same connection also covers LinkedIn Ads, Google Analytics 4, Google Tag Manager,
 Google Search Console and Google Merchant Center for marketing analysis and supported
 account changes.
 
@@ -19,13 +20,26 @@ ships skills that tell the model how to use its tools safely.
 - Analyze competitors' public Google Ads and Meta Ads creatives, messaging, offers and disclosed landing pages with [competitor-ad-research](skills/competitor-ad-research/SKILL.md)
 - Meta Ads audits, creative performance and campaign management for Facebook Ads and Instagram Ads
 - Meta Pixel (Facebook Pixel) event activity, Event Match Quality and Conversions API diagnostics (read-only)
-- TikTok Ads reporting, video creative and audience analysis, and status, budget and bid changes
+- Audit TikTok Ads campaigns, compare video creatives and audiences, and preview budget or bid changes
 - LinkedIn Ads performance and demographics reporting
 - Google Analytics 4 (GA4) traffic, conversion and funnel analysis
 - Google Search Console (GSC) search analytics, URL indexing inspection, and sitemap and property management on request
 - Google Merchant Center (GMC) product issues and performance reporting
 - Google Tag Manager (GTM) tracking audits
 - Cross-source performance analysis, attribution diagnostics and budget recommendations
+
+## What can I do with the TikTok Ads MCP plugin?
+
+Connect your TikTok Ads account in LoomaScale to compare spend and cost per
+conversion by campaign, ad group or ad. Reports cover manual and Smart+ campaigns,
+including purchase return on ad spend (ROAS) where available. Compare 2-second
+views, 6-second views and completion rates by video, or see how spend varies by
+age, country or placement.
+
+You can pause, resume or rename existing campaigns, ad groups and ads, change a
+campaign or ad group budget, and adjust bids on eligible ad groups. You preview
+and approve each edit. Create new campaigns in TikTok Ads Manager. For the reports
+and metric definitions, see the [TikTok Ads reporting workflow](skills/loomascale/references/advertising.md#how-do-i-audit-tiktok-ads-performance).
 
 ## How do I get started with LoomaScale?
 
@@ -95,7 +109,7 @@ codex mcp login loomascale
 
 Grok Build: open `/plugin`, search for **LoomaScale**, and install.
 
-### How do I connect Cursor to this Google Ads and Meta Ads MCP server?
+### How do I connect Cursor to Google Ads, Meta Ads and TikTok Ads?
 
 Create or merge this configuration in your project's `.cursor/mcp.json`, or use
 `~/.cursor/mcp.json` for access across projects. Complete LoomaScale sign-in in your
@@ -131,7 +145,9 @@ For Claude Code, Codex and Grok Build, complete browser sign-in when the client 
 
 ### Can the model spend money without asking?
 
-No. Every budget change, status change, activation and campaign creation is shown to you first and runs only after you confirm it. The server then checks it against the daily spend cap you set in LoomaScale. New campaigns are created paused.
+No. You approve budget changes, status changes, activations and campaign creation
+before they run. LoomaScale checks daily budgets against the cap you set. New
+Google Ads and Meta Ads campaigns start paused.
 
 ### Should I install this or a single-integration plugin?
 
@@ -167,6 +183,6 @@ assets/                      logo
 ```
 
 Part of [LoomaScale MCP plugins for Cursor and other AI assistants](https://github.com/loomascale/agent-plugin), built by
-[LoomaScale](https://loomascale.com). LoomaScale is an independent product, not affiliated with or endorsed by Google, Meta or
+[LoomaScale](https://loomascale.com). LoomaScale is an independent product, not affiliated with or endorsed by Google, Meta, TikTok or
 LinkedIn. [Privacy](https://loomascale.com/privacy), [terms](https://loomascale.com/terms),
 [contact](https://loomascale.com/contact). MIT licensed.

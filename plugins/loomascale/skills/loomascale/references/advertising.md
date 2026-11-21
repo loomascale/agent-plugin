@@ -17,12 +17,31 @@ Use the current tool schema for parameters, supported campaign types and limits.
 | Diagnose no delivery | Google: `gads_check_pacing`, `gads_check_billing`, campaign/ad status; Meta: `meta_get_delivery_issues`, `meta_check_pacing`, then affected objects; TikTok: `deliveryStatus` from `tiktok_get_campaigns` / `tiktok_get_adgroups` / `tiktok_get_ads` (review rejections appear there), then `tiktok_get_adgroup_diagnostics`. Check parent status and eligibility. |
 | Research Google Ads keywords | `gads_keyword_ideas` for suggestions and volume/bid estimates; review `gads_list_keywords` and `gads_list_search_terms` for the existing account. The ideas tool returns its first page only. |
 | Review creative fatigue | Meta ad-level insights and `meta_list_ads`, then `meta_list_creatives`/`meta_get_ad_preview` for identified objects. Frequency and declining results suggest a test, not proof of fatigue. |
-| Review TikTok video creatives | `tiktok_get_creative_performance` (per ad, or `group_by:"VIDEO"`) for 2-second and 6-second view rates, completion and cost per conversion; `tiktok_get_ad_creative` for the caption, call to action, landing page and a temporary preview link. A weak `hookRate` points at the opening, a strong hook with weak conversions at the offer or landing page. |
-| See who TikTok spend reaches | `tiktok_get_audience_performance` with one `breakdown` per call (AGE, GENDER, COUNTRY, PLACEMENT, PLATFORM, LANGUAGE, NETWORK, INTEREST); compare with the targeting in `tiktok_get_adgroups` and the audiences in `tiktok_list_custom_audiences`. Segments are directional. |
+| Compare TikTok Ads video creatives or audiences | Use the [TikTok Ads reporting workflow](#how-do-i-audit-tiktok-ads-performance) to compare video view rates, cost per conversion or audience segments. |
 | Review B2B lead quality | `linkedin_get_insights` with `metric_set="leads"` for entity-level lead metrics, then `linkedin_analyze_demographics` for the requested industry/seniority breakdown. Demographics expose leads/conversions, not qualified leads; do not assign entity-level `qualifiedLeads` to industries. CRM evidence is needed for qualified pipeline by industry. |
 
 For any `gads_query`, first follow the [metadata preflight](../../cross-source-insights/SKILL.md#ground-every-custom-google-ads-query).
 Do not guess GAQL fields or use the query tool as a write endpoint.
+
+## How do I audit TikTok Ads performance?
+
+1. Find the advertiser ID with `tiktok_list_ad_accounts`. Use `tiktok_get_performance`
+   to compare spend, conversions and cost per conversion by campaign, ad group or
+   ad over the requested dates. For purchase ROAS, request `complete_payment_roas`
+   when available.
+2. Compare ads with `tiktok_get_creative_performance`, or set `group_by` to `VIDEO`
+   to combine results for the same video across ads. Hook rate is 2-second views per
+   impression, hold rate is 6-second views per impression and completion rate is
+   full views per play. TikTok also counts some early engagements and completions of
+   shorter videos as 6-second views. Use `tiktok_get_ad_creative` for the caption,
+   call to action, landing page and temporary preview. For the counting rules, see
+   [TikTok's video play metric definitions](https://ads.tiktok.com/resources/help/article/video-play?lang=en).
+3. Request one `breakdown` at a time with `tiktok_get_audience_performance` (AGE,
+   GENDER, COUNTRY, PLACEMENT, PLATFORM, LANGUAGE, NETWORK or INTEREST). Compare
+   these directional results with targeting in `tiktok_get_adgroups` and the
+   audiences in `tiktok_list_custom_audiences`.
+
+For installation and sign-in, see the [LoomaScale MCP plugin setup](../../../README.md#install).
 
 ## Which reporting details change the interpretation?
 

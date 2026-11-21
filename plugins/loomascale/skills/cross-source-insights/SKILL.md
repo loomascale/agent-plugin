@@ -1,6 +1,6 @@
 ---
 name: cross-source-insights
-description: Explain marketing performance using relevant connected Google Ads, Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC) evidence. Use for changing results, wasted spend, budget priorities, organic traffic, shopping eligibility, tracking, landing pages and funnels, including single-source questions. Grounds custom Google Ads queries in live metadata. Use the loomascale skill for account setup and campaign changes. Also use Meta Pixel (Facebook Pixel) events, Event Match Quality and Conversions API diagnostics to investigate tracking gaps.
+description: Explain marketing performance using relevant connected Google Ads, Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC) evidence. Compare TikTok Ads spend and reported conversions with GA4 outcomes using verified campaign IDs or UTM tags. Use for changing results, wasted spend, budget priorities, organic traffic, shopping eligibility, tracking, landing pages and funnels, including single-source questions. Grounds custom Google Ads queries in live metadata. Use the loomascale skill for account setup and campaign changes. Also use Meta Pixel (Facebook Pixel) events, Event Match Quality and Conversions API diagnostics to investigate tracking gaps.
 ---
 
 # LoomaScale cross-source insights
