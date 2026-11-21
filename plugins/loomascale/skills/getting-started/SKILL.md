@@ -177,4 +177,5 @@ are suggestions for the user to run; do not claim background monitoring, schedul
 reports or notifications unless a supported host tool actually creates them after
 the user requests it. Discovery does not authorize connections, writes or schedules.
 Route later requested changes through the integration workflow and its approvals;
+TikTok Ads changes are limited to status, budget, bid and name on existing objects;
 LinkedIn Ads remains reporting-only.

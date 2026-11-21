@@ -4,7 +4,7 @@
 and Grok Build. Use LoomaScale to audit accounts, research competitors' public ads,
 and manage campaigns after approval. Meta Ads coverage includes Facebook and Instagram.
 
-The same connection also covers LinkedIn Ads, Google Analytics 4, Google Tag Manager,
+The same connection also covers TikTok Ads, LinkedIn Ads, Google Analytics 4, Google Tag Manager,
 Google Search Console and Google Merchant Center for marketing analysis and supported
 account changes.
 
@@ -19,6 +19,7 @@ ships skills that tell the model how to use its tools safely.
 - Analyze competitors' public Google Ads and Meta Ads creatives, messaging, offers and disclosed landing pages with [competitor-ad-research](skills/competitor-ad-research/SKILL.md)
 - Meta Ads audits, creative performance and campaign management for Facebook Ads and Instagram Ads
 - Meta Pixel (Facebook Pixel) event activity, Event Match Quality and Conversions API diagnostics (read-only)
+- TikTok Ads reporting, video creative and audience analysis, and status, budget and bid changes
 - LinkedIn Ads performance and demographics reporting
 - Google Analytics 4 (GA4) traffic, conversion and funnel analysis
 - Google Search Console (GSC) search analytics, URL indexing inspection, and sitemap and property management on request
@@ -123,8 +124,8 @@ For Claude Code, Codex and Grok Build, complete browser sign-in when the client 
 |---|---|
 | [`getting-started`](skills/getting-started/SKILL.md) | Turn business goals and daily challenges into a first insight, repeatable workflows, tailored prompts and relevant connection suggestions. |
 | [`competitor-ad-research`](skills/competitor-ad-research/SKILL.md) | Analyze competitors' public Google Ads and Meta Ads creatives, messaging, offers, calls to action and disclosed landing pages, with source links and coverage limits. |
-| `cross-source-insights` | Explain marketing performance using relevant connected Google Ads, Meta Ads (Facebook Ads and Instagram Ads), LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC) evidence. |
-| `loomascale` | Work with connected LoomaScale integrations for Google Ads, Meta Ads (Facebook Ads and Instagram Ads), LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC). |
+| `cross-source-insights` | Explain marketing performance using relevant connected Google Ads, Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC) evidence. |
+| `loomascale` | Work with connected LoomaScale integrations for Google Ads, Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC). |
 
 ## Questions
 
@@ -149,7 +150,7 @@ Network endpoints:
 - `https://api.loomascale.com/.well-known/oauth-authorization-server` and `/.well-known/oauth-protected-resource`: discovery metadata
 - `https://loomascale.com/oauth-consent`: sign-in and consent screen
 
-Your Google, Meta and LinkedIn connections live in the LoomaScale dashboard, not in
+Your Google, Meta, TikTok and LinkedIn connections live in the LoomaScale dashboard, not in
 this plugin. Changes run only after you approve them.
 
 ## Files

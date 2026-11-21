@@ -1,6 +1,7 @@
 # LoomaScale advertising workflows
 
-Use this guide for Google Ads, Meta Ads (Facebook and Instagram) and LinkedIn Ads.
+Use this guide for Google Ads, Meta Ads (Facebook and Instagram), TikTok Ads and
+LinkedIn Ads.
 For connected-account work, resolve the advertiser with its discovery tool and
 pass the explicit account ID. For public competitor ads, follow
 [competitor ad research](../../competitor-ad-research/SKILL.md): it uses public
@@ -11,11 +12,13 @@ Use the current tool schema for parameters, supported campaign types and limits.
 
 | User task | Smallest useful sequence |
 |---|---|
-| Find paid-spend waste | Google: `gads_audit_portfolio` scoped to requested accounts, then relevant search terms/ads; Meta: `meta_get_insights` with campaign/ad detail; LinkedIn: `linkedin_audit_wasted_spend`. Check each audit's actual reporting window. |
+| Find paid-spend waste | Google: `gads_audit_portfolio` scoped to requested accounts, then relevant search terms/ads; Meta: `meta_get_insights` with campaign/ad detail; TikTok: `tiktok_get_performance` at ADGROUP and AD level, then `tiktok_get_creative_performance` and `tiktok_get_adgroup_diagnostics` for the spenders without conversions; LinkedIn: `linkedin_audit_wasted_spend`. Check each audit's actual reporting window. |
 | Explain a CPA/ROAS change | Relevant platform insights for totals and comparison, then the largest changing campaigns/segments; use the [cross-source skill](../../cross-source-insights/SKILL.md) for GA4 outcomes and attribution. |
-| Diagnose no delivery | Google: `gads_check_pacing`, `gads_check_billing`, campaign/ad status; Meta: `meta_get_delivery_issues`, `meta_check_pacing`, then affected objects. Check parent status and eligibility. |
+| Diagnose no delivery | Google: `gads_check_pacing`, `gads_check_billing`, campaign/ad status; Meta: `meta_get_delivery_issues`, `meta_check_pacing`, then affected objects; TikTok: `deliveryStatus` from `tiktok_get_campaigns` / `tiktok_get_adgroups` / `tiktok_get_ads` (review rejections appear there), then `tiktok_get_adgroup_diagnostics`. Check parent status and eligibility. |
 | Research Google Ads keywords | `gads_keyword_ideas` for suggestions and volume/bid estimates; review `gads_list_keywords` and `gads_list_search_terms` for the existing account. The ideas tool returns its first page only. |
 | Review creative fatigue | Meta ad-level insights and `meta_list_ads`, then `meta_list_creatives`/`meta_get_ad_preview` for identified objects. Frequency and declining results suggest a test, not proof of fatigue. |
+| Review TikTok video creatives | `tiktok_get_creative_performance` (per ad, or `group_by:"VIDEO"`) for 2-second and 6-second view rates, completion and cost per conversion; `tiktok_get_ad_creative` for the caption, call to action, landing page and a temporary preview link. A weak `hookRate` points at the opening, a strong hook with weak conversions at the offer or landing page. |
+| See who TikTok spend reaches | `tiktok_get_audience_performance` with one `breakdown` per call (AGE, GENDER, COUNTRY, PLACEMENT, PLATFORM, LANGUAGE, NETWORK, INTEREST); compare with the targeting in `tiktok_get_adgroups` and the audiences in `tiktok_list_custom_audiences`. Segments are directional. |
 | Review B2B lead quality | `linkedin_get_insights` with `metric_set="leads"` for entity-level lead metrics, then `linkedin_analyze_demographics` for the requested industry/seniority breakdown. Demographics expose leads/conversions, not qualified leads; do not assign entity-level `qualifiedLeads` to industries. CRM evidence is needed for qualified pipeline by industry. |
 
 For any `gads_query`, first follow the [metadata preflight](../../cross-source-insights/SKILL.md#ground-every-custom-google-ads-query).
@@ -29,6 +32,13 @@ Do not guess GAQL fields or use the query tool as a write endpoint.
   such as `"1"`, `"7"`, `"monthly"` or `"all_days"`. Pair `platform_position`
   with `publisher_platform` for placement analysis. Inspect action types/windows
   before labeling a count as purchases or leads.
+- TikTok uses `start_date`/`end_date` (YYYY-MM-DD, days in the ad account's time
+  zone; default the last 30 days). `granularity` DAY spans at most 30 days, WEEK 180,
+  MONTH and TOTAL 365. Metrics arrive under TikTok's own names; `null` means TikTok
+  has no value, not zero. `conversion` is the ad group's optimisation event and
+  `result` the objective's result, so do not equate either with another platform's
+  conversion without checking the event. `hasMore:true` means the page is partial.
+  Amounts are in the ad account's currency (`tiktok_get_ad_account`).
 - LinkedIn uses UTC; supply `since` and `until` together. `metric_set` selects
   core, conversions, leads, video or engagement metrics; `time_increment` is
   `all`, `daily` or `monthly`. Demographics can be delayed, approximate, suppressed
@@ -142,6 +152,15 @@ Preserve unrelated targeting and note that a change can restart learning.
   `gads_remove_campaign.confirm_campaign_name` or `meta_delete_object.confirm_name`.
   A campaign deletion can cascade to children. Respect the existing authorized
   scope and explain any tool refusal.
+
+TikTok Ads changes are limited to existing objects: `tiktok_set_status` (ENABLED or
+DISABLED; it cannot delete), `tiktok_update_budget` (the amount only; the budget
+stays daily or lifetime, and an object with no budget of its own is refused),
+`tiktok_update_bidding` (only the bid the ad group's strategy already uses) and
+`tiktok_rename_object`. Call each with `dry_run:true`, show the proposed change, and
+repeat without it after approval. They work on manual, Smart+ and Upgraded Smart+
+campaigns; an Upgraded Smart+ ad is addressed by its `smartPlusAdId`. There is no
+TikTok campaign, ad group or ad creation: recommend it for TikTok Ads Manager.
 
 LinkedIn Ads has no campaign-management tools in LoomaScale. Return a concrete
 recommended change with the affected account/campaign; do not claim execution.

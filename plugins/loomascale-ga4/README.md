@@ -97,7 +97,7 @@ Network endpoints:
 - `https://api.loomascale.com/.well-known/oauth-authorization-server` and `/.well-known/oauth-protected-resource`: discovery metadata
 - `https://loomascale.com/oauth-consent`: sign-in and consent screen
 
-Your Google, Meta and LinkedIn connections live in the LoomaScale dashboard, not in
+Your Google, Meta, TikTok and LinkedIn connections live in the LoomaScale dashboard, not in
 this plugin. Changes run only after you approve them.
 
 ## Files

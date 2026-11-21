@@ -1,6 +1,6 @@
 ---
 name: loomascale
-description: Work with connected LoomaScale integrations for Google Ads, Meta Ads (Facebook Ads and Instagram Ads), LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC). Use to discover accounts, audit performance or tracking, research keywords, diagnose organic search or shopping issues, carry out requested Google Ads or Meta Ads campaign changes, and manage GA4 key events, event rules, enhanced measurement, data redaction and web streams after a dry run and approval. Use cross-source-insights for detailed performance and attribution analysis. Also use for Meta Pixel (Facebook Pixel) event activity, Event Match Quality and Conversions API diagnostics.
+description: Work with connected LoomaScale integrations for Google Ads, Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC). Use to discover accounts, audit performance or tracking, research keywords, diagnose organic search or shopping issues, carry out requested Google Ads or Meta Ads campaign changes and TikTok Ads status, budget and bid changes, and manage GA4 key events, event rules, enhanced measurement, data redaction and web streams after a dry run and approval. Use cross-source-insights for detailed performance and attribution analysis. Also use for Meta Pixel (Facebook Pixel) event activity, Event Match Quality and Conversions API diagnostics.
 ---
 
 # LoomaScale integration workflows
@@ -8,7 +8,9 @@ description: Work with connected LoomaScale integrations for Google Ads, Meta Ad
 LoomaScale connects advertising, analytics, organic search, shopping and tracking
 data through its MCP tools. Use the smallest relevant set of integrations to
 answer the question or complete the requested action. Google Ads and Meta Ads
-support campaign changes; LinkedIn Ads provides read-only reporting and diagnosis.
+support campaign changes; TikTok Ads supports reporting plus pausing or enabling,
+budget, bid and rename changes on existing objects (it creates and deletes
+nothing); LinkedIn Ads provides read-only reporting and diagnosis.
 Search Console reports and, when the user asks, submits or removes a sitemap
 (`gsc_submit_sitemap`, `gsc_delete_sitemap`) and adds or removes a property
 (`gsc_add_property`, `gsc_remove_property` with `confirm:true` after the user
@@ -54,6 +56,7 @@ invent tools, arguments or access to an integration that the client does not exp
 | Meta Ads: Facebook/Instagram campaigns, creatives, audiences and delivery | `meta_list_ad_accounts` | `meta_get_insights`, `meta_list_campaigns`, `meta_list_ads`, `meta_get_delivery_issues` |
 | Public competitor ads: Google Ads, Facebook and Instagram creatives, offers and destinations | Public advertiser or Meta Page lookup; no own-account discovery | [Competitor ad research](../competitor-ad-research/SKILL.md) |
 | Meta Pixel (Facebook Pixel): received events, Event Match Quality and Conversions API health (read-only) | `meta_list_ad_accounts`, then `meta_list_datasets` | `meta_list_datasets` for 1-7 days of event counts; `meta_get_dataset_quality` for match quality and diagnostics |
+| TikTok Ads: campaigns, ad groups, ads, video creative performance, audiences and delivery diagnosis | `tiktok_list_ad_accounts` | `tiktok_get_performance`, `tiktok_get_campaigns`, `tiktok_get_creative_performance`, `tiktok_get_adgroup_diagnostics`; changes with `tiktok_set_status`, `tiktok_update_budget`, `tiktok_update_bidding`, `tiktok_rename_object` (`dry_run:true` first) |
 | LinkedIn Ads: B2B campaign results, leads and professional demographics | `linkedin_list_ad_accounts` | `linkedin_get_insights`, `linkedin_list_campaigns`, `linkedin_analyze_demographics` |
 | Google Analytics 4 (GA4): traffic, business events, revenue, funnels and tracking settings | `ga4_get_account_summaries` | `ga4_get_property_details`, then the appropriate report; `ga4_get_tracking_configuration` before requested changes, then the relevant configuration tool with `dry_run:true` |
 | Google Search Console (GSC): organic queries, pages, search visibility and indexing | `gsc_list_sites` | `gsc_compare_periods`, `gsc_query_search_analytics`, opportunity tools or `gsc_inspect_url`; changes with `gsc_submit_sitemap`, `gsc_delete_sitemap`, `gsc_add_property`, `gsc_remove_property` (dry run, then `confirm:true`) |
@@ -80,6 +83,7 @@ Use explicit discovered targets on subsequent calls. Preserve IDs as strings.
 |---|---|
 | Google Ads | `customer_id`: serving client ID, digits without dashes; a manager/MCC holds no campaigns |
 | Meta Ads | `ad_account_id`: discovered `act_...` account ID; check returned manage access before changes |
+| TikTok Ads | `advertiser_id`: discovered advertiser ID (digits); `tiktok_get_performance` takes `advertiser_ids`, up to 20 |
 | LinkedIn Ads | `ad_account_id`: discovered numeric account ID |
 | GA4 | `property_id`: property number or `properties/<number>` |
 | Search Console | `site_url`: exact `sc-domain:example.com` or URL-prefix property, preserving its slash |

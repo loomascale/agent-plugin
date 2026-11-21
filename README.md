@@ -5,7 +5,7 @@ and Grok Build to advertising and marketing data. Use the main plugin for Google
 and Meta Ads audits, approved campaign changes and public competitor ad research,
 or choose a focused plugin for analytics, tracking, organic search or product feeds.
 
-The hosted service supports Google Ads, Meta Ads (Facebook and Instagram), LinkedIn Ads,
+The hosted service supports Google Ads, Meta Ads (Facebook and Instagram), TikTok Ads, LinkedIn Ads,
 Google Analytics 4, Google Tag Manager, Google Search Console and Google Merchant Center.
 Competitor research uses Google Ads Transparency Center and Meta Ad Library. Every
 change is shown to you first and runs only after you approve it. Ad budgets are also
@@ -20,7 +20,7 @@ The table links to each plugin's setup and examples.
 
 | Plugin | MCP endpoint | Use it for |
 |---|---|---|
-| [Google Ads and Meta Ads MCP (`loomascale`)](plugins/loomascale) | `https://api.loomascale.com/mcp` | Google Ads and Meta Ads audits, campaign management and public competitor ad analysis; LinkedIn Ads, GA4, GTM, GSC and GMC analysis |
+| [Google Ads and Meta Ads MCP (`loomascale`)](plugins/loomascale) | `https://api.loomascale.com/mcp` | Google Ads and Meta Ads audits, campaign management and public competitor ad analysis; TikTok Ads reporting and budget changes; LinkedIn Ads, GA4, GTM, GSC and GMC analysis |
 | [Google Analytics 4 MCP (`loomascale-ga4`)](plugins/loomascale-ga4) | `https://api.loomascale.com/mcp/ga4` | Google Analytics 4 traffic, conversion and funnel reports; key events and stream settings after a dry run |
 | [Google Tag Manager MCP (`loomascale-gtm`)](plugins/loomascale-gtm) | `https://api.loomascale.com/mcp/gtm` | Google Tag Manager tracking audits, draft workspace fixes, publish only a version you confirm |
 | [Google Search Console MCP (`loomascale-gsc`)](plugins/loomascale-gsc) | `https://api.loomascale.com/mcp/gsc` | Google Search Console clicks, keyword opportunities, indexing and sitemaps |
@@ -121,7 +121,7 @@ Use the published LoomaScale app instead:
 The plugins hold no credentials. The server uses OAuth 2.1 with PKCE and dynamic client
 registration. Your client finds the authorization server from the first `401`, registers
 itself, opens the browser for consent and stores the token. You don't paste an API key
-anywhere. Google, Meta and LinkedIn are connected in the LoomaScale dashboard.
+anywhere. Google, Meta, TikTok and LinkedIn are connected in the LoomaScale dashboard.
 
 ## Repository layout
 

@@ -20,6 +20,8 @@
     "instagram ads",
     "facebook advertising",
     "instagram advertising",
+    "tiktok ads",
+    "tiktok advertising",
     "linkedin ads",
     "linkedin advertising",
     "google analytics",
@@ -53,8 +55,8 @@
     "ad creative analysis"
   ],
   "interface": {
-    "displayName": "Google Ads/Meta Ads LoomaScale",
-    "shortDescription": "Manage & optimize Google Ads",
+    "displayName": "Google Ads/Meta/TikTok Ads LS",
+    "shortDescription": "Run Google Ads & Meta Ads",
     "developerName": "LoomaScale",
     "composerIcon": "./assets/web-app-manifest-385x385.png",
     "logo": "./assets/web-app-manifest-385x385.png",
@@ -65,6 +67,7 @@
       "Analyze competitors' public Google Ads and Meta Ads creatives and landing pages, with sources and coverage limits",
       "Meta Ads audits, creative performance and campaign management for Facebook Ads and Instagram Ads",
       "Meta Pixel (Facebook Pixel) event activity, Event Match Quality and Conversions API diagnostics (read-only)",
+      "TikTok Ads reporting, video creative analysis and budget changes",
       "LinkedIn Ads performance and demographics reporting",
       "Google Analytics 4 (GA4) traffic, conversion and funnel analysis",
       "Google Search Console (GSC) search analytics, URL indexing inspection, and sitemap and property management on request",
@@ -87,5 +90,5 @@
   "mcpServers": "./mcp.json",
   "name": "loomascale",
   "skills": "./skills/",
-  "version": "1.2.0"
+  "version": "1.2.5"
 }

@@ -2,7 +2,7 @@
   "name": "loomascale-ads",
   "displayName": "Google Ads/Meta Ads by LoomaScale",
   "version": "1.2.1",
-  "description": "Google Ads/Meta Ads/LinkedIn Ads audits, campaign management and keyword research with LoomaScale. Analyze competitors' public Google Ads and Meta Ads creatives, messaging, offers and disclosed landing pages. Also connects Meta Ads (Facebook Ads and Instagram Ads), LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC). Review performance and conversion tracking; preview supported changes for your approval.",
+  "description": "Google Ads/Meta Ads/TikTok Ads/LinkedIn Ads audits, campaign management and keyword research with LoomaScale. Analyze competitors' public Google Ads and Meta Ads creatives, messaging, offers and disclosed landing pages. Also connects Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC). Review performance and conversion tracking; preview supported changes for your approval.",
   "author": {
     "name": "LoomaScale",
     "url": "https://loomascale.com"
@@ -35,6 +35,7 @@
     "instagram ads",
     "facebook advertising",
     "instagram advertising",
+    "tiktok ads",
     "linkedin ads",
     "linkedin advertising",
     "google analytics",

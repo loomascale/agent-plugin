@@ -1,6 +1,6 @@
 ---
 name: cross-source-insights
-description: Explain marketing performance using relevant connected Google Ads, Meta Ads (Facebook Ads and Instagram Ads), LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC) evidence. Use for changing results, wasted spend, budget priorities, organic traffic, shopping eligibility, tracking, landing pages and funnels, including single-source questions. Grounds custom Google Ads queries in live metadata. Use the loomascale skill for account setup and campaign changes. Also use Meta Pixel (Facebook Pixel) events, Event Match Quality and Conversions API diagnostics to investigate tracking gaps.
+description: Explain marketing performance using relevant connected Google Ads, Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC) evidence. Use for changing results, wasted spend, budget priorities, organic traffic, shopping eligibility, tracking, landing pages and funnels, including single-source questions. Grounds custom Google Ads queries in live metadata. Use the loomascale skill for account setup and campaign changes. Also use Meta Pixel (Facebook Pixel) events, Event Match Quality and Conversions API diagnostics to investigate tracking gaps.
 ---
 
 # LoomaScale cross-source insights
@@ -48,7 +48,7 @@ only for the relevant integration.
 ## Discover accounts and establish comparable data
 
 - Discover only relevant connections with `gads_list_ad_accounts`,
-  `meta_list_ad_accounts`, `linkedin_list_ad_accounts` and
+  `meta_list_ad_accounts`, `tiktok_list_ad_accounts`, `linkedin_list_ad_accounts` and
   `ga4_get_account_summaries`; use `gsc_list_sites`, `gmc_list_accounts` or
   `gtm_list_containers` when their evidence is relevant and available. Use explicit
   account/property/site/container IDs on subsequent reads. Google manager accounts
@@ -62,8 +62,9 @@ only for the relevant integration.
   and reporting grain. When daily boundaries cannot be reconciled, say so. Keep
   currencies separate unless an evidenced conversion basis is available.
 - Prefer typed tools: `gads_get_insights`, `gads_list_search_terms`,
-  `gads_list_ads`, `meta_get_insights`, `meta_list_ads`, `linkedin_get_insights`
-  and `linkedin_analyze_demographics`, as relevant. Inspect their current schemas
+  `gads_list_ads`, `meta_get_insights`, `meta_list_ads`, `tiktok_get_performance`,
+  `tiktok_get_creative_performance`, `linkedin_get_insights` and
+  `linkedin_analyze_demographics`, as relevant. Inspect their current schemas
   for available breakdowns, date formats and account arguments.
 - For GA4, use `ga4_run_report` for traffic, engagement and site outcomes;
   `ga4_run_funnel_report` for ordered steps; `ga4_run_conversions_report` for its
@@ -150,7 +151,8 @@ present proposed budget, campaign or tracking changes for the user's decision.
 Honor existing explicit authorization for any separately requested action, its
 tool's permissions and the configured spend cap; use the
 [LoomaScale workflow skill](../loomascale/SKILL.md) for execution.
-LinkedIn Ads tools are read-only; Search Console, GA4, Merchant Center and
+TikTok Ads changes (status, budget, bid, rename) and LinkedIn Ads, which is
+read-only, follow the same rule; Search Console, GA4, Merchant Center and
 Tag Manager changes belong to the loomascale skill and happen only on request.
 If a plan/trial limit blocks a read, use `loomascale_check_quota` and
 report the limitation without retry loops.
