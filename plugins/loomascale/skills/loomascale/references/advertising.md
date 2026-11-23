@@ -14,7 +14,7 @@ Use the current tool schema for parameters, supported campaign types and limits.
 |---|---|
 | Find paid-spend waste | Google: `gads_audit_portfolio` scoped to requested accounts, then relevant search terms/ads; Meta: `meta_get_insights` with campaign/ad detail; TikTok: `tiktok_get_performance` at ADGROUP and AD level, then `tiktok_get_creative_performance` and `tiktok_get_adgroup_diagnostics` for the spenders without conversions; LinkedIn: `linkedin_audit_wasted_spend`. Check each audit's actual reporting window. |
 | Explain a CPA/ROAS change | Relevant platform insights for totals and comparison, then the largest changing campaigns/segments; use the [cross-source skill](../../cross-source-insights/SKILL.md) for GA4 outcomes and attribution. |
-| Diagnose no delivery | Google: `gads_check_pacing`, `gads_check_billing`, campaign/ad status; Meta: `meta_get_delivery_issues`, `meta_check_pacing`, then affected objects; TikTok: `deliveryStatus` from `tiktok_get_campaigns` / `tiktok_get_adgroups` / `tiktok_get_ads` (review rejections appear there), then `tiktok_get_adgroup_diagnostics`. Check parent status and eligibility. |
+| Diagnose no delivery | Google: `gads_check_pacing`, `gads_check_billing`, campaign/ad status; Meta: `meta_get_delivery_issues`, `meta_check_pacing`, then affected objects; TikTok: `deliveryStatus` from `tiktok_get_campaigns` / `tiktok_get_adgroups` / `tiktok_get_ads`, then `tiktok_get_adgroup_diagnostics`; for a rejected or in-review ad, `tiktok_get_ad_review` returns TikTok's reasons; for missing conversions, `tiktok_get_pixel_events` shows whether the pixel received events. Check parent status and eligibility. |
 | Research Google Ads keywords | `gads_keyword_ideas` for suggestions and volume/bid estimates; review `gads_list_keywords` and `gads_list_search_terms` for the existing account. The ideas tool returns its first page only. |
 | Review creative fatigue | Meta ad-level insights and `meta_list_ads`, then `meta_list_creatives`/`meta_get_ad_preview` for identified objects. Frequency and declining results suggest a test, not proof of fatigue. |
 | Compare TikTok Ads video creatives or audiences | Use the [TikTok Ads reporting workflow](#how-do-i-audit-tiktok-ads-performance) to compare video view rates, cost per conversion or audience segments. |
@@ -40,6 +40,15 @@ Do not guess GAQL fields or use the query tool as a write endpoint.
    GENDER, COUNTRY, PLACEMENT, PLATFORM, LANGUAGE, NETWORK or INTEREST). Compare
    these directional results with targeting in `tiktok_get_adgroups` and the
    audiences in `tiktok_list_custom_audiences`.
+4. For an Upgraded Smart+ ad, set `group_by` to `MATERIAL` in
+   `tiktok_get_creative_performance` to compare the creatives inside it; narrow by
+   one kind of ID at a time. `tiktok_get_creative_fatigue` returns TikTok's own
+   daily fatigue flag and index for one ad over the past 60 days; TikTok enables it
+   per ad account, so a refusal means the account does not have it.
+5. Check tracking with `tiktok_get_pixel_events`: event counts per pixel, split
+   into browser and server events, for up to 30 days (UTC). It returns counts
+   only. `tiktok_get_ad_review` explains a rejection in TikTok's words for up to 20
+   ads or ad groups.
 
 For installation and sign-in, see the [LoomaScale MCP plugin setup](../../../README.md#install).
 
@@ -101,6 +110,9 @@ they do not install pixels, send events or change tracking settings.
    retrying; creations are not safely repeatable by default.
 
 ### Create or launch campaigns
+
+TikTok: `tiktok_create_campaign`, then `tiktok_create_adgroup`, then `tiktok_create_ad`;
+see the TikTok paragraph under budgets and targeting for the limits.
 
 Google: use `gads_create_campaign` for Search,
 `gads_create_shopping_campaign` for Standard Shopping or
@@ -175,11 +187,29 @@ Preserve unrelated targeting and note that a change can restart learning.
 TikTok Ads changes are limited to existing objects: `tiktok_set_status` (ENABLED or
 DISABLED; it cannot delete), `tiktok_update_budget` (the amount only; the budget
 stays daily or lifetime, and an object with no budget of its own is refused),
-`tiktok_update_bidding` (only the bid the ad group's strategy already uses) and
-`tiktok_rename_object`. Call each with `dry_run:true`, show the proposed change, and
+`tiktok_update_bidding` (only the bid the ad group's strategy already uses),
+`tiktok_rename_object`, `tiktok_update_adgroup_targeting` (each list passed replaces
+the ad group's list for that criterion, so read it with `tiktok_get_adgroups` first
+and pass the full list; omitted criteria stay as they are),
+`tiktok_update_adgroup_schedule` (start, end, open-ended or not, and dayparting;
+times are UTC) and `tiktok_set_creative_status` (enable or pause single creatives
+inside an Upgraded Smart+ ad, by the `adMaterialIds` from the `MATERIAL` report).
+Call each with `dry_run:true`, show the proposed change, and
 repeat without it after approval. They work on manual, Smart+ and Upgraded Smart+
-campaigns; an Upgraded Smart+ ad is addressed by its `smartPlusAdId`. There is no
-TikTok campaign, ad group or ad creation: recommend it for TikTok Ads Manager.
+campaigns; an Upgraded Smart+ ad is addressed by its `smartPlusAdId`.
+
+TikTok creation covers Upgraded Smart+ campaigns that send people to a website:
+`tiktok_create_campaign` (objective `SALES` or `LEAD_GENERATION`; a budget here
+makes the campaign hold it), `tiktok_create_adgroup` (`CONVERT` with a `pixel_id`
+and `optimization_event` from `tiktok_get_pixel_events`, or `CLICK`; locations are
+required; a budget only when the campaign holds none) and `tiktok_create_ad`
+(videos and cover images from `tiktok_list_creative_assets`, an identity from
+`tiktok_list_identities`, 1-5 ad texts, one call to action, one https landing
+page). Everything is created paused and no argument changes that; enable with
+`tiktok_set_status` only after approval. Nothing is uploaded, so a missing video
+goes into the TikTok creative library first. TikTok refuses creation on ad accounts
+it has not enabled for Upgraded Smart+. For app, catalog, TikTok Shop, search or
+instant-form campaigns, recommend TikTok Ads Manager.
 
 LinkedIn Ads has no campaign-management tools in LoomaScale. Return a concrete
 recommended change with the affected account/campaign; do not claim execution.

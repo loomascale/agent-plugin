@@ -38,7 +38,9 @@ age, country or placement.
 
 You can pause, resume or rename existing campaigns, ad groups and ads, change a
 campaign or ad group budget, and adjust bids on eligible ad groups. You preview
-and approve each edit. Create new campaigns in TikTok Ads Manager. For the reports
+and approve each edit. You can also create Smart+ Sales and Lead Generation campaigns
+for a website, from videos already in your TikTok creative library; they are created
+paused. Create app, catalog and TikTok Shop campaigns in TikTok Ads Manager. For the reports
 and metric definitions, see the [TikTok Ads reporting workflow](skills/loomascale/references/advertising.md#how-do-i-audit-tiktok-ads-performance).
 
 ## How do I get started with LoomaScale?

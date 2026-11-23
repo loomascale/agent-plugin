@@ -9,8 +9,8 @@ LoomaScale connects advertising, analytics, organic search, shopping and trackin
 data through its MCP tools. Use the smallest relevant set of integrations to
 answer the question or complete the requested action. Google Ads and Meta Ads
 support campaign changes; TikTok Ads supports reporting plus pausing or enabling,
-budget, bid and rename changes on existing objects (it creates and deletes
-nothing); LinkedIn Ads provides read-only reporting and diagnosis.
+budget, bid, targeting, schedule and rename changes on existing objects, and creating paused
+Smart+ website campaigns (it deletes nothing); LinkedIn Ads provides read-only reporting and diagnosis.
 Search Console reports and, when the user asks, submits or removes a sitemap
 (`gsc_submit_sitemap`, `gsc_delete_sitemap`) and adds or removes a property
 (`gsc_add_property`, `gsc_remove_property` with `confirm:true` after the user
@@ -56,7 +56,7 @@ invent tools, arguments or access to an integration that the client does not exp
 | Meta Ads: Facebook/Instagram campaigns, creatives, audiences and delivery | `meta_list_ad_accounts` | `meta_get_insights`, `meta_list_campaigns`, `meta_list_ads`, `meta_get_delivery_issues` |
 | Public competitor ads: Google Ads, Facebook and Instagram creatives, offers and destinations | Public advertiser or Meta Page lookup; no own-account discovery | [Competitor ad research](../competitor-ad-research/SKILL.md) |
 | Meta Pixel (Facebook Pixel): received events, Event Match Quality and Conversions API health (read-only) | `meta_list_ad_accounts`, then `meta_list_datasets` | `meta_list_datasets` for 1-7 days of event counts; `meta_get_dataset_quality` for match quality and diagnostics |
-| TikTok Ads: campaigns, ad groups, ads, video creative performance, audiences and delivery diagnosis | `tiktok_list_ad_accounts` | `tiktok_get_performance`, `tiktok_get_campaigns`, `tiktok_get_creative_performance`, `tiktok_get_adgroup_diagnostics`; changes with `tiktok_set_status`, `tiktok_update_budget`, `tiktok_update_bidding`, `tiktok_rename_object` (`dry_run:true` first) |
+| TikTok Ads: campaigns, ad groups, ads, video creative performance, audiences, delivery diagnosis, ad review and pixel activity | `tiktok_list_ad_accounts` | `tiktok_get_performance`, `tiktok_get_campaigns`, `tiktok_get_creative_performance`, `tiktok_get_adgroup_diagnostics`, `tiktok_get_ad_review`, `tiktok_get_creative_fatigue`, `tiktok_get_pixel_events`; changes with `tiktok_set_status`, `tiktok_update_budget`, `tiktok_update_bidding`, `tiktok_update_adgroup_targeting`, `tiktok_update_adgroup_schedule`, `tiktok_set_creative_status`, `tiktok_rename_object`; creation with `tiktok_create_campaign`, `tiktok_create_adgroup`, `tiktok_create_ad` (`dry_run:true` first) |
 | LinkedIn Ads: B2B campaign results, leads and professional demographics | `linkedin_list_ad_accounts` | `linkedin_get_insights`, `linkedin_list_campaigns`, `linkedin_analyze_demographics` |
 | Google Analytics 4 (GA4): traffic, business events, revenue, funnels and tracking settings | `ga4_get_account_summaries` | `ga4_get_property_details`, then the appropriate report; `ga4_get_tracking_configuration` before requested changes, then the relevant configuration tool with `dry_run:true` |
 | Google Search Console (GSC): organic queries, pages, search visibility and indexing | `gsc_list_sites` | `gsc_compare_periods`, `gsc_query_search_analytics`, opportunity tools or `gsc_inspect_url`; changes with `gsc_submit_sitemap`, `gsc_delete_sitemap`, `gsc_add_property`, `gsc_remove_property` (dry run, then `confirm:true`) |

@@ -60,8 +60,8 @@
     "ad creative analysis"
   ],
   "interface": {
-    "displayName": "Google Ads/Meta/TikTok Ads LS",
-    "shortDescription": "Run Google, Meta & TikTok Ads",
+    "displayName": "Google Ads/Meta/TikTok LoomaS.",
+    "shortDescription": "Google Ads, Meta, TikTok Ads",
     "developerName": "LoomaScale",
     "composerIcon": "./assets/web-app-manifest-385x385.png",
     "logo": "./assets/web-app-manifest-385x385.png",
@@ -96,5 +96,5 @@
   "mcpServers": "./mcp.json",
   "name": "loomascale",
   "skills": "./skills/",
-  "version": "1.2.5"
+  "version": "1.2.7"
 }

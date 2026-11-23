@@ -151,7 +151,7 @@ present proposed budget, campaign or tracking changes for the user's decision.
 Honor existing explicit authorization for any separately requested action, its
 tool's permissions and the configured spend cap; use the
 [LoomaScale workflow skill](../loomascale/SKILL.md) for execution.
-TikTok Ads changes (status, budget, bid, rename) and LinkedIn Ads, which is
+TikTok Ads changes (status, budget, bid, targeting, schedule, rename, paused campaign creation) and LinkedIn Ads, which is
 read-only, follow the same rule; Search Console, GA4, Merchant Center and
 Tag Manager changes belong to the loomascale skill and happen only on request.
 If a plan/trial limit blocks a read, use `loomascale_check_quota` and
