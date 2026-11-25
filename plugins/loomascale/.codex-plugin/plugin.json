@@ -83,7 +83,7 @@
     ],
     "category": "Business & Operations",
     "defaultPrompt": [
-      "Use $getting-started to find a first insight and useful workflows for my business goals. Keep it read-only.",
+      "Use the Ads Performance Audit skill to audit my ads, uncover wasted spend, and find the biggest performance opportunities.",
       "Audit my currently connected integrations for performance and tracking issues. Explain recommendations. Keep it read-only.",
       "Plan improvements across my currently connected integrations. Use supported actions only; get approval before applying changes."
     ],
@@ -96,5 +96,5 @@
   "mcpServers": "./mcp.json",
   "name": "loomascale",
   "skills": "./skills/",
-  "version": "1.2.7"
+  "version": "1.2.8"
 }
