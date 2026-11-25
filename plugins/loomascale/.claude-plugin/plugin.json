@@ -8,10 +8,6 @@
     "url": "https://loomascale.com"
   },
   "homepage": "https://loomascale.com",
-  "documentationUrl": "https://loomascale.com/connect-claude-code-to-google-ads",
-  "supportUrl": "https://loomascale.com/contact",
-  "privacyPolicyUrl": "https://loomascale.com/privacy",
-  "termsOfServiceUrl": "https://loomascale.com/terms",
   "repository": "https://github.com/loomascale/agent-plugin",
   "license": "MIT",
   "keywords": [
