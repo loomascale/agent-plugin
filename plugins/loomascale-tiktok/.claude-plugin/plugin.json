@@ -1,0 +1,28 @@
+{
+  "name": "loomascale-tiktok",
+  "version": "1.0.0",
+  "description": "Audit TikTok Ads spend, video creatives and audiences, diagnose delivery and ad review, and preview budget or bid changes for your approval.",
+  "author": {
+    "name": "LoomaScale",
+    "url": "https://loomascale.com"
+  },
+  "homepage": "https://loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "tiktok ads",
+    "tiktok ads mcp",
+    "tiktok ads audit",
+    "tiktok for business",
+    "smart+ campaigns",
+    "video creative performance",
+    "hook rate",
+    "creative fatigue",
+    "audience breakdown",
+    "ad review",
+    "tiktok pixel",
+    "ad group budget",
+    "bid changes",
+    "dayparting"
+  ]
+}

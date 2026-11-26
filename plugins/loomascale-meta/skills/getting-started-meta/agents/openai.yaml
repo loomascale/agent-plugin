@@ -1,0 +1,15 @@
+interface:
+  display_name: "Getting started with Meta Ads"
+  short_description: "See weekly Facebook and Instagram ad spend and results"
+  default_prompt: "Use $getting-started-meta to check my Meta Ads connection and show what changed in my ad spend and results this week."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-meta"
+      description: "LoomaScale Meta Ads connection and reporting tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/meta"
+
+policy:
+  allow_implicit_invocation: true

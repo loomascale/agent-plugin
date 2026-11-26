@@ -21,7 +21,7 @@
     "website claim"
   ],
   "interface": {
-    "displayName": "Google Merchant Center LScale",
+    "displayName": "Google Merchant Center | Looma",
     "shortDescription": "Diagnose product feed errors",
     "developerName": "LoomaScale",
     "composerIcon": "./assets/web-app-manifest-385x385.png",
@@ -39,7 +39,7 @@
     ],
     "category": "Business & Operations",
     "defaultPrompt": [
-      "Why are my Google Shopping products disapproved? Check my Merchant Center diagnostics and prioritize the issues.",
+      "Use $getting-started-gmc to check my Merchant Center connection and show how many products are eligible to appear in Shopping.",
       "Audit my Merchant Center product feeds for processing errors and failed fetches. Don't change anything.",
       "Which products get the most clicks from Google Shopping ads and free listings in my Merchant Center account?"
     ],
@@ -52,7 +52,7 @@
   "mcpServers": "./mcp.json",
   "name": "loomascale-gmc",
   "skills": "./skills/",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "extensions": {
     "com.openai": {
       "review": {

@@ -8,6 +8,8 @@ indexing status, and make requested sitemap and property changes.
 The plugin connects your AI assistant to the LoomaScale MCP server at `https://api.loomascale.com/mcp/gsc` and
 ships skills that tell the model how to use its tools safely.
 
+Choose the plugin’s first suggested prompt or use `$getting-started-gsc` to compare two finalized weeks of organic clicks and impressions. See the [Google Search Console getting-started skill](skills/getting-started-gsc/SKILL.md).
+
 ## What it does
 
 - Google Search Console property discovery with access and verification status

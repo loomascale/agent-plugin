@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "loomascale-tiktok": {
+      "type": "http",
+      "url": "https://api.loomascale.com/mcp/tiktok"
+    }
+  }
+}

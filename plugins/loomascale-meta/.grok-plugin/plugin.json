@@ -1,0 +1,30 @@
+{
+  "name": "loomascale-meta",
+  "version": "1.0.0",
+  "description": "Audit Meta Ads (Facebook and Instagram) spend, delivery and creatives, research the Ad Library, and change campaigns only on request.",
+  "author": {
+    "name": "LoomaScale",
+    "url": "https://loomascale.com"
+  },
+  "homepage": "https://loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "meta ads",
+    "facebook ads",
+    "instagram ads",
+    "meta ads mcp",
+    "facebook ads audit",
+    "ad spend waste",
+    "delivery issues",
+    "creative fatigue",
+    "meta pixel",
+    "conversions api",
+    "event match quality",
+    "custom audiences",
+    "meta ad library",
+    "competitor ads",
+    "a/b test"
+  ],
+  "logo": "assets/web-app-manifest-385x385.png"
+}

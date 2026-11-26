@@ -1,0 +1,15 @@
+interface:
+  display_name: "Meta Ads | LoomaScale"
+  short_description: "Audit and run Meta ads"
+  default_prompt: "Use $loomascale-meta to audit wasted spend and delivery issues in my connected Meta Ads account."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-meta"
+      description: "LoomaScale Meta Ads audits, Ad Library research and approved campaign changes"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/meta"
+
+policy:
+  allow_implicit_invocation: true

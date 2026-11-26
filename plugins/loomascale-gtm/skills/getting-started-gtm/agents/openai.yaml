@@ -1,0 +1,15 @@
+interface:
+  display_name: "Getting started with Google Tag Manager"
+  short_description: "See which tags and triggers are published in GTM"
+  default_prompt: "Use $getting-started-gtm to check my Tag Manager connection and show what tracking is published in my container."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-gtm"
+      description: "LoomaScale Google Tag Manager connection and reporting tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/gtm"
+
+policy:
+  allow_implicit_invocation: true

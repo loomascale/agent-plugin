@@ -21,7 +21,7 @@
     "sitemaps"
   ],
   "interface": {
-    "displayName": "Google Search Console | LScale",
+    "displayName": "Google Search Console | LoomaS",
     "shortDescription": "SEO reports and indexing",
     "developerName": "LoomaScale",
     "composerIcon": "./assets/web-app-manifest-385x385.png",
@@ -39,7 +39,7 @@
     ],
     "category": "Business & Operations",
     "defaultPrompt": [
-      "Compare my Google Search Console traffic over the last 28 days with the previous 28. Which pages lost clicks?",
+      "Use $getting-started-gsc to check my Search Console connection and compare two weeks of organic clicks and impressions.",
       "Find non-brand keywords with high impressions and low CTR in my Search Console data.",
       "Is my homepage indexed in Google? Check its canonical URL and my sitemap errors in Search Console."
     ],

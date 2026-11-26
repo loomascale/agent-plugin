@@ -80,6 +80,40 @@
       "displayName": "Google Ads, Meta Ads & TikTok Ads MCP by LoomaScale"
     },
     {
+      "name": "loomascale-meta",
+      "source": "./plugins/loomascale-meta",
+      "description": "Audit Meta Ads (Facebook and Instagram) spend, delivery and creatives, research the Ad Library, and change campaigns only on request.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": [
+        "meta ads",
+        "facebook ads",
+        "instagram ads",
+        "meta ads mcp",
+        "facebook ads audit",
+        "meta pixel",
+        "meta ad library",
+        "creative fatigue"
+      ]
+    },
+    {
+      "name": "loomascale-tiktok",
+      "source": "./plugins/loomascale-tiktok",
+      "description": "Audit TikTok Ads spend, video creatives and audiences, diagnose delivery and ad review, and preview budget or bid changes for your approval.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": [
+        "tiktok ads",
+        "tiktok ads mcp",
+        "tiktok ads audit",
+        "smart+ campaigns",
+        "video creative performance",
+        "creative fatigue",
+        "tiktok pixel",
+        "ad review"
+      ]
+    },
+    {
       "name": "loomascale-ga4",
       "source": "./plugins/loomascale-ga4",
       "description": "Analyze Google Analytics 4 traffic, conversions, revenue and funnels. Change key events and stream settings after a dry run and your approval.",

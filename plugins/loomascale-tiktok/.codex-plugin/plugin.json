@@ -1,0 +1,111 @@
+{
+  "author": {
+    "name": "LoomaScale"
+  },
+  "description": "Audit TikTok Ads in ChatGPT: compare video creatives and audiences, diagnose delivery and ad review, and preview budget or bid changes for approval.",
+  "keywords": [
+    "tiktok ads",
+    "tiktok ads mcp",
+    "tiktok ads audit",
+    "tiktok for business",
+    "smart+ campaigns",
+    "video creative performance",
+    "hook rate",
+    "creative fatigue",
+    "audience breakdown",
+    "ad review",
+    "tiktok pixel",
+    "ad group budget",
+    "bid changes",
+    "dayparting"
+  ],
+  "interface": {
+    "displayName": "TikTok Ads | LoomaScale",
+    "shortDescription": "Audit and run TikTok ads",
+    "developerName": "LoomaScale",
+    "composerIcon": "./assets/web-app-manifest-385x385.png",
+    "logo": "./assets/web-app-manifest-385x385.png",
+    "capabilities": [
+      "TikTok Ads performance: spend, conversions and cost per conversion by campaign, ad group or ad",
+      "Video creative analysis: hook rate, hold rate and completion rate by ad, video or Smart+ creative",
+      "Audience breakdowns by age, gender, country, placement, platform, language, network or interest",
+      "Delivery diagnosis: TikTok's ad group diagnostics, ad review reasons and creative fatigue (where TikTok enables it)",
+      "TikTok Pixel event counts, browser and server, for up to 30 days",
+      "Preview, then apply, status, budget, bid, targeting, schedule and name changes you approve",
+      "Create paused Upgraded Smart+ website campaigns, ad groups and ads from your creative library",
+      "Daily budgets above your spend cap are refused; nothing is deleted"
+    ],
+    "category": "Business & Operations",
+    "defaultPrompt": [
+      "Use $getting-started-tiktok to check my TikTok Ads connection and show what changed in spend and conversions this week.",
+      "Which of my TikTok videos hook and hold viewers best? Compare view rates and cost per conversion by video.",
+      "Why is my TikTok ad group not delivering? Check TikTok's diagnostics and ad review."
+    ],
+    "longDescription": "Audit and manage TikTok Ads in ChatGPT with LoomaScale. Find wasted spend, compare video creatives and audiences, and diagnose delivery in your connected TikTok ad accounts. Built for advertisers, ecommerce teams and agencies.\n\nWhere is my TikTok Ads budget wasted?\nCompare spend, conversions and cost per conversion by campaign, ad group and ad over any date range, and find ad groups and ads that spend without conversions. Audits do not change your account.\n\nWhich videos work?\nCompare hook rate (2-second views per impression), hold rate (6-second views per impression) and completion rate by ad, by video or by creative inside an Upgraded Smart+ ad, with TikTok's own creative-fatigue flag.\n\nWho responds?\nBreak results down by age, gender, country, placement, platform, language, network or interest.\n\nWhy is an ad group not delivering?\nRead TikTok's ad group diagnostics, the review outcome and rejection reasons of ads, and pixel event counts split into browser and server events.\n\nCan it change my campaigns?\nOnly when you ask, and every change is previewed first. It can pause or enable campaigns, ad groups, ads and Smart+ creatives, and change budgets, bids, targeting, schedules and names on existing objects. Daily budgets above the daily spend cap you set are refused. It can also create Upgraded Smart+ website campaigns, ad groups and ads from videos already in your creative library; they are always created paused.\n\nWhat are the limits?\nIt deletes nothing, uploads no media and makes no payments. App, catalog, TikTok Shop, search and instant-form campaigns are created in TikTok Ads Manager.\n\nHow do I connect TikTok Ads?\nSign in to LoomaScale and connect your TikTok ad account through TikTok, then ask your question in ChatGPT. Helper tools check your usage allowance or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by TikTok.",
+    "privacyPolicyURL": "https://loomascale.com/privacy",
+    "supportURL": "https://loomascale.com/contact",
+    "termsOfServiceURL": "https://loomascale.com/terms",
+    "websiteURL": "https://loomascale.com/"
+  },
+  "mcpServers": "./mcp.json",
+  "name": "loomascale-tiktok",
+  "skills": "./skills/",
+  "version": "1.0.0",
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "List the connected TikTok ad accounts and their campaigns.",
+              "prompt": "Show me my connected TikTok ad accounts, then list the campaigns and their statuses in the first one.",
+              "tools_triggered": "tiktok_list_ad_accounts, tiktok_get_campaigns",
+              "expected_behavior": "Returns each connected TikTok advertiser with its name and currency, then the campaigns in the first one with objective, status and budget. Nothing is changed."
+            },
+            {
+              "description": "Compare campaign performance over a date range.",
+              "prompt": "Compare my TikTok campaigns over the last 30 days by spend, impressions, clicks, conversions and cost per conversion.",
+              "tools_triggered": "tiktok_get_performance",
+              "expected_behavior": "Returns a per-campaign table for the last 30 days with spend, impressions, clicks, conversions and cost per conversion. Nothing is changed."
+            },
+            {
+              "description": "Compare video creatives.",
+              "prompt": "Which of my TikTok videos hold viewers best? Compare 2-second and 6-second view rates and completion rate by video for the last 30 days.",
+              "tools_triggered": "tiktok_get_creative_performance",
+              "expected_behavior": "Returns per-video hook rate, hold rate and completion rate with spend and conversions, and notes that TikTok counts some early engagements as 6-second views. Nothing is changed."
+            },
+            {
+              "description": "Preview a budget change before applying it.",
+              "prompt": "Preview raising the daily budget of my first TikTok ad group to $4. Don't apply it yet.",
+              "tools_triggered": "tiktok_get_adgroups, tiktok_update_budget",
+              "expected_behavior": "Calls tiktok_update_budget with dry_run=true and reports the current and proposed budget. States that nothing was changed and that applying needs the user's approval."
+            },
+            {
+              "description": "Refuse a budget above the configured cap.",
+              "prompt": "Raise the daily budget of my first TikTok campaign to $10,000.",
+              "tools_triggered": "tiktok_get_campaigns, tiktok_update_budget",
+              "expected_behavior": "The change is refused because the daily budget exceeds the account's configured daily spend cap; the response states the cap and the budget is not changed."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Organic TikTok content is outside the TikTok Ads integration.",
+              "prompt": "Write a script for my next organic TikTok video.",
+              "expected_behavior": "The app should not be invoked; this integration manages TikTok ad accounts, not organic video scripts or posting."
+            },
+            {
+              "description": "Deleting campaigns is not supported.",
+              "prompt": "Delete all my paused TikTok campaigns.",
+              "expected_behavior": "The app should not be invoked to delete; explain that it can pause campaigns but cannot delete them, and that deletion happens in TikTok Ads Manager."
+            },
+            {
+              "description": "Do not trigger for money movement or payment operations outside ad campaign management.",
+              "prompt": "Transfer $500 from my bank account to my advertising balance.",
+              "expected_behavior": "The app should not be invoked: it manages campaigns in already-connected ad accounts and performs no payments, top-ups, or transfers."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

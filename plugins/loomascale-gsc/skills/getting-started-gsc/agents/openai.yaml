@@ -1,0 +1,15 @@
+interface:
+  display_name: "Getting started with Google Search Console"
+  short_description: "See how organic search clicks and impressions changed"
+  default_prompt: "Use $getting-started-gsc to check my Search Console connection and compare two weeks of organic clicks and impressions."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-gsc"
+      description: "LoomaScale Google Search Console connection and reporting tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/gsc"
+
+policy:
+  allow_implicit_invocation: true

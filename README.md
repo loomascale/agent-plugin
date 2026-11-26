@@ -3,7 +3,7 @@
 LoomaScale's Model Context Protocol (MCP) plugins connect Cursor, Claude Code, Codex
 and Grok Build to advertising and marketing data. Use the main plugin for Google Ads
 and Meta Ads audits, approved campaign changes and public competitor ad research,
-or choose a focused plugin for analytics, tracking, organic search or product feeds.
+or choose a focused plugin for Meta Ads or TikTok Ads alone, analytics, tracking, organic search or product feeds.
 
 The hosted service supports Google Ads, Meta Ads (Facebook and Instagram), TikTok Ads, LinkedIn Ads,
 Google Analytics 4, Google Tag Manager, Google Search Console and Google Merchant Center.
@@ -14,13 +14,15 @@ checked against a daily spend cap you set.
 ## Which LoomaScale MCP plugin should I install?
 
 Install `loomascale` for Google Ads, Meta Ads and the other supported integrations
-through one MCP connection. Choose a focused plugin when you only need Google
-Analytics 4, Google Tag Manager, Google Search Console or Google Merchant Center.
+through one MCP connection. Choose a focused plugin when you only need Meta Ads, TikTok Ads,
+Google Analytics 4, Google Tag Manager, Google Search Console or Google Merchant Center.
 The table links to each plugin's setup and examples.
 
 | Plugin | MCP endpoint | Use it for |
 |---|---|---|
 | [Google Ads and Meta Ads MCP (`loomascale`)](plugins/loomascale) | `https://api.loomascale.com/mcp` | Google Ads and Meta Ads audits, campaign management and public competitor ad analysis; TikTok Ads reporting and budget changes; LinkedIn Ads, GA4, GTM, GSC and GMC analysis |
+| [Meta Ads MCP (`loomascale-meta`)](plugins/loomascale-meta) | `https://api.loomascale.com/mcp/meta` | Facebook and Instagram ad audits, delivery and Meta Pixel diagnosis, Meta Ad Library research, approved campaign changes |
+| [TikTok Ads MCP (`loomascale-tiktok`)](plugins/loomascale-tiktok) | `https://api.loomascale.com/mcp/tiktok` | TikTok Ads audits, video creative and audience analysis, delivery and ad review diagnosis, previewed changes and paused Smart+ campaigns |
 | [Google Analytics 4 MCP (`loomascale-ga4`)](plugins/loomascale-ga4) | `https://api.loomascale.com/mcp/ga4` | Google Analytics 4 traffic, conversion and funnel reports; key events and stream settings after a dry run |
 | [Google Tag Manager MCP (`loomascale-gtm`)](plugins/loomascale-gtm) | `https://api.loomascale.com/mcp/gtm` | Google Tag Manager tracking audits, draft workspace fixes, publish only a version you confirm |
 | [Google Search Console MCP (`loomascale-gsc`)](plugins/loomascale-gsc) | `https://api.loomascale.com/mcp/gsc` | Google Search Console clicks, keyword opportunities, indexing and sitemaps |
@@ -29,19 +31,22 @@ The table links to each plugin's setup and examples.
 
 ## How do I get started with LoomaScale?
 
-Start with the main plugin's
-[getting-started skill](plugins/loomascale/skills/getting-started/SKILL.md).
-It checks your connected sources, asks about your business goal and daily
-challenges when needed, and helps you get a first useful insight. It then gives
-you tailored prompts for recurring work, such as reviewing spend, investigating
-sales changes or preparing client reports, plus relevant connection suggestions.
-The workflow is read-only; it does not schedule background work.
+Start with the full plugin’s [getting-started skill](plugins/loomascale/skills/getting-started/SKILL.md).
+It checks your connections and plan access, then shows one connected account’s
+last seven days beside the previous seven when weekly data is available. Choose
+a follow-up such as finding costly search terms, comparing ads with website
+conversions, or researching competitors’ ads. If you’re new, connect a source
+directly from the menu.
 
 In Codex, use `$getting-started`. In Claude Code, Cursor or Grok Build, ask: "Help me get
 started with LoomaScale for my business." See the
 [getting-started guide](plugins/loomascale/README.md#how-do-i-get-started-with-loomascale)
-for what to expect. This skill ships with `loomascale`; single-integration plugins
-keep their focused workflows.
+for what to expect.
+
+Each focused plugin’s first suggested prompt opens its own getting-started skill.
+Meta Ads and TikTok Ads show weekly spend and results. Google Analytics 4 and
+Search Console compare traffic across two weeks. Merchant Center shows current
+product eligibility, and Tag Manager shows the published tracking setup.
 
 ## How can I analyze competitors' ads?
 
@@ -61,7 +66,9 @@ See the [Google Ads and Meta Ads MCP guide](plugins/loomascale/README.md) for se
 
 You need a [LoomaScale](https://loomascale.com) account. Public competitor ad research
 does not require an ad-account connection. Connect the matching integration to inspect
-or manage your own accounts. The free trial covers all plugins.
+or manage your own accounts. The 7-day free trial and the Free plan that
+follows it both cover all plugins. The Free plan is read-only, with 10 tasks per week and
+2 accounts or properties per 30 days, at most 1 of them an advertising account.
 
 ### Claude Code
 

@@ -1,0 +1,15 @@
+interface:
+  display_name: "Getting started with Google Merchant Center"
+  short_description: "Check product eligibility for Google Shopping"
+  default_prompt: "Use $getting-started-gmc to check my Merchant Center connection and show how many products are eligible to appear in Shopping."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-gmc"
+      description: "LoomaScale Google Merchant Center connection and reporting tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/gmc"
+
+policy:
+  allow_implicit_invocation: true

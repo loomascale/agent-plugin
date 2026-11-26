@@ -1,5 +1,5 @@
 interface:
-  display_name: "Google Merchant Center LScale"
+  display_name: "Google Merchant Center LoomaS."
   short_description: "Diagnose product feed errors"
   default_prompt: "Use $loomascale-gmc to diagnose product disapprovals and feed errors in my connected Google Merchant Center account."
 

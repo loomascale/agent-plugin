@@ -21,7 +21,7 @@
     "publish gtm"
   ],
   "interface": {
-    "displayName": "Google Tag Manager LoomaScale",
+    "displayName": "Google Tag Manager | LoomaS.",
     "shortDescription": "Audit GTM conversion tracking",
     "developerName": "LoomaScale",
     "composerIcon": "./assets/web-app-manifest-385x385.png",
@@ -39,7 +39,7 @@
     ],
     "category": "Business & Operations",
     "defaultPrompt": [
-      "Audit my Google Tag Manager conversion tracking for paused tags, missing triggers and possible duplicate Google tags.",
+      "Use $getting-started-gtm to check my Tag Manager connection and show what tracking is published in my container.",
       "Create a GA4 generate_lead event tag in my GTM Default Workspace. Ask me which trigger to use. Do not publish.",
       "Show unpublished changes in my GTM workspace and compare a saved version with the live container. Do not publish."
     ],
@@ -52,7 +52,7 @@
   "mcpServers": "./mcp.json",
   "name": "loomascale-gtm",
   "skills": "./skills/",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "extensions": {
     "com.openai": {
       "review": {

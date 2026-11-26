@@ -1,0 +1,113 @@
+{
+  "author": {
+    "name": "LoomaScale"
+  },
+  "description": "Audit Meta Ads (Facebook and Instagram) in ChatGPT: find wasted spend, debug delivery and Pixel issues, research the Ad Library, edit campaigns on request.",
+  "keywords": [
+    "meta ads",
+    "facebook ads",
+    "instagram ads",
+    "meta ads mcp",
+    "facebook ads audit",
+    "ad spend waste",
+    "delivery issues",
+    "creative fatigue",
+    "meta pixel",
+    "conversions api",
+    "event match quality",
+    "custom audiences",
+    "meta ad library",
+    "competitor ads",
+    "a/b test"
+  ],
+  "interface": {
+    "displayName": "Meta Ads | LoomaScale",
+    "shortDescription": "Audit and run Meta ads",
+    "developerName": "LoomaScale",
+    "composerIcon": "./assets/web-app-manifest-385x385.png",
+    "logo": "./assets/web-app-manifest-385x385.png",
+    "capabilities": [
+      "Meta Ads performance: spend, results, CPA and ROAS by campaign, ad set, ad, placement, age or gender",
+      "Wasted spend: ad sets and ads spending without results",
+      "Delivery diagnosis: account status, delivery issues, rejected ads and today's pacing",
+      "Creative review: ad copy, previews and signs of fatigue",
+      "Meta Pixel and Conversions API health: received events and Event Match Quality (read-only)",
+      "Public competitor ads from the Meta Ad Library across Facebook and Instagram",
+      "Create paused campaigns, ad sets and ads; activate only after you approve the budget",
+      "Change budgets, status, targeting and bidding on request, checked against your daily spend cap",
+      "Manage custom audiences, A/B tests and lift studies; delete paused objects you name"
+    ],
+    "category": "Business & Operations",
+    "defaultPrompt": [
+      "Use $getting-started-meta to check my Meta Ads connection and show what changed in my ad spend and results this week.",
+      "Why did my Facebook ads CPA go up this week? Compare it with last week by campaign and placement.",
+      "Show my competitor's active Facebook and Instagram ads from the Meta Ad Library."
+    ],
+    "longDescription": "Audit and manage Meta Ads (Facebook Ads and Instagram Ads) in ChatGPT with LoomaScale. Find wasted spend, explain CPA and ROAS changes, diagnose delivery problems and review creatives in your connected ad accounts. Built for advertisers, ecommerce teams and agencies.\n\nWhere is my Meta Ads budget wasted?\nCompare spend, results, cost per result and ROAS by campaign, ad set and ad over any date range, and find ad sets and ads that spend without results. Break results down by placement, age or gender. Audits do not change your account.\n\nWhy are my ads not delivering?\nRead the ad account status, campaigns, ad sets and ads with delivery issues, rejected ads and today's pacing, with Meta's own reason for each.\n\nIs my Meta Pixel working?\nCount browser Pixel and Conversions API events over the last 7 days and read Meta's Event Match Quality and deduplication feedback. These checks are read-only.\n\nWhat are my competitors running?\nSearch the public Meta Ad Library for an advertiser's Facebook and Instagram ads, with copy, media, calls to action and landing pages. No access to the competitor's account is needed.\n\nCan it change my campaigns?\nOnly when you ask. New campaigns, ad sets and ads are created paused. Activation previews the budget first. Budget changes and activations are checked against a daily spend cap you set. It can also edit targeting and bidding, manage custom audiences, A/B tests and lift studies, and delete paused campaigns, ad sets or ads you name.\n\nWhat are the limits?\nIt makes no payments or transfers and cannot override Meta's ad review or account restrictions. Edits to running ads take effect immediately and can restart learning.\n\nHow do I connect Meta Ads?\nSign in to LoomaScale and connect your Meta ad account through Facebook, then ask your question in ChatGPT. Helper tools check your usage allowance or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Meta.",
+    "privacyPolicyURL": "https://loomascale.com/privacy",
+    "supportURL": "https://loomascale.com/contact",
+    "termsOfServiceURL": "https://loomascale.com/terms",
+    "websiteURL": "https://loomascale.com/"
+  },
+  "mcpServers": "./mcp.json",
+  "name": "loomascale-meta",
+  "skills": "./skills/",
+  "version": "1.0.0",
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "List the connected Meta ad accounts and the campaigns in one.",
+              "prompt": "Show me my connected Meta ad accounts, then list the campaigns and their statuses in the first one.",
+              "tools_triggered": "meta_list_ad_accounts, meta_list_campaigns",
+              "expected_behavior": "Returns each connected Meta ad account with its status, then the campaigns in the first account with name, objective and delivery status. Nothing is changed."
+            },
+            {
+              "description": "Compare campaign performance over a date range.",
+              "prompt": "Compare my Meta campaigns over the last 30 days by spend, impressions, clicks, CTR, CPC and results.",
+              "tools_triggered": "meta_get_insights",
+              "expected_behavior": "Returns a per-campaign table for the last 30 days with spend, impressions, clicks, CTR, CPC and results. Nothing is changed."
+            },
+            {
+              "description": "Diagnose why ads are not delivering.",
+              "prompt": "Why are some of my Meta ads not delivering? Check the account for delivery issues.",
+              "tools_triggered": "meta_get_delivery_issues",
+              "expected_behavior": "Lists the account status and any campaigns, ad sets or ads with delivery or review issues, with Meta's reason for each. Nothing is changed."
+            },
+            {
+              "description": "Create a paused campaign within the spend cap.",
+              "prompt": "Create a paused Meta traffic campaign named Summer Traffic with a $3 daily budget targeting Spain, sending people to https://loomascale.com.",
+              "tools_triggered": "meta_find_locations, meta_create_campaign",
+              "expected_behavior": "Creates the campaign, ad set and ad in PAUSED status with a $3 daily budget and confirms the ids. No ad spend starts until the user activates it."
+            },
+            {
+              "description": "Refuse a budget above the configured cap.",
+              "prompt": "Raise the daily budget of my Summer Traffic campaign to $10,000.",
+              "tools_triggered": "meta_list_campaigns, meta_update_budget",
+              "expected_behavior": "The budget change is refused because it exceeds the account's configured daily spend cap; the response states the cap and the budget is not changed."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Google Ads management is outside the Meta Ads integration.",
+              "prompt": "Pause my Google Ads search campaigns that spent over $100 yesterday.",
+              "expected_behavior": "The app should not be invoked; this integration manages Meta (Facebook and Instagram) ad accounts, not Google Ads."
+            },
+            {
+              "description": "Do not trigger for social post writing that does not manage Meta Ads campaigns.",
+              "prompt": "Write an Instagram caption for my new product.",
+              "expected_behavior": "The app should not be invoked because copywriting is outside its ad campaign management workflows."
+            },
+            {
+              "description": "Do not trigger for money movement or payment operations outside ad campaign management.",
+              "prompt": "Transfer $500 from my bank account to my advertising balance.",
+              "expected_behavior": "The app should not be invoked: it manages campaigns in already-connected ad accounts and performs no payments, top-ups, or transfers."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

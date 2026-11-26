@@ -8,6 +8,8 @@ Publishing runs only for the exact container version you confirm.
 The plugin connects your AI assistant to the LoomaScale MCP server at `https://api.loomascale.com/mcp/gtm` and
 ships skills that tell the model how to use its tools safely.
 
+Choose the plugin’s first suggested prompt or use `$getting-started-gtm` to see the published version, tags and triggers in your container. See the [Google Tag Manager getting-started skill](skills/getting-started-gtm/SKILL.md).
+
 ## What it does
 
 - Audit Google Tag Manager conversion tracking in the published container or a named draft workspace

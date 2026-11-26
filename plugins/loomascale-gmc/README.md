@@ -8,6 +8,8 @@ and make requested changes to eligible product data and feed settings.
 The plugin connects your AI assistant to the LoomaScale MCP server at `https://api.loomascale.com/mcp/gmc` and
 ships skills that tell the model how to use its tools safely.
 
+Choose the plugin’s first suggested prompt or use `$getting-started-gmc` to see current product eligibility by destination and country. See the [Google Merchant Center getting-started skill](skills/getting-started-gmc/SKILL.md).
+
 ## What it does
 
 - Merchant Center diagnostics: account issues and product disapprovals by destination and country

@@ -1,0 +1,15 @@
+interface:
+  display_name: "Getting started with TikTok Ads"
+  short_description: "See weekly TikTok Ads spend and cost per conversion"
+  default_prompt: "Use $getting-started-tiktok to check my TikTok Ads connection and show what changed in spend and conversions this week."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-tiktok"
+      description: "LoomaScale TikTok Ads connection and reporting tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/tiktok"
+
+policy:
+  allow_implicit_invocation: true

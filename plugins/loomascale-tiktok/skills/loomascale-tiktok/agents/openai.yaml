@@ -1,0 +1,15 @@
+interface:
+  display_name: "TikTok Ads | LoomaScale"
+  short_description: "Audit and run TikTok ads"
+  default_prompt: "Use $loomascale-tiktok to audit wasted spend and video creative performance in my connected TikTok Ads account."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-tiktok"
+      description: "LoomaScale TikTok Ads reporting, diagnostics and previewed changes"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/tiktok"
+
+policy:
+  allow_implicit_invocation: true

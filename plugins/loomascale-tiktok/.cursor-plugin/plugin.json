@@ -1,0 +1,25 @@
+{
+  "name": "loomascale-tiktok",
+  "displayName": "TikTok Ads MCP by LoomaScale",
+  "version": "1.0.0",
+  "description": "TikTok Ads MCP for Cursor: audit spend, video creatives and audiences, diagnose delivery and ad review, and preview budget or bid changes.",
+  "author": {
+    "name": "LoomaScale"
+  },
+  "homepage": "https://loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "tiktok ads",
+    "tiktok ads mcp",
+    "cursor",
+    "mcp",
+    "tiktok ads audit",
+    "video creative performance",
+    "smart+ campaigns",
+    "creative fatigue",
+    "tiktok pixel",
+    "ad review"
+  ],
+  "logo": "assets/web-app-manifest-385x385.png"
+}
