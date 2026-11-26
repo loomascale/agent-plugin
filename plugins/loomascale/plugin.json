@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "loomascale",
+  "version": "1.2.9",
+  "description": "Audit ad spend and edit campaigns in Google Ads, Meta Ads, LinkedIn Ads, and TikTok Ads, plus GA4, Tag Manager, Search Console, and Merchant Center. Research competitors' public Google and Meta ads.",
+  "author": {
+    "name": "LoomaScale",
+    "url": "https://loomascale.com"
+  },
+  "homepage": "https://loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "loomascale",
+    "google ads",
+    "meta ads",
+    "linkedin ads",
+    "tiktok ads",
+    "google analytics 4",
+    "google tag manager",
+    "google search console",
+    "google merchant center"
+  ]
+}

@@ -1,7 +1,7 @@
 # Google Ads, Meta Ads and TikTok Ads MCP plugin by LoomaScale
 
 LoomaScale is a Google Ads, Meta Ads and TikTok Ads MCP plugin for Cursor, Claude
-Code, Codex and Grok Build. Audit your campaigns, compare video ad performance and
+Code, Codex, Grok Build and Hermes Agent. Audit your campaigns, compare video ad performance and
 review budget changes before you approve them. Competitor research covers public
 Google, Facebook and Instagram ads.
 
@@ -48,18 +48,18 @@ and metric definitions, see the [TikTok Ads reporting workflow](skills/loomascal
 Invoke `$getting-started` in Codex or choose the full plugin’s first suggested
 prompt. In Claude Code, Cursor or Grok Build, ask “Help me get started with
 LoomaScale.” The [getting-started skill](skills/getting-started/SKILL.md) checks
-your connections and plan access, then shows a small read-only report for one account.
+your connections and plan access, then looks for one finding you can act on.
+For ads, it compares the last seven complete days with the preceding seven and
+shows up to three accounts with verified weekly spend in their own currencies.
+If ad reports are empty, it tries Google Analytics 4, Search Console, Merchant
+Center and Tag Manager in order, using the connected sources it can read.
 
-For an ad account, compare spend, clicks, conversions and cost per conversion
-across the last two complete weeks. For Google Analytics 4, compare sessions and
-key events. If only Google Tag Manager is connected, see your published tracking
-setup. With no connections, choose a source in the menu, finish setup in
-LoomaScale and return to see your report.
-
-Choose what to investigate next. A Google Ads waste audit can surface costly
-search terms. Comparing Google Ads with GA4 can show whether website outcomes
-kept pace with paid traffic. You can also research competitors’ public ads
-without connecting an ad account.
+The first button follows the finding. For example, if sessions rose while GA4
+key events fell, choose **Investigate the conversion decline** to narrow down
+which pages contributed. You can also compare connected sources, explore
+competitors’ public ads, or preview supported changes for review. Weekly reviews
+and alerts appear when scheduling and delivery are available. With no connections,
+the first button takes you to source setup.
 
 ## Example prompts
 
@@ -111,6 +111,15 @@ codex mcp login loomascale
 
 Grok Build: open `/plugin`, search for **LoomaScale**, and install.
 
+Hermes Agent: install the connection from the MCP catalog, then the skills from the
+plugin catalog. Hermes opens LoomaScale sign-in in your browser on first connection.
+
+```text
+hermes mcp install loomascale
+hermes plugins install loomascale
+hermes plugins enable loomascale
+```
+
 ### How do I connect Cursor to Google Ads, Meta Ads and TikTok Ads?
 
 Create or merge this configuration in your project's `.cursor/mcp.json`, or use
@@ -132,7 +141,7 @@ needs only LoomaScale sign-in.
 Manual MCP setup connects the hosted tools; a plugin installation also includes the
 bundled workflow skills. See the [official Cursor MCP setup guide](https://cursor.com/docs/mcp).
 
-For Claude Code, Codex and Grok Build, complete browser sign-in when the client prompts you.
+For Claude Code, Codex, Grok Build and Hermes Agent, complete browser sign-in when the client prompts you.
 
 ## Skills
 
@@ -178,8 +187,9 @@ this plugin. Changes run only after you approve them.
 .grok-plugin/plugin.json     Grok Build manifest
 .codex-plugin/plugin.json    Codex manifest
 .cursor-plugin/plugin.json   Cursor manifest
+plugin.json                  Hermes Agent manifest (Agent Plugins v1)
 .mcp.json                    MCP server (Claude Code, Grok Build)
-mcp.json                     MCP server (Codex, Cursor)
+mcp.json                     MCP server (Codex, Cursor, Hermes Agent)
 skills/                      Agent Skills
 assets/                      logo
 ```

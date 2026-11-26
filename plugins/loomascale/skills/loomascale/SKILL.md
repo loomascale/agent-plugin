@@ -144,8 +144,8 @@ assume a daily budget cap guarantees total spend across campaigns.
 - Which sources exist or are connected: `loomascale_list_data_sources` lists
   every supported source and its connection state. It is free and connects
   nothing; give the user the link it returns.
-- Plan/trial limit: call `loomascale_check_quota` once and explain the reported
-  allowance/reset. Its quota is not an ad budget or account balance.
+- Plan/trial limit: call `loomascale_get_user` once and explain the reported
+  plan, trial or ad-account allowance. It is not an ad budget or account balance.
 - Permission or budget-cap refusal: explain the exact blocker; do not switch
   accounts, raise caps or shrink the requested action to evade it.
 - Invalid read: use the error and schema to make one evidenced correction, then
