@@ -8,6 +8,8 @@ changes run only after a dry run and your approval.
 The plugin connects your AI assistant to the LoomaScale MCP server at `https://api.loomascale.com/mcp/ga4` and
 ships skills that tell the model how to use its tools safely.
 
+Choose the plugin’s first suggested prompt or use `$getting-started-ga4` to compare two weeks of sessions and key events. See the [Google Analytics 4 getting-started skill](skills/getting-started-ga4/SKILL.md).
+
 ## What it does
 
 - Google Analytics 4 account and property discovery

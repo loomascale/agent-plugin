@@ -145,7 +145,17 @@ assume a daily budget cap guarantees total spend across campaigns.
   every supported source and its connection state. It is free and connects
   nothing; give the user the link it returns.
 - Plan/trial limit: call `loomascale_get_user` once and explain the reported
-  plan, trial or ad-account allowance. It is not an ad budget or account balance.
+  plan, trial, task or account allowance. It is not an ad budget or account balance.
+- Free plan (`readOnly: true` in `loomascale_get_user`): only reads work.
+  Use read tools and offer a change as a recommendation, not as an action you
+  can run. Never retry a Free plan refusal:
+  - A change refused because the plan is read-only: give the finding and the
+    recommended change, say that applying it needs a paid plan, and give the
+    dashboard link from the refusal.
+  - Weekly tasks used up: give the reset date from the message.
+  - Account or property allowance reached: say which account was refused
+    and when the allowance resets, as the message states. Listing or selecting accounts and reusing a
+    counted account spend nothing.
 - Permission or budget-cap refusal: explain the exact blocker; do not switch
   accounts, raise caps or shrink the requested action to evade it.
 - Invalid read: use the error and schema to make one evidenced correction, then
