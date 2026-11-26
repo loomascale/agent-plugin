@@ -54,7 +54,7 @@
     ],
     "category": "Business & Operations",
     "defaultPrompt": [
-      "Help me get started with LoomaScale and show me what I can do with it.",
+      "Use $getting-started to check my LoomaScale connections, show my first weekly snapshot and suggest what I can investigate next.",
       "Use the Ads Performance Audit skill to audit my ads, uncover wasted spend, and find the biggest performance opportunities.",
       "Plan improvements across my currently connected integrations. Use supported actions only; get approval before applying changes."
     ],

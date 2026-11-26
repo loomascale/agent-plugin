@@ -1,0 +1,15 @@
+interface:
+  display_name: "Getting started with Google Analytics 4"
+  short_description: "Compare GA4 sessions and key events across two weeks"
+  default_prompt: "Use $getting-started-ga4 to check my Google Analytics 4 connection and show how sessions and key events changed this week."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-ga4"
+      description: "LoomaScale Google Analytics 4 connection and reporting tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/ga4"
+
+policy:
+  allow_implicit_invocation: true

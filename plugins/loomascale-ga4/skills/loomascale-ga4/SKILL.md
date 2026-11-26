@@ -83,8 +83,18 @@ direct the user to the relevant Google Analytics setting instead.
   tool or the [LoomaScale connections dashboard](https://loomascale.com/dashboard/connections).
   A missing property can reflect the Google login's permissions or a disabled
   property; an empty report is not proof that tracking is absent.
-- For a usage-limit refusal, call `loomascale_check_quota` once and explain the
+- For a usage-limit refusal, call `loomascale_get_user` once and explain the
   allowance or reset it actually reports. A usage allowance is not an ad budget.
+- On the Free plan (`readOnly: true` in `loomascale_get_user`) only reads work.
+  Use read tools and offer a change as a recommendation, not as an action you
+  can run. Never retry a Free plan refusal:
+  - A change refused because the plan is read-only: give the finding and the
+    recommended change, say that applying it needs a paid plan, and give the
+    dashboard link from the refusal.
+  - Weekly tasks used up: give the reset date from the message.
+  - Account or property allowance reached: say which account was refused
+    and when the allowance resets, as the message states. Listing or selecting accounts and reusing a
+    counted account spend nothing.
 - `loomascale_request_feature` sends a message to the LoomaScale team. Call it
   only when the user asks to send a feature request; a reporting question does
   not authorize sending a message. Do not claim every helper is read-only.

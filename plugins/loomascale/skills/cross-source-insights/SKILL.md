@@ -154,5 +154,6 @@ tool's permissions and the configured spend cap; use the
 TikTok Ads changes (status, budget, bid, targeting, schedule, rename, paused campaign creation) and LinkedIn Ads, which is
 read-only, follow the same rule; Search Console, GA4, Merchant Center and
 Tag Manager changes belong to the loomascale skill and happen only on request.
-If a plan/trial limit blocks a read, use `loomascale_get_user` and
-report the limitation without retry loops.
+If a plan/trial limit or a Free plan task or account limit blocks a read, use
+`loomascale_get_user` and report the limitation and its reset date without retry
+loops. On the Free plan, which is read-only, present changes as recommendations.
