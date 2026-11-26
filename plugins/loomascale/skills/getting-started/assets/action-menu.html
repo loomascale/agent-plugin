@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LoomaScale audit choices</title>
+<style>
+  :root { color-scheme: light dark; font: 100%/1.4 Inter, system-ui, sans-serif; }
+  body { margin: 0; color: CanvasText; background: Canvas; }
+  section + section { margin-top: 1rem; }
+  h2 { font-size: 1.05rem; margin: 0 0 .4rem; }
+  .choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: .4rem; align-items: start; }
+  .card { box-sizing: border-box; border: 1px solid color-mix(in srgb, CanvasText 32%, Canvas); border-radius: .6rem; }
+  a, summary, .preview { display: block; padding: .55rem .7rem; color: inherit; }
+  a { text-decoration: none; }
+  a:hover strong, summary:hover strong { text-decoration: underline; }
+  summary { cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "⌄"; float: right; }
+  details[open] summary::after { content: "⌃"; }
+  .icon { display: inline-grid; place-content: center; width: 1.2em; margin-right: .35em; vertical-align: middle; }
+  .icon img { width: 1.1em; height: 1.1em; object-fit: contain; }
+  small { display: block; margin-top: .1rem; }
+  .answer { padding: 0 .7rem .65rem; }
+  .answer p { margin: .2rem 0 .5rem; }
+  button { padding: .3rem .6rem; font: inherit; cursor: pointer; }
+  :focus-visible { outline: 2px solid Highlight; outline-offset: 1px; }
+</style>
+<main id="menu"></main>
+<script id="menu-data" type="application/json">[]</script>
+<script>
+  const menu = document.getElementById("menu");
+  const groups = JSON.parse(document.getElementById("menu-data").textContent);
+
+  function element(tag, text) {
+    const node = document.createElement(tag);
+    if (text) node.textContent = text;
+    return node;
+  }
+
+  function icon(filename, glyph) {
+    const mark = element("span");
+    mark.className = "icon";
+    mark.setAttribute("aria-hidden", "true");
+    const img = element("img");
+    img.alt = "";
+    img.referrerPolicy = "no-referrer";
+    img.addEventListener("error", () => { mark.textContent = glyph; });
+    img.src = "https://loomascale.com/icons/" + encodeURIComponent(filename);
+    mark.append(img);
+    return mark;
+  }
+
+  function question(prompt) {
+    const panel = element("div");
+    panel.className = "answer";
+    const text = element("p", prompt);
+    const copy = element("button", "Copy question");
+    copy.type = "button";
+    const status = element("small");
+    status.setAttribute("role", "status");
+    copy.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(prompt);
+        status.textContent = "Copied. Paste into this chat to run.";
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(text);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        status.textContent = "Select and copy the question, then paste it into this chat.";
+      }
+    });
+    panel.append(text, copy, status);
+    return panel;
+  }
+
+  function card(item) {
+    const isLink = item.href && /^https:\/\//i.test(item.href);
+    const node = element(isLink ? "a" : item.prompt ? "details" : "div");
+    node.className = "card";
+    const face = node.tagName === "DETAILS" ? element("summary") : node;
+    if (isLink) {
+      node.href = item.href;
+      node.target = "_blank";
+      node.rel = "noopener noreferrer";
+    } else if (face === node) {
+      node.classList.add("preview");
+    }
+    for (const [filename, glyph] of item.icons || []) face.append(icon(filename, glyph));
+    face.append(element("strong", item.label));
+    if (item.hint) face.append(element("small", item.hint));
+    if (face !== node) node.append(face, question(item.prompt));
+    return node;
+  }
+
+  for (const group of groups) {
+    if (!group.items.length) continue;
+    const section = element("section");
+    const choices = element("div");
+    choices.className = "choices";
+    for (const item of group.items) choices.append(card(item));
+    section.append(element("h2", group.title), choices);
+    menu.append(section);
+  }
+</script>
+</html>

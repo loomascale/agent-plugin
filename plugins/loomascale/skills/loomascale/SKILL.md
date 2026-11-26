@@ -27,9 +27,9 @@ names after they confirm it in chat (`gtm_publish_version` with `confirm:true`).
 
 ## Start with the user's task
 
-For first-use orientation, "what can LoomaScale do for my business?" or next steps
-after an initial audit, use [getting-started](../getting-started/SKILL.md) to connect
-the user's goals and daily work to a first insight and repeatable workflows.
+For first-use orientation or “what can LoomaScale do for my business?”, use
+[getting-started](../getting-started/SKILL.md) to check access, show one weekly
+snapshot and offer daily marketing tasks for the user's sources.
 Keep already defined reports and changes in their task-specific workflow.
 
 Identify the intended result: a report, diagnosis, recommendation, campaign draft
