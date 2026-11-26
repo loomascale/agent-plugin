@@ -1,7 +1,7 @@
 {
   "name": "loomascale-gmc",
   "displayName": "Google Merchant Center (GMC) MCP by LoomaScale",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Google Merchant Center MCP for Cursor: diagnose disapprovals and feed errors, review Shopping performance and update eligible product data on request.",
   "author": {
     "name": "LoomaScale"

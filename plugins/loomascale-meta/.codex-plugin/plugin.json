@@ -52,7 +52,7 @@
   "mcpServers": "./mcp.json",
   "name": "loomascale-meta",
   "skills": "./skills/",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "extensions": {
     "com.openai": {
       "review": {

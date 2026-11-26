@@ -1,7 +1,7 @@
 {
   "name": "loomascale-meta",
   "displayName": "Meta Ads MCP by LoomaScale",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Meta Ads MCP for Cursor: audit Facebook and Instagram ad spend, delivery and creatives, research the Ad Library and change campaigns on request.",
   "author": {
     "name": "LoomaScale"

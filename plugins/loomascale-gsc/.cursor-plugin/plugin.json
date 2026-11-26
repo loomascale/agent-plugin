@@ -1,7 +1,7 @@
 {
   "name": "loomascale-gsc",
   "displayName": "Google Search Console (GSC) MCP by LoomaScale",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Google Search Console MCP for Cursor: analyze SEO traffic, keywords and CTR, inspect URL indexing and submit sitemaps on request.",
   "author": {
     "name": "LoomaScale"

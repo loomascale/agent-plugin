@@ -1,6 +1,6 @@
 {
   "name": "loomascale-gtm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Audit Google Tag Manager conversion tracking, draft workspace fixes, and publish only a container version you confirm.",
   "author": {
     "name": "LoomaScale",

@@ -1,6 +1,6 @@
 {
   "name": "loomascale-ga4",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Analyze Google Analytics 4 traffic, conversions, revenue and funnels. Change key events and stream settings after a dry run and your approval.",
   "author": {
     "name": "LoomaScale",
