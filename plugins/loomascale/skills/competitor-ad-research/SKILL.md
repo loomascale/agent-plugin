@@ -91,7 +91,7 @@ An empty result does not prove the competitor is not advertising. Distinguish no
 matches, ambiguous identity, unavailable tools, expired references, provider failures
 and plan limits. Use the returned recovery guidance; a provider failure does not
 mean the user should reconnect an ad account. For a plan/trial refusal, use
-`loomascale_check_quota` once. Continue useful supported research and report gaps.
+`loomascale_get_user` once. Continue useful supported research and report gaps.
 For installation and sign-in, see the [LoomaScale plugin guide](../../README.md).
 
 For a requested comparison with the user's own performance, use
