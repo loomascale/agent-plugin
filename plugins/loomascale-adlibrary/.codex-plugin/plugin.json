@@ -1,0 +1,94 @@
+{
+  "author": {
+    "name": "LoomaScale"
+  },
+  "description": "Research competitors' public Google, Facebook and Instagram ads in ChatGPT from the Google Ads Transparency Center and Meta Ad Library. Read-only.",
+  "keywords": [
+    "google ads transparency center",
+    "meta ad library",
+    "facebook ad library",
+    "competitor ads",
+    "competitor ad research",
+    "ad library mcp",
+    "ad spy",
+    "competitor analysis",
+    "facebook ads",
+    "instagram ads",
+    "google ads mcp"
+  ],
+  "interface": {
+    "displayName": "Ad Spy & Library | LoomaScale",
+    "shortDescription": "Competitor ad research",
+    "developerName": "LoomaScale",
+    "composerIcon": "./assets/web-app-manifest-385x385.png",
+    "logo": "./assets/web-app-manifest-385x385.png",
+    "capabilities": [
+      "Find a competitor's Google advertiser or Facebook Page by brand, company or Page name",
+      "List the Google ads associated with a competitor website or advertiser, by country and date range",
+      "List a competitor's Facebook and Instagram ads with text, headline, call to action, links and media",
+      "Read Google ad headlines, descriptions, images and videos for selected creatives",
+      "Read the payer, selected audience and reach Meta publishes for ads delivered in the EU and UK",
+      "No ad account needed; read-only public data with no budgets, spend or performance"
+    ],
+    "category": "Business & Operations",
+    "defaultPrompt": [
+      "Use $getting-started-adlibrary to show the Google and Meta ads my main competitor is running right now.",
+      "Show me the Google ads that run for allbirds.com in the United States over the last 30 days.",
+      "What ads is Gymshark running on Facebook and Instagram in the UK right now?"
+    ],
+    "longDescription": "Research competitors' ads in ChatGPT with LoomaScale, using the public Google Ads Transparency Center and Meta Ad Library (formerly the Facebook Ad Library). Built for advertisers, small businesses and agencies who want to see what competitors run before planning their own ads.\n\nWhat ads is my competitor running on Google?\nFind the ads associated with a competitor website, or with a public advertiser you look up by name, in a country and date range. Each creative comes with its format, first and last shown dates and a Transparency Center link. Read a few creatives for their headlines, descriptions, images, videos and the URL shown in the ad.\n\nWhat ads is my competitor running on Facebook and Instagram?\nFind the competitor's Facebook Page in the Meta Ad Library, then list the ads it runs in one country, with text, headline, call to action, links, carousel cards, images, videos, delivery dates and the Meta apps each ad runs on. Search ad text by keyword across all advertisers, too.\n\nWho paid for an ad, and how many people did it reach?\nFor ads delivered in the EU or the UK, read the payer and beneficiary, the locations, ages and gender the advertiser selected, and the number of accounts reached by country, age and gender.\n\nWhat can it not show?\nPublic ad libraries do not reveal budgets, spend, bids, targeting interests, conversions or which ad performs best. An empty result does not prove a competitor is not advertising.\n\nDo I need an ad account?\nNo. Sign in to LoomaScale and allow access; nothing is connected. Helper tools check your usage, list the data sources you can connect, or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Google or Meta.",
+    "privacyPolicyURL": "https://loomascale.com/privacy",
+    "supportURL": "https://loomascale.com/contact",
+    "termsOfServiceURL": "https://loomascale.com/terms",
+    "websiteURL": "https://loomascale.com/"
+  },
+  "mcpServers": "./mcp.json",
+  "name": "loomascale-adlibrary",
+  "skills": "./skills/",
+  "version": "1.0.0",
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Find a competitor's Google ads by website.",
+              "prompt": "Show me the Google ads that run for allbirds.com in the United States over the last 30 days.",
+              "tools_triggered": "gads_list_ad_library_ads, gads_get_ad_library_ad",
+              "expected_behavior": "Lists Google Ads Transparency Center creatives for allbirds.com in the United States with advertiser, format and first/last shown dates, then reads the text of a few of them. Nothing is changed in any account."
+            },
+            {
+              "description": "Find a competitor's Meta ads by brand.",
+              "prompt": "What ads is Gymshark running on Facebook and Instagram in the UK right now?",
+              "tools_triggered": "meta_search_ad_library_advertisers, meta_list_ad_library_ads",
+              "expected_behavior": "Finds the Gymshark Facebook Page in the Meta Ad Library, then lists its active UK ads with text, headline, call to action, format and delivery dates."
+            },
+            {
+              "description": "Read EU reach disclosures for one Meta ad.",
+              "prompt": "For the first Gymshark ad, who paid for it and how many people in the EU did it reach?",
+              "tools_triggered": "meta_get_ad_library_ad",
+              "expected_behavior": "Returns the payer and beneficiary, the selected locations, ages and gender, and accounts reached by country, age and gender where Meta publishes them for EU or UK delivery."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Changing the user's own campaigns is outside this integration.",
+              "prompt": "Pause my Google Ads campaign called Brand Search.",
+              "expected_behavior": "The app should not be invoked to change campaigns; this Ad Library integration only reads public competitor ads and cannot pause, edit or create anything."
+            },
+            {
+              "description": "Competitor spend and performance are not public.",
+              "prompt": "How much does Nike spend on Facebook ads per month and which ad gets the most conversions?",
+              "expected_behavior": "The app should not claim spend or conversion figures; public ad libraries show ads, dates and (for the EU/UK) reach, never budgets, spend or conversions."
+            },
+            {
+              "description": "Organic SEO rankings are outside this integration.",
+              "prompt": "What position does my website rank for \"best running shoes\" on Google?",
+              "expected_behavior": "The app should not be invoked; the Ad Library integration researches public ads, not organic search rankings."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

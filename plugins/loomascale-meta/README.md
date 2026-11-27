@@ -16,7 +16,7 @@ Choose the plugin’s first suggested prompt or use `$getting-started-meta` to c
 - Wasted spend: ad sets and ads spending without results
 - Delivery diagnosis: account status, delivery issues, rejected ads and today's pacing
 - Creative review: ad copy, previews and signs of fatigue
-- Meta Pixel and Conversions API health: received events and Event Match Quality (read-only)
+- Meta Pixel and Conversions API health: received events and Event Match Quality (read-only; the [Meta Pixel plugin](../loomascale-metapixel) has these checks alone)
 - Public competitor ads from the Meta Ad Library across Facebook and Instagram
 - Create paused campaigns, ad sets and ads; activate only after you approve the budget
 - Change budgets, status, targeting and bidding on request, checked against your daily spend cap

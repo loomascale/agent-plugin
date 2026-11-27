@@ -99,6 +99,23 @@
       ]
     },
     {
+      "name": "loomascale-metapixel",
+      "source": "./plugins/loomascale-metapixel",
+      "description": "Check Meta Pixel and Conversions API health: which pixels fire, browser vs server event counts, Event Match Quality and Meta's fixes. Read-only.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": [
+        "meta pixel",
+        "meta pixel mcp",
+        "conversions api",
+        "capi",
+        "event match quality",
+        "facebook pixel",
+        "conversion tracking",
+        "meta events manager"
+      ]
+    },
+    {
       "name": "loomascale-tiktok",
       "source": "./plugins/loomascale-tiktok",
       "description": "Audit TikTok Ads spend, video creatives and audiences, diagnose delivery and ad review, and preview budget or bid changes for your approval.",
@@ -113,6 +130,23 @@
         "creative fatigue",
         "tiktok pixel",
         "ad review"
+      ]
+    },
+    {
+      "name": "loomascale-linkedin",
+      "source": "./plugins/loomascale-linkedin",
+      "description": "Audit and manage LinkedIn Ads: campaign and creative reports, leads by job title, seniority and industry, wasted spend, and previewed changes you approve.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": [
+        "linkedin ads",
+        "linkedin ads mcp",
+        "linkedin ads audit",
+        "b2b advertising",
+        "cost per lead",
+        "lead gen forms",
+        "linkedin demographics",
+        "wasted ad spend"
       ]
     },
     {
@@ -131,6 +165,40 @@
         "keyword forecast",
         "cpc estimates",
         "ad group themes"
+      ]
+    },
+    {
+      "name": "loomascale-adlibrary",
+      "source": "./plugins/loomascale-adlibrary",
+      "description": "Research competitors' public Google, Facebook and Instagram ads in the Google Ads Transparency Center and Meta Ad Library. No ad account needed. Read-only.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": [
+        "google ads transparency center",
+        "meta ad library",
+        "facebook ad library",
+        "competitor ads",
+        "competitor ad research",
+        "ad library mcp",
+        "ad spy",
+        "competitor analysis"
+      ]
+    },
+    {
+      "name": "loomascale-youtube",
+      "source": "./plugins/loomascale-youtube",
+      "description": "Report and run YouTube ads through Google Ads: views, view rate, cost per view and conversions by surface, paused Demand Gen launches and approved changes.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": [
+        "youtube ads",
+        "youtube ads mcp",
+        "google ads video",
+        "demand gen",
+        "youtube shorts ads",
+        "cost per view",
+        "view rate",
+        "wasted ad spend"
       ]
     },
     {

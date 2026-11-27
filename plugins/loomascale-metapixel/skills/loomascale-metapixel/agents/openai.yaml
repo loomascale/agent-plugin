@@ -1,0 +1,15 @@
+interface:
+  display_name: "Meta Pixel | LoomaScale"
+  short_description: "Meta Pixel and CAPI checks"
+  default_prompt: "Use $loomascale-metapixel to check my Event Match Quality and whether my Conversions API events are deduplicated."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-metapixel"
+      description: "LoomaScale Meta Pixel, Conversions API and tracking reads"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/metapixel"
+
+policy:
+  allow_implicit_invocation: true

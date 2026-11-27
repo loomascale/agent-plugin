@@ -23,8 +23,8 @@
     "composerIcon": "./assets/web-app-manifest-385x385.png",
     "logo": "./assets/web-app-manifest-385x385.png",
     "capabilities": [
-      "Keyword ideas from seed keywords, a landing page or a whole website, with average monthly searches, competition and top-of-page bid ranges",
-      "Search volume, monthly trend, competition and bid ranges for a keyword list you already have, up to 10,000 keywords per call",
+      "Keyword ideas from seed keywords, a landing page or site, with monthly searches, competition and top-of-page bid ranges",
+      "Search volume, monthly trend, competition and bid ranges for your own keyword list, up to 10,000 keywords per call",
       "Forecast cost, clicks, conversions and average CPC or CPA for a proposed Search campaign before you create it",
       "See which of your existing ad groups each keyword belongs in, with the match type to use",
       "Narrow results by location, language and search network",

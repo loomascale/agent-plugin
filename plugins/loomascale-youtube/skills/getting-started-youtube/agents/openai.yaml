@@ -1,0 +1,15 @@
+interface:
+  display_name: "Getting started with YouTube Ads"
+  short_description: "Weekly YouTube ad results"
+  default_prompt: "Use $getting-started-youtube to check my Google Ads connection and show how my YouTube ads did this week."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-youtube"
+      description: "LoomaScale YouTube Ads connection and reporting tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/youtube"
+
+policy:
+  allow_implicit_invocation: true

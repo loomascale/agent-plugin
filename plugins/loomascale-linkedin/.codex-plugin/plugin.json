@@ -1,0 +1,105 @@
+{
+  "author": {
+    "name": "LoomaScale"
+  },
+  "description": "Audit and manage LinkedIn Ads in ChatGPT: campaign and creative reports, leads by job title and seniority, wasted spend, and changes you preview and approve.",
+  "keywords": [
+    "linkedin ads",
+    "linkedin ads mcp",
+    "linkedin campaign manager",
+    "linkedin ads audit",
+    "b2b advertising",
+    "cost per lead",
+    "lead gen forms",
+    "job title targeting",
+    "linkedin demographics",
+    "wasted ad spend"
+  ],
+  "interface": {
+    "displayName": "LinkedIn Ads | LoomaScale",
+    "shortDescription": "Audit and run LinkedIn ads",
+    "developerName": "LoomaScale",
+    "composerIcon": "./assets/web-app-manifest-385x385.png",
+    "logo": "./assets/web-app-manifest-385x385.png",
+    "capabilities": [
+      "Campaign, campaign group and creative reports with leads, conversions and cost per lead, compared with prior period",
+      "Leads and spend by job title, seniority, industry, company, job function, company size or country",
+      "Waste audit ranking campaigns, creatives and audience segments that spent without results",
+      "Campaign settings, targeting, creatives and review status for one campaign",
+      "Preview, then apply, status, budget, bidding, targeting, end date, delivery and name changes you approve",
+      "Daily budgets above your spend cap are refused; nothing is created or deleted"
+    ],
+    "category": "Business & Operations",
+    "defaultPrompt": [
+      "Use $getting-started-linkedin to check my LinkedIn Ads connection and show what changed in spend and leads this week.",
+      "Which job titles and seniorities are my LinkedIn leads coming from, and which ones spend without leads?",
+      "Where am I wasting money on LinkedIn Ads?"
+    ],
+    "longDescription": "Audit and manage your LinkedIn Ads in ChatGPT with LoomaScale. Built for B2B marketers, founders and agencies who run LinkedIn campaigns.\n\nHow are my LinkedIn campaigns doing?\nReport impressions, clicks, CTR, spend, CPC, leads, conversions and cost per lead by account, campaign group, campaign or creative, by day or month, and compare any period with the one before.\n\nWho are my leads?\nBreak results down by job title, seniority, industry, company, job function, company size or country. LinkedIn reports these figures approximately and with a delay, so they show direction, not exact counts.\n\nWhere am I wasting money?\nRank what lost the most money in the last 30 days: campaigns spending without leads or conversions, weak creatives, audience segments taking spend without results, and sudden spend changes.\n\nCan it change my campaigns?\nYes, when you ask. Change status, budget, bidding, targeting, end date, Audience Expansion, LinkedIn Audience Network and names on existing campaigns, campaign groups and creatives. Every change is previewed first and runs only after you approve it. Daily budgets above the spend cap you set are refused. Editing is rolling out by account, and it creates and deletes nothing.\n\nHow do I connect LinkedIn Ads?\nSign in to LoomaScale and connect your LinkedIn ad accounts through LinkedIn, then ask your question in ChatGPT. Helper tools check your usage allowance, list the data sources you can connect, or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by LinkedIn.",
+    "privacyPolicyURL": "https://loomascale.com/privacy",
+    "supportURL": "https://loomascale.com/contact",
+    "termsOfServiceURL": "https://loomascale.com/terms",
+    "websiteURL": "https://loomascale.com/"
+  },
+  "mcpServers": "./mcp.json",
+  "name": "loomascale-linkedin",
+  "skills": "./skills/",
+  "version": "1.0.0",
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Campaign performance with period comparison.",
+              "prompt": "How did my LinkedIn campaigns do over the last 30 days compared with the 30 days before?",
+              "tools_triggered": "linkedin_list_ad_accounts, linkedin_get_insights",
+              "expected_behavior": "Returns impressions, clicks, CTR, spend, CPC, leads and cost per lead per campaign for the last 30 days with the previous period and percentage changes. Nothing is changed."
+            },
+            {
+              "description": "Professional demographic breakdown.",
+              "prompt": "Which job titles and seniorities are my LinkedIn leads coming from, and which ones spend without leads?",
+              "tools_triggered": "linkedin_list_ad_accounts, linkedin_analyze_demographics",
+              "expected_behavior": "Lists job titles and seniorities with spend, clicks, leads and cost per lead, ranked by spend, and notes that LinkedIn's demographic figures are approximate and delayed."
+            },
+            {
+              "description": "Waste audit across connected accounts.",
+              "prompt": "Where am I wasting money on LinkedIn Ads?",
+              "tools_triggered": "linkedin_audit_wasted_spend",
+              "expected_behavior": "Ranks findings by money lost over the last 30 days: campaigns spending without leads or conversions, weak creatives and demographic segments taking spend without results. Nothing is changed."
+            },
+            {
+              "description": "Previewed budget change.",
+              "prompt": "Preview lowering the daily budget of my first active LinkedIn campaign to $4.",
+              "tools_triggered": "linkedin_list_campaigns, linkedin_update_budget",
+              "expected_behavior": "Runs a dry run that shows the current and proposed daily budget without changing anything, and asks for approval before applying it."
+            },
+            {
+              "description": "Previewed status change.",
+              "prompt": "Preview pausing my LinkedIn campaign with the highest cost per lead.",
+              "tools_triggered": "linkedin_get_insights, linkedin_set_status",
+              "expected_behavior": "Identifies the campaign by cost per lead, then runs a dry run of pausing it that shows what would change, and waits for the user's approval."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Creating campaigns is not supported.",
+              "prompt": "Create a new LinkedIn Sponsored Content campaign with a $50 daily budget.",
+              "expected_behavior": "The app should not create campaigns; it changes existing campaigns, groups and creatives only and cannot create new ones."
+            },
+            {
+              "description": "Organic LinkedIn posting is out of scope.",
+              "prompt": "Post an update on my company's LinkedIn page.",
+              "expected_behavior": "The app should not be invoked; it manages LinkedIn ads, not organic company page posts."
+            },
+            {
+              "description": "Other ad platforms are out of scope.",
+              "prompt": "Show me my Google Ads campaigns.",
+              "expected_behavior": "The app should not be invoked; this plugin covers LinkedIn Ads only, and Google Ads is available in the full LoomaScale plugin."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

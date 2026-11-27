@@ -1,0 +1,26 @@
+{
+  "name": "loomascale-adlibrary",
+  "version": "1.0.0",
+  "description": "Research competitors' public Google, Facebook and Instagram ads in the Google Ads Transparency Center and Meta Ad Library. No ad account needed. Read-only.",
+  "author": {
+    "name": "LoomaScale",
+    "url": "https://loomascale.com"
+  },
+  "homepage": "https://loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "google ads transparency center",
+    "meta ad library",
+    "facebook ad library",
+    "competitor ads",
+    "competitor ad research",
+    "ad library mcp",
+    "ad spy",
+    "competitor analysis",
+    "facebook ads",
+    "instagram ads",
+    "google ads mcp"
+  ],
+  "logo": "assets/web-app-manifest-385x385.png"
+}

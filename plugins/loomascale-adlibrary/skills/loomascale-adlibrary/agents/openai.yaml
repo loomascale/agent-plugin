@@ -1,0 +1,15 @@
+interface:
+  display_name: "Ad Library | LoomaScale"
+  short_description: "Competitor ad research"
+  default_prompt: "Use $loomascale-adlibrary to compare the public Google and Meta ads of my two main competitors in my market."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-adlibrary"
+      description: "LoomaScale public Google Ads Transparency Center and Meta Ad Library tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/adlibrary"
+
+policy:
+  allow_implicit_invocation: true

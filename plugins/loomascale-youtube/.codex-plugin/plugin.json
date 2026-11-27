@@ -1,0 +1,105 @@
+{
+  "author": {
+    "name": "LoomaScale"
+  },
+  "description": "Report and run YouTube ads in ChatGPT through Google Ads: views, view rate, cost per view, conversions, paused Demand Gen launches and approved changes.",
+  "keywords": [
+    "youtube ads",
+    "youtube ads mcp",
+    "google ads video",
+    "demand gen",
+    "youtube shorts ads",
+    "video campaign reporting",
+    "cost per view",
+    "view rate",
+    "google ads mcp",
+    "youtube advertising"
+  ],
+  "interface": {
+    "displayName": "YouTube Ads | LoomaScale",
+    "shortDescription": "Report and run YouTube ads",
+    "developerName": "LoomaScale",
+    "composerIcon": "./assets/web-app-manifest-385x385.png",
+    "logo": "./assets/web-app-manifest-385x385.png",
+    "capabilities": [
+      "YouTube ad views, view rate, cost per view, clicks and conversions by account, campaign, ad group or ad, vs prior period",
+      "Demand Gen results split by YouTube surface: in-stream, in-feed and Shorts, with 25/50/75/100% watch rates",
+      "Audiences, locations and campaigns that spend without conversions, and today's budget pacing",
+      "Launch a paused Demand Gen video campaign from videos already on YouTube, then activate it when you are ready",
+      "Pause or enable campaigns, ad groups and ads; edit budgets, bidding, ad group targeting and YouTube channels on approval",
+      "Daily budgets above your spend cap are refused; classic Video campaigns are reported but edited only in Google Ads"
+    ],
+    "category": "Business & Operations",
+    "defaultPrompt": [
+      "Use $getting-started-youtube to check my Google Ads connection and show how my YouTube ads did this week.",
+      "How did my YouTube ads do over the last 30 days, split by in-stream, in-feed and Shorts?",
+      "Which of my YouTube video ads keep viewers watching to the end?"
+    ],
+    "longDescription": "Report and run your YouTube ads in ChatGPT with LoomaScale, through your own Google Ads account. Built for advertisers, small businesses and agencies that run video ads on YouTube.\n\nHow did my YouTube ads do?\nSee spend, impressions, TrueView views, view rate, cost per view, clicks, conversions and cost per conversion by account, campaign, ad group or ad, for any date range, compared with the period before.\n\nWhich YouTube placements work?\nSplit Demand Gen results by YouTube surface: in-stream, in-feed and Shorts. See which video ads keep viewers watching with 25%, 50%, 75% and 100% watch rates.\n\nWhere am I wasting money?\nFind campaigns, ad groups, audiences and locations that spend without conversions, and check today's pacing against daily budgets.\n\nCan it launch a campaign?\nYes. Create a Demand Gen video campaign from videos already on YouTube, with a daily budget, locations, languages and the YouTube channels to serve on. It is created paused and serves only after you activate it. Add ad groups and ads to existing Demand Gen campaigns the same way.\n\nCan it change my account?\nOnly after you approve. Pause or enable campaigns, ad groups and ads, and change budgets, bidding, Demand Gen ad group targeting and channels. Daily budgets above the spend cap you set in LoomaScale are refused. Classic Video campaigns are reported but stay editable only in Google Ads.\n\nHow do I connect Google Ads?\nSign in to LoomaScale and connect your Google Ads account through Google, then ask your question in ChatGPT. There is no separate YouTube connection: YouTube ads run in Google Ads. Helper tools check your usage allowance, list the data sources you can connect, or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Google or YouTube.",
+    "privacyPolicyURL": "https://loomascale.com/privacy",
+    "supportURL": "https://loomascale.com/contact",
+    "termsOfServiceURL": "https://loomascale.com/terms",
+    "websiteURL": "https://loomascale.com/"
+  },
+  "mcpServers": "./mcp.json",
+  "name": "loomascale-youtube",
+  "skills": "./skills/",
+  "version": "1.0.0",
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Report YouTube ad results by surface.",
+              "prompt": "How did my YouTube ads do over the last 30 days compared with the 30 days before, split by in-stream, in-feed and Shorts?",
+              "tools_triggered": "gads_list_ad_accounts, gads_list_campaigns, gads_get_insights",
+              "expected_behavior": "Returns spend, impressions, views, view rate, cost per view, clicks and conversions for the account's Demand Gen and video campaigns, compared with the previous 30 days and split by YouTube surface. Nothing is changed."
+            },
+            {
+              "description": "Compare video ads by watch-through.",
+              "prompt": "Which of my YouTube video ads keep viewers watching to the end, and which lose them in the first quarter?",
+              "tools_triggered": "gads_list_campaigns, gads_get_insights, gads_list_ads",
+              "expected_behavior": "Lists video ads with views, view rate and 25/50/75/100% watch rates, and names the ads with the steepest early drop-off. Nothing is changed."
+            },
+            {
+              "description": "Find wasted YouTube spend.",
+              "prompt": "Where am I wasting money on YouTube ads this month?",
+              "tools_triggered": "gads_list_campaigns, gads_get_insights, gads_get_audience_insights, gads_get_geo_insights",
+              "expected_behavior": "Ranks campaigns, ad groups, audiences and locations that spent without conversions by money lost, and suggests what to pause or narrow without changing anything."
+            },
+            {
+              "description": "Launch a paused Demand Gen video campaign.",
+              "prompt": "Create a Demand Gen campaign for my YouTube video https://www.youtube.com/watch?v=dQw4w9WgXcQ with a $5 daily budget, targeting the United States, landing on https://example.com.",
+              "tools_triggered": "gads_list_ad_accounts, gads_find_locations, gads_create_demand_gen_campaign",
+              "expected_behavior": "Previews the campaign, ad group and video ad, then on approval creates them with the campaign PAUSED so nothing spends until it is activated. The budget is checked against the spend cap."
+            },
+            {
+              "description": "Pause an underperforming campaign after approval.",
+              "prompt": "Pause my YouTube campaign called Spring Awareness.",
+              "tools_triggered": "gads_list_campaigns, gads_set_status",
+              "expected_behavior": "Finds the campaign, shows the change, and pauses it only after the user approves."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Organic YouTube channel analytics are outside this integration.",
+              "prompt": "How many subscribers did my YouTube channel gain last week and which uploads got the most organic views?",
+              "expected_behavior": "The app should not be invoked; it reports paid YouTube ads in Google Ads, not organic channel analytics from YouTube Studio."
+            },
+            {
+              "description": "Uploading or editing videos is not supported.",
+              "prompt": "Upload this video to my YouTube channel and change its thumbnail.",
+              "expected_behavior": "The app should not be invoked to upload or edit videos; ads use videos already on YouTube, and uploads are done in YouTube Studio."
+            },
+            {
+              "description": "Search keywords and Shopping are outside this integration.",
+              "prompt": "Add the keyword \"running shoes\" to my Google Search campaign.",
+              "expected_behavior": "The app should not be invoked; this YouTube Ads integration manages video and Demand Gen campaigns, not Search keywords."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+interface:
+  display_name: "LinkedIn Ads | LoomaScale"
+  short_description: "Audit and run LinkedIn ads"
+  default_prompt: "Use $loomascale-linkedin to find where my LinkedIn Ads spend money without leads and which job titles convert best."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-linkedin"
+      description: "LoomaScale LinkedIn Ads reporting, demographics and campaign tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/linkedin"
+
+policy:
+  allow_implicit_invocation: true

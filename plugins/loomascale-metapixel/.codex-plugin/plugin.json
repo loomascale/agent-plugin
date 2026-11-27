@@ -1,0 +1,99 @@
+{
+  "author": {
+    "name": "LoomaScale"
+  },
+  "description": "Check your Meta Pixel and Conversions API in ChatGPT: event counts by browser and server, Event Match Quality, CAPI coverage and Meta's fixes. Read-only.",
+  "keywords": [
+    "meta pixel",
+    "meta pixel mcp",
+    "conversions api",
+    "capi",
+    "event match quality",
+    "facebook pixel",
+    "meta events manager",
+    "pixel diagnostics",
+    "conversion tracking",
+    "meta ads mcp"
+  ],
+  "interface": {
+    "displayName": "Meta Pixel | LoomaScale",
+    "shortDescription": "Meta Pixel and CAPI checks",
+    "developerName": "LoomaScale",
+    "composerIcon": "./assets/web-app-manifest-385x385.png",
+    "logo": "./assets/web-app-manifest-385x385.png",
+    "capabilities": [
+      "See which pixels (datasets) your ad account uses, when each last received an event, and your custom conversions",
+      "Count PageView, Lead, Purchase and other events over the last seven days, by browser pixel and Conversions API",
+      "Event Match Quality per web event, match key coverage, CAPI coverage, deduplication and upload delay",
+      "Meta's own diagnostics for the dataset, with affected event counts and suggested fixes",
+      "See which ad sets optimize for each pixel event and how reported conversions changed",
+      "Read-only: installs nothing, sends no events and changes nothing in Meta"
+    ],
+    "category": "Business & Operations",
+    "defaultPrompt": [
+      "Use $getting-started-metapixel to check my Meta Ads connection and show whether my pixel and Conversions API are healthy.",
+      "Why is my Event Match Quality low, and is my Conversions API set up correctly?",
+      "How many Purchase events did my pixel get this week from the browser versus the Conversions API?"
+    ],
+    "longDescription": "Check your Meta Pixel and Conversions API in ChatGPT with LoomaScale, through your own connected Meta ad account. Built for advertisers, small businesses and agencies who need to trust the conversions Meta reports.\n\nIs my pixel firing?\nSee which datasets (pixels) the ad account can use, when each last received an event, and the account's custom conversions with their rules.\n\nWhich events arrive, and from where?\nCount PageView, Lead, Purchase and other events over the last seven days, split into browser (pixel) events and server (Conversions API) events.\n\nWhy is my Event Match Quality low?\nRead the EMQ score for each web event, which match keys arrive (email, phone, IP, fbp, fbc and more), how many browser events have a matching server event, deduplication coverage, upload delay and Meta's own diagnostics with suggested fixes.\n\nWhich campaigns depend on it?\nSee which ad sets optimize for which pixel and event, which website audiences use it, how reported conversions changed, and what changed in the account recently.\n\nCan it change my tracking?\nNo. It is read-only: it installs nothing, sends no events and changes nothing in Meta. Fixes are made on your website, in your tag manager or in Meta Events Manager.\n\nHow do I connect Meta Ads?\nSign in to LoomaScale and connect your Meta ad account through Facebook, then ask your question in ChatGPT. Helper tools check your usage allowance, list the data sources you can connect, or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Meta.",
+    "privacyPolicyURL": "https://loomascale.com/privacy",
+    "supportURL": "https://loomascale.com/contact",
+    "termsOfServiceURL": "https://loomascale.com/terms",
+    "websiteURL": "https://loomascale.com/"
+  },
+  "mcpServers": "./mcp.json",
+  "name": "loomascale-metapixel",
+  "skills": "./skills/",
+  "version": "1.0.0",
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "List pixels and when they last fired.",
+              "prompt": "Which Meta pixels does my ad account use, and are they still receiving events?",
+              "tools_triggered": "meta_list_ad_accounts, meta_list_datasets",
+              "expected_behavior": "Lists the account's datasets (pixels) with when each last received an event, and its custom conversions. Nothing is changed."
+            },
+            {
+              "description": "Count browser and server events.",
+              "prompt": "How many Purchase and Lead events did my pixel get in the last 7 days from the browser versus the Conversions API?",
+              "tools_triggered": "meta_list_ad_accounts, meta_list_datasets",
+              "expected_behavior": "Returns event counts for the dataset, split into browser (pixel) and server (Conversions API) events, for up to the last 7 days. Nothing is changed."
+            },
+            {
+              "description": "Diagnose low Event Match Quality.",
+              "prompt": "Why is my Event Match Quality low, and is my Conversions API set up correctly?",
+              "tools_triggered": "meta_list_datasets, meta_get_dataset_quality",
+              "expected_behavior": "Returns the EMQ score per web event, match key coverage, CAPI coverage and deduplication, and Meta's diagnostics with suggested fixes, and explains the most important fix first. Nothing is changed."
+            },
+            {
+              "description": "Check which ad sets optimize for a pixel event.",
+              "prompt": "Which of my ad sets optimize for Purchase on my pixel, and how many purchases did they report last week?",
+              "tools_triggered": "meta_list_campaigns, meta_get_adset, meta_get_insights",
+              "expected_behavior": "Lists the ad sets whose promoted object is the pixel and Purchase event, with the purchases Meta reported for them last week. Nothing is changed."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Changing campaigns is outside this integration.",
+              "prompt": "Pause my Meta campaign called Spring Sale.",
+              "expected_behavior": "The app should not be invoked to change campaigns; this Meta Pixel integration is read-only and cannot pause, edit or create anything."
+            },
+            {
+              "description": "Installing the pixel on a website is not supported.",
+              "prompt": "Install the Meta Pixel on my Shopify store.",
+              "expected_behavior": "The app should not be invoked to install code; it checks pixel and Conversions API health, and installation is done in the website platform or Meta Events Manager."
+            },
+            {
+              "description": "Google Analytics tracking is outside this integration.",
+              "prompt": "Is my Google Analytics 4 purchase event firing?",
+              "expected_behavior": "The app should not be invoked; it checks Meta Pixel and Conversions API data, not Google Analytics."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

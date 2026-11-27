@@ -1,0 +1,25 @@
+{
+  "name": "loomascale-linkedin",
+  "version": "1.0.0",
+  "description": "Audit and manage LinkedIn Ads: campaign and creative reports, leads by job title, seniority and industry, wasted spend, and previewed changes you approve.",
+  "author": {
+    "name": "LoomaScale",
+    "url": "https://loomascale.com"
+  },
+  "homepage": "https://loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "linkedin ads",
+    "linkedin ads mcp",
+    "linkedin campaign manager",
+    "linkedin ads audit",
+    "b2b advertising",
+    "cost per lead",
+    "lead gen forms",
+    "job title targeting",
+    "linkedin demographics",
+    "wasted ad spend"
+  ],
+  "logo": "assets/web-app-manifest-385x385.png"
+}

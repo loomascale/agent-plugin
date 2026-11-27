@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "loomascale-adlibrary": {
+      "type": "streamable-http",
+      "url": "https://api.loomascale.com/mcp/adlibrary"
+    }
+  }
+}

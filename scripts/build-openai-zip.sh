@@ -19,6 +19,10 @@ for dir in "$ROOT"/plugins/*/; do
 
   cp -R "$ROOT/plugins/$name" "$STAGE/$name"
   find "$STAGE/$name" -name .DS_Store -delete
+  # Root plugin.json is the agent-plugins.org manifest and declares no MCP. The OpenAI
+  # portal reads it as the plugin manifest and rejects the upload with "This package omits
+  # the plugin's existing MCP", so ship only .codex-plugin/plugin.json to OpenAI.
+  rm -f "$STAGE/$name/plugin.json"
 
   if [ "$name" = "loomascale" ]; then
     # Rename every manifest of the all-in plugin (root plugin.json and .*-plugin/plugin.json).

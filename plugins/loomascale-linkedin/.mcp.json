@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "loomascale-linkedin": {
+      "type": "http",
+      "url": "https://api.loomascale.com/mcp/linkedin"
+    }
+  }
+}

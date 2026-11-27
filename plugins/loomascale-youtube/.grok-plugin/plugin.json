@@ -1,0 +1,25 @@
+{
+  "name": "loomascale-youtube",
+  "version": "1.0.0",
+  "description": "Report and run YouTube ads through Google Ads: views, view rate, cost per view and conversions by surface, paused Demand Gen launches and approved changes.",
+  "author": {
+    "name": "LoomaScale",
+    "url": "https://loomascale.com"
+  },
+  "homepage": "https://loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "youtube ads",
+    "youtube ads mcp",
+    "google ads video",
+    "demand gen",
+    "youtube shorts ads",
+    "video campaign reporting",
+    "cost per view",
+    "view rate",
+    "google ads mcp",
+    "youtube advertising"
+  ],
+  "logo": "assets/web-app-manifest-385x385.png"
+}

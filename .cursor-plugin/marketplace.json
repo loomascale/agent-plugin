@@ -19,14 +19,34 @@
       "description": "Meta Ads MCP for Cursor: audit Facebook and Instagram ad spend, delivery and creatives, research the Ad Library and change campaigns on request."
     },
     {
+      "name": "loomascale-metapixel",
+      "source": "./plugins/loomascale-metapixel",
+      "description": "Meta Pixel MCP for Cursor: pixel and Conversions API event counts, Event Match Quality, CAPI coverage and Meta's suggested fixes. Read-only."
+    },
+    {
       "name": "loomascale-tiktok",
       "source": "./plugins/loomascale-tiktok",
       "description": "TikTok Ads MCP for Cursor: audit spend, video creatives and audiences, diagnose delivery and ad review, and preview budget or bid changes."
     },
     {
+      "name": "loomascale-linkedin",
+      "source": "./plugins/loomascale-linkedin",
+      "description": "LinkedIn Ads MCP for Cursor: campaign reports, leads by job title and seniority, wasted spend, and previewed budget or bid changes."
+    },
+    {
       "name": "loomascale-keywords",
       "source": "./plugins/loomascale-keywords",
       "description": "Google Ads Keyword Planner MCP for Cursor: keyword ideas, search volume, bid ranges, campaign forecasts and ad group fit. Read-only."
+    },
+    {
+      "name": "loomascale-adlibrary",
+      "source": "./plugins/loomascale-adlibrary",
+      "description": "Ad Library MCP for Cursor: research competitors' public Google, Facebook and Instagram ads. No ad account needed. Read-only."
+    },
+    {
+      "name": "loomascale-youtube",
+      "source": "./plugins/loomascale-youtube",
+      "description": "YouTube Ads MCP for Cursor: report views, view rate and conversions by surface, launch paused Demand Gen campaigns and apply approved changes."
     },
     {
       "name": "loomascale-ga4",

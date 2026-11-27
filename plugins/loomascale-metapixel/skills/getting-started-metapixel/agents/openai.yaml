@@ -1,0 +1,15 @@
+interface:
+  display_name: "Getting started with Meta Pixel"
+  short_description: "Pixel and CAPI event check"
+  default_prompt: "Use $getting-started-metapixel to check my Meta Ads connection and show whether my pixel and Conversions API are healthy."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-metapixel"
+      description: "LoomaScale Meta Pixel connection and tracking checks"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/metapixel"
+
+policy:
+  allow_implicit_invocation: true

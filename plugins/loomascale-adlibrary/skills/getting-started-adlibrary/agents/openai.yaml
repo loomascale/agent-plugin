@@ -1,0 +1,15 @@
+interface:
+  display_name: "Getting started with Ad Library"
+  short_description: "Look up a competitor's Google and Meta ads"
+  default_prompt: "Use $getting-started-adlibrary to show the Google and Meta ads my main competitor is running right now."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-adlibrary"
+      description: "LoomaScale public Google Ads Transparency Center and Meta Ad Library tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/adlibrary"
+
+policy:
+  allow_implicit_invocation: true

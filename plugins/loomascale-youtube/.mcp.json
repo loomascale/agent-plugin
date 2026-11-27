@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "loomascale-youtube": {
+      "type": "http",
+      "url": "https://api.loomascale.com/mcp/youtube"
+    }
+  }
+}
