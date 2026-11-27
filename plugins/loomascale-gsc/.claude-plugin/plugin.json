@@ -1,6 +1,6 @@
 {
   "name": "loomascale-gsc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Google Search Console SEO analysis: compare organic traffic, find keyword opportunities and low-CTR pages, check indexing, and submit sitemaps on request.",
   "author": {
     "name": "LoomaScale",

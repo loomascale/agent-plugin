@@ -1,3 +1,8 @@
+# Action menu HTML template
+
+Copy the HTML below into an inline HTML response and fill its `menu-data` as described in the [action menu reference](../references/action-menu.md).
+
+```html
 <!doctype html>
 <html lang="en">
 <meta charset="utf-8">
@@ -179,3 +184,4 @@
   if (audit) renderAction(audit, false);
 </script>
 </html>
+```

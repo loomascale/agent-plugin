@@ -1,7 +1,7 @@
 {
   "name": "loomascale-gtm",
   "displayName": "Google Tag Manager (GTM) MCP by LoomaScale",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Google Tag Manager (GTM) MCP for Cursor: audit conversion tracking, draft workspace fixes and publish only the container version you confirm.",
   "author": {
     "name": "LoomaScale"

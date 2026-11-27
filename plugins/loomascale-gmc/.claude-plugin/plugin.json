@@ -1,6 +1,6 @@
 {
   "name": "loomascale-gmc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Fix Google Merchant Center product disapprovals and feed errors, review Shopping performance, and update product data on request.",
   "author": {
     "name": "LoomaScale",

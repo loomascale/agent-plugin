@@ -52,7 +52,7 @@
   "mcpServers": "./mcp.json",
   "name": "loomascale-gtm",
   "skills": "./skills/",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "extensions": {
     "com.openai": {
       "review": {
