@@ -21,13 +21,16 @@ for dir in "$ROOT"/plugins/*/; do
   find "$STAGE/$name" -name .DS_Store -delete
 
   if [ "$name" = "loomascale" ]; then
+    # Rename every manifest of the all-in plugin (root plugin.json and .*-plugin/plugin.json).
     node -e '
 const fs = require("fs");
-const [file, id] = process.argv.slice(1);
-const m = JSON.parse(fs.readFileSync(file, "utf8"));
-m.name = id;
-fs.writeFileSync(file, JSON.stringify(m, null, 2) + "\n");
-' "$STAGE/$name/.codex-plugin/plugin.json" "$APP_ID"
+const [id, ...files] = process.argv.slice(1);
+for (const file of files) {
+  const m = JSON.parse(fs.readFileSync(file, "utf8"));
+  m.name = id;
+  fs.writeFileSync(file, JSON.stringify(m, null, 2) + "\n");
+}
+' "$APP_ID" $(find "$STAGE/$name" -maxdepth 2 -name plugin.json)
     label="$APP_ID"
   else
     label="$name"

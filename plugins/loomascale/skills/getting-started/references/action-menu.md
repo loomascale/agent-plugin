@@ -1,6 +1,6 @@
 # Which marketing task should I choose?
 
-Use the live catalog and exposed tools to select rows. The order below follows the LoomaScale dashboard’s default for advertisers. Use actual popularity ranks if supplied. Do not describe the default order as measured usage. Append newly supported sources using the catalog description and a verified reporting capability.
+Use the live catalog and exposed tools to select rows. The source directory follows the LoomaScale dashboard’s default order for advertisers. Use actual popularity ranks if supplied. Append newly supported sources using the catalog description and a verified reporting capability.
 
 ## Which action follows from the finding?
 
@@ -18,6 +18,8 @@ Choose the most specific signal the snapshot verifies. Carry its source, dates, 
 | No connected source, access blocked or unresolved scope | Connect my first source, Restore access or Choose an account | Open the returned setup or recovery link, or submit a scoped selection. Use the provider icon for connection links. |
 
 ## What can I improve with each source?
+
+Choose distinct business questions even when a single source supplies several. For GA4, consider engagement, acquisition channels, funnel drop-off and event configuration. For ads, consider spend, creative performance, delivery and conversion tracking. For Search Console, consider indexing alongside organic traffic. For Merchant Center, consider feed processing alongside product visibility. For Tag Manager, consider unpublished changes alongside published tags. Use the matching integration guide and current permissions to decide which requests to offer.
 
 Use the outcome as the visible action label. Put the provider name and icon on the secondary line. For a connected source, selection submits the one-sentence question. For a missing source, use **Connect {source}** and a few words about the outcome, such as “Find costly search terms.” The icon files live under `https://loomascale.com/icons/`. Use the glyph when images are unavailable.
 
@@ -52,7 +54,13 @@ Use [cross-source insights](../../cross-source-insights/SKILL.md) after the user
 
 Offer one or two concrete management examples only for a connected target with a matching exposed write tool and known edit permission. Examples include drafting a paused campaign, previewing a budget change, reviewing Google Ads negative keyword additions, marking a GA4 key event, drafting a GTM tag change or updating a Merchant Center product attribute. Use a short invitation such as **Preview a budget change**. Explain that the user reviews the proposed change before it is applied. Use the [integration workflow](../../loomascale/SKILL.md) on a later request. Onboarding makes no edits, dry runs or permission probes.
 
-If LoomaScale or the host exposes a scheduler that can actually read this source for the user, offer **Set up a weekly performance review**. Offer **Set up a performance alert** only if it can evaluate a chosen metric regularly and notify the user when the condition is met. Campaign delivery schedules do not provide this capability. On selection, resolve the target, cadence, time zone, delivery and any alert threshold before scheduling. Onboarding only presents the option.
+Offer **Schedule a weekly [subject] review** when the assistant’s scheduler can access the verified source. Fill in the subject, source, target name and ID, and the review instructions before binding the native suggested reply:
+
+> Schedule a recurring weekly task for [source and target]. Each week, use LoomaScale to [read-only review instructions] and send me a short summary with one change worth investigating.
+
+For ads, compare spend, clicks, the named outcome and cost per outcome over the latest two complete seven-day windows. For GA4, compare sessions, key events and acquisition channels. For Search Console, compare finalized clicks and impressions by page. For Merchant Center, report current eligibility and issues for the same destination and country. For Tag Manager, report the published version and tracking configuration. Compare current-state checks over time only when a comparable prior snapshot is available.
+
+Display the suggestion during onboarding. A click or numbered reply asks the assistant to use its native scheduler to create the recurring task. Carry the scoped IDs and rolling review instructions into the saved task. Reuse known preferences and ask once for any missing weekday, time, time zone or delivery details required by the scheduler. Reuse an identical existing weekly task. Confirm creation only after the scheduler succeeds, with the cadence and next run when returned. In a copy-only host, use **Copy scheduling request** and explain that pasting it into chat starts setup. Without recurring plugin access, offer an on-demand review. Keep conditional alerts in **More tasks** only when scheduled evaluation and notifications are available.
 
 ## How do I start a full ads performance audit?
 
@@ -66,7 +74,7 @@ Keep any account or client scope the user already chose. Start the audit only wh
 
 Place the primary action directly after the finding. Prefer native suggested replies bound to the full prompt. Present connected-source actions as compact rows with dividers, comparisons as related questions in one lightly tinted panel, and connection links as wrapping icon buttons. Keep the full-audit button standalone at the bottom. For more than five available business tasks, put the rest behind **More tasks**. In text chat, that reply reveals the remaining prompts. A plan-blocked choice is a preview with its prerequisite. A connected source whose tool is unavailable gets a short explanation.
 
-When a host can display inline HTML but cannot send a follow-up, render a copy of the [action menu template](../assets/action-menu.html). Fill its `menu-data` element with a JSON array of groups, using the user’s language. Each group has a `title` and visible `items`. The task group can also include `moreLabel` and `moreItems` for additional actions in a collapsed disclosure. Set `tone` to `cyan` for connected-source actions, `lavender` for comparisons or `blue` for connection setup, even when a group appears first or its title is translated. Each item has a `label`, optional `hint`, optional `icons` (pairs of filename and fallback glyph), and **one** of `prompt` (expand and copy), `href` (open the actual returned HTTPS link), or neither (informational preview).
+When a host can display inline HTML but cannot send a follow-up, render a copy of the [action menu template](../assets/action-menu.html). Fill its `menu-data` with localized groups. Each has a `title` and an `items` array. Use `moreLabel` and `moreItems` for a disclosure. For a wholly collapsed source directory, set `items: []` and put its links in `moreItems`. Set `tone` to `cyan` for local actions, `lavender` for comparisons or `blue` for setup. Each item has a `label`, optional `hint` and optional `icons` (filename and fallback glyph). Use `prompt` to expand and copy, `href` to open the returned HTTPS link, or neither for a preview. For the weekly task set `prompt` to the complete scheduling request and `copyLabel` to the localized “Copy scheduling request”.
 
 ```json
 [{"title":"Compare across sources","tone":"lavender","items":[{"label":"Which paid visits lead to key events?","hint":"Google Ads + GA4","icons":[["google-ads-icon.webp","📣"],["google-analytics-icon.svg","📊"]],"prompt":"Compare Google Ads traffic with GA4 sessions and key events for the same business and identify where the trends diverge."}]}]

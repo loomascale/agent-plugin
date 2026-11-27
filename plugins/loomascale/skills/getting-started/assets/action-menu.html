@@ -131,7 +131,7 @@
     face.append(element("strong", item.label));
     if (item.hint) source.append(document.createTextNode(item.hint));
     if (source.hasChildNodes()) face.append(source);
-    if (face !== node) node.append(face, question(item.prompt));
+    if (face !== node) node.append(face, question(item.prompt, item.copyLabel));
     return node;
   }
 
@@ -158,7 +158,7 @@
   if (recommendation) renderAction(recommendation, true);
 
   for (const group of groups) {
-    if (!group.items.length) continue;
+    if (!group.items.length && !group.moreItems?.length) continue;
     const section = element("section");
     section.dataset.tone = group.tone || (group.items.every(item => item.href) ? "blue" : "cyan");
     const choices = element("div");

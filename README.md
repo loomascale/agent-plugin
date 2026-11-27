@@ -67,8 +67,9 @@ See the [Google Ads and Meta Ads MCP guide](plugins/loomascale/README.md) for se
 You need a [LoomaScale](https://loomascale.com) account. Public competitor ad research
 does not require an ad-account connection. Connect the matching integration to inspect
 or manage your own accounts. The 7-day free trial and the Free plan that
-follows it both cover all plugins. The Free plan is read-only, with 10 tasks per week and
-2 accounts or properties per 30 days, at most 1 of them an advertising account.
+follows it both cover all plugins. The Free plan is read-only, with
+1 advertising account and 1 property (GA4, Search Console, Merchant Center or Tag Manager)
+per 30 days, and does not include competitor ad research.
 
 ### Claude Code
 

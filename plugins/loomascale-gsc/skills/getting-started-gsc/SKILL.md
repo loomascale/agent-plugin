@@ -27,21 +27,39 @@ Keep the reply within one to two desktop chat screens. Open with one sentence ab
 
 Place one recommended button directly beneath the finding. If clicks fell, offer **Find the pages that lost clicks**. If impressions grew faster than clicks, offer **Find searches we could win**. A sitemap error points to **Review sitemap errors**. When setup or access blocks the report, make the remedy primary.
 
-Offer the other relevant questions as compact reply buttons. Bind each to its one-sentence prompt and carry the chosen property, dates and metric into the next turn.
+Under **What else can I help you with?**, select three to five distinct suggestions, fewer when fewer are eligible. Use the snapshot, target type, available tools and permissions. Use page and query tasks for performance changes, and inspection or sitemap tasks for reported coverage issues. Count the recommendation once. Include a mix of performance, diagnostics and management where relevant. A write option needs an exposed write tool and verified edit access. On a read-only plan offer a read-only review or recommendation. Use short button labels and one-line benefits. Bind each to a scoped request such as these:
 
-- **Find lost search clicks** — Which pages account for the largest decline in organic clicks between these two weeks?
-- **Find searches we could win** — Which high-impression queries get few clicks, and which page titles should I review first?
-- **Check an indexing issue** — For the page I choose, what index status, canonical URL and last crawl does Google report?
+- **Find pages losing clicks** — Which pages contributed most to the change in organic clicks between these two periods?
+- **Win more clicks from search** — Which high-impression queries earn few clicks, and which page titles should I test?
+- **Check why a page is missing** — For the URL I choose, what index status, canonical URL and last crawl does Google report?
+- **Find sitemap errors** — Which submitted sitemaps report errors or warnings that could affect discovery?
+- **Submit a corrected sitemap** — Review the sitemap URL and property I select and prepare its submission for my approval.
 
-Use [Search Console reporting and sitemap management](../loomascale-gsc/SKILL.md) on selection. If a matching write tool and edit permission are verified, offer to review submitting an existing sitemap for review. If the host can schedule reads of this source, offer a weekly performance review. Perform investigations, edits and scheduling only after the user chooses them.
+Use [Search Console reporting and sitemap management](../loomascale-gsc/SKILL.md) on selection. Investigate or prepare changes only on selection. Keep the snapshot lightly tinted blue and the task rows unboxed.
 
-Use a faint LoomaScale blue tint for the snapshot when supported. Keep status and task rows unboxed. Prefer native reply buttons for tasks and link buttons for setup. If inline controls can only copy text, label the control **Copy question**. In text-only chat, use numbered replies and a clickable setup link. Omit duplicate actions.
+## How do I schedule a weekly review?
 
-## What can I learn by connecting more sources?
+When the assistant’s task scheduler can run this plugin for the verified Search Console property, reserve one suggestion for **Schedule a weekly organic search review**. Bind the button to this suggested reply, filling in the verified name and site_url before display:
 
-Show one compact, lightly tinted lavender card after the local tasks. If connecting this plugin’s source is the recommended step, put the card there instead and make that source’s row the primary setup button. Title it **What can I learn by connecting more sources?** If all are connected, use **What can I learn across my sources?** Add one question the full LoomaScale plugin can investigate, such as “Which pages gain Google Search clicks but record few key events in GA4?” Use a pairing from the available catalog. Link the full plugin’s name to its returned listing for the current host when available.
+> Schedule a recurring weekly task for [Search Console property name and ID]. Each week, use $loomascale-gsc to compare the latest seven finalized days of organic clicks and impressions with the preceding seven, identify the pages or queries with the largest changes and flag one follow-up, then send me a short summary.
 
-Show every integration returned in `data_sources` once in the card, including connected sources and this plugin’s own source. Lead each link with its business question. Put the provider icon inside the link and the provider name and status in smaller text. Use two columns when they fit, or compact Markdown links in plain chat. Keep every row visible within the existing page budget.
+Onboarding only displays this action. A click sends the scheduling request to the assistant. In plain chat, map a numbered reply to the same request. In a copy-only host, label the control **Copy scheduling request** and tell the user to paste it into the chat. On receipt, use the host’s native scheduler to create the recurring task. Reuse known preferences and ask once for any missing weekday, time, time zone or delivery details the scheduler needs. Save the read-only review instructions with the scoped ID and periods relative to each run. If an identical weekly task already exists, return its schedule. Confirm creation only after the scheduler succeeds and give its cadence and next run when returned. If recurring plugin access is unavailable, offer the review on demand.
+
+## Go beyond Google Search Console
+
+After the local actions, show one small lavender card titled **Go beyond Google Search Console**. Feature up to three relevant pairings from the catalog, with the two provider names, an icon and one question that needs both sources. Prefer a pairing that explains the snapshot or makes the next connection worthwhile. Use the examples below when the same business and scope can be compared.
+
+- **Google Search Console + Google Analytics 4** — Which pages gain organic clicks but record few key events from organic visitors?
+- **Google Search Console + Google Ads** — Where do paid search terms overlap with queries that already bring organic clicks?
+- **Google Search Console + Merchant Center** — Which product pages get organic impressions while their matching offers are ineligible for free listings?
+
+For two connected sources, make the question copyable for use in the full plugin. Label it **Ask in full plugin**. Use one **Explore the full LoomaScale plugin** link in the card footer for the current host when its listing is available. For a missing partner, use an icon link labeled **Connect [provider]** with its returned `connect_url` verbatim. Use **Finish setup** for `needs_attention` and **Check status** for `unknown`. Keep these comparisons as previews in this focused plugin. If its own source needs setup, keep its existing recovery or connect action primary and show at most one pairing as an example.
+
+Keep **All integrations** as a collapsed control, or a follow-up reply in plain chat. On expansion, list every available source once with its individual dashboard link. If no relevant pair is available, show just this control.
+
+### What does All integrations open?
+
+Use the returned `data_sources` for availability and status. Label a new source by the benefit in its catalog description. Use the returned `connect_url` for setup. For a connected or unknown source, open its provider card with **Connected · View** or **Check status**. The links below are the dashboard destinations when a source-specific URL is missing or the current source needs a view-only link. Fall back to `connections_url` for a new source. If inventory fails, offer a retry and show the known links under **Check availability** on expansion.
 
 | Business question and dashboard destination | Provider |
 | --- | --- |
@@ -53,7 +71,3 @@ Show every integration returned in `data_sources` once in the card, including co
 | [Could my tracking miss or double-count conversions?](https://loomascale.com/dashboard/connections?source=tag_manager) | 🏷️ Google Tag Manager |
 | [Which searches show my site but earn few clicks?](https://loomascale.com/dashboard/connections?source=search_console) | 🔎 Google Search Console |
 | [What keeps my products from appearing in Shopping?](https://loomascale.com/dashboard/connections?source=merchant_center) | 🛍️ Google Merchant Center |
-
-Use the source’s returned `connect_url` verbatim for **Connect** (`not_connected`) or **Finish setup** (`needs_attention`). For **Connected · View** (`connected`) or **Check status** (`unknown`), open its dashboard card. For other sources the returned URL already opens that card, where the user can connect or install the full plugin if needed. For this plugin’s view-only links or a missing URL, use the matching card link above.
-
-If inventory fails, label the known links **Check availability** and offer a retry. With a successful inventory, list only returned sources. Give a newly returned source a question based on its description and use its returned URL, falling back to `connections_url` if needed. Opening a row goes to the dashboard. Cross-source reporting takes place in the full plugin.

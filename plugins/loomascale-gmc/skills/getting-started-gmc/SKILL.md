@@ -27,21 +27,39 @@ Keep the reply within one to two desktop chat screens. Open with one sentence ab
 
 Place one recommended button directly beneath the finding. For an account restriction, offer **Review the account issue**. For a product disapproval, offer **Review affected products**. For a feed processing issue, offer **Check the latest feed upload**. If products are eligible, offer **Find the products earning clicks**. When setup or access blocks the report, make the remedy primary.
 
-Offer the other relevant questions as compact reply buttons. Bind each to its one-sentence prompt and carry the chosen merchant account, dates and metric into the next turn.
+Under **What else can I help you with?**, select three to five distinct suggestions, fewer when fewer are eligible. Use the snapshot, target type, available tools and permissions. Match visibility issues to the affected market and destination. Where eligibility is healthy, favor product performance or feed quality. Count the recommendation once. Include a mix of performance, diagnostics and management where relevant. A write option needs an exposed write tool and verified edit access. On a read-only plan offer a read-only review or recommendation. Use short button labels and one-line benefits. Bind each to a scoped request such as these:
 
-- **Review affected products** — Which product issues block the most offers for this destination and country, and which items should I fix first?
-- **Check a feed upload** — What did Merchant Center report for the latest upload of the feed I choose, and which errors need attention?
-- **Find products earning clicks** — Which products earned the most clicks from Shopping ads or free listings on the surface I choose?
+- **Fix product disapprovals** — Which issues block the most offers in this destination and country, and which items should I fix first?
+- **Find feed processing errors** — What did the latest upload report for the feed I select, and which errors need action?
+- **Find products earning clicks** — Which items earn the most clicks on the Shopping surface I choose?
+- **Check my store settings** — Which account, website or shipping settings should I review for the reported issue?
+- **Correct a product attribute** — Show the current value for the eligible offer I select and preview the proposed correction.
 
-Use [Merchant Center diagnostics and product management](../loomascale-gmc/SKILL.md) on selection. If a matching write tool and edit permission are verified, offer to preview an eligible product attribute correction for review. If the host can schedule reads of this source, offer a weekly product eligibility check. Perform investigations, edits and scheduling only after the user chooses them.
+Use [Merchant Center diagnostics and product management](../loomascale-gmc/SKILL.md) on selection. Investigate or prepare changes only on selection. Keep the snapshot lightly tinted blue and the task rows unboxed.
 
-Use a faint LoomaScale blue tint for the snapshot when supported. Keep status and task rows unboxed. Prefer native reply buttons for tasks and link buttons for setup. If inline controls can only copy text, label the control **Copy question**. In text-only chat, use numbered replies and a clickable setup link. Omit duplicate actions.
+## How do I schedule a weekly review?
 
-## What can I learn by connecting more sources?
+When the assistant’s task scheduler can run this plugin for the verified Merchant Center account, reserve one suggestion for **Schedule a weekly product visibility review**. Bind the button to this suggested reply, filling in the verified name and account_id before display:
 
-Show one compact, lightly tinted lavender card after the local tasks. If connecting this plugin’s source is the recommended step, put the card there instead and make that source’s row the primary setup button. Title it **What can I learn by connecting more sources?** If all are connected, use **What can I learn across my sources?** Add one question the full LoomaScale plugin can investigate, such as “Did Shopping clicks fall for products with Merchant Center disapprovals?” Use a pairing from the available catalog. Link the full plugin’s name to its returned listing for the current host when available.
+> Schedule a recurring weekly task for [Merchant Center account name and ID]. Each week, use $loomascale-gmc to report current active, pending and disapproved offers for the same destination and country, highlight the most consequential reported issue, and describe changes only when a comparable earlier snapshot is available, then send me a short summary.
 
-Show every integration returned in `data_sources` once in the card, including connected sources and this plugin’s own source. Lead each link with its business question. Put the provider icon inside the link and the provider name and status in smaller text. Use two columns when they fit, or compact Markdown links in plain chat. Keep every row visible within the existing page budget.
+Onboarding only displays this action. A click sends the scheduling request to the assistant. In plain chat, map a numbered reply to the same request. In a copy-only host, label the control **Copy scheduling request** and tell the user to paste it into the chat. On receipt, use the host’s native scheduler to create the recurring task. Reuse known preferences and ask once for any missing weekday, time, time zone or delivery details the scheduler needs. Save the read-only review instructions with the scoped ID and periods relative to each run. If an identical weekly task already exists, return its schedule. Confirm creation only after the scheduler succeeds and give its cadence and next run when returned. If recurring plugin access is unavailable, offer the review on demand.
+
+## Go beyond Google Merchant Center
+
+After the local actions, show one small lavender card titled **Go beyond Google Merchant Center**. Feature up to three relevant pairings from the catalog, with the two provider names, an icon and one question that needs both sources. Prefer a pairing that explains the snapshot or makes the next connection worthwhile. Use the examples below when the same business and scope can be compared.
+
+- **Google Merchant Center + Google Ads** — Did Shopping clicks fall for offers that Merchant Center currently lists as disapproved?
+- **Google Merchant Center + Google Analytics 4** — Which products earn free-listing clicks but few recorded purchases for matching item IDs?
+- **Google Merchant Center + Search Console** — Which ineligible offers also have product pages with weak organic search visibility?
+
+For two connected sources, make the question copyable for use in the full plugin. Label it **Ask in full plugin**. Use one **Explore the full LoomaScale plugin** link in the card footer for the current host when its listing is available. For a missing partner, use an icon link labeled **Connect [provider]** with its returned `connect_url` verbatim. Use **Finish setup** for `needs_attention` and **Check status** for `unknown`. Keep these comparisons as previews in this focused plugin. If its own source needs setup, keep its existing recovery or connect action primary and show at most one pairing as an example.
+
+Keep **All integrations** as a collapsed control, or a follow-up reply in plain chat. On expansion, list every available source once with its individual dashboard link. If no relevant pair is available, show just this control.
+
+### What does All integrations open?
+
+Use the returned `data_sources` for availability and status. Label a new source by the benefit in its catalog description. Use the returned `connect_url` for setup. For a connected or unknown source, open its provider card with **Connected · View** or **Check status**. The links below are the dashboard destinations when a source-specific URL is missing or the current source needs a view-only link. Fall back to `connections_url` for a new source. If inventory fails, offer a retry and show the known links under **Check availability** on expansion.
 
 | Business question and dashboard destination | Provider |
 | --- | --- |
@@ -53,7 +71,3 @@ Show every integration returned in `data_sources` once in the card, including co
 | [Could my tracking miss or double-count conversions?](https://loomascale.com/dashboard/connections?source=tag_manager) | 🏷️ Google Tag Manager |
 | [Which searches show my site but earn few clicks?](https://loomascale.com/dashboard/connections?source=search_console) | 🔎 Google Search Console |
 | [What keeps my products from appearing in Shopping?](https://loomascale.com/dashboard/connections?source=merchant_center) | 🛍️ Google Merchant Center |
-
-Use the source’s returned `connect_url` verbatim for **Connect** (`not_connected`) or **Finish setup** (`needs_attention`). For **Connected · View** (`connected`) or **Check status** (`unknown`), open its dashboard card. For other sources the returned URL already opens that card, where the user can connect or install the full plugin if needed. For this plugin’s view-only links or a missing URL, use the matching card link above.
-
-If inventory fails, label the known links **Check availability** and offer a retry. With a successful inventory, list only returned sources. Give a newly returned source a question based on its description and use its returned URL, falling back to `connections_url` if needed. Opening a row goes to the dashboard. Cross-source reporting takes place in the full plugin.
