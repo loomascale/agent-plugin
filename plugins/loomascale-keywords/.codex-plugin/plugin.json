@@ -1,0 +1,100 @@
+{
+  "author": {
+    "name": "LoomaScale"
+  },
+  "description": "Research Google Ads keywords in ChatGPT with Keyword Planner data: ideas, search volume, bid ranges, forecasts and ad group fit. Read-only.",
+  "keywords": [
+    "google keyword planner",
+    "google ads keyword planner",
+    "keyword planner mcp",
+    "google ads keyword research",
+    "keyword ideas",
+    "search volume",
+    "keyword forecast",
+    "cpc estimates",
+    "ad group themes",
+    "ppc keyword research",
+    "google ads mcp"
+  ],
+  "interface": {
+    "displayName": "Keyword Planner | LoomaScale",
+    "shortDescription": "Google Ads keyword research",
+    "developerName": "LoomaScale",
+    "composerIcon": "./assets/web-app-manifest-385x385.png",
+    "logo": "./assets/web-app-manifest-385x385.png",
+    "capabilities": [
+      "Keyword ideas from seed keywords, a landing page or a whole website, with average monthly searches, competition and top-of-page bid ranges",
+      "Search volume, monthly trend, competition and bid ranges for a keyword list you already have, up to 10,000 keywords per call",
+      "Forecast cost, clicks, conversions and average CPC or CPA for a proposed Search campaign before you create it",
+      "See which of your existing ad groups each keyword belongs in, with the match type to use",
+      "Narrow results by location, language and search network",
+      "Read-only: creates no keyword plans, adds no keywords and changes nothing in your Google Ads account"
+    ],
+    "category": "Business & Operations",
+    "defaultPrompt": [
+      "Use $getting-started-keywords to check my Google Ads connection and find keyword ideas for my website.",
+      "Find keyword ideas for \"emergency plumber\" in the United States with monthly search volume and bid ranges.",
+      "Forecast cost and clicks next month for my keyword list with a $20 daily budget."
+    ],
+    "longDescription": "Research Google Ads keywords in ChatGPT with LoomaScale, using Google Keyword Planner data from your own Google Ads account. Built for advertisers, small businesses and agencies planning Search campaigns.\n\nWhich keywords should I target?\nFind new keyword ideas from seed keywords, a landing page or a whole website, each with average monthly searches, competition and low and high top-of-page bid estimates. Narrow ideas by location, language and search network.\n\nHow much search volume does my list get?\nCheck average monthly searches, searches per month for up to about four years, competition and bid ranges for up to 10,000 keywords you already have.\n\nWhat would a campaign cost?\nForecast cost, clicks and average CPC, or conversions and average CPA, for a proposed Search campaign with your keywords, locations, languages, bidding strategy and budget, before you create anything. A forecast is an estimate, not a guarantee.\n\nWhere do new keywords fit?\nSee which of your existing ad groups each keyword belongs in, with the match type to use.\n\nCan it change my account?\nNo. It is read-only: it creates no keyword plans, adds no keywords and changes nothing in your Google Ads account. To add keywords or build campaigns, use the full LoomaScale plugin or Google Ads.\n\nHow do I connect Google Ads?\nSign in to LoomaScale and connect your Google Ads account through Google, then ask your question in ChatGPT. Helper tools check your usage allowance, list the data sources you can connect, or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Google.",
+    "privacyPolicyURL": "https://loomascale.com/privacy",
+    "supportURL": "https://loomascale.com/contact",
+    "termsOfServiceURL": "https://loomascale.com/terms",
+    "websiteURL": "https://loomascale.com/"
+  },
+  "mcpServers": "./mcp.json",
+  "name": "loomascale-keywords",
+  "skills": "./skills/",
+  "version": "1.0.0",
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Find keyword ideas from seed keywords.",
+              "prompt": "Find keyword ideas for \"emergency plumber\" in the United States, in English, with monthly search volume and bid ranges.",
+              "tools_triggered": "gads_list_ad_accounts, gads_find_locations, gads_keyword_ideas",
+              "expected_behavior": "Returns keyword ideas with average monthly searches, competition and low/high top-of-page bid estimates for the United States in English. Nothing is changed in the account."
+            },
+            {
+              "description": "Check search volume for a keyword list.",
+              "prompt": "Get monthly search volume and competition for these keywords: roof repair, roof replacement, roofing contractor near me.",
+              "tools_triggered": "gads_list_ad_accounts, gads_keyword_historical_metrics",
+              "expected_behavior": "Returns average monthly searches, competition and bid estimates for each of the three keywords. Nothing is changed."
+            },
+            {
+              "description": "Forecast performance for planned keywords.",
+              "prompt": "Forecast cost and clicks next month in the United States for the phrase-match keywords \"dog grooming\" and \"mobile dog grooming\" with Maximize Clicks and a $20 daily budget.",
+              "tools_triggered": "gads_list_ad_accounts, gads_find_locations, gads_keyword_forecast_metrics",
+              "expected_behavior": "Returns one campaign-level estimate of cost, clicks and average CPC for the given dates, and notes that it is an estimate. No campaign or keyword plan is created."
+            },
+            {
+              "description": "Match keywords to existing ad groups.",
+              "prompt": "Which of my existing ad groups in the first campaign do these keywords fit best: teeth whitening, invisible braces, dental implants cost?",
+              "tools_triggered": "gads_list_campaigns, gads_keyword_ad_group_themes",
+              "expected_behavior": "Lists the campaign's ad groups, then suggests an ad group and match type for each keyword Google could place and names any it placed nowhere. No keyword is added."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Changing campaigns is outside the Keyword Planner integration.",
+              "prompt": "Pause my Google Ads campaign called Brand Search.",
+              "expected_behavior": "The app should not be invoked to change campaigns; this Keyword Planner integration is read-only research and cannot pause, edit or create anything."
+            },
+            {
+              "description": "Adding keywords to the account is not supported.",
+              "prompt": "Add these keyword ideas to my ad group.",
+              "expected_behavior": "The app should not be invoked to add keywords; explain that it only researches keywords and that adding them is done in Google Ads."
+            },
+            {
+              "description": "Organic SEO rankings are outside this integration.",
+              "prompt": "What position does my website rank for \"best running shoes\" on Google?",
+              "expected_behavior": "The app should not be invoked; Keyword Planner reports ad search volume and bids, not organic search rankings."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

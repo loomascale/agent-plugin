@@ -14,8 +14,8 @@ checked against a daily spend cap you set.
 ## Which LoomaScale MCP plugin should I install?
 
 Install `loomascale` for Google Ads, Meta Ads and the other supported integrations
-through one MCP connection. Choose a focused plugin when you only need Meta Ads, TikTok Ads,
-Google Analytics 4, Google Tag Manager, Google Search Console or Google Merchant Center.
+through one MCP connection. Choose a focused plugin when you only need Meta Ads, TikTok Ads, Google Ads
+keyword research, Google Analytics 4, Google Tag Manager, Google Search Console or Google Merchant Center.
 The table links to each plugin's setup and examples.
 
 | Plugin | MCP endpoint | Use it for |
@@ -23,6 +23,7 @@ The table links to each plugin's setup and examples.
 | [Google Ads and Meta Ads MCP (`loomascale`)](plugins/loomascale) | `https://api.loomascale.com/mcp` | Google Ads and Meta Ads audits, campaign management and public competitor ad analysis; TikTok Ads reporting and budget changes; LinkedIn Ads, GA4, GTM, GSC and GMC analysis |
 | [Meta Ads MCP (`loomascale-meta`)](plugins/loomascale-meta) | `https://api.loomascale.com/mcp/meta` | Facebook and Instagram ad audits, delivery and Meta Pixel diagnosis, Meta Ad Library research, approved campaign changes |
 | [TikTok Ads MCP (`loomascale-tiktok`)](plugins/loomascale-tiktok) | `https://api.loomascale.com/mcp/tiktok` | TikTok Ads audits, video creative and audience analysis, delivery and ad review diagnosis, previewed changes and paused Smart+ campaigns |
+| [Google Ads Keyword Planner MCP (`loomascale-keywords`)](plugins/loomascale-keywords) | `https://api.loomascale.com/mcp/keywords` | Read-only Google Ads keyword research: keyword ideas, search volume, bid ranges, campaign forecasts and ad group fit |
 | [Google Analytics 4 MCP (`loomascale-ga4`)](plugins/loomascale-ga4) | `https://api.loomascale.com/mcp/ga4` | Google Analytics 4 traffic, conversion and funnel reports; key events and stream settings after a dry run |
 | [Google Tag Manager MCP (`loomascale-gtm`)](plugins/loomascale-gtm) | `https://api.loomascale.com/mcp/gtm` | Google Tag Manager tracking audits, draft workspace fixes, publish only a version you confirm |
 | [Google Search Console MCP (`loomascale-gsc`)](plugins/loomascale-gsc) | `https://api.loomascale.com/mcp/gsc` | Google Search Console clicks, keyword opportunities, indexing and sitemaps |

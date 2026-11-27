@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "loomascale-keywords": {
+      "type": "http",
+      "url": "https://api.loomascale.com/mcp/keywords"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+interface:
+  display_name: "Getting started with Keyword Planner"
+  short_description: "Find keyword ideas with search volume and bids"
+  default_prompt: "Use $getting-started-keywords to check my Google Ads connection and find keyword ideas for my website."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-keywords"
+      description: "LoomaScale Google Ads connection and Keyword Planner tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/keywords"
+
+policy:
+  allow_implicit_invocation: true

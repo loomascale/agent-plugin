@@ -1,0 +1,15 @@
+interface:
+  display_name: "Keyword Planner | LoomaScale"
+  short_description: "Google Ads keyword research"
+  default_prompt: "Use $loomascale-keywords to find keyword ideas for my website with search volume and bid ranges."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-keywords"
+      description: "LoomaScale Google Ads Keyword Planner research tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/keywords"
+
+policy:
+  allow_implicit_invocation: true

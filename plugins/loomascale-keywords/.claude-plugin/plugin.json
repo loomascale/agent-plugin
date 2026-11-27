@@ -1,0 +1,25 @@
+{
+  "name": "loomascale-keywords",
+  "version": "1.0.0",
+  "description": "Research Google Ads keywords with Keyword Planner data: new keyword ideas, search volume, bid ranges, campaign forecasts and ad group fit. Read-only.",
+  "author": {
+    "name": "LoomaScale",
+    "url": "https://loomascale.com"
+  },
+  "homepage": "https://loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "google keyword planner",
+    "google ads keyword planner",
+    "keyword planner mcp",
+    "google ads keyword research",
+    "keyword ideas",
+    "search volume",
+    "keyword forecast",
+    "cpc estimates",
+    "ad group themes",
+    "ppc keyword research",
+    "google ads mcp"
+  ]
+}

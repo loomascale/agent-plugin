@@ -162,7 +162,7 @@ Google Ads and Meta Ads campaigns start paused.
 
 ### Should I install this or a single-integration plugin?
 
-Install `loomascale` if you work across ads and analytics: it covers every integration on one connection. The single-integration plugins ([Meta Ads](../loomascale-meta), [TikTok Ads](../loomascale-tiktok), [Google Analytics 4](../loomascale-ga4), [Google Tag Manager](../loomascale-gtm), [Google Search Console](../loomascale-gsc), [Google Merchant Center](../loomascale-gmc)) expose only that product's tools, which keeps the model focused when you need nothing else.
+Install `loomascale` if you work across ads and analytics: it covers every integration on one connection. The single-integration plugins ([Meta Ads](../loomascale-meta), [TikTok Ads](../loomascale-tiktok), [Google Ads Keyword Planner](../loomascale-keywords), [Google Analytics 4](../loomascale-ga4), [Google Tag Manager](../loomascale-gtm), [Google Search Console](../loomascale-gsc), [Google Merchant Center](../loomascale-gmc)) expose only that product's tools, which keeps the model focused when you need nothing else.
 
 ## How does authentication work?
 

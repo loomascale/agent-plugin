@@ -24,6 +24,11 @@
       "description": "TikTok Ads MCP for Cursor: audit spend, video creatives and audiences, diagnose delivery and ad review, and preview budget or bid changes."
     },
     {
+      "name": "loomascale-keywords",
+      "source": "./plugins/loomascale-keywords",
+      "description": "Google Ads Keyword Planner MCP for Cursor: keyword ideas, search volume, bid ranges, campaign forecasts and ad group fit. Read-only."
+    },
+    {
       "name": "loomascale-ga4",
       "source": "./plugins/loomascale-ga4",
       "description": "Google Analytics 4 MCP for Cursor: analyze traffic, conversions, revenue and funnels. Change key events and stream settings after a dry run and approval."

@@ -15,13 +15,40 @@ Use the current tool schema for parameters, supported campaign types and limits.
 | Find paid-spend waste | Google: `gads_audit_portfolio` scoped to requested accounts, then relevant search terms/ads; Meta: `meta_get_insights` with campaign/ad detail; TikTok: `tiktok_get_performance` at ADGROUP and AD level, then `tiktok_get_creative_performance` and `tiktok_get_adgroup_diagnostics` for the spenders without conversions; LinkedIn: `linkedin_audit_wasted_spend`. Check each audit's actual reporting window. |
 | Explain a CPA/ROAS change | Relevant platform insights for totals and comparison, then the largest changing campaigns/segments; use the [cross-source skill](../../cross-source-insights/SKILL.md) for GA4 outcomes and attribution. |
 | Diagnose no delivery | Google: `gads_check_pacing`, `gads_check_billing`, campaign/ad status; Meta: `meta_get_delivery_issues`, `meta_check_pacing`, then affected objects; TikTok: `deliveryStatus` from `tiktok_get_campaigns` / `tiktok_get_adgroups` / `tiktok_get_ads`, then `tiktok_get_adgroup_diagnostics`; for a rejected or in-review ad, `tiktok_get_ad_review` returns TikTok's reasons; for missing conversions, `tiktok_get_pixel_events` shows whether the pixel received events. Check parent status and eligibility. |
-| Research Google Ads keywords | `gads_keyword_ideas` for suggestions and volume/bid estimates; review `gads_list_keywords` and `gads_list_search_terms` for the existing account. The ideas tool returns its first page only. |
+| Research Google Ads keywords | Follow the [keyword planning workflow](#how-do-i-research-and-forecast-google-ads-keywords): `gads_keyword_ideas` to discover, `gads_keyword_historical_metrics` for a known list, `gads_keyword_forecast_metrics` to estimate a campaign, `gads_keyword_ad_group_themes` to place keywords. |
 | Review creative fatigue | Meta ad-level insights and `meta_list_ads`, then `meta_list_creatives`/`meta_get_ad_preview` for identified objects. Frequency and declining results suggest a test, not proof of fatigue. |
 | Compare TikTok Ads video creatives or audiences | Use the [TikTok Ads reporting workflow](#how-do-i-audit-tiktok-ads-performance) to compare video view rates, cost per conversion or audience segments. |
 | Review B2B lead quality | `linkedin_get_insights` with `metric_set="leads"` for entity-level lead metrics, then `linkedin_analyze_demographics` for the requested industry/seniority breakdown. Demographics expose leads/conversions, not qualified leads; do not assign entity-level `qualifiedLeads` to industries. CRM evidence is needed for qualified pipeline by industry. |
 
 For any `gads_query`, first follow the [metadata preflight](../../cross-source-insights/SKILL.md#ground-every-custom-google-ads-query).
 Do not guess GAQL fields or use the query tool as a write endpoint.
+
+## How do I research and forecast Google Ads keywords?
+
+LoomaScale exposes Google Keyword Planner through four read-only tools. None of
+them creates a keyword plan, a campaign or a keyword.
+
+1. Discover keywords with `gads_keyword_ideas`, seeded from keywords, a page URL
+   or a whole site. Each idea carries average monthly searches, competition and
+   top-of-page bid estimates; follow `nextCursor` for more ideas. Resolve
+   locations with `gads_find_locations` and never guess geo or language IDs.
+2. Check a list you already have with `gads_keyword_historical_metrics`: up to
+   10,000 keywords per call, with searches per month for up to about four years
+   for seasonality. Google merges near-duplicates into one row and lists them as
+   `closeVariants`, so count that row once. A null volume means no data, not
+   zero. Skip this call for keywords whose metrics the ideas tool already returned.
+3. Estimate a Search campaign before launch with `gads_keyword_forecast_metrics`:
+   keywords with match types, locations, languages, one bidding strategy and
+   future dates. It returns one campaign-level estimate: cost, plus clicks and
+   average CPC (manual CPC, maximize clicks) or conversions and average CPA
+   (maximize conversions). It forecasts no impressions, CTR or per-keyword
+   figures. Call it once per budget to compare scenarios and present the result
+   as an estimate, not a guarantee.
+4. Place new keywords into existing ad groups with `gads_keyword_ad_group_themes`:
+   pass the keywords and the candidate ad group IDs, review the suggested ad
+   group and match type for each keyword, then add approved ones with
+   `gads_add_keywords`. Unusable ad groups are not enabled or sit in a removed
+   campaign; unmatched keywords may need a new ad group.
 
 ## How do I audit TikTok Ads performance?
 

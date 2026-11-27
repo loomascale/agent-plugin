@@ -59,6 +59,8 @@
         "product disapprovals",
         "ppc audit",
         "keyword research",
+        "google keyword planner",
+        "keyword planner",
         "budget pacing",
         "campaign management",
         "wasted ad spend",
@@ -111,6 +113,24 @@
         "creative fatigue",
         "tiktok pixel",
         "ad review"
+      ]
+    },
+    {
+      "name": "loomascale-keywords",
+      "source": "./plugins/loomascale-keywords",
+      "description": "Research Google Ads keywords with Keyword Planner data: new keyword ideas, search volume, bid ranges, campaign forecasts and ad group fit. Read-only.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": [
+        "google keyword planner",
+        "google ads keyword planner",
+        "keyword planner mcp",
+        "google ads keyword research",
+        "keyword ideas",
+        "search volume",
+        "keyword forecast",
+        "cpc estimates",
+        "ad group themes"
       ]
     },
     {

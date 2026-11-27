@@ -1,0 +1,23 @@
+{
+  "name": "loomascale-keywords",
+  "displayName": "Google Ads Keyword Planner MCP by LoomaScale",
+  "version": "1.0.0",
+  "description": "Google Ads Keyword Planner MCP for Cursor: keyword ideas, search volume, bid ranges, campaign forecasts and ad group fit. Read-only.",
+  "author": {
+    "name": "LoomaScale"
+  },
+  "homepage": "https://loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "google keyword planner",
+    "google ads keyword planner",
+    "keyword planner mcp",
+    "cursor",
+    "mcp",
+    "keyword research",
+    "search volume",
+    "keyword forecast"
+  ],
+  "logo": "assets/web-app-manifest-385x385.png"
+}
