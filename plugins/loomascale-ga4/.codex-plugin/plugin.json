@@ -2,7 +2,7 @@
   "author": {
     "name": "LoomaScale"
   },
-  "description": "Analyze Google Analytics 4 (GA4) traffic, conversions, revenue and funnels in ChatGPT with LoomaScale. Manage key events, event rules, enhanced measurement, data redaction and web streams after a dry run and your approval.",
+  "description": "Analyze Google Analytics 4 (GA4) traffic, conversions, revenue and funnels in ChatGPT with LoomaScale. Manage key events, event rules, enhanced measurement, data redaction and web streams after a dry run and your approval. Also includes Google Ads, Meta, TikTok and LinkedIn Ads tools.",
   "keywords": [
     "google analytics 4",
     "google analytics",
@@ -22,7 +22,13 @@
     "realtime analytics",
     "google analytics reports",
     "website traffic",
-    "popular pages"
+    "popular pages",
+    "google ads",
+    "meta ads",
+    "tiktok ads",
+    "linkedin ads",
+    "google tag manager",
+    "google search console"
   ],
   "interface": {
     "displayName": "Google Analytics 4 GA4 | Looma",
@@ -39,7 +45,10 @@
       "Realtime activity and event reports for the last 30 minutes",
       "Conversion attribution, ad cost and ROAS reporting where available in GA4",
       "Property time zone, currency, custom dimensions, custom metrics, annotations and Google Ads link inspection",
-      "Key event, event rule, enhanced measurement, data redaction and web stream changes, each approved after a dry run"
+      "Key event, event rule, enhanced measurement, data redaction and web stream changes, each approved after a dry run",
+      "Google Ads, Meta Ads, TikTok Ads and LinkedIn Ads audits, with campaign changes applied only after your approval",
+      "Competitor ad research in Google Ads Transparency Center and Meta Ad Library",
+      "Google Tag Manager, Google Search Console, Merchant Center and Business Profile tools in the same plugin"
     ],
     "category": "Business & Operations",
     "defaultPrompt": [
@@ -47,7 +56,7 @@
       "Compare my GA4 traffic sources, key events and revenue for the last 30 complete days with the previous 30.",
       "Preview marking generate_lead as a GA4 key event counted once per session. Show a dry run for approval; do not apply it."
     ],
-    "longDescription": "LoomaScale connects Google Analytics 4 (GA4) to ChatGPT for website analytics and tracking configuration. Compare traffic sources, find popular pages, track conversions and ecommerce revenue, and identify funnel drop-offs. Manage key events, event rules, enhanced measurement, data redaction and web streams after reviewing a dry run and approving the exact changes. Built for marketers, agencies, ecommerce teams and business owners.\n\nWhat can I analyze in Google Analytics 4?\nReport website traffic, popular pages, users, sessions, engaged sessions, engagement rate, events, key events and revenue. Break results down by traffic source/medium, channel, landing page, device or country using compatible GA4 dimensions and metrics. Identify which segments contribute to a change and get practical next steps.\n\nWhy did my website traffic or conversions change?\nCompare explicit date ranges and find the sources, pages or devices contributing most to a rise or decline. Read property annotations for context and custom definitions for property-specific reporting. Separate observed changes from possible causes; reports alone do not prove causation.\n\nWhere are users dropping out of my funnel?\nBuild an ordered event funnel, such as add_to_cart followed by purchase, and examine step completion and abandonment. Break down the funnel by device to find where to investigate first. Funnel analysis uses events your property already collects; it does not install tracking.\n\nCan I check realtime activity?\nReport activity during GA4's last-30-minute realtime window, such as active users by country or incoming events by event name. This is an aggregate report, not a visitor list or a continuously updating monitor.\n\nCan I analyze conversion attribution and ROAS?\nUse GA4 conversion reports for attributed conversions, ad cost and return on ad spend where the property has the required data. Inspect existing Google Ads links. Results reflect GA4's attribution definitions and should not be treated as interchangeable with advertising-platform conversions. This plugin does not retrieve Google Ads campaign performance or change ads.\n\nHow do I connect Google Analytics 4?\nSign in to LoomaScale, connect Google Analytics through Google authorization, and choose a GA4 property your Google login can access. Grant Google's read-only and analytics.edit permissions for reporting and supported settings changes. Your Google login must have permission to edit the property to make changes. Older read-only connections need to reconnect and grant the requested permissions. Then ask a reporting question or request a settings change in ChatGPT. Reports depend on property permissions, collected events and available API data. Funnel and conversion reports use Google's alpha APIs; thresholds, sampling and processing delays can limit results.\n\nCan this plugin change Analytics settings or tracking?\nYes. Manage key events (conversions), event create and edit rules, enhanced measurement and data redaction, and create or update web data streams. Each change starts with a dry run showing the exact proposal; it is applied only after your approval. Reporting does not change settings. Event rules affect future collected events, not historical data. Creating a stream does not install a website tag. It cannot install tags, publish Tag Manager changes, manage ads or delete properties or streams. It supports GA4, not Universal Analytics. Helper tools check your usage allowance or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Google.",
+    "longDescription": "LoomaScale connects Google Analytics 4 (GA4) to ChatGPT for website analytics and tracking configuration. Compare traffic sources, find popular pages, track conversions and ecommerce revenue, and identify funnel drop-offs. Manage key events, event rules, enhanced measurement, data redaction and web streams after reviewing a dry run and approving the exact changes. Built for marketers, agencies, ecommerce teams and business owners.\n\nWhat can I analyze in Google Analytics 4?\nReport website traffic, popular pages, users, sessions, engaged sessions, engagement rate, events, key events and revenue. Break results down by traffic source/medium, channel, landing page, device or country using compatible GA4 dimensions and metrics. Identify which segments contribute to a change and get practical next steps.\n\nWhy did my website traffic or conversions change?\nCompare explicit date ranges and find the sources, pages or devices contributing most to a rise or decline. Read property annotations for context and custom definitions for property-specific reporting. Separate observed changes from possible causes; reports alone do not prove causation.\n\nWhere are users dropping out of my funnel?\nBuild an ordered event funnel, such as add_to_cart followed by purchase, and examine step completion and abandonment. Break down the funnel by device to find where to investigate first. Funnel analysis uses events your property already collects; it does not install tracking.\n\nCan I check realtime activity?\nReport activity during GA4's last-30-minute realtime window, such as active users by country or incoming events by event name. This is an aggregate report, not a visitor list or a continuously updating monitor.\n\nCan I analyze conversion attribution and ROAS?\nUse GA4 conversion reports for attributed conversions, ad cost and return on ad spend where the property has the required data. Inspect existing Google Ads links. Results reflect GA4's attribution definitions and should not be treated as interchangeable with advertising-platform conversions. Google Ads campaign performance comes from the Google Ads tools when Google Ads is connected.\n\nWhat else does this plugin include?\nLoomaScale's ad platform and Google data tools, with Google Analytics 4 first in setup. Audit Google Ads, Meta Ads (Facebook and Instagram), TikTok Ads and LinkedIn Ads for wasted spend and tracking gaps; campaign changes are previewed and applied only after your approval, and new campaigns start paused. Research competitors' public ads in Google Ads Transparency Center and Meta Ad Library. Work with Google Tag Manager, Google Search Console, Google Merchant Center and Google Business Profile from the same chat. Each source is connected separately in LoomaScale.\n\nHow do I connect Google Analytics 4?\nSign in to LoomaScale, connect Google Analytics through Google authorization, and choose a GA4 property your Google login can access. Grant Google's read-only and analytics.edit permissions for reporting and supported settings changes. Your Google login must have permission to edit the property to make changes. Older read-only connections need to reconnect and grant the requested permissions. Then ask a reporting question or request a settings change in ChatGPT. Reports depend on property permissions, collected events and available API data. Funnel and conversion reports use Google's alpha APIs; thresholds, sampling and processing delays can limit results.\n\nCan this plugin change Analytics settings or tracking?\nYes. Manage key events (conversions), event create and edit rules, enhanced measurement and data redaction, and create or update web data streams. Each change starts with a dry run showing the exact proposal; it is applied only after your approval. Reporting does not change settings. Event rules affect future collected events, not historical data. Creating a stream does not install a website tag. The GA4 tools cannot install website tags or delete properties or streams; Tag Manager and ad changes go through their own tools. It supports GA4, not Universal Analytics. Helper tools check your usage allowance or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Google.",
     "privacyPolicyURL": "https://loomascale.com/privacy",
     "supportURL": "https://loomascale.com/contact",
     "termsOfServiceURL": "https://loomascale.com/terms",
@@ -56,7 +65,7 @@
   "mcpServers": "./mcp.json",
   "name": "loomascale-ga4",
   "skills": "./skills/",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "extensions": {
     "com.openai": {
       "review": {
@@ -84,7 +93,7 @@
               "description": "Read GA4 conversion attribution and ROAS with an explicit model and date basis. Requires an accessible GA4 property with conversion data and access to the conversions alpha API; ROAS additionally requires available ad-cost data. No attachments are needed.",
               "prompt": "Use the accessible Google Analytics 4 property with the lowest numeric property ID. For the last 30 complete days in its time zone, use data-driven attribution to report all conversions by conversion date and return on ad spend by conversion date, grouped by source/medium. Include all conversion events and explain any unavailable data.",
               "tools_triggered": "ga4_get_account_summaries, ga4_get_property_details, ga4_run_conversions_report",
-              "expected_behavior": "Discover the selected property, resolve its time zone/currency and state exact dates. Call ga4_run_conversions_report with property_id, date_ranges, dimensions [sourceMedium], metrics [allConversionsByConversionDate, returnOnAdSpendByConversionDate], and conversion_spec {conversionActions: [], attributionModel: DATA_DRIVEN}. Label the attribution model and conversion-date basis. Preserve report coverage and metadata warnings. If Google refuses the alpha report or cost data is unavailable, explain the actual limitation without inventing ROAS or zero conversions. Do not equate GA4 attribution with advertising-platform conversions or claim access to campaign reports."
+              "expected_behavior": "Discover the selected property, resolve its time zone/currency and state exact dates. Call ga4_run_conversions_report with property_id, date_ranges, dimensions [sourceMedium], metrics [allConversionsByConversionDate, returnOnAdSpendByConversionDate], and conversion_spec {conversionActions: [], attributionModel: DATA_DRIVEN}. Label the attribution model and conversion-date basis. Preserve report coverage and metadata warnings. If Google refuses the alpha report or cost data is unavailable, explain the actual limitation without inventing ROAS or zero conversions. Do not equate GA4 attribution with advertising-platform conversions or substitute Google Ads campaign reports for GA4 conversion data."
             },
             {
               "description": "Preview a key event configuration write without applying it. Requires a connected Google Analytics login with analytics.edit and permission to edit an accessible GA4 property; no attachments are needed.",
@@ -95,14 +104,14 @@
           ],
           "negative": [
             {
-              "description": "Ad campaign creation is outside the GA4 integration.",
-              "prompt": "Create a Google Ads Search campaign with a $20 daily budget and enable it.",
-              "expected_behavior": "Do not invoke this plugin or any of its tools. Explain that creating or enabling Google Ads campaigns requires an advertising integration; this GA4 integration cannot perform the requested action."
+              "description": "Organic social publishing is outside LoomaScale.",
+              "prompt": "Post this product photo to my Instagram feed and my Facebook Page.",
+              "expected_behavior": "Do not invoke this plugin or any of its tools. Explain that LoomaScale does not publish organic posts to Instagram feeds or Facebook Pages; its Meta tools cover ads."
             },
             {
-              "description": "Website tag installation and Tag Manager publishing are outside this integration.",
-              "prompt": "Install the Google Analytics tracking tag on my website and publish it through Google Tag Manager.",
-              "expected_behavior": "Do not invoke this plugin or any of its tools. Explain that it cannot install website tags or publish Tag Manager changes. GA4 settings access does not provide website or Tag Manager access."
+              "description": "Editing website code is outside this integration.",
+              "prompt": "Open my website's HTML and paste the Google tag into the head section.",
+              "expected_behavior": "Do not invoke this plugin or any of its tools. Explain that it cannot edit website code or install tags on a site; the user adds the tag through their site or CMS."
             },
             {
               "description": "A general analytics definition requires no connected property data.",

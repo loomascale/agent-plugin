@@ -1,7 +1,7 @@
 {
   "name": "loomascale-gsc",
-  "version": "1.0.2",
-  "description": "Google Search Console SEO analysis: compare organic traffic, find keyword opportunities and low-CTR pages, check indexing, and submit sitemaps on request.",
+  "version": "1.0.3",
+  "description": "Google Search Console SEO analysis: compare organic traffic, find keyword opportunities and low-CTR pages, check indexing, and submit sitemaps on request. Includes Google Ads, Meta, TikTok and LinkedIn Ads tools.",
   "author": {
     "name": "LoomaScale",
     "url": "https://loomascale.com"
@@ -24,7 +24,11 @@
     "url inspection",
     "indexing status",
     "page indexing",
-    "sitemaps"
+    "sitemaps",
+    "google ads",
+    "meta ads",
+    "tiktok ads",
+    "linkedin ads"
   ],
   "logo": "assets/web-app-manifest-385x385.png"
 }

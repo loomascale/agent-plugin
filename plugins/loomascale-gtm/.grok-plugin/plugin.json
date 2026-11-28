@@ -1,7 +1,7 @@
 {
   "name": "loomascale-gtm",
-  "version": "1.0.2",
-  "description": "Audit Google Tag Manager conversion tracking, draft workspace fixes, and publish only a container version you confirm.",
+  "version": "1.0.3",
+  "description": "Audit Google Tag Manager conversion tracking, draft workspace fixes, and publish only a container version you confirm. Includes Google Ads, Meta, TikTok and LinkedIn Ads tools.",
   "author": {
     "name": "LoomaScale",
     "url": "https://loomascale.com"
@@ -24,7 +24,11 @@
     "data layer variables",
     "gtm workspace",
     "container versions",
-    "publish gtm"
+    "publish gtm",
+    "google ads",
+    "meta ads",
+    "tiktok ads",
+    "linkedin ads"
   ],
   "logo": "assets/web-app-manifest-385x385.png"
 }

@@ -4,6 +4,8 @@
 Codex and Grok Build. It connects to your Merchant Center accounts through LoomaScale
 to diagnose product disapprovals and feed errors, review Google Shopping performance,
 and make requested changes to eligible product data and feed settings.
+It also includes the Google Ads, Meta Ads, TikTok Ads and LinkedIn Ads tools and the
+other Google sources, with Merchant Center offered first when you connect.
 
 The plugin connects your AI assistant to the LoomaScale MCP server at `https://api.loomascale.com/mcp/gmc` and
 ships skills that tell the model how to use its tools safely.
@@ -83,7 +85,7 @@ No. Diagnostics and performance reports are read-only. Product, feed and account
 
 ### Do I need this if I already use the `loomascale` plugin?
 
-No. The [all-in-one Google Ads and Meta Ads MCP plugin](../loomascale) includes the Merchant Center tools plus Google Ads, Meta Ads and the other integrations. Use `loomascale-gmc` when Merchant Center is the only product you work with.
+No. `loomascale-gmc` carries nearly the same tools as the [all-in-one Google Ads and Meta Ads MCP plugin](../loomascale): Merchant Center plus Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, GA4 and the other Google sources. The difference is setup: Merchant Center is the first source it offers to connect. Install one or the other, not both.
 
 ## How does authentication work?
 

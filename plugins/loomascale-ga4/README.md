@@ -4,6 +4,8 @@
 Codex and Grok Build. It connects to your GA4 properties through LoomaScale to
 analyze traffic, conversions, revenue and funnels. Requested tracking-setting
 changes run only after a dry run and your approval.
+It also includes the Google Ads, Meta Ads, TikTok Ads and LinkedIn Ads tools and the
+other Google sources, with GA4 offered first when you connect.
 
 The plugin connects your AI assistant to the LoomaScale MCP server at `https://api.loomascale.com/mcp/ga4` and
 ships skills that tell the model how to use its tools safely.
@@ -84,7 +86,7 @@ No. Reports never change settings. Key event, event rule, enhanced measurement, 
 
 ### Do I need this if I already use the `loomascale` plugin?
 
-No. The [all-in-one Google Ads and Meta Ads MCP plugin](../loomascale) includes every GA4 tool plus Google Ads, Meta Ads and the other integrations. Use `loomascale-ga4` when GA4 is the only product you work with, or the [SEO plugin](../loomascale-seo) to read GA4 next to Search Console for organic search questions.
+No. `loomascale-ga4` carries nearly the same tools as the [all-in-one Google Ads and Meta Ads MCP plugin](../loomascale): GA4 plus Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads and the other Google sources. The difference is setup: GA4 is the first source it offers to connect. Install one or the other, not both.
 
 ## How does authentication work?
 

@@ -1,8 +1,8 @@
 {
   "name": "loomascale-ga4",
   "displayName": "Google Analytics 4 (GA4) MCP by LoomaScale",
-  "version": "1.0.6",
-  "description": "Google Analytics 4 MCP for Cursor: analyze traffic, conversions, revenue and funnels. Change key events and stream settings after a dry run and approval.",
+  "version": "1.0.7",
+  "description": "Google Analytics 4 MCP for Cursor: analyze traffic, conversions, revenue and funnels. Change key events and stream settings after a dry run and approval. Includes Google Ads, Meta, TikTok and LinkedIn Ads tools.",
   "author": {
     "name": "LoomaScale"
   },
@@ -20,7 +20,11 @@
     "funnel analysis",
     "revenue attribution",
     "key events",
-    "web streams"
+    "web streams",
+    "google ads",
+    "meta ads",
+    "tiktok ads",
+    "linkedin ads"
   ],
   "logo": "assets/web-app-manifest-385x385.png"
 }

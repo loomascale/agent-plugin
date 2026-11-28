@@ -1,7 +1,7 @@
 {
   "name": "loomascale-gmc",
-  "version": "1.0.2",
-  "description": "Fix Google Merchant Center product disapprovals and feed errors, review Shopping performance, and update product data on request.",
+  "version": "1.0.3",
+  "description": "Fix Google Merchant Center product disapprovals and feed errors, review Shopping performance, and update product data on request. Includes Google Ads, Meta, TikTok and LinkedIn Ads tools.",
   "author": {
     "name": "LoomaScale",
     "url": "https://loomascale.com"
@@ -24,6 +24,10 @@
     "shopping ads",
     "product performance",
     "supplemental feed",
-    "website claim"
+    "website claim",
+    "google ads",
+    "meta ads",
+    "tiktok ads",
+    "linkedin ads"
   ]
 }

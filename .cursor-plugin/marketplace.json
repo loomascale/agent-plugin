@@ -56,17 +56,17 @@
     {
       "name": "loomascale-ga4",
       "source": "./plugins/loomascale-ga4",
-      "description": "Google Analytics 4 MCP for Cursor: analyze traffic, conversions, revenue and funnels. Change key events and stream settings after a dry run and approval."
+      "description": "Google Analytics 4 MCP for Cursor: analyze traffic, conversions, revenue and funnels. Change key events and stream settings after a dry run and approval. Includes Google Ads, Meta, TikTok and LinkedIn Ads tools."
     },
     {
       "name": "loomascale-gtm",
       "source": "./plugins/loomascale-gtm",
-      "description": "Google Tag Manager (GTM) MCP for Cursor: audit conversion tracking, draft workspace fixes and publish only the container version you confirm."
+      "description": "Google Tag Manager (GTM) MCP for Cursor: audit conversion tracking, draft workspace fixes and publish only the container version you confirm. Includes Google Ads, Meta, TikTok and LinkedIn Ads tools."
     },
     {
       "name": "loomascale-gsc",
       "source": "./plugins/loomascale-gsc",
-      "description": "Google Search Console MCP for Cursor: analyze SEO traffic, keywords and CTR, inspect URL indexing and submit sitemaps on request."
+      "description": "Google Search Console MCP for Cursor: analyze SEO traffic, keywords and CTR, inspect URL indexing and submit sitemaps on request. Includes Google Ads, Meta, TikTok and LinkedIn Ads tools."
     },
     {
       "name": "loomascale-seo",
@@ -76,7 +76,7 @@
     {
       "name": "loomascale-gmc",
       "source": "./plugins/loomascale-gmc",
-      "description": "Google Merchant Center MCP for Cursor: diagnose disapprovals and feed errors, review Shopping performance and update eligible product data on request."
+      "description": "Google Merchant Center MCP for Cursor: diagnose disapprovals and feed errors, review Shopping performance and update eligible product data on request. Includes Google Ads, Meta, TikTok and LinkedIn Ads tools."
     },
     {
       "name": "loomascale-gbp",

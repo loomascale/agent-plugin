@@ -2,7 +2,7 @@
   "author": {
     "name": "LoomaScale"
   },
-  "description": "Audit Google Tag Manager (GTM) conversion tracking in ChatGPT. Review GA4 and Google Ads tags, missing triggers and possible duplicates; draft workspace fixes and publish only a version you confirm.",
+  "description": "Audit Google Tag Manager (GTM) conversion tracking in ChatGPT. Review GA4 and Google Ads tags, missing triggers and possible duplicates; draft workspace fixes and publish only a version you confirm. Also includes Google Ads, Meta, TikTok and LinkedIn Ads tools.",
   "keywords": [
     "google tag manager",
     "gtm",
@@ -18,7 +18,13 @@
     "data layer variables",
     "gtm workspace",
     "container versions",
-    "publish gtm"
+    "publish gtm",
+    "google ads",
+    "meta ads",
+    "tiktok ads",
+    "linkedin ads",
+    "google analytics 4",
+    "google search console"
   ],
   "interface": {
     "displayName": "Google Tag Manager | LoomaS",
@@ -35,7 +41,10 @@
       "Create and edit GA4 event, Google tag and Google Ads conversion tags in a workspace you choose",
       "Create, update and delete supported draft entities; enable built-in variables and sync a workspace",
       "Save a workspace as a named container version without publishing",
-      "Preview the difference from the live version, then publish only the exact version you confirm"
+      "Preview the difference from the live version, then publish only the exact version you confirm",
+      "Google Ads, Meta Ads, TikTok Ads and LinkedIn Ads audits, with campaign changes applied only after your approval",
+      "Competitor ad research in Google Ads Transparency Center and Meta Ad Library",
+      "Google Analytics 4 reports, Google Search Console, Merchant Center and Business Profile tools in the same plugin"
     ],
     "category": "Business & Operations",
     "defaultPrompt": [
@@ -43,7 +52,7 @@
       "Create a GA4 generate_lead event tag in my GTM Default Workspace. Ask me which trigger to use. Do not publish.",
       "Show unpublished changes in my GTM workspace and compare a saved version with the live container. Do not publish."
     ],
-    "longDescription": "Audit Google Tag Manager (GTM) conversion tracking and draft fixes in ChatGPT with LoomaScale. Review GA4 and Google Ads tags, find missing triggers and possible duplicate Google tags, and see which workspace changes are still unpublished. Built for marketers, analysts, agencies and ecommerce teams working with their own connected containers.\n\nWhat can a GTM audit find?\nCheck the published container or a named draft workspace for paused tags, missing firing triggers, possible duplicate GA4 configuration or Google tags, legacy Universal Analytics tags and marketing-tag consent settings. Inspect tags, triggers, variables and version history. Findings include confidence levels and evidence limits; configuration checks do not prove that a tag fires on your website.\n\nCan I check Google Ads conversion tracking?\nWhen Google Ads is also connected in LoomaScale, compare website conversion actions with their GTM tags to find actions without a matching tag in this container, paused matches and wrong account IDs. Variable-driven IDs can remain unresolved. Imported GA4, offline, call and app conversions are not treated as missing website tags.\n\nCan I create GA4 event tags and fix tracking setup?\nOn your request, create or edit GA4 event tags, Google tags and Google Ads conversion tags in an existing workspace you choose. Create or update triggers and supported variables, including data layer variables, or delete unreferenced draft entities. Enable built-in variables and sync a workspace with the current version. Edits remain drafts until published.\n\nHow do I review and publish a GTM version?\nSave the workspace as a named container version and preview what it would replace in the live version. Publish only after confirming that exact version in chat. The result reports which version is live; a rollback republishes a previous version.\n\nWhat are the limits?\nIt cannot install the GTM snippet, test live tag firing, verify runtime consent behavior, resolve merge conflicts, create Custom HTML or custom JavaScript, delete containers, change ad campaigns or report Google Analytics traffic. Use Tag Manager Preview to verify runtime behavior on your site.\n\nHow do I connect?\nSign in to LoomaScale and connect Google Tag Manager through Google authorization with the required permissions. Your Google account must have access to the container and the permissions needed for each action. Then ask your tracking question in ChatGPT.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Google.",
+    "longDescription": "Audit Google Tag Manager (GTM) conversion tracking and draft fixes in ChatGPT with LoomaScale. Review GA4 and Google Ads tags, find missing triggers and possible duplicate Google tags, and see which workspace changes are still unpublished. Built for marketers, analysts, agencies and ecommerce teams working with their own connected containers.\n\nWhat can a GTM audit find?\nCheck the published container or a named draft workspace for paused tags, missing firing triggers, possible duplicate GA4 configuration or Google tags, legacy Universal Analytics tags and marketing-tag consent settings. Inspect tags, triggers, variables and version history. Findings include confidence levels and evidence limits; configuration checks do not prove that a tag fires on your website.\n\nCan I check Google Ads conversion tracking?\nWhen Google Ads is also connected in LoomaScale, compare website conversion actions with their GTM tags to find actions without a matching tag in this container, paused matches and wrong account IDs. Variable-driven IDs can remain unresolved. Imported GA4, offline, call and app conversions are not treated as missing website tags.\n\nCan I create GA4 event tags and fix tracking setup?\nOn your request, create or edit GA4 event tags, Google tags and Google Ads conversion tags in an existing workspace you choose. Create or update triggers and supported variables, including data layer variables, or delete unreferenced draft entities. Enable built-in variables and sync a workspace with the current version. Edits remain drafts until published.\n\nHow do I review and publish a GTM version?\nSave the workspace as a named container version and preview what it would replace in the live version. Publish only after confirming that exact version in chat. The result reports which version is live; a rollback republishes a previous version.\n\nWhat are the limits?\nIt cannot install the GTM snippet, test live tag firing, verify runtime consent behavior, resolve merge conflicts, create Custom HTML or custom JavaScript or delete containers. Ad campaigns and Google Analytics traffic reports use their own tools when those sources are connected. Use Tag Manager Preview to verify runtime behavior on your site.\n\nWhat else does this plugin include?\nLoomaScale's ad platform and Google data tools, with Google Tag Manager first in setup. Audit Google Ads, Meta Ads (Facebook and Instagram), TikTok Ads and LinkedIn Ads for wasted spend and tracking gaps; campaign changes are previewed and applied only after your approval, and new campaigns start paused. Research competitors' public ads in Google Ads Transparency Center and Meta Ad Library. Work with Google Analytics 4, Google Search Console, Google Merchant Center and Google Business Profile from the same chat. Each source is connected separately in LoomaScale.\n\nHow do I connect?\nSign in to LoomaScale and connect Google Tag Manager through Google authorization with the required permissions. Your Google account must have access to the container and the permissions needed for each action. Then ask your tracking question in ChatGPT.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Google.",
     "privacyPolicyURL": "https://loomascale.com/privacy",
     "supportURL": "https://loomascale.com/contact",
     "termsOfServiceURL": "https://loomascale.com/terms",
@@ -52,7 +61,7 @@
   "mcpServers": "./mcp.json",
   "name": "loomascale-gtm",
   "skills": "./skills/",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "extensions": {
     "com.openai": {
       "review": {
@@ -91,14 +100,14 @@
           ],
           "negative": [
             {
-              "description": "Ad campaign management is outside the Tag Manager integration.",
-              "prompt": "Pause my Google Ads campaign called Brand Search.",
-              "expected_behavior": "The app should not be invoked; changing ad campaigns needs an advertising integration, and this Tag Manager integration cannot do it."
+              "description": "Email marketing is outside LoomaScale.",
+              "prompt": "Send my latest newsletter to my Mailchimp customer list.",
+              "expected_behavior": "The app should not be invoked; LoomaScale has no email marketing or Mailchimp integration."
             },
             {
-              "description": "Analytics reports are outside the Tag Manager integration.",
-              "prompt": "How many sessions did my website get from organic search last month in Google Analytics?",
-              "expected_behavior": "The app should not be invoked; Tag Manager holds tags, not traffic reports, so this integration cannot answer a Google Analytics reporting question."
+              "description": "Installing the container snippet means editing website code, which this integration cannot do.",
+              "prompt": "Install my GTM container snippet in my website's head and body.",
+              "expected_behavior": "The app should not be invoked to edit the website; explain that it cannot install the GTM snippet or change site code, which the user does in their site or CMS."
             },
             {
               "description": "A general Tag Manager definition needs no account data.",

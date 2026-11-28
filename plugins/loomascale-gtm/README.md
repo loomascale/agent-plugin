@@ -4,6 +4,8 @@
 Codex and Grok Build. It connects to your GTM containers through LoomaScale to audit
 conversion tracking, review GA4 and Google Ads tags, and draft workspace fixes.
 Publishing runs only for the exact container version you confirm.
+It also includes the Google Ads, Meta Ads, TikTok Ads and LinkedIn Ads tools and the
+other Google sources, with Tag Manager offered first when you connect.
 
 The plugin connects your AI assistant to the LoomaScale MCP server at `https://api.loomascale.com/mcp/gtm` and
 ships skills that tell the model how to use its tools safely.
@@ -83,7 +85,7 @@ No. Edits go into a workspace you choose. Publishing shows the difference from t
 
 ### Do I need this if I already use the `loomascale` plugin?
 
-No. The [all-in-one Google Ads and Meta Ads MCP plugin](../loomascale) includes the Tag Manager tools plus Google Ads, Meta Ads and the other integrations. Use `loomascale-gtm` when Tag Manager is the only product you work with.
+No. `loomascale-gtm` carries nearly the same tools as the [all-in-one Google Ads and Meta Ads MCP plugin](../loomascale): Tag Manager plus Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, GA4 and the other Google sources. The difference is setup: Tag Manager is the first source it offers to connect. Install one or the other, not both.
 
 ## How does authentication work?
 

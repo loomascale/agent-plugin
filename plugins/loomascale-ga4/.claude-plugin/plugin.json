@@ -1,7 +1,7 @@
 {
   "name": "loomascale-ga4",
-  "version": "1.0.6",
-  "description": "Analyze Google Analytics 4 traffic, conversions, revenue and funnels. Change key events and stream settings after a dry run and your approval.",
+  "version": "1.0.7",
+  "description": "Analyze Google Analytics 4 traffic, conversions, revenue and funnels. Change key events and stream settings after a dry run and your approval. Includes Google Ads, Meta, TikTok and LinkedIn Ads tools.",
   "author": {
     "name": "LoomaScale",
     "url": "https://loomascale.com"
@@ -28,6 +28,10 @@
     "realtime analytics",
     "google analytics reports",
     "website traffic",
-    "popular pages"
+    "popular pages",
+    "google ads",
+    "meta ads",
+    "tiktok ads",
+    "linkedin ads"
   ]
 }

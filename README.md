@@ -30,11 +30,11 @@ The table links to each plugin's setup and examples.
 | [Google Ads Keyword Planner MCP (`loomascale-keywords`)](plugins/loomascale-keywords) | `https://api.loomascale.com/mcp/keywords` | Read-only Google Ads keyword research: keyword ideas, search volume, bid ranges, campaign forecasts and ad group fit |
 | [Google and Meta Ad Library MCP (`loomascale-adlibrary`)](plugins/loomascale-adlibrary) | `https://api.loomascale.com/mcp/adlibrary` | Read-only competitor ad research in the Google Ads Transparency Center and Meta Ad Library; no ad account needed |
 | [YouTube Ads MCP (`loomascale-youtube`)](plugins/loomascale-youtube) | `https://api.loomascale.com/mcp/youtube` | YouTube ad reports by in-stream, in-feed and Shorts, video watch rates, wasted spend, paused Demand Gen launches and approved changes |
-| [Google Analytics 4 MCP (`loomascale-ga4`)](plugins/loomascale-ga4) | `https://api.loomascale.com/mcp/ga4` | Google Analytics 4 traffic, conversion and funnel reports; key events and stream settings after a dry run |
-| [Google Tag Manager MCP (`loomascale-gtm`)](plugins/loomascale-gtm) | `https://api.loomascale.com/mcp/gtm` | Google Tag Manager tracking audits, draft workspace fixes, publish only a version you confirm |
-| [Google Search Console MCP (`loomascale-gsc`)](plugins/loomascale-gsc) | `https://api.loomascale.com/mcp/gsc` | Google Search Console clicks, keyword opportunities, indexing and sitemaps |
+| [Google Analytics 4 MCP (`loomascale-ga4`)](plugins/loomascale-ga4) | `https://api.loomascale.com/mcp/ga4` | Google Analytics 4 traffic, conversion and funnel reports first, plus Google Ads, Meta, TikTok and LinkedIn Ads tools |
+| [Google Tag Manager MCP (`loomascale-gtm`)](plugins/loomascale-gtm) | `https://api.loomascale.com/mcp/gtm` | Google Tag Manager tracking audits and confirmed publishes first, plus Google Ads, Meta, TikTok and LinkedIn Ads tools |
+| [Google Search Console MCP (`loomascale-gsc`)](plugins/loomascale-gsc) | `https://api.loomascale.com/mcp/gsc` | Google Search Console clicks, keyword opportunities, indexing and sitemaps first, plus Google Ads, Meta, TikTok and LinkedIn Ads tools |
 | [SEO MCP (`loomascale-seo`)](plugins/loomascale-seo) | `https://api.loomascale.com/mcp/seo` | SEO from your own Search Console and GA4 data: queries near page one, traffic drops, indexing and organic conversions |
-| [Google Merchant Center MCP (`loomascale-gmc`)](plugins/loomascale-gmc) | `https://api.loomascale.com/mcp/gmc` | Google Merchant Center disapprovals, feed errors and product updates |
+| [Google Merchant Center MCP (`loomascale-gmc`)](plugins/loomascale-gmc) | `https://api.loomascale.com/mcp/gmc` | Google Merchant Center disapprovals, feed errors and product updates first, plus Google Ads, Meta, TikTok and LinkedIn Ads tools |
 | [Google Business Profile MCP (`loomascale-gbp`)](plugins/loomascale-gbp) | `https://api.loomascale.com/mcp/gbp` | Early access: Google Business Profile local SEO performance, Google reviews with approved replies, and business listing updates |
 
 

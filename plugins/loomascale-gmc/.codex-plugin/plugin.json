@@ -2,7 +2,7 @@
   "author": {
     "name": "LoomaScale"
   },
-  "description": "Diagnose Google Merchant Center (GMC) product disapprovals and feed errors in ChatGPT. Review Google Shopping and free listings performance, then update eligible product data and feed settings on request.",
+  "description": "Diagnose Google Merchant Center (GMC) product disapprovals and feed errors in ChatGPT. Review Google Shopping and free listings performance, then update eligible product data and feed settings on request. Also includes Google Ads, Meta, TikTok and LinkedIn Ads tools.",
   "keywords": [
     "google merchant center",
     "merchant center",
@@ -18,7 +18,13 @@
     "shopping ads",
     "product performance",
     "supplemental feed",
-    "website claim"
+    "website claim",
+    "google ads",
+    "meta ads",
+    "tiktok ads",
+    "linkedin ads",
+    "google analytics 4",
+    "google tag manager"
   ],
   "interface": {
     "displayName": "Google Merchant Center | Looma",
@@ -35,7 +41,10 @@
       "Account settings, business information, website claim and autofeed changes on request",
       "Change feed schedules, fetch eligible sources and create API product feeds on request",
       "Update titles, prices, availability and other product attributes on eligible API sources",
-      "Create supplemental feeds; linking to a primary source is completed in Merchant Center"
+      "Create supplemental feeds; linking to a primary source is completed in Merchant Center",
+      "Google Ads, Meta Ads, TikTok Ads and LinkedIn Ads audits, with campaign changes applied only after your approval",
+      "Competitor ad research in Google Ads Transparency Center and Meta Ad Library",
+      "Google Analytics 4 reports, Google Tag Manager, Google Search Console and Business Profile tools in the same plugin"
     ],
     "category": "Business & Operations",
     "defaultPrompt": [
@@ -43,7 +52,7 @@
       "Audit my Merchant Center product feeds for processing errors and failed fetches. Don't change anything.",
       "Which products get the most clicks from Google Shopping ads and free listings in my Merchant Center account?"
     ],
-    "longDescription": "Diagnose Google Merchant Center (GMC) product disapprovals and product feed errors in ChatGPT with LoomaScale. Audit your connected account, see why products are not showing on Google Shopping, and compare product performance for Shopping ads and free listings. Built for ecommerce teams, store owners and agencies.\n\nWhy are my products disapproved or not showing?\nRead Merchant Center account health and product diagnostics to identify account issues, disapproved or pending products, and Google's explanations and help links. Prioritize issues by affected product count, keeping each destination and country separate. Diagnosis does not change your account.\n\nAre my product feeds working?\nAudit data sources, input types and fetch schedules. For file sources, inspect the latest processed file, processing status and row errors to investigate missing products or failed feed runs.\n\nWhich products get clicks on Google Shopping?\nReport clicks, impressions and click-through rate (CTR) by product for Shopping ads or free listings over your chosen date range.\n\nCan I fix feed settings or product data?\nOn request, update account and business information, website settings and claims, autofeed and eligible feed schedules; fetch eligible data sources; or create primary and supplemental API product feeds. Update product titles, prices, availability, images and other supported attributes only on eligible API sources. Changes depend on your Google account role and source type. Confirm the exact website URL before a website change.\n\nWhat are the limits?\nProducts from files, spreadsheets or shop connections must be edited at their source or overridden through a supplemental feed. You link supplemental feeds to primary sources in Merchant Center. Google processes product updates before they appear; verify them afterwards. The plugin cannot approve products, reverse account suspensions or guarantee Google Shopping visibility. It does not delete products or feeds, change shipping or return policies, edit feed rules or manage Google Ads campaigns. It never asks for feed passwords.\n\nHow do I connect Google Merchant Center?\nSign in to LoomaScale and authorize your Google Merchant Center account through Google, then ask your question in ChatGPT. Helper tools check your usage allowance or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Google.",
+    "longDescription": "Diagnose Google Merchant Center (GMC) product disapprovals and product feed errors in ChatGPT with LoomaScale. Audit your connected account, see why products are not showing on Google Shopping, and compare product performance for Shopping ads and free listings. Built for ecommerce teams, store owners and agencies.\n\nWhy are my products disapproved or not showing?\nRead Merchant Center account health and product diagnostics to identify account issues, disapproved or pending products, and Google's explanations and help links. Prioritize issues by affected product count, keeping each destination and country separate. Diagnosis does not change your account.\n\nAre my product feeds working?\nAudit data sources, input types and fetch schedules. For file sources, inspect the latest processed file, processing status and row errors to investigate missing products or failed feed runs.\n\nWhich products get clicks on Google Shopping?\nReport clicks, impressions and click-through rate (CTR) by product for Shopping ads or free listings over your chosen date range.\n\nCan I fix feed settings or product data?\nOn request, update account and business information, website settings and claims, autofeed and eligible feed schedules; fetch eligible data sources; or create primary and supplemental API product feeds. Update product titles, prices, availability, images and other supported attributes only on eligible API sources. Changes depend on your Google account role and source type. Confirm the exact website URL before a website change.\n\nWhat are the limits?\nProducts from files, spreadsheets or shop connections must be edited at their source or overridden through a supplemental feed. You link supplemental feeds to primary sources in Merchant Center. Google processes product updates before they appear; verify them afterwards. The plugin cannot approve products, reverse account suspensions or guarantee Google Shopping visibility. It does not delete products or feeds, change shipping or return policies or edit feed rules; Shopping and Performance Max campaigns are managed with the Google Ads tools when Google Ads is connected. It never asks for feed passwords.\n\nWhat else does this plugin include?\nLoomaScale's ad platform and Google data tools, with Google Merchant Center first in setup. Audit Google Ads, Meta Ads (Facebook and Instagram), TikTok Ads and LinkedIn Ads for wasted spend and tracking gaps; campaign changes are previewed and applied only after your approval, and new campaigns start paused. Research competitors' public ads in Google Ads Transparency Center and Meta Ad Library. Work with Google Analytics 4, Google Tag Manager, Google Search Console and Google Business Profile from the same chat. Each source is connected separately in LoomaScale.\n\nHow do I connect Google Merchant Center?\nSign in to LoomaScale and authorize your Google Merchant Center account through Google, then ask your question in ChatGPT. Helper tools check your usage allowance or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Google.",
     "privacyPolicyURL": "https://loomascale.com/privacy",
     "supportURL": "https://loomascale.com/contact",
     "termsOfServiceURL": "https://loomascale.com/terms",
@@ -52,7 +61,7 @@
   "mcpServers": "./mcp.json",
   "name": "loomascale-gmc",
   "skills": "./skills/",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "extensions": {
     "com.openai": {
       "review": {
@@ -91,9 +100,9 @@
           ],
           "negative": [
             {
-              "description": "Ad campaign management is outside the Merchant Center integration.",
-              "prompt": "Create a Performance Max campaign for my shop with a $30 daily budget.",
-              "expected_behavior": "The app should not be invoked; this Merchant Center integration manages product data and account settings, not Google Ads campaigns."
+              "description": "Order management is outside LoomaScale.",
+              "prompt": "Refund order #1234 in my Shopify store.",
+              "expected_behavior": "The app should not be invoked; LoomaScale has no store order or refund tools."
             },
             {
               "description": "Deleting products is not supported.",

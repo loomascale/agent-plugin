@@ -1,8 +1,8 @@
 {
   "name": "loomascale-gmc",
   "displayName": "Google Merchant Center (GMC) MCP by LoomaScale",
-  "version": "1.0.2",
-  "description": "Google Merchant Center MCP for Cursor: diagnose disapprovals and feed errors, review Shopping performance and update eligible product data on request.",
+  "version": "1.0.3",
+  "description": "Google Merchant Center MCP for Cursor: diagnose disapprovals and feed errors, review Shopping performance and update eligible product data on request. Includes Google Ads, Meta, TikTok and LinkedIn Ads tools.",
   "author": {
     "name": "LoomaScale"
   },
@@ -19,7 +19,11 @@
     "product feed diagnostics",
     "product disapprovals",
     "feed errors",
-    "free listings"
+    "free listings",
+    "google ads",
+    "meta ads",
+    "tiktok ads",
+    "linkedin ads"
   ],
   "logo": "assets/web-app-manifest-385x385.png"
 }

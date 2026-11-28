@@ -1,8 +1,8 @@
 {
   "name": "loomascale-gsc",
   "displayName": "Google Search Console (GSC) MCP by LoomaScale",
-  "version": "1.0.2",
-  "description": "Google Search Console MCP for Cursor: analyze SEO traffic, keywords and CTR, inspect URL indexing and submit sitemaps on request.",
+  "version": "1.0.3",
+  "description": "Google Search Console MCP for Cursor: analyze SEO traffic, keywords and CTR, inspect URL indexing and submit sitemaps on request. Includes Google Ads, Meta, TikTok and LinkedIn Ads tools.",
   "author": {
     "name": "LoomaScale"
   },
@@ -20,7 +20,11 @@
     "keyword opportunities",
     "click through rate",
     "url inspection",
-    "sitemap errors"
+    "sitemap errors",
+    "google ads",
+    "meta ads",
+    "tiktok ads",
+    "linkedin ads"
   ],
   "logo": "assets/web-app-manifest-385x385.png"
 }

@@ -1,8 +1,8 @@
 {
   "name": "loomascale-gtm",
   "displayName": "Google Tag Manager (GTM) MCP by LoomaScale",
-  "version": "1.0.2",
-  "description": "Google Tag Manager (GTM) MCP for Cursor: audit conversion tracking, draft workspace fixes and publish only the container version you confirm.",
+  "version": "1.0.3",
+  "description": "Google Tag Manager (GTM) MCP for Cursor: audit conversion tracking, draft workspace fixes and publish only the container version you confirm. Includes Google Ads, Meta, TikTok and LinkedIn Ads tools.",
   "author": {
     "name": "LoomaScale"
   },
@@ -20,7 +20,11 @@
     "ga4 tags",
     "google ads conversion tracking",
     "workspace changes",
-    "container publishing"
+    "container publishing",
+    "google ads",
+    "meta ads",
+    "tiktok ads",
+    "linkedin ads"
   ],
   "logo": "assets/web-app-manifest-385x385.png"
 }

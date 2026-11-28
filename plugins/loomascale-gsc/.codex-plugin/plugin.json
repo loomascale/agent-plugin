@@ -2,7 +2,7 @@
   "author": {
     "name": "LoomaScale"
   },
-  "description": "Google Search Console (GSC) SEO analysis in ChatGPT: compare organic search traffic, find keyword opportunities and low-CTR pages, and check URL indexing and sitemaps. Submit sitemaps and manage properties when you ask.",
+  "description": "Google Search Console (GSC) SEO analysis in ChatGPT: compare organic search traffic, find keyword opportunities and low-CTR pages, and check URL indexing and sitemaps. Submit sitemaps and manage properties when you ask. Also includes Google Ads, Meta, TikTok and LinkedIn Ads tools.",
   "keywords": [
     "google search console",
     "search console",
@@ -18,7 +18,13 @@
     "url inspection",
     "indexing status",
     "page indexing",
-    "sitemaps"
+    "sitemaps",
+    "google ads",
+    "meta ads",
+    "tiktok ads",
+    "linkedin ads",
+    "google analytics 4",
+    "google tag manager"
   ],
   "interface": {
     "displayName": "Google Search Console | LoomaS",
@@ -35,7 +41,10 @@
       "URL Inspection: stored indexing status, Google-selected canonical and last crawl",
       "Sitemap status: last download, processing, errors and warnings",
       "Sitemap submission, resubmission and removal, on request",
-      "Add a Search Console property, or remove one after you confirm it"
+      "Add a Search Console property, or remove one after you confirm it",
+      "Google Ads, Meta Ads, TikTok Ads and LinkedIn Ads audits, with campaign changes applied only after your approval",
+      "Competitor ad research in Google Ads Transparency Center and Meta Ad Library",
+      "Google Analytics 4 reports, Google Tag Manager, Merchant Center and Business Profile tools in the same plugin"
     ],
     "category": "Business & Operations",
     "defaultPrompt": [
@@ -43,7 +52,7 @@
       "Find non-brand keywords with high impressions and low CTR in my Search Console data.",
       "Is my homepage indexed in Google? Check its canonical URL and my sitemap errors in Search Console."
     ],
-    "longDescription": "Analyze Google Search Console (GSC) data in ChatGPT with LoomaScale. Get SEO reports from your connected properties, investigate organic traffic drops, find keyword opportunities and low-CTR pages, and check URL indexing and sitemap errors. Submit or remove sitemaps and manage properties when you ask. Built for SEO specialists, marketers, agencies and business owners.\n\nWhy did my organic search traffic drop?\nCompare clicks, impressions, click-through rate (CTR) and average position between two periods. Break down gains and losses by page or search query to see where performance changed. Reports use finalized data by default and identify recent partial days when included. Changes show where to investigate, not proof of a particular cause.\n\nWhich keywords and pages should I improve first?\nFind search queries ranking just below the top results and pages with high impressions but few clicks. Exclude brand terms to focus on non-brand keyword opportunities. Prioritize using average position, CTR and estimated click potential. Estimates use a typical CTR curve and do not guarantee more traffic or better rankings.\n\nIs my page indexed in Google?\nUse URL Inspection for up to 10 URLs per call to read Google's stored indexing status, chosen canonical URL and last crawl. Investigate reported noindex exclusions, canonical mismatches or pages crawled but not indexed. This reads Google's existing records; it does not run a live page test or request indexing.\n\nAre my sitemaps being processed?\nCheck submitted sitemaps, their last download, processing status, and Google's reported errors and warnings. When you ask, it submits a new sitemap, resubmits one after you fix its errors, or removes an old submission. A successful submission means Google accepted it, not that the pages are crawled or indexed.\n\nCan it add or remove a Search Console property?\nYes, when you ask. It adds a Domain property (sc-domain:) or URL-prefix property exactly as you name it and reports the permission level Google gives; a new property stays unverified until you verify it in Search Console. Removing a property starts with a dry run and happens only after you confirm. It affects your login's property list only, not the website or its search data.\n\nWhat are the limits?\nReports cover your accessible Search Console properties and up to 16 months of available history. Keyword positions are historical averages, not live rank tracking. Requesting indexing is not possible: Google offers no public API for it on normal pages, so request it from URL Inspection in Search Console. This integration does not crawl websites, change site content, or provide Google Ads or Google Analytics reports.\n\nHow do I connect Search Console?\nSign in to LoomaScale, connect Google Search Console and approve Google's Search Console permissions, then ask about your site in ChatGPT. Changes need the full Search Console permission; if your connection lacks it, the tool asks you to reconnect. Helper tools check your usage allowance or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Google.",
+    "longDescription": "Analyze Google Search Console (GSC) data in ChatGPT with LoomaScale. Get SEO reports from your connected properties, investigate organic traffic drops, find keyword opportunities and low-CTR pages, and check URL indexing and sitemap errors. Submit or remove sitemaps and manage properties when you ask. Built for SEO specialists, marketers, agencies and business owners.\n\nWhy did my organic search traffic drop?\nCompare clicks, impressions, click-through rate (CTR) and average position between two periods. Break down gains and losses by page or search query to see where performance changed. Reports use finalized data by default and identify recent partial days when included. Changes show where to investigate, not proof of a particular cause.\n\nWhich keywords and pages should I improve first?\nFind search queries ranking just below the top results and pages with high impressions but few clicks. Exclude brand terms to focus on non-brand keyword opportunities. Prioritize using average position, CTR and estimated click potential. Estimates use a typical CTR curve and do not guarantee more traffic or better rankings.\n\nIs my page indexed in Google?\nUse URL Inspection for up to 10 URLs per call to read Google's stored indexing status, chosen canonical URL and last crawl. Investigate reported noindex exclusions, canonical mismatches or pages crawled but not indexed. This reads Google's existing records; it does not run a live page test or request indexing.\n\nAre my sitemaps being processed?\nCheck submitted sitemaps, their last download, processing status, and Google's reported errors and warnings. When you ask, it submits a new sitemap, resubmits one after you fix its errors, or removes an old submission. A successful submission means Google accepted it, not that the pages are crawled or indexed.\n\nCan it add or remove a Search Console property?\nYes, when you ask. It adds a Domain property (sc-domain:) or URL-prefix property exactly as you name it and reports the permission level Google gives; a new property stays unverified until you verify it in Search Console. Removing a property starts with a dry run and happens only after you confirm. It affects your login's property list only, not the website or its search data.\n\nWhat are the limits?\nReports cover your accessible Search Console properties and up to 16 months of available history. Keyword positions are historical averages, not live rank tracking. Requesting indexing is not possible: Google offers no public API for it on normal pages, so request it from URL Inspection in Search Console. It does not crawl websites or change site content; Google Ads and Google Analytics reports come from their own tools when connected.\n\nWhat else does this plugin include?\nLoomaScale's ad platform and Google data tools, with Google Search Console first in setup. Audit Google Ads, Meta Ads (Facebook and Instagram), TikTok Ads and LinkedIn Ads for wasted spend and tracking gaps; campaign changes are previewed and applied only after your approval, and new campaigns start paused. Research competitors' public ads in Google Ads Transparency Center and Meta Ad Library. Work with Google Analytics 4, Google Tag Manager, Google Merchant Center and Google Business Profile from the same chat. Each source is connected separately in LoomaScale.\n\nHow do I connect Search Console?\nSign in to LoomaScale, connect Google Search Console and approve Google's Search Console permissions, then ask about your site in ChatGPT. Changes need the full Search Console permission; if your connection lacks it, the tool asks you to reconnect. Helper tools check your usage allowance or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Google.",
     "privacyPolicyURL": "https://loomascale.com/privacy",
     "supportURL": "https://loomascale.com/contact",
     "termsOfServiceURL": "https://loomascale.com/terms",
@@ -52,7 +61,7 @@
   "mcpServers": "./mcp.json",
   "name": "loomascale-gsc",
   "skills": "./skills/",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "extensions": {
     "com.openai": {
       "review": {
@@ -91,9 +100,9 @@
           ],
           "negative": [
             {
-              "description": "Ad campaign changes are outside the Search Console integration.",
-              "prompt": "Raise the budget of my Google Ads search campaign to $50 a day.",
-              "expected_behavior": "The app should not be invoked; Search Console reports organic search only and cannot change ad campaigns."
+              "description": "Changing live website content is outside this integration.",
+              "prompt": "Rewrite the title tag on my live homepage to target 'best running shoes'.",
+              "expected_behavior": "The app should not be invoked to change the site; explain that it cannot edit website content. It may suggest a title only if the user asks for a suggestion."
             },
             {
               "description": "Requesting indexing is not supported.",
