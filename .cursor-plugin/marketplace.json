@@ -29,6 +29,11 @@
       "description": "TikTok Ads MCP for Cursor: audit spend, video creatives and audiences, diagnose delivery and ad review, and preview budget or bid changes."
     },
     {
+      "name": "loomascale-tiktokpixel",
+      "source": "./plugins/loomascale-tiktokpixel",
+      "description": "TikTok Pixel MCP for Cursor: pixel and Events API event counts, attributed events, pixel-to-ad-group mapping and TikTok's tracking diagnostics. Read-only."
+    },
+    {
       "name": "loomascale-linkedin",
       "source": "./plugins/loomascale-linkedin",
       "description": "LinkedIn Ads MCP for Cursor: campaign reports, leads by job title and seniority, wasted spend, and previewed budget or bid changes."

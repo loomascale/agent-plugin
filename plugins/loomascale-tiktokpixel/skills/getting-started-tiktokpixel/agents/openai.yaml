@@ -1,0 +1,15 @@
+interface:
+  display_name: "Getting started with TikTok Pixel"
+  short_description: "Pixel and Events API event check"
+  default_prompt: "Use $getting-started-tiktokpixel to check my TikTok Ads connection and show if my pixel and Events API receive events."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-tiktokpixel"
+      description: "LoomaScale TikTok Pixel connection and tracking checks"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/tiktokpixel"
+
+policy:
+  allow_implicit_invocation: true

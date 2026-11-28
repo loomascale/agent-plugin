@@ -53,9 +53,15 @@
           "positive": [
             {
               "description": "Find a competitor's Google ads by website.",
-              "prompt": "Show me the Google ads that run for allbirds.com in the United States over the last 30 days.",
+              "prompt": "Show me the Google ads that run for allbirds.com in the United States over the last 30 days, and read the text of the three most recent ones.",
               "tools_triggered": "gads_list_ad_library_ads, gads_get_ad_library_ad",
-              "expected_behavior": "Lists Google Ads Transparency Center creatives for allbirds.com in the United States with advertiser, format and first/last shown dates, then reads the text of a few of them. Nothing is changed in any account."
+              "expected_behavior": "Lists Google Ads Transparency Center creatives for allbirds.com in the United States with advertiser, format and first/last shown dates, then reads the headlines and descriptions of three of them. Nothing is changed in any account."
+            },
+            {
+              "description": "Find a competitor's Google advertiser by name.",
+              "prompt": "Find Gymshark in the Google Ads Transparency Center and list the Google ads they ran in the United Kingdom over the last 30 days.",
+              "tools_triggered": "gads_search_ad_library_advertisers, gads_list_ad_library_ads",
+              "expected_behavior": "Returns the matching Google advertisers with their verification status and ad count range, picks (or asks the user to pick) the Gymshark advertiser, then lists its UK creatives with format and first/last shown dates."
             },
             {
               "description": "Find a competitor's Meta ads by brand.",
@@ -65,9 +71,15 @@
             },
             {
               "description": "Read EU reach disclosures for one Meta ad.",
-              "prompt": "For the first Gymshark ad, who paid for it and how many people in the EU did it reach?",
-              "tools_triggered": "meta_get_ad_library_ad",
-              "expected_behavior": "Returns the payer and beneficiary, the selected locations, ages and gender, and accounts reached by country, age and gender where Meta publishes them for EU or UK delivery."
+              "prompt": "Find the ads Gymshark is running on Facebook in Germany, then for the first one tell me who paid for it and how many people in the EU it reached.",
+              "tools_triggered": "meta_search_ad_library_advertisers, meta_list_ad_library_ads, meta_get_ad_library_ad",
+              "expected_behavior": "Lists Gymshark's active ads in Germany, then returns the first ad's payer and beneficiary, selected locations, ages and gender, and accounts reached by country, age and gender as Meta publishes them for EU delivery."
+            },
+            {
+              "description": "Search Meta ads by keyword across advertisers.",
+              "prompt": "Show me Facebook and Instagram ads active in the United States that mention \"meal kit\", and summarize the offers they use.",
+              "tools_triggered": "meta_list_ad_library_ads",
+              "expected_behavior": "Lists active US ads from any advertiser whose text matches \"meal kit\", with Page, text, headline and call to action, then summarizes the offers. No advertiser needs to be named first."
             }
           ],
           "negative": [

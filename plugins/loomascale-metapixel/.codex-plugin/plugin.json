@@ -51,28 +51,34 @@
         "test_cases": {
           "positive": [
             {
-              "description": "List pixels and when they last fired.",
-              "prompt": "Which Meta pixels does my ad account use, and are they still receiving events?",
+              "description": "List pixels and when they last fired. The connected Meta ad account needs at least one pixel.",
+              "prompt": "List my Meta ad accounts, then show which Meta pixels the first one uses and whether they are still receiving events.",
               "tools_triggered": "meta_list_ad_accounts, meta_list_datasets",
-              "expected_behavior": "Lists the account's datasets (pixels) with when each last received an event, and its custom conversions. Nothing is changed."
+              "expected_behavior": "Lists the ad accounts, then the account's datasets (pixels) with when each last received an event, and its custom conversions. Nothing is changed."
             },
             {
-              "description": "Count browser and server events.",
-              "prompt": "How many Purchase and Lead events did my pixel get in the last 7 days from the browser versus the Conversions API?",
+              "description": "Count browser and server events. The pixel needs events in the last 7 days.",
+              "prompt": "How many Purchase and Lead events did my Meta pixel get in the last 7 days from the browser versus the Conversions API?",
               "tools_triggered": "meta_list_ad_accounts, meta_list_datasets",
-              "expected_behavior": "Returns event counts for the dataset, split into browser (pixel) and server (Conversions API) events, for up to the last 7 days. Nothing is changed."
+              "expected_behavior": "Returns event counts for the dataset, split into browser (pixel) and server (Conversions API) events, for up to the last 7 days, and says when an event had none. Nothing is changed."
             },
             {
-              "description": "Diagnose low Event Match Quality.",
-              "prompt": "Why is my Event Match Quality low, and is my Conversions API set up correctly?",
-              "tools_triggered": "meta_list_datasets, meta_get_dataset_quality",
-              "expected_behavior": "Returns the EMQ score per web event, match key coverage, CAPI coverage and deduplication, and Meta's diagnostics with suggested fixes, and explains the most important fix first. Nothing is changed."
+              "description": "Diagnose Event Match Quality and Conversions API setup. The pixel needs some Conversions API events for an EMQ score.",
+              "prompt": "What is the Event Match Quality of my Meta pixel, and is my Conversions API set up correctly with deduplication?",
+              "tools_triggered": "meta_list_ad_accounts, meta_list_datasets, meta_get_dataset_quality",
+              "expected_behavior": "Returns the EMQ score per web event, match key coverage, Conversions API coverage and deduplication, and Meta's diagnostics with suggested fixes, and explains the most important fix first. Nothing is changed."
             },
             {
               "description": "Check which ad sets optimize for a pixel event.",
-              "prompt": "Which of my ad sets optimize for Purchase on my pixel, and how many purchases did they report last week?",
-              "tools_triggered": "meta_list_campaigns, meta_get_adset, meta_get_insights",
-              "expected_behavior": "Lists the ad sets whose promoted object is the pixel and Purchase event, with the purchases Meta reported for them last week. Nothing is changed."
+              "prompt": "Which of my Meta ad sets optimize for Purchase on my pixel, and how many purchases did they report in the last 7 days?",
+              "tools_triggered": "meta_list_ad_accounts, meta_list_campaigns, meta_get_adset, meta_get_insights",
+              "expected_behavior": "Lists the ad sets whose promoted object is the pixel and Purchase event, with the purchases Meta reported for them in the last 7 days. Nothing is changed."
+            },
+            {
+              "description": "Investigate a conversion drop: account changes and pixel-based audiences.",
+              "prompt": "My Meta conversions dropped this week. Compare purchases with last week, show what changed in my ad account in the last 14 days, and list the audiences built from my pixel.",
+              "tools_triggered": "meta_list_ad_accounts, meta_get_insights, meta_get_activity_log, meta_list_audiences",
+              "expected_behavior": "Compares this week's and last week's reported purchases, lists account changes from the last 14 days with who made them, and lists the website custom audiences that use the pixel with their approximate size range. Nothing is changed."
             }
           ],
           "negative": [

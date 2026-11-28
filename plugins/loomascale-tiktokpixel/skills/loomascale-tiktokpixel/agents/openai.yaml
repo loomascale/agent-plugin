@@ -1,0 +1,15 @@
+interface:
+  display_name: "TikTok Pixel | LoomaScale"
+  short_description: "TikTok Pixel and Events API"
+  default_prompt: "Use $loomascale-tiktokpixel to check whether my TikTok pixel receives server events from the Events API."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-tiktokpixel"
+      description: "LoomaScale TikTok Pixel, Events API and tracking reads"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/tiktokpixel"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "loomascale-tiktokpixel": {
+      "type": "streamable-http",
+      "url": "https://api.loomascale.com/mcp/tiktokpixel"
+    }
+  }
+}

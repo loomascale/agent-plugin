@@ -1,0 +1,105 @@
+{
+  "author": {
+    "name": "LoomaScale"
+  },
+  "description": "Check your TikTok Pixel and Events API in ChatGPT: event counts by browser and server, attributed events and TikTok's tracking diagnostics. Read-only.",
+  "keywords": [
+    "tiktok pixel",
+    "tiktok pixel mcp",
+    "tiktok events api",
+    "events api",
+    "tiktok conversions",
+    "pixel diagnostics",
+    "conversion tracking",
+    "tiktok events manager",
+    "server-side tracking",
+    "tiktok ads mcp"
+  ],
+  "interface": {
+    "displayName": "TikTok Pixel | LoomaScale",
+    "shortDescription": "TikTok Pixel and Events API",
+    "developerName": "LoomaScale",
+    "composerIcon": "./assets/web-app-manifest-385x385.png",
+    "logo": "./assets/web-app-manifest-385x385.png",
+    "capabilities": [
+      "See the pixels of your TikTok ad account, how each was set up and the events each defines",
+      "Count each event received over up to 30 days, by browser pixel and Events API, with events attributed to ads",
+      "TikTok's own EVENT_TRACK diagnostics for your ad groups, such as a pixel with no recent activity",
+      "See which ad groups track with each pixel and which event they optimize for",
+      "Compare reported conversions and cost per conversion with the events the pixel received",
+      "Read-only: installs nothing, sends no events and changes nothing in TikTok"
+    ],
+    "category": "Business & Operations",
+    "defaultPrompt": [
+      "Use $getting-started-tiktokpixel to check my TikTok Ads connection and show if my pixel and Events API receive events.",
+      "Is my TikTok pixel getting events from the Events API, or only from the browser?",
+      "Is TikTok reporting any tracking problems on my ad groups?"
+    ],
+    "longDescription": "Check your TikTok Pixel and Events API in ChatGPT with LoomaScale, through your own connected TikTok ad account. Built for advertisers, small businesses and agencies who need to trust the conversions TikTok reports.\n\nIs my TikTok pixel firing?\nSee the pixels of the ad account, how each was set up, and the events each defines, with the number of events received in any window of up to 30 days.\n\nWhich events arrive, and from where?\nCount each event type received, split into browser (pixel) events and server (Events API) events, plus how many TikTok attributed to ads and how many were test events.\n\nIs TikTok flagging my tracking?\nRead TikTok's own EVENT_TRACK diagnostics for your ad groups, such as a pixel with no activity in the last 7 days, as TikTok states them.\n\nWhich campaigns depend on it?\nSee which ad groups track with each pixel and which event they optimize for, which pixel an ad tracks with, which website audiences exist, and how reported conversions and cost per conversion changed.\n\nCan it change my tracking?\nNo. It is read-only: it installs nothing, sends no events and changes nothing in TikTok. Fixes are made on your website, in your tag manager or in TikTok Events Manager.\n\nHow do I connect TikTok Ads?\nSign in to LoomaScale and connect your TikTok ad account, then ask your question in ChatGPT. Helper tools check your usage allowance, list the data sources you can connect, or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by TikTok.",
+    "privacyPolicyURL": "https://loomascale.com/privacy",
+    "supportURL": "https://loomascale.com/contact",
+    "termsOfServiceURL": "https://loomascale.com/terms",
+    "websiteURL": "https://loomascale.com/"
+  },
+  "mcpServers": "./mcp.json",
+  "name": "loomascale-tiktokpixel",
+  "skills": "./skills/",
+  "version": "1.0.0",
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "List pixels and the events they define. The connected TikTok ad account needs at least one pixel.",
+              "prompt": "List my TikTok ad accounts, then show the TikTok pixels of the first one and the events each pixel defines.",
+              "tools_triggered": "tiktok_list_ad_accounts, tiktok_get_pixel_events",
+              "expected_behavior": "Lists the ad accounts, then the account's pixels with their setup mode and defined events, and how many events each received in the last 7 days. Nothing is changed."
+            },
+            {
+              "description": "Count browser and server events. The pixel needs events in the last 7 days.",
+              "prompt": "How many Complete Payment and Submit Form events did my TikTok pixel get in the last 7 days from the browser versus the Events API?",
+              "tools_triggered": "tiktok_list_ad_accounts, tiktok_get_pixel_events",
+              "expected_behavior": "Returns event counts per event type for the last 7 days, split into browser (pixel) and server (Events API) events with the number TikTok attributed to ads, and says when an event had none. Nothing is changed."
+            },
+            {
+              "description": "Check TikTok's tracking diagnostics for delivering ad groups.",
+              "prompt": "Is TikTok reporting any pixel or event tracking problems on my ad groups?",
+              "tools_triggered": "tiktok_list_ad_accounts, tiktok_get_adgroup_diagnostics",
+              "expected_behavior": "Returns TikTok's EVENT_TRACK findings for the account's delivering ad groups as TikTok states them, or says TikTok detected none, without claiming that no finding proves tracking is correct. Nothing is changed."
+            },
+            {
+              "description": "Check which ad groups optimize for a pixel event.",
+              "prompt": "Which of my TikTok ad groups track with my pixel, which event does each optimize for, and how many conversions did they report in the last 7 days?",
+              "tools_triggered": "tiktok_list_ad_accounts, tiktok_get_adgroups, tiktok_get_performance",
+              "expected_behavior": "Lists the ad groups with their pixel and optimization event, and the conversions and cost per conversion TikTok reported for them over the last 7 days. Nothing is changed."
+            },
+            {
+              "description": "Investigate a conversion drop: received events versus reported conversions.",
+              "prompt": "My TikTok conversions dropped this week. Compare conversions with last week and check whether my pixel received fewer events, and list my website audiences.",
+              "tools_triggered": "tiktok_list_ad_accounts, tiktok_get_performance, tiktok_get_pixel_events, tiktok_list_custom_audiences",
+              "expected_behavior": "Compares this week's and last week's reported conversions with the events the pixel received in each week, says whether the drop looks like tracking or delivery, and lists the account's website traffic audiences. Nothing is changed."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Changing campaigns is outside this integration.",
+              "prompt": "Pause my TikTok campaign called Spring Sale.",
+              "expected_behavior": "The app should not be invoked to change campaigns; this TikTok Pixel integration is read-only and cannot pause, edit or create anything."
+            },
+            {
+              "description": "Installing the pixel on a website is not supported.",
+              "prompt": "Install the TikTok Pixel on my Shopify store.",
+              "expected_behavior": "The app should not be invoked to install code; it checks pixel and Events API health, and installation is done in the website platform or TikTok Events Manager."
+            },
+            {
+              "description": "Meta tracking is outside this integration.",
+              "prompt": "Is my Meta Pixel purchase event firing?",
+              "expected_behavior": "The app should not be invoked; it checks TikTok Pixel and Events API data, not Meta."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -58,22 +58,28 @@
               "expected_behavior": "Returns keyword ideas with average monthly searches, competition and low/high top-of-page bid estimates for the United States in English. Nothing is changed in the account."
             },
             {
+              "description": "Find keyword ideas from a whole website.",
+              "prompt": "Find keyword ideas for the website loomascale.com in the United States, in English, and show the 10 with the highest monthly search volume.",
+              "tools_triggered": "gads_list_ad_accounts, gads_find_locations, gads_keyword_ideas",
+              "expected_behavior": "Returns keyword ideas seeded from the loomascale.com site, with average monthly searches, competition and low/high top-of-page bid estimates, sorted by search volume. Nothing is changed in the account."
+            },
+            {
               "description": "Check search volume for a keyword list.",
-              "prompt": "Get monthly search volume and competition for these keywords: roof repair, roof replacement, roofing contractor near me.",
-              "tools_triggered": "gads_list_ad_accounts, gads_keyword_historical_metrics",
+              "prompt": "Get monthly search volume and competition in the United States, in English, for these keywords: roof repair, roof replacement, roofing contractor near me.",
+              "tools_triggered": "gads_list_ad_accounts, gads_find_locations, gads_keyword_historical_metrics",
               "expected_behavior": "Returns average monthly searches, competition and bid estimates for each of the three keywords. Nothing is changed."
             },
             {
               "description": "Forecast performance for planned keywords.",
               "prompt": "Forecast cost and clicks next month in the United States for the phrase-match keywords \"dog grooming\" and \"mobile dog grooming\" with Maximize Clicks and a $20 daily budget.",
               "tools_triggered": "gads_list_ad_accounts, gads_find_locations, gads_keyword_forecast_metrics",
-              "expected_behavior": "Returns one campaign-level estimate of cost, clicks and average CPC for the given dates, and notes that it is an estimate. No campaign or keyword plan is created."
+              "expected_behavior": "Returns one campaign-level estimate of cost, clicks and average CPC for next month, and notes that it is an estimate. No campaign or keyword plan is created."
             },
             {
-              "description": "Match keywords to existing ad groups.",
-              "prompt": "Which of my existing ad groups in the first campaign do these keywords fit best: teeth whitening, invisible braces, dental implants cost?",
-              "tools_triggered": "gads_list_campaigns, gads_keyword_ad_group_themes",
-              "expected_behavior": "Lists the campaign's ad groups, then suggests an ad group and match type for each keyword Google could place and names any it placed nowhere. No keyword is added."
+              "description": "Match keywords to existing ad groups. The connected Google Ads account needs a campaign with at least one enabled ad group.",
+              "prompt": "List my Google Ads campaigns, then tell me which ad groups in the first enabled campaign these keywords fit best: teeth whitening, invisible braces, dental implants cost.",
+              "tools_triggered": "gads_list_ad_accounts, gads_list_campaigns, gads_keyword_ad_group_themes",
+              "expected_behavior": "Lists the campaigns and the chosen campaign's ad groups, then suggests an ad group and match type for each keyword Google could place and names any it placed nowhere. No keyword is added."
             }
           ],
           "negative": [

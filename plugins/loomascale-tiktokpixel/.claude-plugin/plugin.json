@@ -1,0 +1,24 @@
+{
+  "name": "loomascale-tiktokpixel",
+  "version": "1.0.0",
+  "description": "Check TikTok Pixel and Events API health: browser vs server event counts, attributed events and TikTok's tracking diagnostics. Read-only.",
+  "author": {
+    "name": "LoomaScale",
+    "url": "https://loomascale.com"
+  },
+  "homepage": "https://loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "tiktok pixel",
+    "tiktok pixel mcp",
+    "tiktok events api",
+    "events api",
+    "tiktok conversions",
+    "pixel diagnostics",
+    "conversion tracking",
+    "tiktok events manager",
+    "server-side tracking",
+    "tiktok ads mcp"
+  ]
+}

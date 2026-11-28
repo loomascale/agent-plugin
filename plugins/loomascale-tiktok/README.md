@@ -16,7 +16,7 @@ Choose the plugin’s first suggested prompt or use `$getting-started-tiktok` to
 - Video creative analysis: hook rate, hold rate and completion rate by ad, video or Smart+ creative
 - Audience breakdowns by age, gender, country, placement, platform, language, network or interest
 - Delivery diagnosis: TikTok's ad group diagnostics, ad review reasons and creative fatigue (where TikTok enables it)
-- TikTok Pixel event counts, browser and server, for up to 30 days
+- TikTok Pixel event counts, browser and server, for up to 30 days (read-only; the [TikTok Pixel plugin](../loomascale-tiktokpixel) has these checks alone)
 - Preview, then apply, status, budget, bid, targeting, schedule and name changes you approve
 - Create paused Upgraded Smart+ website campaigns, ad groups and ads from your creative library
 - Daily budgets above your spend cap are refused; nothing is deleted

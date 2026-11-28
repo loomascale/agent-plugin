@@ -14,7 +14,7 @@ checked against a daily spend cap you set.
 ## Which LoomaScale MCP plugin should I install?
 
 Install `loomascale` for Google Ads, Meta Ads and the other supported integrations
-through one MCP connection. Choose a focused plugin when you only need Meta Ads, Meta Pixel and Conversions API checks, TikTok Ads, LinkedIn Ads, YouTube ads, Google Ads
+through one MCP connection. Choose a focused plugin when you only need Meta Ads, Meta Pixel and Conversions API checks, TikTok Ads, TikTok Pixel and Events API checks, LinkedIn Ads, YouTube ads, Google Ads
 keyword research, competitor ad research, Google Analytics 4, Google Tag Manager, Google Search Console or Google Merchant Center.
 The table links to each plugin's setup and examples.
 
@@ -24,6 +24,7 @@ The table links to each plugin's setup and examples.
 | [Meta Ads MCP (`loomascale-meta`)](plugins/loomascale-meta) | `https://api.loomascale.com/mcp/meta` | Facebook and Instagram ad audits, delivery and Meta Pixel diagnosis, Meta Ad Library research, approved campaign changes |
 | [Meta Pixel MCP (`loomascale-metapixel`)](plugins/loomascale-metapixel) | `https://api.loomascale.com/mcp/metapixel` | Read-only Meta Pixel and Conversions API checks: event counts by browser and server, Event Match Quality and Meta's suggested fixes |
 | [TikTok Ads MCP (`loomascale-tiktok`)](plugins/loomascale-tiktok) | `https://api.loomascale.com/mcp/tiktok` | TikTok Ads audits, video creative and audience analysis, delivery and ad review diagnosis, previewed changes and paused Smart+ campaigns |
+| [TikTok Pixel MCP (`loomascale-tiktokpixel`)](plugins/loomascale-tiktokpixel) | `https://api.loomascale.com/mcp/tiktokpixel` | Read-only TikTok Pixel and Events API checks: event counts by browser and server, attributed events and TikTok's tracking diagnostics |
 | [LinkedIn Ads MCP (`loomascale-linkedin`)](plugins/loomascale-linkedin) | `https://api.loomascale.com/mcp/linkedin` | LinkedIn Ads reports, leads by job title, seniority and industry, waste audits and previewed campaign changes |
 | [Google Ads Keyword Planner MCP (`loomascale-keywords`)](plugins/loomascale-keywords) | `https://api.loomascale.com/mcp/keywords` | Read-only Google Ads keyword research: keyword ideas, search volume, bid ranges, campaign forecasts and ad group fit |
 | [Google and Meta Ad Library MCP (`loomascale-adlibrary`)](plugins/loomascale-adlibrary) | `https://api.loomascale.com/mcp/adlibrary` | Read-only competitor ad research in the Google Ads Transparency Center and Meta Ad Library; no ad account needed |

@@ -116,6 +116,23 @@
       ]
     },
     {
+      "name": "loomascale-tiktokpixel",
+      "source": "./plugins/loomascale-tiktokpixel",
+      "description": "Check TikTok Pixel and Events API health: browser vs server event counts, attributed events and TikTok's tracking diagnostics. Read-only.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": [
+        "tiktok pixel",
+        "tiktok pixel mcp",
+        "tiktok events api",
+        "events api",
+        "pixel diagnostics",
+        "conversion tracking",
+        "tiktok events manager",
+        "server-side tracking"
+      ]
+    },
+    {
       "name": "loomascale-tiktok",
       "source": "./plugins/loomascale-tiktok",
       "description": "Audit TikTok Ads spend, video creatives and audiences, diagnose delivery and ad review, and preview budget or bid changes for your approval.",

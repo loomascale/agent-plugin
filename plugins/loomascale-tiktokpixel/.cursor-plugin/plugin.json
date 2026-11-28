@@ -1,0 +1,23 @@
+{
+  "name": "loomascale-tiktokpixel",
+  "displayName": "TikTok Pixel MCP by LoomaScale",
+  "version": "1.0.0",
+  "description": "TikTok Pixel MCP for Cursor: pixel and Events API event counts, attributed events, pixel-to-ad-group mapping and TikTok's tracking diagnostics. Read-only.",
+  "author": {
+    "name": "LoomaScale"
+  },
+  "homepage": "https://loomascale.com",
+  "repository": "https://github.com/loomascale/agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "tiktok pixel",
+    "tiktok pixel mcp",
+    "cursor",
+    "mcp",
+    "tiktok events api",
+    "conversion tracking",
+    "pixel diagnostics",
+    "tiktok ads mcp"
+  ],
+  "logo": "assets/web-app-manifest-385x385.png"
+}
