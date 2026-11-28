@@ -1,10 +1,11 @@
 {
   "name": "loomascale",
   "version": "1.2.11",
-  "description": "Google Ads, YouTube Ads, Meta Ads, TikTok and LinkedIn Ads MCP for Gemini CLI, plus Google Analytics, Search Console, Tag Manager, Merchant Center and Business Profile. Research keywords in Google Keyword Planner, find SEO opportunities, check Meta Pixel and TikTok Pixel tracking, and spy on competitor ads in Meta Ad Library and Google Ads Transparency Center.",
+  "description": "Google Ads, Meta Ads, Google Analytics, Search Console, YouTube, Tag Manager, SEO, TikTok, LinkedIn Ads, Merchant Center, Business Profile. Spy on competitor ads in Meta Ad Library and Google Ads Transparency Center, research keywords in Google Keyword Planner, and check Meta Pixel and TikTok Pixel tracking.",
   "mcpServers": {
     "loomascale": {
-      "httpUrl": "https://api.loomascale.com/mcp"
+      "type": "http",
+      "url": "https://api.loomascale.com/mcp"
     }
   }
 }
