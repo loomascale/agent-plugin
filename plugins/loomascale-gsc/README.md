@@ -89,7 +89,7 @@ No. Google has no public API to request indexing of a normal page. The plugin ca
 
 ### Do I need this if I already use the `loomascale` plugin?
 
-No. The [all-in-one Google Ads and Meta Ads MCP plugin](../loomascale) includes the Search Console tools plus Google Ads, Meta Ads and the other integrations. Use `loomascale-gsc` when Search Console is the only product you work with.
+No. The [all-in-one Google Ads and Meta Ads MCP plugin](../loomascale) includes the Search Console tools plus Google Ads, Meta Ads and the other integrations. Use `loomascale-gsc` when Search Console is the only product you work with, or the [SEO plugin](../loomascale-seo) to add GA4 organic landing-page and conversion reports.
 
 ## How does authentication work?
 

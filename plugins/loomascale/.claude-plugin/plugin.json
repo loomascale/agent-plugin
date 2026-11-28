@@ -2,7 +2,7 @@
   "name": "loomascale-ads",
   "displayName": "Ads & Marketing Insights by LoomaScale",
   "version": "1.2.4",
-  "description": "Audit Google Ads, Meta Ads and TikTok Ads with LoomaScale. Compare TikTok video performance and preview budget or bid changes for approval. Manage Google and Meta campaigns, research Google Ads keywords and compare competitors' public Google, Facebook and Instagram ads by creative, message, offer and disclosed landing page. Review performance and conversion tracking with LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC).",
+  "description": "Audit Google Ads, Meta Ads and TikTok Ads with LoomaScale. Compare TikTok video performance and preview budget or bid changes for approval. Manage Google and Meta campaigns, research Google Ads keywords and compare competitors' public Google, Facebook and Instagram ads by creative, message, offer and disclosed landing page. Review performance and conversion tracking with LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC), Google Merchant Center (GMC) and Google Business Profile (early access).",
   "author": {
     "name": "LoomaScale",
     "url": "https://loomascale.com"
@@ -48,6 +48,9 @@
     "google merchant center",
     "merchant center",
     "gmc",
+    "google business profile",
+    "local seo",
+    "google reviews",
     "google tag manager",
     "tag manager",
     "gtm",

@@ -1,0 +1,15 @@
+interface:
+  display_name: "Getting started with Google Business Profile"
+  short_description: "Find your biggest local visibility opportunities"
+  default_prompt: "Use $getting-started-gbp to analyze my Google Business Profile and show me the biggest opportunities to improve my local visibility."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-gbp"
+      description: "LoomaScale Google Business Profile connection, performance and review tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/gbp"
+
+policy:
+  allow_implicit_invocation: true

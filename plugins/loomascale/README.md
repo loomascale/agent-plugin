@@ -7,7 +7,8 @@ Google, Facebook and Instagram ads.
 
 The same connection also covers LinkedIn Ads, Google Analytics 4, Google Tag Manager,
 Google Search Console and Google Merchant Center for marketing analysis and supported
-account changes.
+account changes. Google Business Profile is in early access (preview): local visibility,
+Google reviews and approved listing updates, where the connection is offered to your account.
 
 The plugin connects your AI assistant to the LoomaScale MCP server at `https://api.loomascale.com/mcp` and
 ships skills that tell the model how to use its tools safely.
@@ -26,6 +27,7 @@ ships skills that tell the model how to use its tools safely.
 - Google Search Console (GSC) search analytics, URL indexing inspection, and sitemap and property management on request
 - Google Merchant Center (GMC) product issues and performance reporting
 - Google Tag Manager (GTM) tracking audits
+- Google Business Profile (early access): local visibility, Google reviews and approved listing updates
 - Cross-source performance analysis, attribution diagnostics and budget recommendations
 
 ## What can I do with the TikTok Ads MCP plugin?
@@ -52,7 +54,7 @@ your connections and plan access, then looks for one finding you can act on.
 For ads, it compares the last seven complete days with the preceding seven and
 shows up to three accounts with verified weekly spend in their own currencies.
 If ad reports are empty, it tries Google Analytics 4, Search Console, Merchant
-Center and Tag Manager in order, using the connected sources it can read.
+Center, Tag Manager and Google Business Profile in order, using the connected sources it can read.
 
 The first button follows the finding. For example, if sessions rose while GA4
 key events fell, choose **Investigate the conversion decline** to narrow down
@@ -149,8 +151,11 @@ For Claude Code, Codex, Grok Build and Hermes Agent, complete browser sign-in wh
 |---|---|
 | [`getting-started`](skills/getting-started/SKILL.md) | Check connections and plan access, see a weekly snapshot and choose a single-source audit, a cross-source comparison or public competitor research. |
 | [`competitor-ad-research`](skills/competitor-ad-research/SKILL.md) | Analyze competitors' public Google Ads and Meta Ads creatives, messaging, offers, calls to action and disclosed landing pages, with source links and coverage limits. |
-| `cross-source-insights` | Explain marketing performance using relevant connected Google Ads, Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC) evidence. |
-| `loomascale` | Work with connected LoomaScale integrations for Google Ads, Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC). |
+| `cross-source-insights` | Explain marketing performance using relevant connected Google Ads, Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC), Google Merchant Center (GMC) and Google Business Profile (GBP, early access) evidence. |
+| `loomascale` | Work with connected LoomaScale integrations for Google Ads, Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC), Google Merchant Center (GMC) and Google Business Profile (GBP, early access). |
+| [`gbp-profile-audit`](skills/gbp-profile-audit/SKILL.md) | Audit a Google Business Profile location for missing or outdated details and rank what to complete first. Read-only until you approve a change. |
+| [`gbp-review-management`](skills/gbp-review-management/SKILL.md) | Analyze Google reviews, draft a personal reply to each and publish a reply only after you approve its exact text. |
+| [`gbp-local-seo-report`](skills/gbp-local-seo-report/SKILL.md) | Compare Google Search and Maps impressions, calls, direction requests and website clicks period over period, with the search keywords that showed your profile. |
 
 ## Questions
 
@@ -162,7 +167,7 @@ Google Ads and Meta Ads campaigns start paused.
 
 ### Should I install this or a single-integration plugin?
 
-Install `loomascale` if you work across ads and analytics: it covers every integration on one connection. The single-integration plugins ([Meta Ads](../loomascale-meta), [TikTok Ads](../loomascale-tiktok), [Google Ads Keyword Planner](../loomascale-keywords), [Google Analytics 4](../loomascale-ga4), [Google Tag Manager](../loomascale-gtm), [Google Search Console](../loomascale-gsc), [Google Merchant Center](../loomascale-gmc)) expose only that product's tools, which keeps the model focused when you need nothing else.
+Install `loomascale` if you work across ads and analytics: it covers every integration on one connection. The single-integration plugins ([Meta Ads](../loomascale-meta), [Meta Pixel](../loomascale-metapixel), [TikTok Ads](../loomascale-tiktok), [TikTok Pixel](../loomascale-tiktokpixel), [LinkedIn Ads](../loomascale-linkedin), [Google Ads Keyword Planner](../loomascale-keywords), [Google and Meta Ad Library](../loomascale-adlibrary), [YouTube Ads](../loomascale-youtube), [Google Analytics 4](../loomascale-ga4), [Google Tag Manager](../loomascale-gtm), [Google Search Console](../loomascale-gsc), [SEO](../loomascale-seo), [Google Merchant Center](../loomascale-gmc), [Google Business Profile](../loomascale-gbp)) expose only that product's tools, which keeps the model focused when you need nothing else.
 
 ## How does authentication work?
 

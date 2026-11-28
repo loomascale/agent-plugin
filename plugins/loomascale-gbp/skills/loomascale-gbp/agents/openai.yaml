@@ -1,0 +1,15 @@
+interface:
+  display_name: "Google Business Profile Looma"
+  short_description: "Local SEO and Google reviews"
+  default_prompt: "Use $loomascale-gbp to review my Google Business Profile performance and reviews, and draft replies for my approval."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-gbp"
+      description: "LoomaScale Google Business Profile performance, reviews and approved profile changes"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/gbp"
+
+policy:
+  allow_implicit_invocation: true

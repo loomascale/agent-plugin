@@ -1,0 +1,15 @@
+interface:
+  display_name: "Google review management"
+  short_description: "Analyze reviews and draft replies for approval"
+  default_prompt: "Use $gbp-review-management to analyze my recent Google reviews and draft a personal reply to each unanswered one. Publish nothing until I approve."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale"
+      description: "LoomaScale Google Business Profile review tools and approved review replies"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp"
+
+policy:
+  allow_implicit_invocation: true

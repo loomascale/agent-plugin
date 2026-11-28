@@ -1,0 +1,15 @@
+interface:
+  display_name: "Getting started with SEO"
+  short_description: "Queries closest to page one"
+  default_prompt: "Use $getting-started-seo to check my Search Console connection and find the queries closest to page one."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-seo"
+      description: "LoomaScale SEO connection check and Search Console opportunities"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/seo"
+
+policy:
+  allow_implicit_invocation: true

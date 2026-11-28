@@ -1,6 +1,6 @@
 ---
 name: loomascale
-description: Work with connected LoomaScale integrations for Google Ads, Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC). Use for TikTok Ads audits, Smart+ campaign reporting, video creative analysis and audience breakdowns. Preview changes to campaign or ad group budgets, eligible ad group bids, names and delivery status for the user's approval. Discover accounts, audit performance or tracking, research Google Ads keywords, diagnose organic search or shopping issues, carry out requested Google Ads or Meta Ads campaign changes and manage GA4 key events, event rules, enhanced measurement, data redaction and web streams after a dry run and approval. Use cross-source-insights for detailed performance and attribution analysis. Also use for Meta Pixel (Facebook Pixel) event activity, Event Match Quality and Conversions API diagnostics.
+description: Work with connected LoomaScale integrations for Google Ads, Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC), Google Merchant Center (GMC) and Google Business Profile (GBP, early access). Use for TikTok Ads audits, Smart+ campaign reporting, video creative analysis and audience breakdowns. Preview changes to campaign or ad group budgets, eligible ad group bids, names and delivery status for the user's approval. Discover accounts, audit performance or tracking, research Google Ads keywords, diagnose organic search or shopping issues, carry out requested Google Ads or Meta Ads campaign changes and manage GA4 key events, event rules, enhanced measurement, data redaction and web streams after a dry run and approval. Use cross-source-insights for detailed performance and attribution analysis. Also use for Meta Pixel (Facebook Pixel) event activity, Event Match Quality and Conversions API diagnostics.
 ---
 
 # LoomaScale integration workflows
@@ -24,6 +24,13 @@ policies. Tag Manager accepts draft changes to
 tags, triggers, variables and built-in variables in a workspace the user names,
 saves a workspace as a container version, and publishes only the version the user
 names after they confirm it in chat (`gtm_publish_version` with `confirm:true`).
+Google Business Profile, in early access (preview) and possibly not offered to every
+account yet, reports local visibility, search keywords and reviews. After a dry run and
+the user's approval of the exact change it replies to a review or updates the
+description, website, phones, hours, categories and attributes (`gbp_reply_to_review`,
+`gbp_update_location_details`, `gbp_update_business_hours`, `gbp_update_categories`,
+`gbp_update_location_attributes` with `confirm:true`); it never replies automatically
+and never deletes a review or a location.
 
 ## Start with the user's task
 
@@ -62,6 +69,7 @@ invent tools, arguments or access to an integration that the client does not exp
 | Google Search Console (GSC): organic queries, pages, search visibility and indexing | `gsc_list_sites` | `gsc_compare_periods`, `gsc_query_search_analytics`, opportunity tools or `gsc_inspect_url`; changes with `gsc_submit_sitemap`, `gsc_delete_sitemap`, `gsc_add_property`, `gsc_remove_property` (dry run, then `confirm:true`) |
 | Google Merchant Center (GMC): product eligibility, account issues, shopping performance, account and feed settings | `gmc_list_accounts` | `gmc_get_account_health`, then `gmc_query`; settings with `gmc_get_account_settings`, feeds with `gmc_list_data_sources` / `gmc_get_data_source`, one product with `gmc_get_product`, commercial settings with `gmc_get_shipping_settings` / `gmc_list_return_policies`; changes with `gmc_update_account`, `gmc_update_business_info`, `gmc_update_homepage` (dry run, then `confirm:true`), `gmc_claim_homepage`, `gmc_update_data_source`, `gmc_fetch_data_source`, `gmc_create_data_source`, `gmc_update_autofeed_settings`, `gmc_update_product_input`, `gmc_insert_product_input` |
 | Google Tag Manager (GTM): published tracking configuration, pending changes, draft fixes, versions and publishing | `gtm_list_containers` | `gtm_get_container`, `gtm_audit_tracking`, `gtm_list_workspaces`, `gtm_get_workspace_status`; draft fixes with `gtm_create_tag`, `gtm_update_tag`, `gtm_create_trigger`, `gtm_update_trigger`, `gtm_create_variable`, `gtm_update_variable`, `gtm_enable_built_in_variables`, `gtm_delete_entity` (an unreferenced tag, trigger or variable), `gtm_create_workspace`; release with `gtm_sync_workspace` (when behind live), `gtm_create_version`, then `gtm_publish_version` after the user confirms |
+| Google Business Profile (GBP, early access): local visibility on Search and Maps, customer actions, search keywords, reviews and business listing details | `gbp_list_locations` (`gbp_list_accounts` first for several accounts) | `gbp_get_performance`, `gbp_get_location`, `gbp_list_reviews`, `gbp_list_search_keywords`; listing options with `gbp_list_categories`, `gbp_list_available_attributes`, `gbp_get_location_attributes`; changes with `gbp_reply_to_review`, `gbp_update_location_details`, `gbp_update_business_hours`, `gbp_update_categories`, `gbp_update_location_attributes` (dry run, then `confirm:true` after the user approves the exact change) |
 
 Read only the guide needed for the task:
 
@@ -71,6 +79,12 @@ Read only the guide needed for the task:
 - [Measurement, search and commerce](references/measurement-and-commerce.md): GA4
   report selection and approved configuration changes, Search Console diagnostics,
   Merchant Center MCQL and GTM audits.
+- [Business Profile tools](references/business-profile.md): local performance
+  metrics, search keyword thresholds, reviews, and the dry run and approval rule
+  for replies and profile changes. For a defined task use
+  [gbp-profile-audit](../gbp-profile-audit/SKILL.md),
+  [gbp-review-management](../gbp-review-management/SKILL.md) or
+  [gbp-local-seo-report](../gbp-local-seo-report/SKILL.md).
 - [Cross-source insights](../cross-source-insights/SKILL.md): explain changing
   results, compare channels, diagnose attribution and ground every custom Google
   Ads GAQL query in live metadata. This can also answer a single-source question.
@@ -89,6 +103,7 @@ Use explicit discovered targets on subsequent calls. Preserve IDs as strings.
 | Search Console | `site_url`: exact `sc-domain:example.com` or URL-prefix property, preserving its slash |
 | Merchant Center | `account_id`: numeric standalone/sub-account ID; an advanced account itself has no reports |
 | Tag Manager | `container`: discovered `GTM-...` ID or API resource path |
+| Business Profile | `location_id`: numeric Business Profile location ID; omit only when the login reaches exactly one location |
 
 Do not call `gads_select_account`, `meta_select_account` or
 `linkedin_select_account` merely to scope a report: they change a persistent

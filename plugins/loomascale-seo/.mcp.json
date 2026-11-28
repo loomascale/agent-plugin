@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "loomascale-seo": {
+      "type": "http",
+      "url": "https://api.loomascale.com/mcp/seo"
+    }
+  }
+}

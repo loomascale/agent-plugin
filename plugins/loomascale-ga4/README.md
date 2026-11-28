@@ -84,7 +84,7 @@ No. Reports never change settings. Key event, event rule, enhanced measurement, 
 
 ### Do I need this if I already use the `loomascale` plugin?
 
-No. The [all-in-one Google Ads and Meta Ads MCP plugin](../loomascale) includes every GA4 tool plus Google Ads, Meta Ads and the other integrations. Use `loomascale-ga4` when GA4 is the only product you work with.
+No. The [all-in-one Google Ads and Meta Ads MCP plugin](../loomascale) includes every GA4 tool plus Google Ads, Meta Ads and the other integrations. Use `loomascale-ga4` when GA4 is the only product you work with, or the [SEO plugin](../loomascale-seo) to read GA4 next to Search Console for organic search questions.
 
 ## How does authentication work?
 

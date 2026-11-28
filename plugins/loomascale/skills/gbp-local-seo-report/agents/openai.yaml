@@ -1,0 +1,15 @@
+interface:
+  display_name: "Local SEO report"
+  short_description: "Compare local visibility and customer actions"
+  default_prompt: "Use $gbp-local-seo-report to compare my Google Business Profile visibility and customer actions for the last 30 days with the 30 days before."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale"
+      description: "LoomaScale Google Business Profile performance and search keyword tools"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp"
+
+policy:
+  allow_implicit_invocation: true

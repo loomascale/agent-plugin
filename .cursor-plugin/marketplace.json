@@ -4,7 +4,7 @@
     "name": "LoomaScale"
   },
   "metadata": {
-    "description": "LoomaScale MCP for Cursor: Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, GA4, GTM, Search Console and Merchant Center, with public competitor ad research.",
+    "description": "LoomaScale MCP for Cursor: Google Ads, Meta, TikTok and LinkedIn Ads, GA4, GTM, Search Console, Merchant Center and Business Profile, plus competitor ads.",
     "version": "1.0.0"
   },
   "plugins": [
@@ -69,9 +69,19 @@
       "description": "Google Search Console MCP for Cursor: analyze SEO traffic, keywords and CTR, inspect URL indexing and submit sitemaps on request."
     },
     {
+      "name": "loomascale-seo",
+      "source": "./plugins/loomascale-seo",
+      "description": "SEO MCP for Cursor: Search Console keyword and page opportunities, indexing and sitemaps, plus GA4 organic landing-page and conversion reports."
+    },
+    {
       "name": "loomascale-gmc",
       "source": "./plugins/loomascale-gmc",
       "description": "Google Merchant Center MCP for Cursor: diagnose disapprovals and feed errors, review Shopping performance and update eligible product data on request."
+    },
+    {
+      "name": "loomascale-gbp",
+      "source": "./plugins/loomascale-gbp",
+      "description": "Google Business Profile MCP for Cursor: analyze local SEO performance, reply to Google reviews and update business listings on approval. Early access."
     }
   ]
 }

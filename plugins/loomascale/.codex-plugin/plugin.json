@@ -5,9 +5,10 @@
   "description": "Audit Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads with LoomaScale. Compare video performance, preview budget changes and research competitors' Google and Meta ads.",
   "keywords": [
     "google ads",
+    "google ads transparency center",
+    "youtube ads",
     "google ads audit",
     "google keyword planner",
-    "google keyword search",
     "ppc",
     "negative keywords",
     "performance max",
@@ -16,7 +17,6 @@
     "facebook ads",
     "instagram ads",
     "tiktok ads",
-    "tiktok ads mcp",
     "linkedin ads",
     "google analytics 4",
     "ga4",
@@ -31,25 +31,26 @@
     "meta ad library"
   ],
   "interface": {
-    "displayName": "Google Ads & Meta Ads | LoomaS",
+    "displayName": "Meta Ads & Google Ads | LoomaS",
     "shortDescription": "Google Ads, Meta, TikTok Ads",
     "developerName": "LoomaScale",
     "composerIcon": "./assets/web-app-manifest-385x385.png",
     "logo": "./assets/web-app-manifest-385x385.png",
     "capabilities": [
-      "Audit Google Ads campaigns, search terms and conversion tracking; find wasted spend and negative keywords",
+      "Google Ads audit for PPC: campaigns, search terms and conversion tracking; find wasted ad spend and negative keywords",
       "Manage Google Ads Search, Shopping and Performance Max campaigns, ads, keywords, bids and budgets after approval",
-      "Research Google Ads keyword ideas, search volume, competition and bid estimates",
-      "Analyze competitors' public Google Ads and Meta Ads creatives and landing pages, with sources and coverage limits",
+      "Keyword research with Google Keyword Planner: keyword ideas, Google keyword search volume, competition and bid ranges",
+      "Competitor ad research: Google Ads Transparency Center and Meta Ad Library creatives, with sources and coverage limits",
       "Meta Ads audits, creative performance and campaign management for Facebook Ads and Instagram Ads",
       "Meta Pixel (Facebook Pixel) event activity, Event Match Quality and Conversions API diagnostics (read-only)",
-      "TikTok Ads reporting for manual and Smart+ campaigns, audience breakdowns, video view rates and cost per conversion",
+      "TikTok Ads MCP reporting for manual and Smart+ campaigns, audience breakdowns, video view rates and cost per conversion",
       "Preview TikTok Ads budget and bid changes, or pause, resume and rename existing campaigns, ad groups and ads",
       "LinkedIn Ads performance and demographics reporting",
       "Google Analytics 4 (GA4) traffic, conversion and funnel analysis",
       "Google Search Console (GSC) search analytics, URL indexing inspection, and sitemap and property management on request",
       "Google Merchant Center (GMC) product issues and performance reporting",
       "Google Tag Manager (GTM) tracking audits",
+      "Google Business Profile (early access): local visibility, Google reviews and approved listing updates",
       "Cross-source performance analysis, attribution diagnostics and budget recommendations"
     ],
     "category": "Business & Operations",
@@ -67,5 +68,5 @@
   "mcpServers": "./mcp.json",
   "name": "loomascale",
   "skills": "./skills/",
-  "version": "1.2.11"
+  "version": "1.2.12"
 }

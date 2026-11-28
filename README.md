@@ -3,10 +3,11 @@
 LoomaScale's Model Context Protocol (MCP) plugins connect Cursor, Claude Code, Codex
 and Grok Build to advertising and marketing data. Use the main plugin for Google Ads
 and Meta Ads audits, approved campaign changes and public competitor ad research,
-or choose a focused plugin for Meta Ads, TikTok Ads or YouTube ads alone, analytics, tracking, organic search or product feeds.
+or choose a focused plugin for Meta Ads, TikTok Ads or YouTube ads alone, analytics, tracking, organic search, product feeds or local business listings.
 
 The hosted service supports Google Ads, Meta Ads (Facebook and Instagram), TikTok Ads, LinkedIn Ads,
 Google Analytics 4, Google Tag Manager, Google Search Console and Google Merchant Center.
+Google Business Profile is in early access (preview), so the connection may not be offered to every account yet.
 Competitor research uses Google Ads Transparency Center and Meta Ad Library. Every
 change is shown to you first and runs only after you approve it. Ad budgets are also
 checked against a daily spend cap you set.
@@ -15,12 +16,12 @@ checked against a daily spend cap you set.
 
 Install `loomascale` for Google Ads, Meta Ads and the other supported integrations
 through one MCP connection. Choose a focused plugin when you only need Meta Ads, Meta Pixel and Conversions API checks, TikTok Ads, TikTok Pixel and Events API checks, LinkedIn Ads, YouTube ads, Google Ads
-keyword research, competitor ad research, Google Analytics 4, Google Tag Manager, Google Search Console or Google Merchant Center.
+keyword research, competitor ad research, Google Analytics 4, Google Tag Manager, Google Search Console, SEO across Search Console and GA4, Google Merchant Center, or Google Business Profile.
 The table links to each plugin's setup and examples.
 
 | Plugin | MCP endpoint | Use it for |
 |---|---|---|
-| [Google Ads and Meta Ads MCP (`loomascale`)](plugins/loomascale) | `https://api.loomascale.com/mcp` | Google Ads and Meta Ads audits, campaign management and public competitor ad analysis; TikTok Ads reporting and budget changes; LinkedIn Ads, GA4, GTM, GSC and GMC analysis |
+| [Google Ads and Meta Ads MCP (`loomascale`)](plugins/loomascale) | `https://api.loomascale.com/mcp` | Google Ads and Meta Ads audits, campaign management and public competitor ad analysis; TikTok Ads reporting and budget changes; LinkedIn Ads, GA4, GTM, GSC, GMC and Google Business Profile analysis |
 | [Meta Ads MCP (`loomascale-meta`)](plugins/loomascale-meta) | `https://api.loomascale.com/mcp/meta` | Facebook and Instagram ad audits, delivery and Meta Pixel diagnosis, Meta Ad Library research, approved campaign changes |
 | [Meta Pixel MCP (`loomascale-metapixel`)](plugins/loomascale-metapixel) | `https://api.loomascale.com/mcp/metapixel` | Read-only Meta Pixel and Conversions API checks: event counts by browser and server, Event Match Quality and Meta's suggested fixes |
 | [TikTok Ads MCP (`loomascale-tiktok`)](plugins/loomascale-tiktok) | `https://api.loomascale.com/mcp/tiktok` | TikTok Ads audits, video creative and audience analysis, delivery and ad review diagnosis, previewed changes and paused Smart+ campaigns |
@@ -32,7 +33,9 @@ The table links to each plugin's setup and examples.
 | [Google Analytics 4 MCP (`loomascale-ga4`)](plugins/loomascale-ga4) | `https://api.loomascale.com/mcp/ga4` | Google Analytics 4 traffic, conversion and funnel reports; key events and stream settings after a dry run |
 | [Google Tag Manager MCP (`loomascale-gtm`)](plugins/loomascale-gtm) | `https://api.loomascale.com/mcp/gtm` | Google Tag Manager tracking audits, draft workspace fixes, publish only a version you confirm |
 | [Google Search Console MCP (`loomascale-gsc`)](plugins/loomascale-gsc) | `https://api.loomascale.com/mcp/gsc` | Google Search Console clicks, keyword opportunities, indexing and sitemaps |
+| [SEO MCP (`loomascale-seo`)](plugins/loomascale-seo) | `https://api.loomascale.com/mcp/seo` | SEO from your own Search Console and GA4 data: queries near page one, traffic drops, indexing and organic conversions |
 | [Google Merchant Center MCP (`loomascale-gmc`)](plugins/loomascale-gmc) | `https://api.loomascale.com/mcp/gmc` | Google Merchant Center disapprovals, feed errors and product updates |
+| [Google Business Profile MCP (`loomascale-gbp`)](plugins/loomascale-gbp) | `https://api.loomascale.com/mcp/gbp` | Early access: Google Business Profile local SEO performance, Google reviews with approved replies, and business listing updates |
 
 
 ## How do I get started with LoomaScale?
@@ -52,7 +55,8 @@ for what to expect.
 Each focused plugin’s first suggested prompt opens its own getting-started skill.
 Meta Ads and TikTok Ads show weekly spend and results. Google Analytics 4 and
 Search Console compare traffic across two weeks. Merchant Center shows current
-product eligibility, and Tag Manager shows the published tracking setup.
+product eligibility, and Tag Manager shows the published tracking setup. Business
+Profile compares local visibility and customer actions and lists reviews without a reply.
 
 ## How can I analyze competitors' ads?
 

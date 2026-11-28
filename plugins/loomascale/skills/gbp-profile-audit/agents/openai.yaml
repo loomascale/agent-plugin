@@ -1,0 +1,15 @@
+interface:
+  display_name: "Google Business Profile audit"
+  short_description: "Find missing details in your business listing"
+  default_prompt: "Use $gbp-profile-audit to audit my Google Business Profile for missing details and rank what I should complete first. Do not change anything."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale"
+      description: "LoomaScale Google Business Profile read tools for profile details, categories and attributes"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp"
+
+policy:
+  allow_implicit_invocation: true

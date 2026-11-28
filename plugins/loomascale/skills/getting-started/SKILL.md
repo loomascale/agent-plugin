@@ -15,7 +15,7 @@ Give a first-time user one answer about their business and a choice of what to i
 
 ## What did the connected data show?
 
-Follow the [snapshot and fallback rules](references/weekly-snapshot.md) before composing the menu. In the intended business scope, try recent ad activity, then Google Analytics 4, Search Console, Merchant Center and Tag Manager. Empty ad results trigger the next connected source in the same turn. Stop once a small report supports one specific observation. An unchanged baseline, a gain or a verified eligibility issue can be useful. Skip tables made up of missing values.
+Follow the [snapshot and fallback rules](references/weekly-snapshot.md) before composing the menu. In the intended business scope, try recent ad activity, then Google Analytics 4, Search Console, Merchant Center, Tag Manager and Google Business Profile (early access, when the catalog offers it). Empty ad results trigger the next connected source in the same turn. Stop once a small report supports one specific observation. An unchanged baseline, a gain or a verified eligibility issue can be useful. Skip tables made up of missing values.
 
 ## What should the user see?
 

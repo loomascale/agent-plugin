@@ -72,3 +72,4 @@ Use the returned `data_sources` for availability and status. Label a new source 
 | [Could my tracking miss or double-count conversions?](https://loomascale.com/dashboard/connections?source=tag_manager) | 🏷️ Google Tag Manager |
 | [Which searches show my site but earn few clicks?](https://loomascale.com/dashboard/connections?source=search_console) | 🔎 Google Search Console |
 | [What keeps my products from appearing in Shopping?](https://loomascale.com/dashboard/connections?source=merchant_center) | 🛍️ Google Merchant Center |
+| [How do local customers find and contact my business?](https://loomascale.com/dashboard/connections?source=business_profile) | 📍 Google Business Profile (early access) |

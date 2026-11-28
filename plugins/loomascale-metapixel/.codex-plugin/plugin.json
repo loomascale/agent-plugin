@@ -16,7 +16,7 @@
     "meta ads mcp"
   ],
   "interface": {
-    "displayName": "Meta Pixel | LoomaScale",
+    "displayName": "Meta Facebook Pixel | LoomaS",
     "shortDescription": "Meta Pixel and CAPI checks",
     "developerName": "LoomaScale",
     "composerIcon": "./assets/web-app-manifest-385x385.png",

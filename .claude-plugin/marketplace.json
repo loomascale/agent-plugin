@@ -4,12 +4,12 @@
     "name": "LoomaScale",
     "url": "https://loomascale.com"
   },
-  "description": "LoomaScale plugins for Google Ads, Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4, Google Tag Manager, Google Search Console and Google Merchant Center, including competitor analysis and ad research.",
+  "description": "LoomaScale plugins for Google Ads, Meta Ads (Facebook Ads and Instagram Ads), TikTok Ads, LinkedIn Ads, Google Analytics 4, Google Tag Manager, Google Search Console, Google Merchant Center and Google Business Profile (early access), including competitor analysis and ad research.",
   "plugins": [
     {
       "name": "loomascale",
       "source": "./plugins/loomascale",
-      "description": "Audit Google Ads, Meta Ads and TikTok Ads with LoomaScale. Compare TikTok video performance and preview budget or bid changes for approval. Manage Google and Meta campaigns, research Google Ads keywords and compare competitors' public Google, Facebook and Instagram ads by creative, message, offer and disclosed landing page. Review performance and conversion tracking with LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC) and Google Merchant Center (GMC).",
+      "description": "Audit Google Ads, Meta Ads and TikTok Ads with LoomaScale. Compare TikTok video performance and preview budget or bid changes for approval. Manage Google and Meta campaigns, research Google Ads keywords and compare competitors' public Google, Facebook and Instagram ads by creative, message, offer and disclosed landing page. Review performance and conversion tracking with LinkedIn Ads, Google Analytics 4 (GA4), Google Tag Manager (GTM), Google Search Console (GSC), Google Merchant Center (GMC) and Google Business Profile (early access).",
       "version": "1.2.3",
       "category": "productivity",
       "keywords": [
@@ -50,6 +50,9 @@
         "google merchant center",
         "merchant center",
         "gmc",
+        "google business profile",
+        "local seo",
+        "google reviews",
         "google tag manager",
         "tag manager",
         "gtm",
@@ -270,6 +273,23 @@
       ]
     },
     {
+      "name": "loomascale-seo",
+      "source": "./plugins/loomascale-seo",
+      "description": "SEO with your own Google Search Console and GA4 data: queries near page one, pages losing clicks, indexing, sitemaps and organic conversions.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": [
+        "seo",
+        "seo tool",
+        "seo mcp",
+        "seo audit",
+        "google search console",
+        "google analytics 4",
+        "organic traffic",
+        "keyword opportunities"
+      ]
+    },
+    {
       "name": "loomascale-gmc",
       "source": "./plugins/loomascale-gmc",
       "description": "Fix Google Merchant Center product disapprovals and feed errors, review Shopping performance, and update product data on request.",
@@ -284,6 +304,23 @@
         "product feed diagnostics",
         "disapproved products",
         "feed errors"
+      ]
+    },
+    {
+      "name": "loomascale-gbp",
+      "source": "./plugins/loomascale-gbp",
+      "description": "Manage Google Business Profile: analyze local SEO performance, reply to Google reviews and update business listings after your approval. Early access.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": [
+        "google business profile",
+        "google my business",
+        "gbp",
+        "local seo",
+        "google maps seo",
+        "google reviews",
+        "review management",
+        "business listing"
       ]
     }
   ]

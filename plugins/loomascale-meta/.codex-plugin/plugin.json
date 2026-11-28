@@ -21,7 +21,7 @@
     "a/b test"
   ],
   "interface": {
-    "displayName": "Meta Ads | LoomaScale",
+    "displayName": "Meta Facebook Ads | LoomaScale",
     "shortDescription": "Audit and run Meta ads",
     "developerName": "LoomaScale",
     "composerIcon": "./assets/web-app-manifest-385x385.png",

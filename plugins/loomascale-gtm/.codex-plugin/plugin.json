@@ -21,7 +21,7 @@
     "publish gtm"
   ],
   "interface": {
-    "displayName": "Google Tag Manager | LoomaS.",
+    "displayName": "Google Tag Manager | LoomaS",
     "shortDescription": "Audit GTM conversion tracking",
     "developerName": "LoomaScale",
     "composerIcon": "./assets/web-app-manifest-385x385.png",

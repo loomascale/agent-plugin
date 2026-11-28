@@ -1,0 +1,106 @@
+{
+  "author": {
+    "name": "LoomaScale"
+  },
+  "description": "Improve your SEO in ChatGPT with your own Google Search Console and GA4 data: queries near page one, traffic drops, indexing, sitemaps and organic conversions.",
+  "keywords": [
+    "seo",
+    "seo tool",
+    "seo mcp",
+    "seo audit",
+    "google search console",
+    "search console mcp",
+    "google analytics 4",
+    "organic traffic",
+    "keyword opportunities",
+    "technical seo"
+  ],
+  "interface": {
+    "displayName": "SEO & Keyword Research | Looma",
+    "shortDescription": "SEO with Search Console",
+    "developerName": "LoomaScale",
+    "composerIcon": "./assets/web-app-manifest-385x385.png",
+    "logo": "./assets/web-app-manifest-385x385.png",
+    "capabilities": [
+      "Queries in positions 4 to 20 ranked by the clicks a top-3 position would add, brand terms excluded",
+      "Page-one queries and pages whose titles earn fewer clicks than their position should",
+      "Organic traffic comparisons by query, page, country and device",
+      "URL Inspection: stored index status, Google-selected canonical and last crawl",
+      "Sitemap status and errors; submit or remove a sitemap on request",
+      "With Google Analytics 4: organic sessions, engagement and key events by landing page",
+      "Never edits your website or GA4 settings"
+    ],
+    "category": "Business & Operations",
+    "defaultPrompt": [
+      "Use $getting-started-seo to check my Search Console connection and find the queries closest to page one.",
+      "Which of my pages lost the most Google clicks this month, and why?",
+      "Which pages get organic traffic from Google but no conversions in GA4?"
+    ],
+    "longDescription": "Improve your SEO in ChatGPT with LoomaScale, using your own Google Search Console and Google Analytics 4 data. Built for site owners, marketers and agencies who want SEO answers from real search data, not estimates.\n\nWhich searches can I win?\nFind queries in positions 4 to 20 with real impressions, ranked by the clicks a top-3 position would add, and page-one queries whose titles earn too few clicks. Brand terms can be left out.\n\nWhy did organic traffic drop?\nCompare two periods of clicks, impressions, CTR and average position by query, page, country or device, and see which pages and queries changed most.\n\nIs Google indexing my pages?\nInspect a URL's stored index status, the canonical Google picked and its last crawl, review sitemap processing and errors, and submit or remove a sitemap when you ask.\n\nWhat do organic visitors do?\nWith Google Analytics 4 connected too, report organic sessions, engagement and key events by landing page, so you can tell pages that rank from pages that convert.\n\nCan it change my site?\nNo. It never edits your website or GA4 settings. Its only changes are Search Console sitemaps and properties, and only when you ask. Google offers no API to request indexing, so it tells you where to do that.\n\nHow do I connect?\nSign in to LoomaScale and connect Google Search Console, and optionally Google Analytics 4, then ask your question in ChatGPT. Helper tools check your usage allowance, list the data sources you can connect, or send a feature request when you ask.\n\nLoomaScale is an independent product and is not affiliated with or endorsed by Google.",
+    "privacyPolicyURL": "https://loomascale.com/privacy",
+    "supportURL": "https://loomascale.com/contact",
+    "termsOfServiceURL": "https://loomascale.com/terms",
+    "websiteURL": "https://loomascale.com/"
+  },
+  "mcpServers": "./mcp.json",
+  "name": "loomascale-seo",
+  "skills": "./skills/",
+  "version": "1.0.0",
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Find queries close to page one. The connected Search Console property needs search traffic in the last 28 days.",
+              "prompt": "List my Search Console properties, then find the non-brand queries on the first one that are closest to the top 3.",
+              "tools_triggered": "gsc_list_sites, gsc_find_keyword_opportunities",
+              "expected_behavior": "Lists the properties, then ranks striking-distance queries (average position 4 to 20) and low-CTR page-one queries by potential extra clicks, with clicks, impressions, CTR and position. Nothing is changed."
+            },
+            {
+              "description": "Explain an organic traffic change between two periods.",
+              "prompt": "Compare my organic Google clicks for the last 7 days with the 7 days before, and show which pages changed most.",
+              "tools_triggered": "gsc_list_sites, gsc_compare_periods",
+              "expected_behavior": "Returns both date ranges with clicks and impressions, and the pages with the largest gains and losses between them. Nothing is changed."
+            },
+            {
+              "description": "Check indexing of the homepage and the sitemaps. Lists only; submits nothing.",
+              "prompt": "Is my homepage indexed in Google, which canonical did Google choose, and do my sitemaps report errors?",
+              "tools_triggered": "gsc_list_sites, gsc_inspect_url, gsc_list_sitemaps",
+              "expected_behavior": "Returns the homepage's stored index status, the Google-selected canonical and last crawl, and each submitted sitemap's processing status with error and warning counts. Nothing is changed."
+            },
+            {
+              "description": "Report organic landing pages in GA4. Needs a GA4 property with organic sessions connected as well.",
+              "prompt": "In Google Analytics 4, which landing pages got the most organic search sessions in the last 28 days, and how many key events did they record?",
+              "tools_triggered": "ga4_get_account_summaries, ga4_run_report",
+              "expected_behavior": "Lists the GA4 properties, then reports organic search sessions, engagement rate and key events by landing page for the last 28 days. Nothing is changed."
+            },
+            {
+              "description": "Combine Search Console and GA4: pages that rank but do not convert.",
+              "prompt": "Which of my pages get the most Google search clicks but few key events from organic visitors in GA4?",
+              "tools_triggered": "gsc_list_sites, gsc_query_search_analytics, ga4_get_account_summaries, ga4_run_report",
+              "expected_behavior": "Returns the pages with the most organic clicks from Search Console next to their organic sessions and key events from GA4, and names the pages with high clicks and few key events. Nothing is changed."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Writing site content is outside this integration.",
+              "prompt": "Write a 2,000-word blog post about running shoes.",
+              "expected_behavior": "The app should not be invoked; it reads the user's Search Console and Google Analytics data and does not write content."
+            },
+            {
+              "description": "Requesting indexing is not supported by Google's API.",
+              "prompt": "Request indexing for my new page in Google.",
+              "expected_behavior": "The app should not claim to request indexing; Google offers no API for it, so it can only report the stored index status and point to URL Inspection in Search Console."
+            },
+            {
+              "description": "Paid ads are outside this integration.",
+              "prompt": "Pause my Google Ads campaign called Spring Sale.",
+              "expected_behavior": "The app should not be invoked to change ads; this SEO integration covers Search Console and Google Analytics only."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

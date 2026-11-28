@@ -1,0 +1,15 @@
+interface:
+  display_name: "SEO | LoomaScale"
+  short_description: "SEO with Search Console"
+  default_prompt: "Use $loomascale-seo to find my pages that rank in Google but get few conversions in GA4."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "loomascale-seo"
+      description: "LoomaScale Search Console and GA4 organic reads"
+      transport: "streamable_http"
+      url: "https://api.loomascale.com/mcp/seo"
+
+policy:
+  allow_implicit_invocation: true
