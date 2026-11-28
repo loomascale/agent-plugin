@@ -25,7 +25,7 @@ test("accepts supported discovery fields in the plugin manifest", () => {
     homepage: "https://loomascale.com",
     repository: "https://github.com/loomascale/agent-plugin",
     license: "MIT",
-    logo: "assets/logo.png",
+    logo: "assets/web-app-manifest-385x385.png",
     keywords: ["google ads mcp", "meta ads mcp"],
     category: "Marketing",
     tags: ["mcp", "ppc"],

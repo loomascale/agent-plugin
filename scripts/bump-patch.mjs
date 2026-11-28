@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Bumps the patch version of every plugin manifest under plugins/*/ (plugin.json and
-// .claude-plugin / .codex-plugin / .cursor-plugin / .grok-plugin), plus the per-plugin
+// .antigravity-plugin / .claude-plugin / .codex-plugin / .cursor-plugin / .grok-plugin), plus the per-plugin
 // entries in .claude-plugin/marketplace.json and the root gemini-extension.json. Each file is bumped from its own current
 // version (manifests are allowed to drift), and only the version string is rewritten so
 // formatting stays intact.
@@ -9,7 +9,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const manifestDirs = ["", ".claude-plugin", ".codex-plugin", ".cursor-plugin", ".grok-plugin"];
+const manifestDirs = ["", ".antigravity-plugin", ".claude-plugin", ".codex-plugin", ".cursor-plugin", ".grok-plugin"];
 const VERSION_RE = /("version"\s*:\s*")(\d+)\.(\d+)\.(\d+)(")/g;
 
 const files = [];

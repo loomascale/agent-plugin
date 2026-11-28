@@ -1,8 +1,8 @@
 # LoomaScale MCP plugins for Cursor: Google Ads and Meta Ads
 
 LoomaScale's Model Context Protocol (MCP) plugins connect Cursor, Claude Code, Codex,
-Gemini CLI and Grok Build to advertising and marketing data. Use the main plugin for Google Ads
-and Meta Ads audits, approved campaign changes and public competitor ad research,
+Gemini CLI, Google Antigravity and Grok Build to advertising and marketing data. Use the main
+plugin for Google Ads and Meta Ads audits, approved campaign changes and public competitor ad research,
 or choose a focused plugin for Meta Ads, TikTok Ads or YouTube ads alone, analytics, tracking, organic search, product feeds or local business listings.
 
 The hosted service supports Google Ads, Meta Ads (Facebook and Instagram), TikTok Ads, LinkedIn Ads,
@@ -139,6 +139,21 @@ browser and ask for a read-only account audit. No API key is needed. Run
 main plugin, because it reads `gemini-extension.json` from the repository root. See the
 [official Gemini CLI extensions guide](https://geminicli.com/docs/extensions/).
 
+### How do I connect Google Antigravity to Google Ads and Meta Ads?
+
+Install the main `loomascale` plugin with the Antigravity CLI. The plugin adds the hosted
+MCP server and the bundled workflow skills.
+
+```text
+agy plugin install https://github.com/loomascale/agent-plugin/tree/main/plugins/loomascale
+```
+
+Open `/plugin`, expand **loomascale** under Installed and choose **Sign in**. Then finish
+LoomaScale sign-in in the browser and ask for a read-only account audit. No API key is
+needed. Antigravity reads `.antigravity-plugin/plugin.json` and `mcp_config.json` from the
+plugin folder. See the
+[official Antigravity plugin guide](https://antigravity.google/docs/build-plugins/).
+
 ### Grok Build
 
 Open `/plugin`, search for **LoomaScale**, and install.
@@ -167,6 +182,8 @@ scripts/validate-template.mjs     Cursor manifest and repository validator
 scripts/validate-template.test.mjs Validation regression tests
 scripts/schemas/                 Pinned official Cursor JSON schemas
 plugins/<name>/
+  .antigravity-plugin/plugin.json Antigravity manifest (main plugin only)
+  mcp_config.json                 Antigravity MCP config (main plugin only)
   .claude-plugin/plugin.json      Claude Code manifest
   .grok-plugin/plugin.json        Grok Build manifest
   .codex-plugin/plugin.json       Codex manifest
