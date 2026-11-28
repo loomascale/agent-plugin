@@ -1,7 +1,7 @@
 # LoomaScale MCP plugins for Cursor: Google Ads and Meta Ads
 
-LoomaScale's Model Context Protocol (MCP) plugins connect Cursor, Claude Code, Codex
-and Grok Build to advertising and marketing data. Use the main plugin for Google Ads
+LoomaScale's Model Context Protocol (MCP) plugins connect Cursor, Claude Code, Codex,
+Gemini CLI and Grok Build to advertising and marketing data. Use the main plugin for Google Ads
 and Meta Ads audits, approved campaign changes and public competitor ad research,
 or choose a focused plugin for Meta Ads, TikTok Ads or YouTube ads alone, analytics, tracking, organic search, product feeds or local business listings.
 
@@ -124,6 +124,21 @@ For a focused connection, use its plugin ID and endpoint from the table above.
 Manual MCP setup connects the hosted tools; a plugin installation also includes the
 bundled workflow skills. See the [official Cursor MCP setup guide](https://cursor.com/docs/mcp).
 
+### How do I connect Gemini CLI to Google Ads and Meta Ads?
+
+Install the main `loomascale` plugin as a Gemini CLI extension. The extension adds the
+hosted MCP server and the bundled workflow skills.
+
+```text
+gemini extensions install https://github.com/loomascale/agent-plugin
+```
+
+Restart Gemini CLI and run `/mcp auth loomascale`. Then finish LoomaScale sign-in in the
+browser and ask for a read-only account audit. No API key is needed. Run
+`gemini extensions update loomascale` to get new versions. Gemini CLI supports only the
+main plugin, because it reads `gemini-extension.json` from the repository root. See the
+[official Gemini CLI extensions guide](https://geminicli.com/docs/extensions/).
+
 ### Grok Build
 
 Open `/plugin`, search for **LoomaScale**, and install.
@@ -146,6 +161,8 @@ anywhere. Google, Meta, TikTok and LinkedIn are connected in the LoomaScale dash
 ```text
 .claude-plugin/marketplace.json   Claude Code and Codex marketplace listing all plugins
 .cursor-plugin/marketplace.json   Cursor marketplace listing all plugins
+gemini-extension.json             Gemini CLI extension (main plugin only)
+skills -> plugins/loomascale/skills  Skills for the Gemini CLI extension
 scripts/validate-template.mjs     Cursor manifest and repository validator
 scripts/validate-template.test.mjs Validation regression tests
 scripts/schemas/                 Pinned official Cursor JSON schemas

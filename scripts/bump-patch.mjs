@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Bumps the patch version of every plugin manifest under plugins/*/ (plugin.json and
 // .claude-plugin / .codex-plugin / .cursor-plugin / .grok-plugin), plus the per-plugin
-// entries in .claude-plugin/marketplace.json. Each file is bumped from its own current
+// entries in .claude-plugin/marketplace.json and the root gemini-extension.json. Each file is bumped from its own current
 // version (manifests are allowed to drift), and only the version string is rewritten so
 // formatting stays intact.
 import fs from "node:fs";
@@ -21,6 +21,7 @@ for (const plugin of fs.readdirSync(path.join(root, "plugins"), { withFileTypes:
   }
 }
 files.push(path.join(root, ".claude-plugin", "marketplace.json"));
+files.push(path.join(root, "gemini-extension.json"));
 
 for (const file of files) {
   const src = fs.readFileSync(file, "utf8");
